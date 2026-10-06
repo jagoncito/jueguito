@@ -1,380 +1,326 @@
-# Bloc de diseño del juego
+# Bloc de diseño — Bītu y el archipiélago
 
-Estado: ideas en revisión. No empezar a programar hasta acordar el mini esquema.
+Última revisión: **7 de octubre de 2026**.
 
-Este documento será nuestro bloc: iremos cambiando las ideas, anotando decisiones y planificando mejoras del juego.
+**Estado: diseño en conversación. La programación sigue en pausa.** El usuario quiere hablar y desarrollar las ideas antes de crear el juego. El mini esquema sirve como orientación; su aceptación no autoriza comenzar a programar. Esperar una instrucción explícita del usuario para iniciar código.
 
-## Idea propuesta: un archipiélago de tesoros
+Este es el documento de referencia para retomar el proyecto, también en otro chat. Las decisiones posteriores sustituyen las interpretaciones anteriores. Los detalles pendientes se decidirán con el usuario, de uno en uno.
 
-Empiezas en Bītu, en una tierra perecedera a la que llegaste por una razón que no recuerdas. Tu primer gran objetivo es construir un barco; después se abre la exploración del archipiélago. Consigues recursos, mejoras tus herramientas y tu barco, y coleccionas hallazgos especiales.
+## 1. Visión del juego
 
-## Premisa y comienzo
+Juego **individual**, de fantasía, en **pixel art y visto desde arriba**. El jugador llega a una tierra misteriosa con pocos habitantes, comienza en **Isla Bītu**, construye su primer barco y explora un archipiélago extenso.
 
-Confirmado por el usuario:
+La experiencia se centra en **farmear, mejorar, explorar y coleccionar**. Minería y pesca son especialmente importantes para el usuario. También habrá agricultura, herboristería, alquimia, herrería y cocina. Cada jugador puede dedicar tiempo a todas las profesiones o solo a las que le apetezcan.
 
-- Es una tierra perecedera, con muy pocos habitantes.
-- Llegaste por alguna razón que no recuerdas; no se ha establecido cuánto más recuerdas de tu pasado.
-- Comienzas en Bītu y construyes tu barco antes de explorar el archipiélago.
+Bucle de referencia: explorar → conseguir recursos y hallazgos → conservar piezas especiales y vender o utilizar materiales → mejorar habilidades, herramientas, casa y barco → explorar nuevos lugares.
 
-Pendiente: qué significa exactamente «perecedera», por qué llegaste y qué descubrirás después de zarpar. No se han establecido una cuenta atrás, destrucción de islas ni pérdida de progreso.
+Se busca que las mejoras se noten y que encontrar algo especial dé ilusión. La presentación concreta de ese bucle y su equilibrio siguen en diseño.
 
-### Misterio e ideas puntuales
+## 2. Premisa y misterio
 
-El usuario quiere una tierra misteriosa. Considera que pueden ocurrir encuentros extraños, pero no ha establecido una explicación general del mundo. La propuesta del asistente de que la tierra pierde su historia fue una interpretación adelantada y no forma parte de la premisa.
+### Decisiones
 
-Posibles sucesos por valorar individualmente: mapas con lugares desconocidos, nombres repetidos en ruinas y objetos, recuerdos contradictorios o hallazgos antiguos sorprendentemente conservados. No se han fijado como eventos concretos.
+- Es una **tierra perecedera y misteriosa**, con muy pocos habitantes. El significado exacto de «perecedera» está abierto.
+- Llegaste por una razón que no recuerdas. El resto de tus recuerdos todavía no está definido.
+- Comienzas en Bītu; construir el primer barco abre la exploración del archipiélago.
+- Bītu suele ser tranquila: allí no suele ocurrir nada.
 
-No vincular automáticamente estos sucesos, la casa del antiguo maestro, la llegada del protagonista y su reaparición a una causa común. Mantener el misterio abierto y el ritmo tranquilo acordado.
+### Información para los creadores, oculta al jugador al principio
 
-### Personajes y funciones
+| Hecho de diseño | Qué conoce el jugador al principio |
+|---|---|
+| El protagonista **no puede morir** y reaparece en casa tras ser derrotado. | La explicación de su reaparición se reserva para más adelante. |
+| En la casa abandonada vivía un **antiguo maestro granjero**. | Desconoce su especialidad. Puede oír que allí vivía un antiguo maestro. |
 
-Funciones indicadas por el usuario; nombres, aspecto, historias y ubicación exacta pendientes. Los nombres anteriores (Ena, Orun y Sila) no están confirmados y se dejan fuera del reparto actual.
+La causa de la reaparición, el motivo de la llegada y la identidad e historia del antiguo maestro están pendientes. Tampoco está decidido cuándo se revelan estos hechos.
 
-- **Comerciante:** alguien con quien vender y gestionar mejoras. Propuestas adicionales: comprar suministros básicos, intercambiar recursos y ofrecer encargos. Qué mejoras gestiona queda pendiente; evitar duplicar las mejoras especializadas de los maestros.
-- **Maestro de alquimia y herboristería:** reúne ambas profesiones. Propuestas: enseñar recetas, identificar plantas y mejorar el equipo de recolección y elaboración.
-- **Maestro de minería y herrería:** reúne ambas profesiones. Propuestas: enseñar minería, mejorar el pico, fundir minerales y fabricar o mejorar equipo de combate.
-- **Maestro de pesca y cocina:** reúne ambas profesiones. Propuestas: enseñar pesca, mejorar la caña, preparar comida y descubrir recetas con las capturas.
-- **Constructora de barcos:** construye y mejora embarcaciones. Propuestas: guiar la creación del primer barco y gestionar sus mejoras y reparaciones.
-- **Personajes perdidos por el mapa:** podrán ser amigos o enemigos; encuentros, identidades y relaciones se diseñarán más adelante.
+### Ideas que pueden encajar, sin eventos fijados
 
-Propuesta: los cinco personajes de servicio serían el núcleo de Bītu. El usuario todavía no ha confirmado que todos residan allí. Mantener la sensación de pocos habitantes y no añadir personajes solo para cubrir cada servicio.
+Mapas con lugares desconocidos, nombres repetidos en ruinas y objetos, recuerdos contradictorios y objetos antiguos sorprendentemente conservados. Pueden aparecer sucesos extraños sin que todo comparta una única explicación.
 
-### Casas y maestrías
+La propuesta de que el mundo «pierde su historia» **no se adoptó como premisa**. Tampoco se han decidido una cuenta atrás, desaparición de islas, destrucción de progreso, condición de elegido o misión obligatoria de salvar el mundo.
 
-Confirmado por el usuario: cada personaje tiene su propia casa y, vinculados a ella y su terreno, los espacios y herramientas de su especialidad. El jugador va a visitarlo a su casa. Las instalaciones NO tienen que estar dentro de la vivienda: pueden estar en el exterior, en un edificio anexo o junto a ella, según el oficio.
+## 3. Inicio en Bītu
 
-- Flavia tiene una casa y un astillero en su terreno, junto al agua, para construir y mejorar barcos.
-- El maestro minero/herrero tiene una mina al lado y una herrería que puede estar en una parte de la casa o en un edificio cercano; distribución pendiente.
-- Los demás maestros tienen lo necesario para sus profesiones en su casa o sus alrededores; distribución y aspecto pendientes.
-- El jugador tiene una casa con granja y podrá llegar a ser **maestro granjero** algún día.
-- El jugador obtiene una casa abandonada con un terreno descuidado, que puede reparar y transformar poco a poco; propuesta aceptada por el usuario.
-- Flavia o el comerciante pueden presentarle la casa al jugador y explicar que allí vivía, hace tiempo, un **antiguo maestro**. El usuario sitúa la opción del comerciante de camino; no se ha fijado todavía el recorrido o el momento exacto.
-- Quién presenta definitivamente la casa, su ubicación y el sistema de progreso hacia la maestría están pendientes.
-- El antiguo habitante era un **maestro granjero**: nosotros lo sabemos como creadores, pero el jugador no lo sabe al principio. Su identidad e historia siguen pendientes de diseñar.
-- Nombre, historia, antigüedad exacta y destino del antiguo maestro quedan abiertos. No se ha establecido que muriera, que desapareciera ni que estuviera relacionado con el jugador. Cuándo y cómo se revela su maestría al personaje también está pendiente.
+### Dirección acordada
 
-Estas casas y sus espacios especializados forman asentamientos pequeños y dispersos, coherentes con los pocos habitantes. No implica una plaza comercial ni edificios independientes para cada servicio.
+1. Despertar en unas ruinas costeras de Bītu.
+2. Recorrer un único camino transitable hasta el astillero de Flavia.
+3. Conocerla y empezar a preparar la construcción del primer barco.
+4. Acceder al resto de Bītu, conocer a sus habitantes y reunir recursos.
+5. Construir el barco y abrir la exploración marítima.
 
-Cocina queda incorporada como profesión junto a pesca. Sus efectos están pendientes; propuesta: comidas útiles para las expediciones y recetas coleccionables, con funciones que complementen la alquimia.
+El camino inicial conduce al astillero: no debe permitir saltarse ese primer encuentro. Se pueden incluir pequeños recovecos que regresen al mismo sendero.
 
-### Constructora: personalidad confirmada
+### Propuestas de distribución y narrativa
 
-- Se llama **Flavia** y es **rubia**. El usuario vincula su cabello con el origen latino del nombre.
-- Tiene su propia casa en Bītu, con instalaciones de construcción naval. Visitas su casa para tratar con ella; no se define su vivienda como un lugar para dormir dentro del astillero. Distribución pendiente.
-- El usuario la imagina **guerrera y femenina, fuerte y sensible**. Ambas facetas conviven: su fortaleza no elimina la delicadeza o empatía, y su feminidad no elimina su presencia firme.
-- Esta descripción define su carácter y presencia; no confirma un pasado militar, armas, armadura ni un rol de combate.
-- Cálida y práctica, contenta con su vida. Ayuda al jugador porque es amable.
-- Bītu suele ser tranquila; allí no suele ocurrir nada.
-- La llegada del jugador puede sorprenderla sin convertir el primer encuentro en desconfianza.
-- No se ha establecido que reconozca al jugador, conozca su pasado o esconda una explicación de su llegada.
-- No necesita un problema propio ni una misión personal para justificar que ayude al jugador. La falta de suministros no forma parte de su historia confirmada.
-- Especie, resto del aspecto y primer diálogo pendientes.
+- Encerrar el sendero de forma natural entre mar, acantilados y vegetación.
+- Abrir el paso al interior después del encuentro con Flavia, atravesando su terreno. La puerta dibujada en los mapas es una propuesta, no una mecánica definitiva.
+- Encontrar marcas antiguas o llevar una pieza extraña como posible hilo de misterio. El objeto, su función y su vínculo con otras islas siguen sin confirmar.
 
-Tono actual: amabilidad cotidiana en un lugar tranquilo; el misterio puede aparecer poco a poco. El usuario ha aclarado que no hace falta asignarle preocupaciones.
+**Pendiente:** punto exacto de aparición, primeros diálogos, momento de apertura del paso, tareas iniciales, materiales del barco y primera expedición. No hay una persona confirmada que te encuentre en las ruinas.
 
-Propuesta de comienzo: despertar en Bītu → conocer a sus pocos habitantes → explorar y reunir materiales → construir el barco → elegir la primera expedición. No se ha decidido dónde despiertas ni quién te encuentra.
+## 4. Mundo y archipiélago
 
-El usuario prefiere un mundo extenso: un archipiélago de unas 20 islas, con varias principales o una especialmente grande que no tiene por qué estar en el centro. La distribución exacta sigue en diseño.
+### Decisiones
 
-### Distribución propuesta del mundo
+- Un mundo extenso de **unas 20 islas**, con algunas principales.
+- Puede haber una isla especialmente grande; no necesita estar en el centro.
+- Fantasía con criaturas y personajes variados. **WoW es referencia de diversidad**, sin fijar sus personajes, nombres o facciones para este mundo.
+- La temática pirata no es la dirección principal.
+- Habrá personajes repartidos o perdidos por el mapa, tanto amigos como enemigos.
 
-- **1 isla grande:** amplias zonas de exploración, ruinas y encuentros aislados. Situada a un lado del mapa, no necesariamente en el centro. No asumir una ciudad poblada.
-- **4 islas principales:** regiones con identidad propia, como volcán/minería, bosque/granja, arrecife/pesca y hielo/ruinas.
-- **10 islas pequeñas:** expediciones con recursos, enemigos, cofres y coleccionables propios.
-- **5 islas misteriosas:** lugares difíciles de alcanzar o descubrir, con desafíos y hallazgos especiales.
+### Distribución propuesta, todavía modificable
 
-Total propuesto: 20 islas. Nombres, regiones y cantidades internas son provisionales. Cada isla debe tener un motivo concreto para visitarla y volver; evitar repetir el mismo contenido con distinto aspecto.
+| Tipo | Cantidad propuesta | Función posible |
+|---|---:|---|
+| Isla especialmente grande | 1 | Exploración amplia, ruinas y encuentros aislados. |
+| Islas principales | 4 | Regiones con identidad propia; Bītu podría ser una. |
+| Islas pequeñas | 10 | Expediciones, recursos, pesca, enemigos y secretos. |
+| Islas misteriosas | 5 | Lugares difíciles de alcanzar o descubrir y hallazgos especiales. |
 
-### Isla Bītu — la isla puerto
+La suma propuesta es 20. Regiones volcánicas, boscosas, tropicales/arrecifes y heladas son ejemplos, no biomas definitivos. Una gran isla tampoco implica una ciudad poblada.
 
-Nombre confirmado por el usuario: **Isla Bītu**. El nombre se inspira en el acadio y en la idea de «casa». Conservar la grafía Bītu, incluida la ī, en los textos del juego.
+Cada isla debería tener motivos para visitarla y volver: recursos, peces, ruinas, desafíos o coleccionables propios. Las rutas, pistas y mejoras del barco podrían facilitar el acceso a nuevos destinos. No se han fijado requisitos de desbloqueo.
 
-El usuario acepta una isla dedicada a mejorar el barco y vender recursos. Se propone que ocupe una de las cuatro islas principales, manteniendo el total de 20.
+## 5. Isla Bītu
 
-- **Astillero:** construir, reparar y mejorar el barco. Propuestas: velocidad, capacidad de carga, resistencia y apariencia.
-- **Compraventa o trueque:** un habitante compra o intercambia recursos desde su taller o cobertizo, sin plaza de mercado. Propuesta: proteger coleccionables para evitar ventas accidentales.
-- **Herrería:** propuesta para mejorar herramientas, armas y equipo.
-- **Funciones futuras por valorar:** equipo de pesca, encargos, rumores, mapas y almacenamiento. Repartirlas entre pocos personajes en vez de crear un comercio o habitante para cada función.
-- **Detalle visual propuesto:** mostrar en el muelle cómo cambia el barco con sus mejoras.
+**Nombre confirmado: Isla Bītu**, conservando la **ī**. Elegido por el usuario a partir del acadio y la idea de «casa».
 
-Bītu tiene muy pocos habitantes, construcciones dispersas y espacio natural entre ellas; no habrá una plaza urbana ni se presupone un pueblo principal. Se propone una extensión mediana-grande, todavía sin confirmar dimensiones. El alcance inicial y el aspecto del puerto siguen pendientes.
+Es la isla inicial y el lugar para construir y mejorar barcos, vender recursos y visitar a los maestros. Tiene pocos habitantes y casas dispersas, con terreno natural entre ellas. **No hay una plaza urbana ni una ciudad portuaria bulliciosa.**
 
-## Ambientación y enemigos
+Su tamaño mediano-grande es una propuesta que permite espacio natural y futuras ampliaciones. Las dimensiones exactas y su posición en el archipiélago están pendientes.
 
-La dirección confirmada es un mundo de fantasía con enemigos y personajes de muchos tipos. WoW sirve como referencia de variedad; las criaturas, facciones, nombres y lugares del juego se diseñarán con identidad propia. La temática pirata no será la base de la ambientación.
+### Casas y terrenos de los maestros
 
-Propuestas pendientes de acordar:
+El jugador visita la **casa de cada personaje**, con las instalaciones de su oficio vinculadas a ella y su terreno. Esas instalaciones pueden estar dentro, fuera, en un edificio anexo o al lado.
 
-- Humanoides de distintas facciones: bandidos, guerreros, magos y grupos rivales.
-- Criaturas salvajes: bestias terrestres y depredadores marinos.
-- Seres fantásticos: elementales, gólems, espíritus y criaturas de las profundidades.
-- Enemigos vinculados a su región, con materiales y coleccionables propios.
-- Diferencias de comportamiento: cuerpo a cuerpo, ataques a distancia y ataques de zona que se puedan esquivar.
-- Jefes con aspecto, mecánicas y trofeos reconocibles.
+- **Flavia:** casa y astillero en su terreno, junto al agua.
+- **Minero/herrero:** casa, mina al lado y herrería dentro o en un edificio cercano; distribución pendiente.
+- **Otros maestros:** casa y espacios adecuados para sus especialidades; distribución pendiente.
+- **Jugador:** casa y terreno para la granja.
 
-La primera versión tendrá pocos tipos de enemigo; la variedad del mundo completo no implica desarrollar todos al principio.
+No interpretar esto como talleres obligatoriamente dentro de viviendas ni como personajes que simplemente duermen en sus comercios.
 
-La propuesta de progreso combina rutas marítimas, mejoras del barco y pistas para descubrir destinos. La isla inicial es Bītu; tener otra isla como base propia sigue pendiente y no sustituye ese comienzo.
+Los cinco personajes de servicio son la propuesta de núcleo de Bītu. La ubicación exacta de todos ellos sigue abierta. Conviene reunir funciones en pocos habitantes.
 
-### Navegación y descubrimientos en el mar
+### Mapas conceptuales guardados
 
-Confirmado por el usuario:
+- [Primera propuesta de Bītu](mapas/isla-bitu-propuesta-1.png): isla más compacta y accidentada.
+- [Segunda propuesta de Bītu](mapas/isla-bitu-concepto.png): bahía amplia, terreno más abierto y silueta alargada.
 
-- Navegación libre: el jugador conduce su barco entre islas.
-- Puede haber cuevas y lugares o cosas perdidas por el mar, entre las islas.
-- Habrá objetos únicos y peces especiales asociados a la exploración marítima.
+Ambos muestran instalaciones dispersas, ruinas, camino inicial y un lugar provisional para la granja. **No se ha elegido un mapa definitivo.** Sus ilustraciones orientan la distribución; el juego será pixel art. La granja dibujada debe entenderse como parte del hogar del jugador, cuya ubicación todavía no está fijada.
 
-El mar forma parte del espacio explorable y de la colección. Propuestas de encuentros por valorar: entradas de cuevas costeras accesibles en barco, restos de embarcaciones y lugares de pesca especiales. No se han confirmado buceo, controles náuticos, generación aleatoria, reaparición de hallazgos ni exclusividad global de los objetos.
+## 6. Personajes
 
-Los puntos de interés marítimos no tienen por qué ser islas adicionales; mantener la referencia de unas 20 islas sin limitar los descubrimientos a ellas.
+### Reparto funcional indicado por el usuario
 
-El archipiélago es el objetivo del mundo completo. La primera versión jugable solo prepararía la base y un destino cercano para probar si explorar, farmear y combatir resultan divertidos.
+| Personaje | Función establecida | Servicios adicionales propuestos |
+|---|---|---|
+| Comerciante | Vender recursos y gestionar mejoras por concretar. | Suministros, intercambios, encargos y mejoras de inventario o almacenamiento. |
+| Maestro alquimista/herboristero | Alquimia y recolección de plantas para ella. | Identificar plantas, enseñar recetas y mejorar utensilios. |
+| Maestro minero/herrero | Minería y herrería. | Mejorar pico, fundir minerales y fabricar o mejorar equipo. |
+| Maestro de pesca/cocina | Pesca y cocina. | Mejorar caña, enseñar técnicas y recetas para las capturas. |
+| Flavia, constructora | Construir y mejorar barcos. | Repararlos y personalizarlos. |
 
-## Combate
+Las funciones de mejora del comerciante no deben duplicar sin motivo las de los maestros. Reparación de barcos, suministros y otros servicios concretos siguen como propuestas.
 
-### Decisiones confirmadas
+También pueden existir personajes ocultos, viajeros, rivales, personas que necesitan ayuda y maestros especiales por el archipiélago. Esos ejemplos no añaden habitantes confirmados ni historias definitivas.
 
-- Combate en tiempo real.
-- Cámara vista desde arriba.
-- Ataque con clic izquierdo.
-- Movimiento con WASD.
-- El ataque se dirige hacia el cursor del ratón, independientemente de la dirección de movimiento.
-- Habrá un esquive; tecla, comportamiento y posibles límites pendientes de definir.
+### Flavia — ficha confirmada
 
-### Propuesta pendiente
+- **Nombre:** Flavia; relacionado con el latín *Flavius/flavus*, asociado a lo rubio o dorado.
+- **Cabello:** rubio.
+- **Oficio y hogar:** constructora de barcos, con casa y astillero en Bītu.
+- **Presencia:** guerrera y femenina, fuerte y sensible. Las facetas conviven.
+- **Carácter:** cálida, práctica y contenta con su vida. Ayuda por amabilidad.
+- **Recibimiento:** puede sorprenderle tu llegada, manteniendo un trato amable.
 
-- Enemigos en minas y expediciones; zonas seguras para gestionar la base.
-- Guardianes que protejan recursos o tesoros especiales.
-- Jefes con trofeos y posibles piezas de colección.
-- Primera versión: un enemigo sencillo y un jefe pequeño, sujetos a acordar el alcance.
+«Guerrera» describe su presencia y carácter; no confirma pasado militar, armadura, armas ni papel de combate. No necesita un problema propio o una misión personal para justificar su ayuda. La falta de suministros y el proyecto de reparar un barco propio no son historias acordadas.
 
-Falta decidir alcance y ritmo del combate. Movimiento WASD, ataque con clic izquierdo y dirección del ataque hacia el cursor del ratón están confirmados. La compatibilidad táctil no está acordada.
+**Pendiente:** especie, edad, ropa, resto del aspecto y diálogos. Los 30–40 años, botas, ropa de trabajo y cabello recogido fueron sugerencias sin confirmar. Tampoco está establecido que te reconozca o conozca tu pasado.
 
-## Personaje del jugador
+### Otros personajes
 
-- Confirmado: es un **juego individual**, sin otros jugadores compartiendo el mundo.
-- Confirmado: protagonista personalizable, con elección de nombre y aspecto.
-- La llegada misteriosa a Bītu será el punto de partida común; los detalles narrativos siguen en diseño.
-- El usuario señala que la personalización supone más trabajo. Propuesta para acotar el inicio: unas pocas opciones visuales, sin un editor complejo. Opciones concretas, especie y alcance pendientes.
-- Esta decisión no autoriza empezar a programar; continúa la fase de diseño.
+Sus nombres, apariencia, personalidad e historias siguen pendientes. Los nombres propuestos anteriormente —Ena, Orun y Sila— no fueron elegidos.
 
-## Herboristería y alquimia
+## 7. Protagonista y hogar
 
-Confirmado: habrá herboristería y alquimia. Mecánicas, recetas y efectos todavía pendientes de acordar.
+### Personaje
 
-Propuesta para conectar estas actividades con el resto del juego:
+- Protagonista **personalizable**, con nombre y aspecto elegidos por el jugador.
+- La llegada misteriosa es el punto de partida común.
+- Propuesta para empezar: pocas opciones de piel, pelo y ropa, ampliables después. Especies, opciones exactas y amplitud del editor pendientes.
 
-- **Herboristería:** recolectar plantas durante las expediciones, con especies propias de distintas islas.
-- **Granja (actividad separada):** cultivar alimentos, como patatas y tomates, para cocina y otros usos por decidir. No se asigna al maestro de herboristería ni se plantea como cultivo de ingredientes alquímicos.
-- **Alquimia:** combinar hierbas y otros ingredientes para preparar consumibles.
-- **Usos posibles:** curación, resistencia a peligros de una región y mejoras temporales para explorar o recolectar.
-- **Colección:** registrar plantas y recetas descubiertas; variantes raras por valorar.
-- **Isla Bītu:** un herbolario/alquimista podría vender ingredientes y enseñar recetas. Ubicación del taller del jugador pendiente.
+### Casa y granja
 
-Cadena propuesta: explorar → recolectar hierbas → elaborar pociones → preparar la siguiente expedición. Evitar que fabricar consumibles se convierta en una obligación repetitiva antes de cada actividad.
+Obtienes una **casa abandonada con un terreno descuidado**, que puedes reparar y transformar poco a poco. Allí vivía el antiguo maestro granjero. El jugador puede llegar a ser **maestro granjero** algún día.
 
-Distinción confirmada por el usuario: agricultura significa plantar alimentos; herboristería significa recolectar plantas silvestres para alquimia. «Flor de Yde» es un ejemplo inventado por el usuario, no una especie definitiva. La cadena de agricultura propuesta es sembrar → cuidar/cosechar (mecánica pendiente) → cocinar o vender. No hay un maestro de agricultura confirmado; decidir si hace falta un personaje o si el jugador aprende por otros medios.
+**Flavia o el comerciante** pueden presentarte la casa y contar que hace tiempo vivía allí un antiguo maestro, sin revelar de entrada su especialidad. El comerciante puede estar de camino; no se ha elegido quién lo hace, el recorrido ni el diálogo.
 
-Para una primera versión, valorar pocas plantas y una receta de curación; su inclusión se decidirá al cerrar el mini esquema.
+Ubicación exacta, acceso a la propiedad, reparaciones, ampliaciones y exposición de colecciones pendientes. Una isla privada cercana fue una idea anterior, no una ubicación elegida.
 
-La mina y la pesca serían las actividades principales. El barco permitiría explorar y la granja serviría como base. Esta combinación es una propuesta pendiente de acordar.
+## 8. Profesiones y recursos
 
-## Mini esquema provisional
+### Libertad y progreso
 
-- **Objetivo:** mejorar tu isla y completar una colección de tesoros.
-- **Bucle principal:** minar o pescar → guardar hallazgos especiales y vender recursos comunes → mejorar equipo → acceder a nuevos lugares → repetir.
-- **Minería:** explorar galerías y buscar vetas exteriores; encontrar minerales, gemas y piezas especiales tanto al profundizar como en la superficie de islas peligrosas.
-- **Pesca:** coleccionar peces y conseguir hallazgos raros en distintas zonas.
-- **Barco:** mejorar su capacidad y alcance para explorar nuevas aguas e islas.
-- **Granja:** plantar alimentos como patatas y tomates, separada de la herboristería. Cocina y venta son usos propuestos.
-- **Colección:** un álbum o sala de exposición donde conservar y mostrar los mejores hallazgos.
-- **Sensación buscada:** progresar con cada sesión y tener la ilusión de encontrar algo especial.
+**Confirmado:** puedes desarrollar todas las profesiones con el mismo personaje o dedicarte solo a las que quieras. No son excluyentes.
 
-## Ritmo y necesidades del personaje
+**Base provisional que encaja al usuario:** experiencia al practicar y nuevas posibilidades al progresar; materiales y monedas para mejorar herramientas. Niveles, desbloqueos y requisitos de maestría se decidirán después.
 
-Confirmado por el usuario:
+### Minería y herrería
 
-- Vida tranquila en Bītu; peligro al aventurarse en expediciones.
-- Farmear y explorar con calma, sin convertir las necesidades de supervivencia en tareas constantes.
-- No obligar al jugador a comer continuamente.
+- Explorar minas y galerías con vetas, criaturas y secretos al profundizar.
+- Encontrar rocas y vetas también al aire libre.
+- Existen **rocas básicas**.
+- También hay **vetas preciosas y muy valiosas en la superficie de islas difíciles y peligrosas**.
 
-Propuesta: la comida aporta beneficios opcionales para expediciones, en lugar de ser una obligación recurrente. Efectos y duración pendientes. Cocina sigue siendo una profesión del juego.
+El valor depende del lugar y sus peligros, además de la profundidad. Minerales, extracción, requisitos de pico y reaparición de vetas pendientes. Fundición y fabricación de equipo son propuestas vinculadas a herrería.
 
-Las armas iniciales se dejan pendientes; el usuario considera prematuro decidirlas ahora. Esto no modifica los controles de combate confirmados.
+### Pesca y cocina
 
-### Día y noche
+Pescar y coleccionar peces, incluidos hallazgos especiales en distintas aguas y momentos del día. El maestro reúne pesca y cocina.
 
-Confirmado: habrá ciclo de día y noche. Algunos peces, plantas o criaturas podrán aparecer en momentos distintos. Se puede seguir jugando de noche sin obligación de dormir.
+Mecánica de pesca, cebos, recetas y efectos de comida pendientes. Cocinar capturas y alimentos de la granja es una conexión propuesta. Se busca que la comida sea útil sin exigir alimentación constante.
 
-Duración del ciclo, especies afectadas e interacción con las rutinas de los personajes pendientes. No se ha acordado usar la hora real.
+### Agricultura
 
-## Minería y distribución de minerales
+Cultivar alimentos, por ejemplo **patatas y tomates**, en la granja del jugador. Progresar hasta la maestría es un objetivo posible.
 
-Confirmado por el usuario:
+Semillas, cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. No hay un maestro agricultor vivo adicional confirmado ni un instructor elegido.
 
-- Se puede entrar en minas y recorrer galerías, con vetas, criaturas y secretos al profundizar.
-- También hay rocas y vetas en el exterior.
-- Existen rocas básicas, además de las vetas valiosas.
-- Los minerales de superficie no se limitan a materiales básicos: habrá vetas muy preciosas y valiosas en islas difíciles y peligrosas.
+### Herboristería y alquimia
 
-La calidad de los hallazgos puede depender de la zona y sus peligros, además de la profundidad. No concentrar todos los minerales valiosos exclusivamente bajo tierra. Especies de minerales, herramientas requeridas, dificultad de extracción y reaparición de vetas pendientes.
+**Herboristería:** recolectar plantas silvestres para alquimia durante la exploración. Es distinta de plantar alimentos en la granja; el herboristero no es el maestro de agricultura.
 
-## Derrota y reaparición
+**Flor de Yde** es un ejemplo inventado por el usuario, no una especie definitiva.
 
-Confirmado por el usuario:
+**Alquimia:** elaborar preparaciones con las plantas recolectadas. Recetas e ingredientes concretos pendientes. Curación, resistencia a peligros y mejoras temporales son efectos propuestos. Plantas propias de cada isla, recetas coleccionables y variantes raras son posibilidades por valorar.
 
-- Al ser derrotado, el personaje vuelve a aparecer en su casa.
-- El protagonista **no puede morir**. Es información de diseño que no se explica al jugador todavía; causa y revelación pendientes.
-- Reaparecer debe tener consecuencias para que dejarse derrotar no sea una forma conveniente de teletransportarse a casa.
+## 9. Navegación y exploración marítima
 
-Penalización confirmada: perder parte de los materiales que llevas sin guardar. Se conservan herramientas, equipo y coleccionables especiales. Porcentaje, clasificación de materiales frente a coleccionables y posible recuperación pendientes. No establecer pérdida definitiva del personaje ni explicar la reaparición mediante una causa narrativa inventada.
+**Navegación libre:** conduces el barco entre islas. El mar también es espacio de exploración.
 
-## Progreso de profesiones
+Puede haber **cuevas, lugares perdidos, objetos únicos y peces especiales entre las islas**. Cuevas costeras accesibles en barco, restos de embarcaciones y lugares especiales de pesca son ejemplos por concretar. Los puntos marítimos no tienen que ser islas adicionales.
 
-Propuesta que encaja al usuario, todavía abierta a ajustes:
+Mejoras propuestas: velocidad, capacidad de carga, resistencia y alcance; personalización de velas/casco y cambios visibles en el muelle. Materiales, precios y efectos exactos pendientes.
 
-- Practicar minería, pesca, alquimia o agricultura da experiencia y permite desbloquear nuevas posibilidades.
-- Materiales y monedas sirven para mejorar herramientas.
-- Progresan tanto las habilidades del personaje como su equipo.
+Controles de navegación, peligros marítimos, buceo, disposición fija o variable y reaparición de descubrimientos están sin decidir.
 
-Confirmado: las profesiones son libres y opcionales. El mismo personaje puede desarrollar todas si quiere, o dedicarse solo a las que le interesen. No hay una elección de profesión que obligue a renunciar a las demás.
+## 10. Combate y derrota
 
-Niveles, desbloqueos, requisitos de maestría y alcance de cada profesión pendientes. Diseñar la progresión respetando esa libertad.
+### Controles confirmados
 
-## Coleccionables premium
+| Acción | Control |
+|---|---|
+| Moverse | WASD |
+| Orientar el ataque | Hacia el cursor del ratón, independiente del movimiento |
+| Atacar | Clic izquierdo |
+| Esquivar | Existirá; tecla y funcionamiento pendientes |
 
-El usuario quiere combinar rareza, aspecto especial y piezas exclusivas, incluidas algunas ultraexclusivas que muy pocos jugadores tengan. No se ha acordado monetización.
+Combate **en tiempo real**. Armas, alcance, ritmo, recursos de combate y mecánicas del esquive se dejan para más adelante. No se ha elegido espada, arco, bastón ni arma inicial.
 
-Propuesta: hallazgos raros obtenidos jugando, con aspecto propio y una ficha en la colección. Ejemplos por valorar: gemas brillantes, peces legendarios y piezas para decorar el barco.
+### Enemigos
 
-### Rareza y exclusividad: propuesta de diseño
+Fantasía variada. Ejemplos propuestos: humanoides y facciones rivales, bestias, criaturas marinas, esqueletos, hechiceros, espíritus, gólems y elementales. Pueden variar por región.
 
-- Rarezas habituales para que completar colecciones y mejorar sea satisfactorio.
-- Variantes visuales especiales: brillantes, doradas u otras por definir.
+Guardianes de recursos, jefes con trofeos, ataques a distancia y zonas que esquivar son propuestas. No hay lista definitiva de criaturas, facciones, jefes o botín.
+
+### Derrota
+
+- Reapareces **en tu casa** al ser derrotado.
+- Pierdes **parte de los materiales que llevas sin guardar**.
+- Conservas **herramientas, equipo y coleccionables especiales**.
+- La penalización debe hacer que dejarse derrotar no compense como viaje rápido.
+
+Cantidad de pérdida, clasificación de objetos, posible recuperación y casos en el mar pendientes. La imposibilidad de morir es un secreto de diseño; la explicación narrativa sigue abierta.
+
+## 11. Ritmo, día y noche
+
+- **Calma en Bītu y peligro durante las expediciones.**
+- Farmear y explorar a tu ritmo.
+- Sin obligación de comer continuamente.
+- Hay **ciclo de día y noche**, con peces, plantas o criaturas disponibles en distintos momentos.
+- Se puede seguir jugando de noche sin obligación de dormir.
+
+Beneficios opcionales de comida son una propuesta. Duración del ciclo, rutinas de personajes, automatización y progreso mientras no juegas siguen pendientes. No se ha elegido usar la hora real.
+
+## 12. Coleccionables premium y ultraexclusivos
+
+### Lo que quiere el usuario
+
+Coleccionar rarezas, variantes visuales especiales y piezas exclusivas o **ultraexclusivas**, con la emoción de poseer algo excepcional. Esto forma parte central de la experiencia.
+
+«Premium» describe el carácter especial de los objetos; no se ha acordado monetización. El juego es individual. La rareza puede hacer que pocos jugadores encuentren una pieza en sus partidas, sin fijar cupos globales o un porcentaje exacto de propietarios.
+
+### Propuestas de diseño
+
+- Minerales, gemas, peces, plantas, recetas, trofeos o piezas decorativas.
+- Variantes brillantes, doradas u otras apariencias especiales.
+- Hallazgos por azar, exploración, retos y colecciones completadas.
 - Piezas ultraexclusivas como objetivos de largo plazo, sin exigirlas para progresar.
-- Combinar azar con desafíos difíciles, descubrimientos y colecciones completas; no depender únicamente de repetir intentos.
-- No confirmar todavía porcentajes, cantidades limitadas ni eventos temporales.
+- Álbum, museo o exposición para conservar y mostrar piezas. Uso equipable y exhibición no están decididos.
+- Proteger piezas frente a ventas accidentales. La protección frente a la derrota sí está confirmada.
 
-Una probabilidad por intento no equivale al porcentaje de jugadores que poseen el objeto. Con intentos independientes y probabilidad constante p, la probabilidad de obtener al menos uno tras n intentos es 1 − (1 − p)^n. Por ejemplo, un 0,1 % por intento equivale a 1 entre 1.000, pero tras 1.000 intentos la probabilidad de haber conseguido uno es aproximadamente el 63,2 %.
+No hay tabla de rarezas definitiva, probabilidades, eventos temporales o cantidades limitadas. «Único» todavía no determina si un objeto tiene una sola copia por partida.
 
-Si hablamos de porcentajes, 0,000001 % equivale a 1 entre 100.000.000. Es demasiado extremo para usarlo como recompensa habitual; cualquier rareza así necesita valorar la duración de los intentos y el volumen total de jugadores.
+### Nota de probabilidades para el futuro equilibrio
 
-El deseo inicial de piezas que muy pocos jugadores tengan expresa el objetivo de una rareza excepcional. Confirmado después que el juego es individual: diseñar los hallazgos y la colección dentro de cada partida, sin asumir multijugador, intercambios entre jugadores ni cantidades globales limitadas. Las probabilidades por intento pueden hacer que un hallazgo sea infrecuente entre distintas partidas, pero no permiten prometer un porcentaje exacto de propietarios. No se ha acordado recopilar estadísticas globales.
+Probabilidad de conseguir al menos una pieza tras `n` intentos independientes, con probabilidad constante `p` por intento: `1 − (1 − p)^n`.
 
-## Primera versión propuesta
+- **0,1 % por intento:** una posibilidad entre 1.000. Tras 1.000 intentos, aproximadamente **63,2 %** de conseguir al menos una.
+- **0,000001 % por intento:** una posibilidad entre **100.000.000**.
 
-Estilo confirmado: **pixel art**, con cámara desde arriba. El mapa ilustrado sirve como guía de distribución; no establece el aspecto gráfico de la partida.
+Estas cifras fueron ejemplos explicativos, no probabilidades elegidas. Ajustar rareza considerando frecuencia y duración de intentos. Probabilidad por intento y porcentaje de jugadores propietarios son cosas distintas; no hay estadísticas globales acordadas.
 
-Guía general del primer tramo, aceptada como orientación y pendiente de desarrollar en detalle:
+## 13. Primera versión: orientación, no encargo de programación
 
-- Despertar en las ruinas de Bītu y recorrer el camino inicial hasta el astillero.
-- Conocer a la constructora y recibir el objetivo de reunir materiales para el primer barco.
-- Abrir el paso al interior de Bītu y conocer a sus cinco personajes de servicio.
-- Minar, pescar y recolectar unas pocas plantas; vender recursos y comprar una mejora básica de herramienta.
-- Probar combate en tiempo real con un enemigo sencillo y preparar una poción de curación.
-- Reunir los materiales y construir el primer barco como final de esta versión; navegación y otras islas para una ampliación.
-- Registrar una pequeña colección de hallazgos y guardar progreso local.
+El usuario dijo que el siguiente esquema encaja, pero lo considera denso y quiere seguir diseñando antes de programar:
 
-Movimiento WASD, ataque con clic izquierdo y apuntado hacia el cursor del ratón están confirmados. El esquive sigue pendiente. Granja, cocina desarrollada, jefes y archipiélago completo quedan fuera de este alcance propuesto, no del diseño del juego completo.
+1. Ruinas → camino inicial → encuentro con Flavia.
+2. Paso al interior de Bītu y presentación de los cinco personajes.
+3. Primeras acciones de minería, pesca y recolección de plantas.
+4. Venta, una mejora básica de herramienta, combate con un enemigo sencillo y una poción de curación.
+5. Materiales y construcción del primer barco como cierre del tramo.
+6. Pequeña colección y guardado de progreso.
 
-El usuario considera que esta guía encaja, pero es densa y quiere seguir hablando antes de programar. Aceptar el esquema general no autoriza iniciar código. Desarrollar el diseño con decisiones pequeñas, una por una. Los precios, tiempos y plataforma no están decididos. La programación sigue en pausa hasta que el usuario indique que está listo para empezar.
+La navegación, primera expedición, granja desarrollada, cocina completa, jefes y resto del archipiélago requieren revisar el alcance antes de incluirlos. Las propuestas anteriores de un jefe inicial o un destino cercano no son requisitos cerrados de esta versión.
 
-## Decisiones confirmadas
+Guardado local es una propuesta inicial; plataforma y sistema definitivo de guardado pendientes. **No se ha elegido motor, tecnología ni plataforma de ejecución.** El proyecto todavía contiene documentación y mapas, sin implementación.
 
-- Es un juego individual.
-- El juego debe centrarse en farmear y mejorar.
-- Mantener un bloc para desarrollar y revisar las ideas.
-- Acordar un mini esquema antes de programar.
-- Le gusta coleccionar cosas premium.
-- Premium incluye rarezas, variantes visuales, piezas exclusivas y ultraexclusivas.
-- Le encanta minar y pescar; también le atraen el barco y la granja.
-- Prefiere un archipiélago extenso, de unas 20 islas, con islas principales y/o una especialmente grande.
-- El combate será en tiempo real, con ataque en clic izquierdo y un esquive por definir.
-- El jugador se moverá con WASD.
-- Los ataques se dirigen hacia el cursor del ratón.
-- Ritmo tranquilo en Bītu y peligro durante expediciones, sin obligación de comer constantemente.
-- Navegación libre con descubrimientos entre islas: cuevas, lugares perdidos, objetos únicos y peces especiales.
-- Minería en galerías y superficie; también habrá vetas preciosas y muy valiosas al aire libre en islas difíciles y peligrosas.
-- También existen rocas básicas.
-- Puedes desarrollar todas las profesiones con el mismo personaje o solo las que quieras; no son excluyentes.
-- Habrá día y noche, con cambios en peces, plantas o criaturas disponibles y sin obligación de dormir.
-- Al ser derrotado reapareces en casa y pierdes parte de los materiales sin guardar, conservando herramientas, equipo y coleccionables especiales. El protagonista no puede morir; el jugador todavía no conoce esa explicación.
-- Habrá una isla puerto para mejorar el barco y vender.
-- La isla puerto se llama **Isla Bītu**, con la idea de «casa» como inspiración.
-- Ambientación de fantasía con enemigos variados, tomando WoW como referencia de diversidad.
-- El juego se verá desde arriba.
-- Habrá herboristería y alquimia.
-- La tierra es perecedera y tiene muy pocos habitantes; Bītu no tendrá una plaza urbana.
-- Llegas por una razón que no recuerdas, comienzas en Bītu y construyes tu barco antes de explorar otras islas.
-- Reparto funcional: comerciante, maestro de alquimia/herboristería, maestro de minería/herrería, maestro de pesca/cocina y constructora que también mejora barcos.
-- Habrá personajes repartidos por el mapa, tanto amigos como enemigos; detalles pendientes.
-- Agricultura y herboristería son actividades distintas: plantar alimentos en la granja frente a recolectar plantas silvestres para alquimia. El herboristero no es el maestro de agricultura.
-- Estilo visual pixel art, con vista desde arriba.
-- La constructora será cálida y práctica, contenta con su vida; ayuda por amabilidad. Bītu suele ser tranquila.
-- La constructora se llama Flavia y es rubia.
-- El protagonista será personalizable: nombre y aspecto elegidos por el jugador.
-- Cada maestro tiene casa y espacios para su oficio dentro o fuera de ella. Flavia tiene un astillero en su terreno; el minero, una mina al lado y una herrería cuya ubicación está pendiente.
-- El jugador tiene una casa con granja y podrá llegar a ser maestro granjero.
-- La casa del jugador está abandonada y su terreno descuidado al principio; podrá repararlos y mejorarlos poco a poco.
-- Allí vivía un antiguo maestro granjero; Flavia o el comerciante pueden presentar la casa y contar parte de ese antecedente. Su identidad e historia siguen siendo un misterio.
-- Flavia tiene presencia de guerrera: femenina, fuerte y sensible.
+## 14. Pendientes para futuras conversaciones
 
-## Preguntas pendientes
+No convertir esta lista en un cuestionario completo. Elegir un tema útil cada vez y conservar las respuestas anteriores.
 
-1. Confirmar o ajustar la distribución del archipiélago y la ubicación de la base del jugador.
-2. Cómo conseguir las piezas ultraexclusivas: azar, desafíos difíciles o una combinación.
-3. Equilibrio entre acciones manuales y automatización, manteniendo el ritmo tranquilo confirmado.
-4. Dispositivos y plataforma en los que queremos jugar.
-5. Funcionamiento del esquive, alcance y ritmo del ataque, y armas.
-6. Recolección de hierbas, recetas y efectos de alquimia; alcance de la primera versión.
-7. Significado de tierra perecedera, personajes iniciales y misterio de la llegada.
+- Recorrido inicial, diálogo con Flavia, apertura del paso y presentación de la casa.
+- Resto del aspecto de Flavia y personalidad de los demás personajes.
+- Distribución definitiva de Bītu, ubicación del hogar y selección de mapa.
+- Primeros materiales, economía, almacenamiento y mejoras.
+- Mecánicas de pesca, extracción, cultivos, recetas y maestrías.
+- Esquive, armas y enemigos; estas preguntas se aplazaron a petición del usuario.
+- Duración del día, efectos nocturnos y grado de automatización.
+- Controles y peligros del barco; primera isla visitable.
+- Categorías y forma de mostrar colecciones; requisitos y probabilidades de piezas especiales.
+- Detalles de la penalización por derrota, incluido qué ocurre con el barco.
+- Plataforma, guardado y alcance concreto de la primera implementación.
+- Misterios y revelaciones, cuando tenga sentido desarrollarlos.
 
-## Ideas para futuras mejoras
+## 15. Ideas para ampliaciones
 
-Pendientes de valorar, sin comprometer la primera versión:
+Propuestas sin compromiso: encargos, rumores, mapas de un cartógrafo, almacén, ayudantes y automatización, logros, decoración de la casa/granja/barco, nuevas regiones y colecciones.
 
-- Encargos que recompensen cosechas concretas.
-- Nuevas zonas y recursos.
-- Ayudantes con distintas especialidades.
-- Logros y objetivos cortos.
-- Decoración de la granja.
+Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se retoman, deben encajar con las pocas personas y sus casas; no convertir Bītu automáticamente en una ciudad.
 
-## Historial
+## 16. Continuidad y publicación
 
-- 2026-10-06: creado el bloc con una propuesta inicial. No se ha iniciado la programación.
-- 2026-10-06: incorporadas las preferencias por minería, pesca, barco, granja y coleccionables premium. Propuesta de isla pendiente de confirmar.
-- 2026-10-06: confirmado el interés por todas las formas de coleccionables premium, incluidas piezas ultraexclusivas. Añadida la distinción entre probabilidad por intento y propiedad entre jugadores; porcentajes finales pendientes.
-- 2026-10-06: incorporado el archipiélago de unas 20 islas y una distribución provisional. Confirmados combate en tiempo real, ataque con clic izquierdo y esquive pendiente de diseñar.
-- 2026-10-06: añadida la isla puerto con astillero y mercado, más servicios propuestos. Confirmada la dirección de fantasía con variedad de enemigos inspirada en WoW.
-- 2026-10-06: confirmadas la vista desde arriba, la herboristería y la alquimia. Añadidas conexiones propuestas con exploración, granja y preparación de expediciones.
-- 2026-10-06: confirmado el nombre **Isla Bītu** para la isla puerto, inspirado en la idea de «casa».
-- 2026-10-06: corregida la idea de un puerto poblado: pocos habitantes y edificios dispersos. Incorporados la tierra perecedera, la razón olvidada de la llegada y la construcción del barco en Bītu como comienzo. Añadidos personajes provisionales para discutir.
-- 2026-10-06: sustituido el reparto provisional por las funciones propuestas por el usuario: comerciante, tres maestros de profesiones dobles y constructora de barcos. Incorporadas cocina y personas repartidas por el mapa, amigas o enemigas. Nombres e historias pendientes.
-- 2026-10-06: corregida la mezcla entre granja y herboristería. La granja cultiva alimentos; la herboristería recolecta plantas para alquimia. Flor de Yde queda como ejemplo provisional.
-- 2026-10-06: elegido pixel art. Concretado un primer tramo jugable desde las ruinas hasta construir el barco, pendiente de aprobación antes de programar.
-- 2026-10-06: aceptado el primer tramo como guía general. El usuario pide seguir profundizando en el diseño antes de programar; no hay autorización para iniciar código.
-- 2026-10-06: confirmada la personalidad cálida y práctica de la constructora y la tranquilidad habitual de Bītu. Su preocupación concreta sigue pendiente.
-- 2026-10-07: aclarado que la constructora puede estar contenta con su vida y ayudar por amabilidad. Se retira la necesidad de definir una preocupación o misión personal.
-- 2026-10-07: confirmado el nombre Flavia y su cabello rubio.
-- 2026-10-07: añadida la descripción de Flavia como guerrera y femenina, fuerte y sensible. Su equipamiento y posible relación con el combate siguen abiertos.
-- 2026-10-07: anotado que Flavia vive en el astillero de Bītu.
-- 2026-10-07: corregida la interpretación anterior: se visita la casa de cada maestro, que incluye lo necesario para su especialidad. El jugador tiene granja en su casa y podrá llegar a ser maestro granjero. Acceso a la vivienda y progresión pendientes.
-- 2026-10-07: aclarado que los espacios de cada oficio pueden estar fuera de la vivienda o al lado. Flavia tiene un astillero en su terreno; el minero, una mina cercana y una herrería dentro o en un edificio anexo, pendiente de distribuir.
-- 2026-10-07: aceptada la casa abandonada con terreno descuidado como hogar inicial del jugador, con reparación y transformación progresivas. Ubicación y descubrimiento pendientes.
-- 2026-10-07: añadida la presentación de la casa por Flavia o el comerciante, explicando que pertenecía a un antiguo maestro. Identidad, especialidad y destino pendientes.
-- 2026-10-07: confirmado que el antiguo maestro era granjero. Su identidad e historia permanecen abiertas, como misterio para el personaje y para desarrollar junto al usuario.
-- 2026-10-07: aclarado que su oficio de maestro granjero es información conocida por los creadores, pero desconocida para el jugador al principio.
-- 2026-10-07: aceptado el protagonista personalizable. Se propone limitar las opciones iniciales para contener el trabajo; detalles pendientes y programación todavía en pausa.
-- 2026-10-07: confirmado el movimiento con WASD. Apuntado con ratón y esquive siguen pendientes.
-- 2026-10-07: confirmado el ataque hacia el cursor del ratón, independiente del movimiento. Esquive y armas siguen pendientes.
-- 2026-10-07: confirmado el ritmo de calma en Bītu y peligro en expediciones, sin alimentación obligatoria constante. Beneficios opcionales de cocina propuestos, sin concretar. Armas iniciales aplazadas.
-- 2026-10-07: confirmada navegación libre y exploración del mar entre islas, con cuevas, cosas perdidas, objetos únicos y peces especiales. Mecánicas concretas pendientes.
-- 2026-10-07: confirmadas minas explorables y vetas exteriores, incluidas vetas de gran valor en la superficie de islas peligrosas. La rareza no depende solo de profundidad.
-- 2026-10-07: aclarada la existencia de rocas básicas. Confirmada reaparición en casa tras una derrota y la imposibilidad de morir, todavía secreta para el jugador. Debe haber una penalización que desincentive usarla como viaje rápido; detalles pendientes.
-- 2026-10-07: aceptada la pérdida parcial de materiales sin guardar como penalización, con herramientas, equipo y coleccionables especiales protegidos. Cantidad exacta pendiente.
-- 2026-10-07: el usuario considera viable combinar experiencia por practicar profesiones con mejoras de herramientas mediante materiales y monedas. Guardado como base provisional, sin fijar niveles o desbloqueos.
-- 2026-10-07: confirmada la libertad de desarrollar todas las profesiones o solo las elegidas por el jugador, sin exclusión entre ellas.
-- 2026-10-07: confirmado el ciclo de día y noche con variaciones de hallazgos y criaturas, manteniendo la libertad de jugar de noche. Duración y detalles pendientes.
-- 2026-10-07: confirmado que es un juego individual. Colecciones y rareza se diseñarán por partida, sin asumir multijugador ni límites globales de objetos.
-- 2026-10-07: el usuario quiere una tierra misteriosa. Añadida, como propuesta sin confirmar, la idea de una historia que se desdibuja, con pistas en mapas, ruinas y recuerdos.
-- 2026-10-07: aclarado que los sucesos extraños pueden encajar, pero no se ha solicitado una explicación central. Retirada la interpretación de que la tierra pierde su historia; las ideas quedan como posibilidades puntuales.
+- Repositorio: **jagoncito/jueguito**, rama remota **main**.
+- Este bloc contiene el estado actual. Versiones anteriores y cambios están en el historial de Git.
+- Ambos mapas son propuestas visuales; ninguna es el escenario definitivo.
+- Al retomar, leer este documento y confirmar qué tema quiere desarrollar el usuario.
+- Continuar diseñando hasta que el usuario indique explícitamente que se puede empezar a programar.
+
+### Hitos
+
+- **6 de octubre de 2026:** creación del bloc y evolución hacia archipiélago, minería, pesca, colecciones, fantasía y pixel art.
+- **7 de octubre de 2026:** desarrollo de Flavia, casas y oficios, antiguo maestro granjero, controles, navegación, derrota, profesiones y ritmo; confirmado juego individual.
+- **7 de octubre de 2026:** revisión completa, consolidación de decisiones y propuestas, corrección de notas antiguas y conservación de ambos mapas.
