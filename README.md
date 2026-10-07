@@ -14,6 +14,7 @@ Los mapas son conceptuales; ninguna distribución es definitiva. El bloc contien
 
 ## Recursos gráficos
 
+- [Unamahloni — vista isométrica elevada](assets/personajes/unamahloni-isometrico.png): variante más reciente, estética Ghibli y pelo liso, PNG transparente de 1143 × 1376 píxeles.
 - [Unamahloni — versión Ghibli con pelo liso](assets/personajes/unamahloni-ghibli.png): nueva variante, PNG transparente de 1143 × 1376 píxeles.
 - [Unamahloni — pose quieta en pixel art](assets/personajes/unamahloni-idle.png): versión original, PNG transparente de 1143 × 1376 píxeles.
 - [Notas de uso del personaje](assets/personajes/README.md).

@@ -20,4 +20,13 @@ Se conserva el original generado, sin recortar ni cambiar tamaño. La resolució
 - Renderizado dibujado con contornos suaves y sombreado de animación; es una sola pose estática.
 - Guardada como archivo separado para conservar también la versión pixel art.
 
+## Unamahloni — vista isométrica elevada
+
+[unamahloni-isometrico.png](unamahloni-isometrico.png) es la variante más reciente: cámara elevada en tres cuartos, tomando la vista de juego de **Diablo IV** como referencia de perspectiva.
+
+- PNG RGBA transparente, **1143 × 1376 píxeles**.
+- Orientación diagonal, con parte superior de la cabeza y hombros visibles y cuerpo acortado por la perspectiva desde arriba.
+- Conserva estética Ghibli, cabello liso ámbar, piel gris azulada, ojos ámbar y accesorios.
+- Una pose quieta de cuerpo entero; archivo independiente de las dos versiones anteriores.
+
 Estas imágenes son recursos visuales para la futura implementación. Su ropa y accesorios pueden revisarse; las decisiones de diseño vigentes están en [DISENO.md](../../DISENO.md). La variante estilística solicitada no cambia automáticamente el estilo global del juego. La creación de los recursos no inicia la programación.

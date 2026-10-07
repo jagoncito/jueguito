@@ -186,6 +186,8 @@ El usuario ha solicitado después una imagen pixel art para la futura programaci
 
 Segunda imagen solicitada: [Unamahloni — versión Ghibli con pelo liso](assets/personajes/unamahloni-ghibli.png), también PNG transparente de 1143 × 1376 píxeles. Conserva la identidad, colores y pose, con renderizado de animación dibujada. Se guarda como variante independiente; el estilo global pixel art del juego no se ha revisado todavía.
 
+Tercera imagen solicitada: [Unamahloni — vista isométrica elevada](assets/personajes/unamahloni-isometrico.png), PNG transparente de 1143 × 1376 píxeles. La cámara mira desde arriba en tres cuartos, con referencia a la perspectiva de juego de Diablo IV. Conserva estética Ghibli y pelo liso. Es la variante más reciente del recurso, sin animaciones ni integración en un motor.
+
 La timidez y la religiosidad son rasgos de Unamahloni, no una personalidad común obligatoria para toda su especie.
 
 Los nombres, aspectos y relatos todavía no definidos de los personajes siguen abiertos. Los nombres propuestos anteriormente —Ena, Orun y Sila— no fueron elegidos.
@@ -445,3 +447,4 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** confirmado que ciertas herramientas avanzadas permiten recoger nuevos recursos, además de mejorar velocidad y rendimiento. Requisitos concretos pendientes.
 - **7 de octubre de 2026:** creado a petición del usuario el primer recurso pixel art de Unamahloni, PNG transparente de una pose. Solicitada su subida a GitHub; no se ha iniciado código del juego.
 - **7 de octubre de 2026:** solicitada y creada variante de Unamahloni con estética Ghibli y pelo liso, guardada aparte para conservar el original pixel art. El usuario pide subirla a GitHub.
+- **7 de octubre de 2026:** creada variante isométrica elevada de Unamahloni, con Diablo IV como referencia de cámara y conservando estética Ghibli y pelo liso.
