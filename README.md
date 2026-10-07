@@ -14,7 +14,8 @@ Los mapas son conceptuales; ninguna distribución es definitiva. El bloc contien
 
 ## Recursos gráficos
 
-- [Unamahloni — pose quieta](assets/personajes/unamahloni-idle.png): PNG con fondo transparente, 1143 × 1376 píxeles.
+- [Unamahloni — versión Ghibli con pelo liso](assets/personajes/unamahloni-ghibli.png): nueva variante, PNG transparente de 1143 × 1376 píxeles.
+- [Unamahloni — pose quieta en pixel art](assets/personajes/unamahloni-idle.png): versión original, PNG transparente de 1143 × 1376 píxeles.
 - [Notas de uso del personaje](assets/personajes/README.md).
 
 Para retomar en otro chat, empezar por el bloc y continuar con una decisión cada vez. No hay aplicación ni dependencias que instalar todavía.

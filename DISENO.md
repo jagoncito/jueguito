@@ -178,11 +178,13 @@ Es metódico, observador, muy curioso, tímido y religioso. **Venera a los espí
 
 **Apariencia confirmada:** piel grisácea azulada, orejas de forma humana, **ojos ámbar y cabello de un color similar al ámbar**. Las marcas naturales deben ser **discretas, poco llamativas**; patrón, ubicación y color por definir. El cabello blanco se descartó. Ishari y Aruven dejan de ser alternativas activas; el nombre elegido es Veyari. El fauno sugerido anteriormente no fue elegido.
 
-Las propuestas anteriores de cabello azul petróleo o negro violáceo y ojos de dos tonos no son la dirección elegida. El anillo oscuro del iris tampoco está confirmado. Matiz exacto del cabello, peinado, ropa y demás detalles se podrán retomar más adelante. Ojos y cabello elegidos describen a Unamahloni; no obligan a todos los Veyari a tener esos colores.
+Las propuestas anteriores de cabello azul petróleo o negro violáceo y ojos de dos tonos no son la dirección elegida. El anillo oscuro del iris tampoco está confirmado. **Peinado liso confirmado** al solicitar la segunda imagen. Matiz exacto del cabello, longitud, ropa y demás detalles se podrán retomar más adelante. Ojos y cabello elegidos describen a Unamahloni; no obligan a todos los Veyari a tener esos colores.
 
 **Personaje en pausa por petición del usuario:** dejarlo por ahora con estas decisiones y no seguir preguntando sobre él hasta que el usuario quiera retomarlo.
 
 El usuario ha solicitado después una imagen pixel art para la futura programación. Primer recurso generado: [Unamahloni — pose quieta](assets/personajes/unamahloni-idle.png), PNG transparente de 1143 × 1376 píxeles. [Notas de uso](assets/personajes/README.md). Es una sola pose, sin animaciones; ropa y accesorios de esta imagen pueden revisarse. Se mantiene la pausa del diseño detallado y de la programación.
+
+Segunda imagen solicitada: [Unamahloni — versión Ghibli con pelo liso](assets/personajes/unamahloni-ghibli.png), también PNG transparente de 1143 × 1376 píxeles. Conserva la identidad, colores y pose, con renderizado de animación dibujada. Se guarda como variante independiente; el estilo global pixel art del juego no se ha revisado todavía.
 
 La timidez y la religiosidad son rasgos de Unamahloni, no una personalidad común obligatoria para toda su especie.
 
@@ -380,7 +382,7 @@ El usuario dijo que el siguiente esquema encaja, pero lo considera denso y quier
 
 La navegación, primera expedición, granja desarrollada, cocina completa, jefes y resto del archipiélago requieren revisar el alcance antes de incluirlos. Las propuestas anteriores de un jefe inicial o un destino cercano no son requisitos cerrados de esta versión.
 
-Guardado local es una propuesta inicial; plataforma y sistema definitivo de guardado pendientes. **No se ha elegido motor, tecnología ni plataforma de ejecución.** El proyecto contiene documentación, mapas y un primer recurso gráfico de personaje, sin implementación.
+Guardado local es una propuesta inicial; plataforma y sistema definitivo de guardado pendientes. **No se ha elegido motor, tecnología ni plataforma de ejecución.** El proyecto contiene documentación, mapas y recursos gráficos de personaje, sin implementación.
 
 ## 14. Pendientes para futuras conversaciones
 
@@ -442,3 +444,4 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** confirmadas zonas de aparición propias de cada recurso, con posiciones variables dentro de cada zona. Minería: muchas más menas que vetas, con mejores recompensas en vetas. Herboristería: misma relación entre flores y arbustos.
 - **7 de octubre de 2026:** confirmado que ciertas herramientas avanzadas permiten recoger nuevos recursos, además de mejorar velocidad y rendimiento. Requisitos concretos pendientes.
 - **7 de octubre de 2026:** creado a petición del usuario el primer recurso pixel art de Unamahloni, PNG transparente de una pose. Solicitada su subida a GitHub; no se ha iniciado código del juego.
+- **7 de octubre de 2026:** solicitada y creada variante de Unamahloni con estética Ghibli y pelo liso, guardada aparte para conservar el original pixel art. El usuario pide subirla a GitHub.
