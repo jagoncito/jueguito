@@ -276,7 +276,9 @@ Cultivar alimentos, por ejemplo **patatas y tomates**, en la granja del jugador.
 
 **Recursos gráficos solicitados:** [tomate](assets/objetos/cultivos/tomate.png), [tomate prístino](assets/objetos/cultivos/tomate-pristino.png), [tomate Siru](assets/objetos/cultivos/tomate-siru.png) y [tomate Siru prístino](assets/objetos/cultivos/tomate-siru-pristino.png). Cuatro PNG transparentes pixel art de una pieza cada uno, con vista elevada en tres cuartos. [Previsualizaciones y notas de importación](assets/objetos/cultivos/README.md).
 
-Paleta propuesta en estas imágenes: común rojo; prístino rojo intenso con forma más equilibrada y reflejos limpios; Siru índigo oscuro con vetas doradas; Siru prístino con vetas más brillantes y hojas más vivas. El usuario pidió crear y subir estas cuatro imágenes, sin autorizar código ni nuevas imágenes ajenas a este encargo. Su aspecto definitivo puede revisarse; las vetas luminosas no confirman efectos mágicos jugables.
+**Diseños básicos aprobados por el usuario:** tomate común rojo y tomate Siru índigo oscuro con vetas doradas. Se conservan intactos.
+
+**Diferenciación prístina solicitada:** debe distinguirse a primera vista por brillos o detalles destacados. Las imágenes prístinas se sustituyeron por nuevas versiones: tomate rojo con contorno luminoso y grandes destellos perlados; Siru con vetas y contorno dorados más luminosos y grandes destellos de oro y blanco. Se reutilizan los mismos nombres de archivo, sin copias anteriores en la carpeta vigente. Los efectos son estáticos en el PNG y no confirman poderes mágicos jugables. El usuario autorizó generar y subir estos dos reemplazos; la programación y la generación general siguen en pausa.
 
 Semillas, frecuencia de riego, otros cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. No hay un maestro agricultor vivo adicional confirmado. Esta decisión no determina el progreso mientras el juego está cerrado.
 
@@ -473,3 +475,4 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** definido progreso específico por cultivo: cosechar tomates aumenta la habilidad con tomates y las probabilidades de mejor calidad. El usuario propone «Prístino» como nombre de calidad y una lógica de experiencia específica también para animales; detalles pendientes.
 - **7 de octubre de 2026:** elegido «Siru» como nombre de la variante rara, inspirado en el acadio ṣīru, «elevado, excelso, sublime». Aspecto y obtención pendientes.
 - **7 de octubre de 2026:** solicitados cuatro recursos pixel art independientes: tomate, tomate prístino, tomate Siru y tomate Siru prístino, con subida explícita a GitHub. Generados PNG transparentes; paleta propuesta roja para comunes e índigo con vetas doradas para Siru. Confirmado el uso de «Prístino» como máxima calidad. Programación en pausa.
+- **7 de octubre de 2026:** aprobados los dos tomates básicos. A petición del usuario, sustituidos los dos prístinos por versiones con grandes destellos y contornos luminosos para diferenciarlos a primera vista; mismos nombres de archivo, cuatro imágenes vigentes y sin alterar los básicos.
