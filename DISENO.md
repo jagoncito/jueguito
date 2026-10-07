@@ -20,7 +20,8 @@ Se busca que las mejoras se noten y que encontrar algo especial dé ilusión. La
 
 - **Pixel art para el juego entero:** personajes, escenarios, recursos y demás elementos visuales del juego.
 - **Vista desde arriba isométrica cenital**, entendida como cámara elevada en tres cuartos dirigida hacia el suelo. Diablo IV sirve de referencia de perspectiva.
-- Ángulo exacto, escala y resolución de los recursos pendientes; la dirección de cámara ya está elegida.
+- **Cámara ajustable con zoom**, para acercar o alejar la vista. Distancia inicial, límites, control del zoom y comportamiento al navegar pendientes; no se ha confirmado rotación de cámara.
+- **Escala común de referencia para planificar:** suelo isométrico de 64 × 32 píxeles y humano de unos 80 píxeles de alto. Tamaños por familia, resolución de pantalla y comprobación visual final pendientes. [Marco de escala para todo el juego](docs/escala-y-recursos.md).
 - Tras comparar estilos, se conserva la versión pixel art de Unamahloni y se eliminan las dos variantes ilustradas del repositorio.
 - **Generación de imágenes detenida por petición del usuario.** No crear más imágenes salvo una petición explícita posterior. La programación sigue en pausa.
 
@@ -210,6 +211,8 @@ Los nombres, aspectos y relatos todavía no definidos de los personajes siguen a
 
 Obtienes una **casa abandonada con un terreno descuidado**, que puedes reparar y transformar poco a poco. Allí vivía el antiguo maestro granjero. El jugador puede llegar a ser **maestro granjero** algún día.
 
+**Distribución libre de la granja confirmada:** el jugador decide dónde colocar cultivos, caminos e instalaciones dentro de su terreno. Reglas de colocación, tamaños y ampliaciones pendientes. El usuario pide desarrollar cómo se organiza el suelo para encajar edificios, vegetación, recursos, mobs y ríos. [Propuesta de organización del terreno](docs/terreno.md): cuadrícula lógica isométrica, superficies de ocupación, movimiento continuo y zonas de aparición; estas soluciones técnicas son propuestas, no decisiones cerradas.
+
 **Flavia o el comerciante** pueden presentarte la casa y contar que hace tiempo vivía allí un antiguo maestro, sin revelar de entrada su especialidad. El comerciante puede estar de camino; no se ha elegido quién lo hace, el recorrido ni el diálogo.
 
 Ubicación exacta, acceso a la propiedad, reparaciones y ampliaciones pendientes. La exposición doméstica no es necesaria; las colecciones tienen el museo como destino. Una isla privada cercana fue una idea anterior, no una ubicación elegida.
@@ -221,6 +224,28 @@ Ubicación exacta, acceso a la propiedad, reparaciones y ampliaciones pendientes
 **Confirmado:** puedes desarrollar todas las profesiones con el mismo personaje o dedicarte solo a las que quieras. No son excluyentes.
 
 **Base provisional que encaja al usuario:** experiencia al practicar y nuevas posibilidades al progresar; materiales y monedas para mejorar herramientas. Niveles, desbloqueos y requisitos de maestría se decidirán después.
+
+### Inventario
+
+**Límite confirmado: por espacios en la mochila**, no por peso. La mochila se destina a recursos y todo lo recolectable. **Herramientas y equipo tienen huecos propios**, además de otros objetos cuya identidad y distribución quedan pendientes. Número de huecos, objetos apilables, límites de cada pila y tratamiento de objetos recién encontrados que puedan equiparse pendientes. Ampliar la mochila mediante mejoras y disponer de una bodega separada en el barco son propuestas todavía por concretar.
+
+### Botín y recogida
+
+**Dirección vigente, elegida al cambiar el sistema:** el botín aparece como objetos visibles en el mundo y se recoge al acercarse. Se aplica a matar enemigos, recolectar, minar y pescar. Esta decisión sustituye la ventana de botín de referencia WoW y sus modos manual/automático; el saqueo agrupado mediante ventana y los atajos asociados dejan de ser la base.
+
+- **Minería:** interactuar con una mena o veta, ejecutar la animación de extracción y hacer aparecer los materiales cerca de su ubicación. Los aproximadamente 2 segundos mencionados son un ejemplo, no una duración fijada.
+- **Recolección:** los objetos aparecen junto a la flor o recurso cosechado.
+- **Enemigos:** al derrotarlos, los objetos aparecen cerca del cadáver.
+- **Pesca desde la costa:** tras conseguir la captura, el pez se acerca a la orilla cerca del personaje para poder recogerlo. Esto no sustituye el desafío de pesca acordado. Presentación de capturas desde barco pendiente.
+- **Recogida automática por cercanía:** al entrar en el radio de recogida, los objetos pasan a la mochila si hay espacio. Si aparecen a los pies del personaje, se recogen prácticamente de inmediato; no requieren otro clic. Radio, animación, cantidades por objeto visible y tratamiento de sobrantes cuando no cabe todo pendientes.
+
+**Tamaño de botín uniforme confirmado: 32 × 32 píxeles.** Todos los objetos de botín usan ese lienzo, incluidos minerales, flores, cosechas, peces y objetos de enemigos. Ajustar cada silueta manteniendo sus proporciones y alojar sus destellos dentro del lienzo común. Esto no iguala el tamaño de las plantas, depósitos, peces nadando ni criaturas originales. **Iconos de inventario: 64 × 64 píxeles**, también aceptados. Representaciones de museo pendientes. Estas medidas son objetivos de producción; los originales existentes aún no están adaptados.
+
+**Desaparición y reaparición indicadas por el usuario:** al terminar de extraer una mena o recolectar una flor, el recurso desaparece como si se hubiese recogido todo y comienza su tiempo de reaparición, aunque el jugador ignore el botín. No esperar a vaciar la ventana para iniciar ese tiempo. No se ha indicado que desaparezcan recursos intactos solo por pasar de largo. Tratamiento de mochila llena y aplicación exacta a otras formas de recurso pendientes.
+
+**Persistencia temporal confirmada para ese botín:** los objetos sin recoger de menas y flores pueden permanecer aproximadamente **10 minutos**, independientemente de la desaparición del recurso y de su tiempo de reaparición. La duración es orientativa; al agotarse, desaparece el botín restante. El cambio de presentación permite volver al lugar y recoger los objetos sin reabrir una ventana. Momento exacto de inicio del plazo y tratamiento al pausar o cerrar el juego pendientes. Plazo para cadáveres y pesca pendiente de concretar.
+
+**Aportaciones del asistente, todavía propuestas:** recoger solo lo que quepa en la mochila y dejar el resto en el mundo; calcular el botín una sola vez; destacar rareza y calidad visualmente, especialmente Siru/prístino; aviso breve de lo obtenido sin bloquear acciones. Para pesca desde barco, situar la captura en la cubierta cerca del personaje. La propuesta de una bolsa para reabrir la ventana queda sustituida por los propios objetos visibles.
 
 ### Aparición de recursos: minería y herboristería
 
@@ -234,6 +259,10 @@ Regla confirmada para ambas actividades: **cada tipo de recurso tiene su propia 
 La diferencia de frecuencia debe ser importante. Proporciones exactas, tiempos de reaparición, cantidades simultáneas, límites de cada zona y contenido de las recompensas pendientes. Esta regla se aplica a plantas silvestres; los cultivos de la granja se diseñan por separado.
 
 ### Herramientas y acceso a recursos
+
+**Herramientas permanentes:** no se desgastan por uso ni requieren reparaciones periódicas. La progresión se centra en mejorarlas. Esta decisión se refiere a las herramientas; no determina la durabilidad de armas, armaduras o barcos.
+
+**Selección automática confirmada:** al interactuar con un recurso, el personaje utiliza la herramienta correspondiente que tiene equipada en su hueco propio; por ejemplo, el pico para una mena. No hay que seleccionarla manualmente antes de cada interacción. Animaciones, controles y tratamiento de herramientas ausentes pendientes; esta comodidad no define todavía la ejecución de la recolección ni sustituye la automatización futura de la granja.
 
 Confirmado: ciertos recursos requieren una herramienta más avanzada para recogerlos. Puedes encontrar, por ejemplo, una veta valiosa antes de tener un pico capaz de extraerla.
 
@@ -395,6 +424,10 @@ Estas cifras fueron ejemplos explicativos, no probabilidades elegidas. Ajustar r
 
 ## 13. Primera versión: orientación, no encargo de programación
 
+**Preparación actual:** el usuario expresa que quiere empezar a programar y pregunta por el esquema global. [Propuesta del primer bloque jugable](docs/primer-prototipo.md): base de movimiento, terreno, botín, mochila y farmeo; escoger prioridad frente al primer recorrido narrativo antes de cerrar esta entrega. La visión global permite empezar por una base sin resolver todas las especies o islas.
+
+El usuario pide subir los acuerdos pendientes a GitHub y preparar lo siguiente mientras se ausenta. Se desarrolla la recomendación de farmeo en [Siguiente bloque preparado](docs/siguiente-bloque.md), con tareas, recursos pendientes y criterios de revisión. Esta preparación no fija el mapa definitivo ni los valores de equilibrio, y no se ha creado implementación del juego.
+
 El usuario dijo que el siguiente esquema encaja, pero lo considera denso y quiere seguir diseñando antes de programar:
 
 1. Ruinas → camino inicial → encuentro con Flavia.
@@ -406,7 +439,9 @@ El usuario dijo que el siguiente esquema encaja, pero lo considera denso y quier
 
 La navegación, primera expedición, granja desarrollada, cocina completa, jefes y resto del archipiélago requieren revisar el alcance antes de incluirlos. Las propuestas anteriores de un jefe inicial o un destino cercano no son requisitos cerrados de esta versión.
 
-Guardado local es una propuesta inicial; plataforma y sistema definitivo de guardado pendientes. **No se ha elegido motor, tecnología ni plataforma de ejecución.** El proyecto contiene documentación, mapas y recursos gráficos de personaje, sin implementación.
+**Motor y primera plataforma confirmados:** Godot 4, con ejecución desde navegador en ordenador y controles de teclado y ratón. El juego sigue siendo individual. Una versión descargable para ordenador es una posibilidad futura, no un requisito confirmado.
+
+Versión concreta de Godot 4, lenguaje de programación, alojamiento y sistema definitivo de guardado pendientes. Guardado local es una propuesta inicial. Elegir el motor no autoriza iniciar código: el proyecto contiene documentación, mapas y recursos gráficos, sin implementación.
 
 ## 14. Pendientes para futuras conversaciones
 
@@ -422,7 +457,7 @@ No convertir esta lista en un cuestionario completo. Elegir un tema útil cada v
 - Controles y peligros del barco; primera isla visitable.
 - Museo: recompensas por donación definitiva, ubicación y requisitos de completado. Categorías y probabilidades de piezas especiales.
 - Detalles de la penalización por derrota, incluido qué ocurre con el barco.
-- Plataforma, guardado y alcance concreto de la primera implementación.
+- Guardado, alojamiento, detalles técnicos de Godot 4 y alcance concreto de la primera implementación.
 - Misterios y revelaciones, cuando tenga sentido desarrollarlos.
 
 ## 15. Ideas para ampliaciones
@@ -476,3 +511,21 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** elegido «Siru» como nombre de la variante rara, inspirado en el acadio ṣīru, «elevado, excelso, sublime». Aspecto y obtención pendientes.
 - **7 de octubre de 2026:** solicitados cuatro recursos pixel art independientes: tomate, tomate prístino, tomate Siru y tomate Siru prístino, con subida explícita a GitHub. Generados PNG transparentes; paleta propuesta roja para comunes e índigo con vetas doradas para Siru. Confirmado el uso de «Prístino» como máxima calidad. Programación en pausa.
 - **7 de octubre de 2026:** aprobados los dos tomates básicos. A petición del usuario, sustituidos los dos prístinos por versiones con grandes destellos y contornos luminosos para diferenciarlos a primera vista; mismos nombres de archivo, cuatro imágenes vigentes y sin alterar los básicos.
+- **7 de octubre de 2026:** elegidos Godot 4 y navegador como primera plataforma, para jugar en ordenador con teclado y ratón. Versión descargable como posibilidad futura. La programación continúa en pausa.
+- **7 de octubre de 2026:** confirmada cámara ajustable con zoom. Controles, distancia inicial y límites pendientes.
+- **7 de octubre de 2026:** elegido inventario limitado por espacios, no por peso. Capacidad, apilado y distribución pendientes.
+- **7 de octubre de 2026:** confirmados huecos propios para herramientas, equipo y otros objetos por definir; mochila para recursos y todo lo recolectable.
+- **7 de octubre de 2026:** aceptada selección automática de la herramienta equipada adecuada al interactuar con recursos.
+- **7 de octubre de 2026:** definido botín mediante ventana pequeña para minería, cadáveres y pesca, con recogida manual o automática opcional y aviso breve. Planteados botín agrupado de cadáveres cercanos y atajo de recogida; tiempos y teclas solo ilustrativos. Tratamiento de mochila llena y persistencia quedan como propuestas por concretar.
+- **7 de octubre de 2026:** aclarado que menas y flores extraídas desaparecen y comienzan su tiempo de reaparición aunque se ignore el botín; no esperar a recogerlo todo. Destino de los objetos ignorados pendiente.
+- **7 de octubre de 2026:** confirmado que ese botín ignorado puede permanecer unos 10 minutos de manera independiente al recurso. Duración orientativa; acceso visual y tratamiento del plazo pendientes.
+- **7 de octubre de 2026:** el usuario cambia el sistema a objetos de botín visibles cerca de cadáveres y recursos, recogidos al acercarse. Las capturas llegan a la orilla cerca del personaje. Esta decisión sustituye la ventana de botín y sus opciones anteriores; se conserva la desaparición del recurso con inicio de reaparición y el botín temporal de menas/flores.
+- **7 de octubre de 2026:** aclarada y aceptada recogida automática al entrar en el radio de cercanía si hay espacio en la mochila; aparición a los pies implica recogida prácticamente inmediata.
+- **7 de octubre de 2026:** confirmadas herramientas permanentes, sin desgaste por uso ni reparaciones periódicas; progresión mediante mejoras.
+- **7 de octubre de 2026:** elegida distribución libre para la granja. El usuario pide planificar la división del terreno y la colocación de edificios, vegetación, recursos, criaturas y ríos; añadida una propuesta de cuadrícula y organización espacial, sin código ni nuevas imágenes.
+- **7 de octubre de 2026:** recomendada, todavía sin aceptación, escala de suelo 64 × 32 y humano de referencia de 80 píxeles de alto. Tabla de tamaños y proporciones en la propuesta de terreno; originales gráficos sin modificar.
+- **7 de octubre de 2026:** aceptada esa base para planificar y solicitado ampliarla a todo el juego. Añadido marco común para familias de cultivos, plantas, minerales, peces, mobs, edificios, barcos, ríos, lagos, mar, cuevas e islas. Rangos y soluciones nuevas son propuestas; no se fija catálogo completo ni se inicia implementación.
+- **7 de octubre de 2026:** indicado mismo tamaño de sprite para todo el botín. Propuesto lienzo común de 32 × 32, todavía sin aceptar; mantener proporciones y destellos dentro de ese tamaño.
+- **7 de octubre de 2026:** aceptados lienzos de 32 × 32 para todo el botín y 64 × 64 para iconos de inventario; siluetas proporcionadas y destellos dentro del lienzo. Originales sin modificar.
+- **7 de octubre de 2026:** el usuario expresa interés en empezar a programar y pide estado del esquema global. Consolidada propuesta de primera entrega jugable, con prioridad y alcance pendientes de cerrar.
+- **7 de octubre de 2026:** solicitada subida a GitHub de todos los acuerdos pendientes y preparación del siguiente bloque. Desglosada la base jugable de farmeo en tareas y criterios de revisión; comprobación técnica del motor fuera del repositorio.
