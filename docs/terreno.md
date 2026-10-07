@@ -1,6 +1,6 @@
 # Propuesta de organización del terreno
 
-**Estado: organización propuesta, sin implementación.** El usuario ha confirmado libertad para organizar su granja y ha aceptado usar como referencia de diseño suelo de 64 × 32 y humano de unos 80 píxeles de alto, pidiendo ampliarla a todo el juego. Las dimensiones por familia y detalles de colocación requieren desarrollo y comprobación visual; esto no autoriza programación. [Marco completo de escala y recursos](escala-y-recursos.md).
+**Estado: organización propuesta; cuadrícula de referencia ensayada en una pequeña prueba visual.** El usuario ha confirmado libertad para organizar su granja y ha aceptado usar como referencia de diseño suelo de 64 × 32 y humano de unos 80 píxeles de alto, pidiendo ampliarla a todo el juego. Las dimensiones por familia y detalles de colocación requieren desarrollo y comprobación visual; esto no autoriza programación. [Marco completo de escala y recursos](escala-y-recursos.md).
 
 ## Una cuadrícula común
 
@@ -85,7 +85,7 @@ En Bītu, respetar las casas dispersas, pocas personas y el único recorrido ini
 
 ## Próximo paso de validación visual
 
-Antes de producir conjuntos de escenarios o animaciones, comprobar la escala de referencia aceptada con un pequeño esquema de personaje, casa, árbol y cultivo. No generar una imagen ni implementar ese esquema sin la petición correspondiente. El usuario mantiene la programación en pausa y las imágenes se generan solo cuando las solicita.
+Antes de producir conjuntos de escenarios o animaciones, comprobar la escala de referencia aceptada con un pequeño esquema de personaje, casa, árbol y cultivo. No generar una imagen ni implementar ese esquema sin la petición correspondiente. La prueba visual posterior utiliza referencias temporales del motor; las imágenes artísticas se generan solo cuando el usuario las solicita.
 
 Extender esa futura comprobación a menas/vetas, flores/arbustos, peces, mobs pequeños y grandes, barcos, ríos, lagos, puentes y más de una región. La aceptación de la escala de referencia no valida por sí sola los tamaños finales de todos esos recursos.
 

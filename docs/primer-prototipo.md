@@ -1,6 +1,6 @@
 # Esquema global y primer bloque jugable
 
-**Estado: propuesta concreta de alcance.** El usuario expresa que quiere empezar a programar y pregunta por el estado del esquema global. Este documento resume la preparación y plantea la primera entrega para cerrar su alcance; no describe una implementación existente.
+**Estado: propuesta global y una primera prueba visual limitada disponible.** El usuario expresa que quiere empezar a programar y posteriormente pide probar cómo se ve. La escena actual implementa un subconjunto provisional; consulta [estado real y ejecución](prueba-visual.md). El resto del alcance sigue siendo propuesta.
 
 Tras su petición de subir lo pendiente y preparar lo siguiente, se desarrolla la recomendación de farmeo en [Siguiente bloque preparado](siguiente-bloque.md). Esa es la dirección de preparación; el contenido gráfico y los parámetros de prueba no quedan confirmados por ello.
 

@@ -157,6 +157,6 @@ Conservar PNG transparentes para objetos y personajes; filtrado por vecino más 
 
 Futuras comprobaciones, una vez autorizadas: personaje junto a cultivo, arbusto, árbol y casa; criatura grande en un paso; botín común y raro con varios niveles de zoom; pesca en río, lago y costa; puente con superficies superpuestas; recursos al cargar y descargar sectores. Medir rendimiento de Godot 4 en navegador con contenido representativo antes de fijar densidad y distancias de carga.
 
-Este documento no crea una primera versión con todo el contenido. El alcance inicial sigue pendiente de acordar. Programación en pausa; no se generan imágenes nuevas ni se suben cambios salvo petición explícita.
+Este documento no crea una primera versión con todo el contenido. Existe una prueba visual limitada descrita en [prueba visual](prueba-visual.md); el alcance completo sigue pendiente. No se generan imágenes nuevas ni se suben cambios salvo petición explícita.
 
 Referencias: [diseño vigente](../DISENO.md), [organización del terreno](terreno.md), [tomates existentes](../assets/objetos/cultivos/README.md). Fecha: **7 de octubre de 2026**.

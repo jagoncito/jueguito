@@ -1,6 +1,6 @@
 # Siguiente bloque preparado: base jugable de farmeo
 
-Preparado el **7 de octubre de 2026**, después de que el usuario pidiera subir lo pendiente a GitHub y preparar lo siguiente. Se toma la base de farmeo recomendada como dirección de preparación. El mapa y el contenido de prueba no son decisiones narrativas definitivas. **Este documento no es una implementación del juego.**
+Preparado el **7 de octubre de 2026**, después de que el usuario pidiera subir lo pendiente a GitHub y preparar lo siguiente. Se toma la base de farmeo recomendada como dirección de preparación. El mapa y el contenido de prueba no son decisiones narrativas definitivas. **Este documento conserva la propuesta completa; el estado implementado se describe en [prueba visual](prueba-visual.md).**
 
 ## Objetivo de la entrega
 
@@ -90,7 +90,7 @@ No marcar estas comprobaciones como realizadas antes de existir el juego. La pru
 - Godot **4.6.3 estable** ya está instalado en este entorno y pertenece a la familia elegida Godot 4. La versión definitiva del proyecto puede fijarse al comenzar.
 - Disponible Chromium para una futura comprobación de navegador.
 - **Importación de los cuatro PNG verificada:** proyecto temporal fuera del repositorio, importación sin errores y carga como `Texture2D`/`Sprite2D`, con filtrado por vecino más cercano y presentación proporcional de 32 píxeles. Esta prueba no verifica una escena jugable ni el aspecto final a esa escala.
-- Plantillas y exportación web aún por preparar y comprobar cuando exista el proyecto. No se afirma que haya una versión jugable o una exportación disponible.
+- Plantillas web oficiales **4.6.3** instaladas, con SHA-512 contrastado con la lista oficial. Ya existe una exportación sin hilos y la escena ha cargado en Chromium con WebGL 2. Los detalles de las comprobaciones y los límites están en [prueba visual](prueba-visual.md).
 
 ### Directorios de Godot en este entorno
 

@@ -1,7 +1,7 @@
 # Continuidad del proyecto
 
 - Lee `DISENO.md` antes de trabajar: contiene el diseño vigente y las preferencias del usuario.
-- El proyecto está en fase de conversación y diseño. No iniciar código del juego hasta que el usuario lo autorice explícitamente. La aceptación de un esquema o de una idea individual no es autorización para programar.
+- El diseño sigue en conversación. Tras expresar que quiere empezar a programar y pedir una prueba para ver el aspecto, el usuario dispone de un prototipo visual limitado. Mantén ese alcance: no convertirlo en autorización para desarrollar de golpe todo el juego. La aceptación de una idea individual no cierra todas las decisiones pendientes.
 - El usuario quiere avanzar con decisiones pequeñas, una por una. Evita cuestionarios extensos y preguntas prematuras sobre detalles de implementación.
 - Distingue decisiones confirmadas, propuestas y pendientes. No conviertas tus sugerencias en decisiones sin aceptación del usuario.
 - Mantén el bloc al día cuando se acuerden cambios. Usa el estado actual del documento; las notas antiguas del historial de Git pueden haber sido sustituidas.
@@ -12,4 +12,4 @@
 - Referencia aceptada para planificar: suelo de **64 × 32 píxeles** y humano de unos **80 píxeles de alto**. Consulta `docs/terreno.md` y `docs/escala-y-recursos.md`: los demás rangos, fichas y soluciones son propuestas pendientes de desarrollo y comprobación visual, no un catálogo confirmado ni autorización de implementación.
 - El usuario ha pedido detener la generación de imágenes. No generar nuevas imágenes salvo una petición explícita posterior del usuario. Conservar el recurso pixel art de Unamahloni; las dos variantes ilustradas descartadas fueron eliminadas.
 - Usa el checkout existente. No crear otro checkout o un worktree salvo que el usuario lo solicite.
-- Siguiente preparación: `docs/siguiente-bloque.md`, base de farmeo recomendada. Godot 4.6.3 está instalado y la importación de los cuatro tomates se verificó fuera del repositorio. Al ejecutar Godot, usar directorios XDG dentro de `/workspace` según ese documento; los predeterminados no son escribibles. La exportación web sigue pendiente de preparar y validar.
+- Prueba actual: `prueba/project.godot`, Godot 4.6.3; consulta `docs/prueba-visual.md`. Escena y entorno provisionales, sin guardado ni pesca todavía. Usa directorios XDG dentro de `/workspace` para Godot según `docs/siguiente-bloque.md`; los predeterminados no son escribibles. No generar PNG nuevos por preparar referencias visuales.

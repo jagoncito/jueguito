@@ -2,7 +2,7 @@
 
 Última revisión: **7 de octubre de 2026**.
 
-**Estado: diseño en conversación. La programación sigue en pausa.** El usuario quiere hablar y desarrollar las ideas antes de crear el juego. El mini esquema sirve como orientación; su aceptación no autoriza comenzar a programar. Esperar una instrucción explícita del usuario para iniciar código.
+**Estado: diseño en conversación y primera prueba visual limitada.** Después de expresar que quiere empezar a programar y preguntar cuándo se podría probar el aspecto, se prepara una pequeña escena provisional de Bītu. No representa el juego completo ni cierra las decisiones pendientes. [Alcance y ejecución](docs/prueba-visual.md).
 
 Este es el documento de referencia para retomar el proyecto, también en otro chat. Las decisiones posteriores sustituyen las interpretaciones anteriores. Los detalles pendientes se decidirán con el usuario, de uno en uno.
 
@@ -23,7 +23,7 @@ Se busca que las mejoras se noten y que encontrar algo especial dé ilusión. La
 - **Cámara ajustable con zoom**, para acercar o alejar la vista. Distancia inicial, límites, control del zoom y comportamiento al navegar pendientes; no se ha confirmado rotación de cámara.
 - **Escala común de referencia para planificar:** suelo isométrico de 64 × 32 píxeles y humano de unos 80 píxeles de alto. Tamaños por familia, resolución de pantalla y comprobación visual final pendientes. [Marco de escala para todo el juego](docs/escala-y-recursos.md).
 - Tras comparar estilos, se conserva la versión pixel art de Unamahloni y se eliminan las dos variantes ilustradas del repositorio.
-- **Generación de imágenes detenida por petición del usuario.** No crear más imágenes salvo una petición explícita posterior. La programación sigue en pausa.
+- **Generación de imágenes detenida por petición del usuario.** No crear más imágenes salvo una petición explícita posterior. El entorno de la prueba usa referencias dibujadas por el motor; no se han producido nuevos PNG artísticos.
 
 ## 2. Premisa y misterio
 
@@ -191,7 +191,7 @@ Las propuestas anteriores de cabello azul petróleo o negro violáceo y ojos de 
 
 **Personaje en pausa por petición del usuario:** dejarlo por ahora con estas decisiones y no seguir preguntando sobre él hasta que el usuario quiera retomarlo.
 
-El usuario ha solicitado después una imagen pixel art para la futura programación. Primer recurso generado: [Unamahloni — pose quieta](assets/personajes/unamahloni-idle.png), PNG transparente de 1143 × 1376 píxeles. [Notas de uso](assets/personajes/README.md). Es una sola pose, sin animaciones; ropa y accesorios de esta imagen pueden revisarse. Se mantiene la pausa del diseño detallado y de la programación.
+El usuario ha solicitado después una imagen pixel art para la futura programación. Primer recurso generado: [Unamahloni — pose quieta](assets/personajes/unamahloni-idle.png), PNG transparente de 1143 × 1376 píxeles. [Notas de uso](assets/personajes/README.md). Es una sola pose, sin animaciones; ropa y accesorios de esta imagen pueden revisarse. Se mantiene la pausa del diseño detallado de Unamahloni; no se usa su imagen como protagonista de la prueba.
 
 Las dos variantes ilustradas se descartaron tras comparar estilos y se eliminaron. El recurso pixel art original permanece intacto como primer boceto; todavía no se ha adaptado a la cámara isométrica cenital definitiva ni al peinado liso. No se ha generado una nueva imagen para hacerlo, respetando la petición de detener la generación.
 
@@ -307,7 +307,7 @@ Cultivar alimentos, por ejemplo **patatas y tomates**, en la granja del jugador.
 
 **Diseños básicos aprobados por el usuario:** tomate común rojo y tomate Siru índigo oscuro con vetas doradas. Se conservan intactos.
 
-**Diferenciación prístina solicitada:** debe distinguirse a primera vista por brillos o detalles destacados. Las imágenes prístinas se sustituyeron por nuevas versiones: tomate rojo con contorno luminoso y grandes destellos perlados; Siru con vetas y contorno dorados más luminosos y grandes destellos de oro y blanco. Se reutilizan los mismos nombres de archivo, sin copias anteriores en la carpeta vigente. Los efectos son estáticos en el PNG y no confirman poderes mágicos jugables. El usuario autorizó generar y subir estos dos reemplazos; la programación y la generación general siguen en pausa.
+**Diferenciación prístina solicitada:** debe distinguirse a primera vista por brillos o detalles destacados. Las imágenes prístinas se sustituyeron por nuevas versiones: tomate rojo con contorno luminoso y grandes destellos perlados; Siru con vetas y contorno dorados más luminosos y grandes destellos de oro y blanco. Se reutilizan los mismos nombres de archivo, sin copias anteriores en la carpeta vigente. Los efectos son estáticos en el PNG y no confirman poderes mágicos jugables. El usuario autorizó generar y subir estos dos reemplazos; la generación general sigue en pausa; la prueba posterior conserva estos originales.
 
 Semillas, frecuencia de riego, otros cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. No hay un maestro agricultor vivo adicional confirmado. Esta decisión no determina el progreso mientras el juego está cerrado.
 
@@ -426,7 +426,7 @@ Estas cifras fueron ejemplos explicativos, no probabilidades elegidas. Ajustar r
 
 **Preparación actual:** el usuario expresa que quiere empezar a programar y pregunta por el esquema global. [Propuesta del primer bloque jugable](docs/primer-prototipo.md): base de movimiento, terreno, botín, mochila y farmeo; escoger prioridad frente al primer recorrido narrativo antes de cerrar esta entrega. La visión global permite empezar por una base sin resolver todas las especies o islas.
 
-El usuario pide subir los acuerdos pendientes a GitHub y preparar lo siguiente mientras se ausenta. Se desarrolla la recomendación de farmeo en [Siguiente bloque preparado](docs/siguiente-bloque.md), con tareas, recursos pendientes y criterios de revisión. Esta preparación no fija el mapa definitivo ni los valores de equilibrio, y no se ha creado implementación del juego.
+El usuario pide subir los acuerdos pendientes a GitHub y preparar lo siguiente mientras se ausenta. Se desarrolla la recomendación de farmeo en [Siguiente bloque preparado](docs/siguiente-bloque.md), con tareas, recursos pendientes y criterios de revisión. Esta preparación no fija el mapa definitivo ni los valores de equilibrio, y precede a la prueba visual limitada descrita después.
 
 El usuario dijo que el siguiente esquema encaja, pero lo considera denso y quiere seguir diseñando antes de programar:
 
@@ -441,7 +441,7 @@ La navegación, primera expedición, granja desarrollada, cocina completa, jefes
 
 **Motor y primera plataforma confirmados:** Godot 4, con ejecución desde navegador en ordenador y controles de teclado y ratón. El juego sigue siendo individual. Una versión descargable para ordenador es una posibilidad futura, no un requisito confirmado.
 
-Versión concreta de Godot 4, lenguaje de programación, alojamiento y sistema definitivo de guardado pendientes. Guardado local es una propuesta inicial. Elegir el motor no autoriza iniciar código: el proyecto contiene documentación, mapas y recursos gráficos, sin implementación.
+La prueba visual posterior utiliza **Godot 4.6.3 y GDScript**, con exportación web sin hilos. Alojamiento y sistema definitivo de guardado pendientes; guardado local sigue siendo una propuesta. La prueba no guarda progreso ni convierte su distribución y parámetros en decisiones definitivas.
 
 ## 14. Pendientes para futuras conversaciones
 
@@ -529,3 +529,7 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** aceptados lienzos de 32 × 32 para todo el botín y 64 × 64 para iconos de inventario; siluetas proporcionadas y destellos dentro del lienzo. Originales sin modificar.
 - **7 de octubre de 2026:** el usuario expresa interés en empezar a programar y pide estado del esquema global. Consolidada propuesta de primera entrega jugable, con prioridad y alcance pendientes de cerrar.
 - **7 de octubre de 2026:** solicitada subida a GitHub de todos los acuerdos pendientes y preparación del siguiente bloque. Desglosada la base jugable de farmeo en tareas y criterios de revisión; comprobación técnica del motor fuera del repositorio.
+
+- **7 de octubre de 2026:** primera prueba visual limitada para revisar el aspecto: movimiento WASD, zoom, terreno y costa provisionales, mochila, cuatro tomates originales, una mena, una flor y cultivo manual básico. Sin nueva generación artística; posteriormente el usuario pide subir la prueba a GitHub en una carpeta propia. Las cifras y la distribución de prueba no son equilibrio ni mapa definitivos.
+
+- **7 de octubre de 2026:** petición explícita de subir la prueba a GitHub. Se organiza el proyecto en `prueba/`, con captura real, código e instrucciones; incluye una descarga de navegador para ejecutar con Python 3. No se publica todavía un sitio web. Los cuatro PNG originales se copian dentro del proyecto de prueba para que Godot pueda exportarlo como carpeta independiente.
