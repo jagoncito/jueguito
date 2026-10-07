@@ -264,7 +264,9 @@ Cultivar alimentos, por ejemplo **patatas y tomates**, en la granja del jugador.
 
 **Trabajo confirmado:** al principio plantar, regar y cosechar manualmente. Más adelante se podrá automatizar mediante mejoras. Sistemas concretos, costes y momento de desbloqueo pendientes; esta decisión se refiere a la granja y no confirma automatización de todas las profesiones.
 
-Semillas, cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. No hay un maestro agricultor vivo adicional confirmado.
+**Falta de riego confirmada:** los cultivos detienen su crecimiento, sin marchitarse ni perder el progreso acumulado. Vuelven a crecer cuando el jugador retoma el riego. Esto permite salir de expedición sin perder la plantación por no atenderla.
+
+Semillas, frecuencia de riego, otros cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. No hay un maestro agricultor vivo adicional confirmado. Esta decisión no determina el progreso mientras el juego está cerrado.
 
 El maestro de pesca/cocina sí ofrecerá orientación secundaria sobre granja, agricultura y animales, incluidos consejos a veces mágicos. El usuario ha mencionado ganadería como uno de sus intereses; la existencia y alcance de un sistema jugable de ganadería todavía deben concretarse.
 
@@ -453,3 +455,4 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** confirmado que ciertas herramientas avanzadas permiten recoger nuevos recursos, además de mejorar velocidad y rendimiento. Requisitos concretos pendientes.
 - **7 de octubre de 2026:** creado a petición del usuario el primer recurso pixel art de Unamahloni, PNG transparente de una pose. Solicitada su subida a GitHub; no se ha iniciado código del juego.
 - **7 de octubre de 2026:** tras comparar variantes, confirmado pixel art para todo el juego y vista desde arriba isométrica cenital. Eliminadas las dos variantes ilustradas; conservado el original pixel art. Generación de imágenes detenida por petición del usuario.
+- **7 de octubre de 2026:** confirmado que los cultivos sin regar detienen su crecimiento y lo retoman al volver a regarlos; no se marchitan por falta de riego.
