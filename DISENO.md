@@ -102,7 +102,7 @@ El jugador visita la **casa de cada personaje**, con las instalaciones de su ofi
 
 No interpretar esto como talleres obligatoriamente dentro de viviendas ni como personajes que simplemente duermen en sus comercios.
 
-Los cinco personajes de servicio son la propuesta de núcleo de Bītu. La ubicación exacta de todos ellos sigue abierta. Conviene reunir funciones en pocos habitantes.
+El núcleo propuesto de Bītu incluye los cinco personajes de servicio originales y la pareja del comerciante a cargo del museo. La ubicación exacta de todos ellos sigue abierta. Conviene reunir funciones en pocos habitantes.
 
 ### Mapas conceptuales guardados
 
@@ -118,7 +118,8 @@ Ambos muestran instalaciones dispersas, ruinas, camino inicial y un lugar provis
 | Personaje | Función establecida | Servicios adicionales propuestos |
 |---|---|---|
 | Comerciante | Vender recursos y gestionar mejoras por concretar. | Suministros, intercambios, encargos y mejoras de inventario o almacenamiento. |
-| Maestro alquimista/herboristero | Alquimia y recolección de plantas para ella. | Identificar plantas, enseñar recetas y mejorar utensilios. |
+| Pareja del comerciante | Ocuparse del museo. | Recuperarlo y estudiar la historia de los hallazgos; detalles pendientes. |
+| Unamahloni, maestro alquimista/herboristero | Alquimia y recolección de plantas para ella. | Identificar plantas, enseñar recetas y mejorar utensilios. |
 | Maestro minero/herrero | Minería y herrería. | Mejorar pico, fundir minerales y fabricar o mejorar equipo. |
 | Maestro de pesca/cocina | Pesca y cocina. | Mejorar caña, enseñar técnicas y recetas para las capturas. |
 | Flavia, constructora | Construir y mejorar barcos. | Repararlos y personalizarlos. |
@@ -133,6 +134,7 @@ También pueden existir personajes ocultos, viajeros, rivales, personas que nece
 - **Cabello:** rubio.
 - **Oficio y hogar:** constructora de barcos, con casa y astillero en Bītu.
 - **Presencia:** guerrera y femenina, fuerte y sensible. Las facetas conviven.
+- **Dirección mítica y visual:** inspiración sutil de **valquiria**, con apariencia cercana a la humana y rasgos nórdicos relacionados con los barcos. No es literalmente vikinga ni se ha confirmado que sea una valquiria; naturaleza o especie concreta pendientes.
 - **Carácter:** cálida, práctica y contenta con su vida. Ayuda por amabilidad.
 - **Recibimiento:** puede sorprenderle tu llegada, manteniendo un trato amable.
 
@@ -140,17 +142,57 @@ También pueden existir personajes ocultos, viajeros, rivales, personas que nece
 
 **Pendiente:** especie, edad, ropa, resto del aspecto y diálogos. Los 30–40 años, botas, ropa de trabajo y cabello recogido fueron sugerencias sin confirmar. Tampoco está establecido que te reconozca o conozca tu pasado.
 
+Referencias visuales dentro de la dirección aceptada: trenzas sencillas, ropa práctica de lino y cuero y un pequeño adorno con motivos antiguos. El diseño definitivo y los detalles exactos siguen pendientes.
+
 ### Otros personajes
 
-Sus nombres, apariencia, personalidad e historias siguen pendientes. Los nombres propuestos anteriormente —Ena, Orun y Sila— no fueron elegidos.
+**Comerciante — rasgos confirmados:** humano, sociable y algo pícaro; disfruta negociando, rebuscando entre objetos curiosos y haciendo buenas compraventas. Cercano y expresivo, recibe bien al jugador. Esto no establece que engañe al jugador ni que sea enemigo. Su nombre, resto del aspecto e historia siguen pendientes.
+
+**Pareja del comerciante — rasgos confirmados:** de origen élfico, curiosa y observadora; se entusiasma al descubrir detalles de piezas antiguas, coherente con su interés por el museo. Nombre, género, apariencia y pasado pendientes.
+
+**Relación confirmada:** cotidiana y cariñosa, con gustos distintos y bromas entre ellos. No se han establecido conflictos o dramas de pareja.
+
+**Maestro minero/herrero — rasgos confirmados:** enano, gnomo o similar; especie exacta por decidir. Tiene barba larga, es muy sabio y terco. Referencia aclarada por el usuario: **Gimli, de El señor de los anillos**, para orientar su carácter y presencia. Nombre, edad concreta, resto del aspecto e historia pendientes. Paciente y de pocas palabras fueron sugerencias anteriores, no rasgos fijados expresamente.
+
+Trato y hábitos confirmados:
+
+- Enseña mediante demostraciones: cómo leer una veta, colocar el pico o trabajar el metal.
+- Tiene humor seco, con alguna pulla sobre la calidad de una herramienta y reconocimiento del trabajo bien hecho. El cariño se va notando conforme se conocen.
+- Se entusiasma al examinar un mineral excepcional; los hallazgos del jugador también pueden despertar su curiosidad.
+
+Propuesta adicional: su terquedad puede expresarse en el cuidado del oficio y en defender métodos que conoce, sin fijar misiones o problemas personales.
+
+Ejemplo provisional de voz: «La piedra avisa antes de romperse. Aprende a escucharla». No es un diálogo definitivo ni confirma capacidades sobrenaturales.
+
+**Maestro de pesca/cocina — carácter confirmado:** tranquilo y buen conversador, con historias del mar y gusto por cocinar para los demás. Es fan de lo raro y legendario; ante una captura excepcional se entusiasma como un niño. Nombre, especie, edad, aspecto e historia concreta pendientes.
+
+Es apasionado de toda la naturaleza, incluidos animales además de peces. Se interesa por la granja, la ganadería y la agricultura. **Su oficio principal sigue siendo maestro de pesca/cocina**; de forma secundaria dará consejos, a veces mágicos, para ayudar con la granja y la experiencia del juego. No sustituye la futura maestría granjera del protagonista.
+
+Referencia indicada por el usuario: **Radagast el Pardo, de Tolkien**, como orientación para su aspecto y presencia. Hay un componente mágico en algunos consejos, pero origen, efectos y funcionamiento pendientes. No se ha establecido una clase de mago, especie concreta o historia equivalente a la de Radagast.
+
+**Unamahloni, maestro alquimista/herboristero — rasgos confirmados:** hombre de una especie humanoide distinta de la humana. Tiene unos **50 años** y es todavía joven para su especie, cuya expectativa de vida ronda los **200 años**. Ya es maestro por su experiencia y conocimientos.
+
+Es metódico, observador, muy curioso, tímido y religioso. **Venera a los espíritus de la naturaleza.** Lleva un cuaderno de fórmulas, estudia las propiedades de las plantas y disfruta experimentando con mezclas. Prácticas, símbolos, identidad de los espíritus, resto del aspecto e historia pendientes. No se ha establecido un vínculo con la reaparición del jugador ni poderes derivados de su fe.
+
+**Especie confirmada: Veyari.** Forma humanoide con referencia aproximada a los humanoides del continente demoníaco de **Mushoku Tensei**. Esa referencia orienta la apariencia; no fija una raza concreta de la obra ni su historia, poderes o carácter para los Veyari.
+
+**Apariencia confirmada:** piel grisácea azulada, orejas de forma humana, **ojos ámbar y cabello de un color similar al ámbar**. Las marcas naturales deben ser **discretas, poco llamativas**; patrón, ubicación y color por definir. El cabello blanco se descartó. Ishari y Aruven dejan de ser alternativas activas; el nombre elegido es Veyari. El fauno sugerido anteriormente no fue elegido.
+
+Las propuestas anteriores de cabello azul petróleo o negro violáceo y ojos de dos tonos no son la dirección elegida. El anillo oscuro del iris tampoco está confirmado. Matiz exacto del cabello, peinado, ropa y demás detalles se podrán retomar más adelante. Ojos y cabello elegidos describen a Unamahloni; no obligan a todos los Veyari a tener esos colores.
+
+**Personaje en pausa por petición del usuario:** dejarlo por ahora con estas decisiones y no seguir preguntando sobre él hasta que el usuario quiera retomarlo.
+
+La timidez y la religiosidad son rasgos de Unamahloni, no una personalidad común obligatoria para toda su especie.
+
+Los nombres, aspectos y relatos todavía no definidos de los personajes siguen abiertos. Los nombres propuestos anteriormente —Ena, Orun y Sila— no fueron elegidos.
 
 ## 7. Protagonista y hogar
 
 ### Personaje
 
-- Protagonista **personalizable**, con nombre y aspecto elegidos por el jugador.
+- Protagonista **humano y personalizable**, con nombre y aspecto elegidos por el jugador.
 - La llegada misteriosa es el punto de partida común.
-- Propuesta para empezar: pocas opciones de piel, pelo y ropa, ampliables después. Especies, opciones exactas y amplitud del editor pendientes.
+- Propuesta para empezar: pocas opciones de piel, pelo y ropa, ampliables después. Opciones exactas y amplitud del editor pendientes; la especie humana está confirmada.
 
 ### Casa y granja
 
@@ -158,7 +200,7 @@ Obtienes una **casa abandonada con un terreno descuidado**, que puedes reparar y
 
 **Flavia o el comerciante** pueden presentarte la casa y contar que hace tiempo vivía allí un antiguo maestro, sin revelar de entrada su especialidad. El comerciante puede estar de camino; no se ha elegido quién lo hace, el recorrido ni el diálogo.
 
-Ubicación exacta, acceso a la propiedad, reparaciones, ampliaciones y exposición de colecciones pendientes. Una isla privada cercana fue una idea anterior, no una ubicación elegida.
+Ubicación exacta, acceso a la propiedad, reparaciones y ampliaciones pendientes. La exposición doméstica no es necesaria; las colecciones tienen el museo como destino. Una isla privada cercana fue una idea anterior, no una ubicación elegida.
 
 ## 8. Profesiones y recursos
 
@@ -181,13 +223,19 @@ El valor depende del lugar y sus peligros, además de la profundidad. Minerales,
 
 Pescar y coleccionar peces, incluidos hallazgos especiales en distintas aguas y momentos del día. El maestro reúne pesca y cocina.
 
-Mecánica de pesca, cebos, recetas y efectos de comida pendientes. Cocinar capturas y alimentos de la granja es una conexión propuesta. Se busca que la comida sea útil sin exigir alimentación constante.
+**Mecánica de pesca acordada:** lanzar la caña, esperar la picada y superar un pequeño desafío para sacar el pez. Los peces comunes serán fáciles; los raros podrán tener comportamientos distintos y una dificultad mayor.
+
+Controles, forma del desafío, tiempos, consecuencias de fallar y comportamiento de cada especie pendientes. Cebos, recetas y efectos de comida también están por definir. Cocinar capturas y alimentos de la granja es una conexión propuesta. Se busca que la comida sea útil sin exigir alimentación constante.
 
 ### Agricultura
 
 Cultivar alimentos, por ejemplo **patatas y tomates**, en la granja del jugador. Progresar hasta la maestría es un objetivo posible.
 
-Semillas, cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. No hay un maestro agricultor vivo adicional confirmado ni un instructor elegido.
+**Trabajo confirmado:** al principio plantar, regar y cosechar manualmente. Más adelante se podrá automatizar mediante mejoras. Sistemas concretos, costes y momento de desbloqueo pendientes; esta decisión se refiere a la granja y no confirma automatización de todas las profesiones.
+
+Semillas, cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. No hay un maestro agricultor vivo adicional confirmado.
+
+El maestro de pesca/cocina sí ofrecerá orientación secundaria sobre granja, agricultura y animales, incluidos consejos a veces mágicos. El usuario ha mencionado ganadería como uno de sus intereses; la existencia y alcance de un sistema jugable de ganadería todavía deben concretarse.
 
 ### Herboristería y alquimia
 
@@ -243,7 +291,7 @@ Cantidad de pérdida, clasificación de objetos, posible recuperación y casos e
 - Hay **ciclo de día y noche**, con peces, plantas o criaturas disponibles en distintos momentos.
 - Se puede seguir jugando de noche sin obligación de dormir.
 
-Beneficios opcionales de comida son una propuesta. Duración del ciclo, rutinas de personajes, automatización y progreso mientras no juegas siguen pendientes. No se ha elegido usar la hora real.
+Beneficios opcionales de comida son una propuesta. Duración del ciclo, rutinas de personajes, alcance de la automatización y progreso mientras no juegas siguen pendientes. La granja empezará manual y se automatizará más adelante. No se ha elegido usar la hora real.
 
 ## 12. Coleccionables premium y ultraexclusivos
 
@@ -259,10 +307,33 @@ Coleccionar rarezas, variantes visuales especiales y piezas exclusivas o **ultra
 - Variantes brillantes, doradas u otras apariencias especiales.
 - Hallazgos por azar, exploración, retos y colecciones completadas.
 - Piezas ultraexclusivas como objetivos de largo plazo, sin exigirlas para progresar.
-- Álbum, museo o exposición para conservar y mostrar piezas. Uso equipable y exhibición no están decididos.
+- Museo aceptado por el usuario; acuarios y exposición en casa no son necesarios. Uso equipable de las piezas sigue pendiente.
 - Proteger piezas frente a ventas accidentales. La protección frente a la derrota sí está confirmada.
 
 No hay tabla de rarezas definitiva, probabilidades, eventos temporales o cantidades limitadas. «Único» todavía no determina si un objeto tiene una sola copia por partida.
+
+### Museo y aportaciones raras
+
+Confirmado por el usuario:
+
+- Un museo encaja como destino de la colección.
+- El museo está abandonado al principio.
+- Aportar una pieza excepcionalmente rara puede resultar una decisión difícil.
+- Debe haber una recompensa, además del logro de completar el museo o algo parecido.
+
+El pez que quizá aparece una vez al año es un ejemplo del problema planteado, no una frecuencia ni un calendario confirmados. Ubicación, funcionamiento detallado y alcance del museo pendientes; su responsable está elegido abajo.
+
+**Reparto elegido:** el comerciante tiene pareja; él se ocupa del comercio y su pareja del museo. Sus intereses son distintos y complementarios: el comerciante reconoce el valor comercial de las piezas y su pareja se interesa por su historia y conservación.
+
+Propuesta: casa junto al museo y pequeño espacio comercial cercano, con recuperación del museo abandonado conforme avanzan los descubrimientos del jugador. Ubicación, momento de recuperación, horarios, nombres y género de la pareja pendientes. El comerciante es humano y su pareja de origen élfico; la relación cotidiana y cariñosa está definida, sin concretar todavía la distribución de su vivienda. La opción anterior de que el comerciante atienda solo ambos sitios deja de ser la base.
+
+Esta pareja añade un sexto personaje al núcleo propuesto de Bītu, manteniendo pocos habitantes. Su inclusión y la del museo en la primera versión jugable siguen pendientes.
+
+Propuestas para debatir: recompensa según rareza, monedas y fichas canjeables por premios especiales, reconocimiento de quién encontró la pieza y registro permanente del descubrimiento. Donaciones voluntarias y recompensas por hitos son opciones sin confirmar.
+
+**Forma de aportar confirmada:** donación definitiva del objeto original. La pieza permanece en el museo, forma parte de la colección del jugador y queda vinculada a su nombre. Donar da una recompensa que merezca la pena; premios concretos pendientes. El préstamo recuperable se descarta como base, al no haber una necesidad establecida de recuperar el ejemplar.
+
+Todavía no se ha decidido si las piezas ultraexclusivas hacen falta para completar el museo ni si habrá usos alternativos para ellas. No dar por hecho que el jugador está obligado a entregar su único ejemplar.
 
 ### Nota de probabilidades para el futuro equilibrio
 
@@ -278,7 +349,7 @@ Estas cifras fueron ejemplos explicativos, no probabilidades elegidas. Ajustar r
 El usuario dijo que el siguiente esquema encaja, pero lo considera denso y quiere seguir diseñando antes de programar:
 
 1. Ruinas → camino inicial → encuentro con Flavia.
-2. Paso al interior de Bītu y presentación de los cinco personajes.
+2. Paso al interior de Bītu y presentación de sus personajes. El esquema original incluía cinco; la incorporación de la pareja del comerciante y del museo al primer tramo está por revisar.
 3. Primeras acciones de minería, pesca y recolección de plantas.
 4. Venta, una mejora básica de herramienta, combate con un enemigo sencillo y una poción de curación.
 5. Materiales y construcción del primer barco como cierre del tramo.
@@ -293,14 +364,14 @@ Guardado local es una propuesta inicial; plataforma y sistema definitivo de guar
 No convertir esta lista en un cuestionario completo. Elegir un tema útil cada vez y conservar las respuestas anteriores.
 
 - Recorrido inicial, diálogo con Flavia, apertura del paso y presentación de la casa.
-- Resto del aspecto de Flavia y personalidad de los demás personajes.
+- Nombres y rasgos visuales todavía no definidos de los personajes, respetando los caracteres acordados. Unamahloni se deja en pausa hasta que el usuario quiera retomarlo.
 - Distribución definitiva de Bītu, ubicación del hogar y selección de mapa.
 - Primeros materiales, economía, almacenamiento y mejoras.
-- Mecánicas de pesca, extracción, cultivos, recetas y maestrías.
+- Detalles del desafío de pesca; mecánicas de extracción, cultivos, recetas y maestrías.
 - Esquive, armas y enemigos; estas preguntas se aplazaron a petición del usuario.
-- Duración del día, efectos nocturnos y grado de automatización.
+- Duración del día, efectos nocturnos y mejoras para automatizar la granja.
 - Controles y peligros del barco; primera isla visitable.
-- Categorías y forma de mostrar colecciones; requisitos y probabilidades de piezas especiales.
+- Museo: recompensas por donación definitiva, ubicación y requisitos de completado. Categorías y probabilidades de piezas especiales.
 - Detalles de la penalización por derrota, incluido qué ocurre con el barco.
 - Plataforma, guardado y alcance concreto de la primera implementación.
 - Misterios y revelaciones, cuando tenga sentido desarrollarlos.
@@ -324,3 +395,24 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **6 de octubre de 2026:** creación del bloc y evolución hacia archipiélago, minería, pesca, colecciones, fantasía y pixel art.
 - **7 de octubre de 2026:** desarrollo de Flavia, casas y oficios, antiguo maestro granjero, controles, navegación, derrota, profesiones y ritmo; confirmado juego individual.
 - **7 de octubre de 2026:** revisión completa, consolidación de decisiones y propuestas, corrección de notas antiguas y conservación de ambos mapas.
+- **7 de octubre de 2026:** acordada pesca activa con lanzamiento, espera de picada y pequeño desafío de captura; dificultad y comportamiento según el pez.
+- **7 de octubre de 2026:** aceptado museo, sin necesidad de acuarios domésticos. Debe recompensar las aportaciones raras además del completado; forma de aportar y recompensas exactas pendientes.
+- **7 de octubre de 2026:** elegida donación definitiva del original, conservado en el museo con el nombre del jugador y recompensa. Premios y requisitos exactos pendientes.
+- **7 de octubre de 2026:** confirmado museo abandonado al comienzo. En debate: comerciante como responsable o su pareja a cargo del museo, manteniendo el comercio a cargo del comerciante.
+- **7 de octubre de 2026:** elegida pareja con funciones e intereses complementarios: comerciante al frente del comercio y su pareja al frente del museo. Identidades y distribución pendientes.
+- **7 de octubre de 2026:** aceptado el carácter sociable y algo pícaro del comerciante, con gusto por negociar y descubrir objetos curiosos.
+- **7 de octubre de 2026:** confirmado comerciante humano y pareja de origen élfico, curiosa y observadora. Relación cotidiana y cariñosa, con gustos distintos y bromas.
+- **7 de octubre de 2026:** confirmado protagonista humano. Flavia tendrá una presencia mítica con rasgos nórdicos sutiles, sin ser literalmente vikinga; especie pendiente.
+- **7 de octubre de 2026:** aceptada para Flavia la inspiración sutil de valquiria con apariencia cercana a la humana. Naturaleza exacta abierta.
+- **7 de octubre de 2026:** definido maestro minero/herrero como enano, gnomo o similar, con barba larga, muy sabio y terco. Referencia corregida y aclarada: Gimli, de El señor de los anillos.
+- **7 de octubre de 2026:** confirmado que el minero/herrero enseña haciendo, tiene humor seco con cariño creciente y se entusiasma con minerales excepcionales.
+- **7 de octubre de 2026:** definido maestro de pesca/cocina tranquilo y conversador, aficionado a cocinar para otros y entusiasta de capturas raras y legendarias.
+- **7 de octubre de 2026:** incorporada la referencia de Radagast el Pardo para el maestro de pesca/cocina. Aspecto exacto, especie y posible magia pendientes.
+- **7 de octubre de 2026:** confirmado su interés por toda la naturaleza, animales, agricultura y ganadería. Ayudará de forma secundaria con consejos, a veces mágicos, manteniendo pesca/cocina como maestría principal. Alcance de ganadería y efectos mágicos pendientes.
+- **7 de octubre de 2026:** definido alquimista/herboristero metódico, observador, curioso, tímido y religioso, aficionado a estudiar plantas y experimentar con fórmulas. Fe concreta e identidad pendientes.
+- **7 de octubre de 2026:** confirmado que el alquimista/herboristero venera a los espíritus de la naturaleza. Rituales y símbolos pendientes.
+- **7 de octubre de 2026:** elegido el nombre Unamahloni. Hombre humanoide de unos 50 años, joven para su especie de expectativa de vida aproximada de 200 años. Propuestos nombre Veyari y rasgos visuales, todavía sin confirmar.
+- **7 de octubre de 2026:** confirmado nombre Veyari para la especie. Referencia visual: humanoides del continente demoníaco de Mushoku Tensei; marcas naturales discretas. Colores y rasgos distintivos exactos pendientes.
+- **7 de octubre de 2026:** confirmadas piel grisácea azulada y orejas humanas para Unamahloni/Veyari. Retirada la propuesta de cabello blanco; nuevas opciones de cabello y ojos pendientes de elección.
+- **7 de octubre de 2026:** elegidos para Unamahloni ojos ámbar y cabello de color similar. El usuario deja el personaje en pausa por ahora.
+- **7 de octubre de 2026:** confirmada granja manual al comienzo, con automatización mediante mejoras más adelante. Sistemas y desbloqueos pendientes.
