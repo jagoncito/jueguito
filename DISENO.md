@@ -1,6 +1,6 @@
 # Bloc de diseño — Bītu y el archipiélago
 
-Última revisión: **7 de octubre de 2026**.
+Última revisión: **8 de octubre de 2026**.
 
 **Estado: diseño en conversación y primera prueba visual limitada.** Después de expresar que quiere empezar a programar y preguntar cuándo se podría probar el aspecto, se prepara una pequeña escena provisional de Bītu. No representa el juego completo ni cierra las decisiones pendientes. [Alcance y ejecución](docs/prueba-visual.md).
 
@@ -20,10 +20,10 @@ Se busca que las mejoras se noten y que encontrar algo especial dé ilusión. La
 
 - **Pixel art para el juego entero:** personajes, escenarios, recursos y demás elementos visuales del juego.
 - **Vista desde arriba isométrica cenital**, entendida como cámara elevada en tres cuartos dirigida hacia el suelo. Diablo IV sirve de referencia de perspectiva.
-- **Cámara ajustable con zoom**, para acercar o alejar la vista. Distancia inicial, límites, control del zoom y comportamiento al navegar pendientes; no se ha confirmado rotación de cámara.
+- **Cámara ajustable con zoom**, para acercar o alejar la vista. En los mapas por zonas, la cámara se desplaza al acercarse el personaje al borde visible y se detiene en los límites del mapa. Distancia inicial, margen exacto de desplazamiento, límites de zoom y comportamiento al navegar pendientes; no se ha confirmado rotación de cámara.
 - **Escala común de referencia para planificar:** suelo isométrico de 64 × 32 píxeles y humano de unos 80 píxeles de alto. Tamaños por familia, resolución de pantalla y comprobación visual final pendientes. [Marco de escala para todo el juego](docs/escala-y-recursos.md).
 - Tras comparar estilos, se conserva la versión pixel art de Unamahloni y se eliminan las dos variantes ilustradas del repositorio.
-- **Generación de imágenes detenida por petición del usuario.** No crear más imágenes salvo una petición explícita posterior. El entorno de la prueba usa referencias dibujadas por el motor; no se han producido nuevos PNG artísticos.
+- **Generación general de imágenes detenida por petición del usuario.** No crear más imágenes salvo una petición explícita posterior. El entorno de la prueba usa referencias dibujadas por el motor; la petición posterior del pico–hacha autoriza ese recurso concreto, no una producción gráfica general.
 
 ## 2. Premisa y misterio
 
@@ -81,6 +81,10 @@ El camino inicial conduce al astillero: no debe permitir saltarse ese primer enc
 
 ### Distribución propuesta, todavía modificable
 
+**Organización por zonas conectadas aceptada:** referencia Stardew Valley. Una «pantalla» significa aquí un mapa o zona, que puede ser mayor que el área visible del monitor. La granja tiene su propio mapa; al salir por un acceso se hace una transición a otro mapa, con sus propios límites. Se conserva una geografía coherente entre caminos y destinos. El usuario quiere seguir esta dinámica como base del juego completo; número, tamaños, conexiones concretas y tratamiento del mar e interiores por cerrar. La prueba actual todavía no implementa estas transiciones ni la cámara acordada.
+
+**Dirección aceptada:** zonas de tamaños distintos, con espacios amplios de exploración y regiones marítimas grandes para evitar transiciones demasiado frecuentes. Dimensiones y conexiones concretas pendientes. Bosques con varios lugares y minas divididas en niveles o sectores son ejemplos, no distribuciones definitivas. Alternativas comentadas sin adoptar: mundo continuo con carga progresiva; combinación de zonas en tierra y mar continuo. Las zonas de mapa son diferentes de las zonas de aparición de cada recurso.
+
 | Tipo | Cantidad propuesta | Función posible |
 |---|---:|---|
 | Isla especialmente grande | 1 | Exploración amplia, ruinas y encuentros aislados. |
@@ -118,7 +122,9 @@ El núcleo propuesto de Bītu incluye los cinco personajes de servicio originale
 - [Primera propuesta de Bītu](mapas/isla-bitu-propuesta-1.png): isla más compacta y accidentada.
 - [Segunda propuesta de Bītu](mapas/isla-bitu-concepto.png): bahía amplia, terreno más abierto y silueta alargada.
 
-Ambos muestran instalaciones dispersas, ruinas, camino inicial y un lugar provisional para la granja. **No se ha elegido un mapa definitivo.** Sus ilustraciones orientan la distribución; el juego será pixel art. La granja dibujada debe entenderse como parte del hogar del jugador, cuya ubicación todavía no está fijada.
+**Referencia de estructura elegida por el usuario:** `mapas/isla-bitu-concepto.png`. Le gusta la amplitud de la isla, la granja conectada por caminos con todos los maestros y el comercio cercano. Se toma también como referencia para la ubicación costera de la granja, junto a la bahía. Esta elección resuelve la orientación general de la pregunta costa/interior; no hay que volver a preguntarla sin motivo.
+
+Ambos muestran instalaciones dispersas, ruinas, camino inicial y un lugar provisional para la granja. **La distribución detallada y los límites de cada zona aún no son definitivos.** La segunda propuesta guía la estructura; el juego será pixel art. La granja dibujada debe entenderse como parte del hogar del jugador. Se adaptarán caminos, distancias, superficies y transiciones manteniendo la geografía de referencia. La ubicación del museo, ausente en el dibujo, sigue pendiente.
 
 ## 6. Personajes
 
@@ -211,11 +217,13 @@ Los nombres, aspectos y relatos todavía no definidos de los personajes siguen a
 
 Obtienes una **casa abandonada con un terreno descuidado**, que puedes reparar y transformar poco a poco. Allí vivía el antiguo maestro granjero. El jugador puede llegar a ser **maestro granjero** algún día.
 
+**Preferencia actual del usuario:** terreno útil despejado al comenzar. Rechaza añadir una hoz para limpiar maleza, por su escasa utilidad y por acercarse demasiado a Stardew Valley. No adoptar la propuesta del asistente de una limpieza inicial obligatoria. Vegetación decorativa en los bordes, casa deteriorada y cercas rotas son posibilidades visuales para expresar abandono, pendientes de diseño; la maleza no es un recurso confirmado ni necesita recetas para justificar su existencia.
+
 **Distribución libre de la granja confirmada:** el jugador decide dónde colocar cultivos, caminos e instalaciones dentro de su terreno. Reglas de colocación, tamaños y ampliaciones pendientes. El usuario pide desarrollar cómo se organiza el suelo para encajar edificios, vegetación, recursos, mobs y ríos. [Propuesta de organización del terreno](docs/terreno.md): cuadrícula lógica isométrica, superficies de ocupación, movimiento continuo y zonas de aparición; estas soluciones técnicas son propuestas, no decisiones cerradas.
 
 **Flavia o el comerciante** pueden presentarte la casa y contar que hace tiempo vivía allí un antiguo maestro, sin revelar de entrada su especialidad. El comerciante puede estar de camino; no se ha elegido quién lo hace, el recorrido ni el diálogo.
 
-Ubicación exacta, acceso a la propiedad, reparaciones y ampliaciones pendientes. La exposición doméstica no es necesaria; las colecciones tienen el museo como destino. Una isla privada cercana fue una idea anterior, no una ubicación elegida.
+Ubicación general de referencia: junto a la bahía y cerca del comercio, según `mapas/isla-bitu-concepto.png`; límites exactos, acceso a la propiedad, reparaciones y ampliaciones pendientes. La exposición doméstica no es necesaria; las colecciones tienen el museo como destino. Una isla privada cercana fue una idea anterior, no una ubicación elegida.
 
 ## 8. Profesiones y recursos
 
@@ -261,6 +269,10 @@ La diferencia de frecuencia debe ser importante. Proporciones exactas, tiempos d
 ### Herramientas y acceso a recursos
 
 **Herramientas permanentes:** no se desgastan por uso ni requieren reparaciones periódicas. La progresión se centra en mejorarlas. Esta decisión se refiere a las herramientas; no determina la durabilidad de armas, armaduras o barcos.
+
+**Hoz descartada por el usuario. Pico–hacha combinado aceptado:** una única herramienta con cabeza de doble función, punta de pico en un extremo y filo de hacha en el otro. **Cada extremo se mejora y cambia de aspecto de forma independiente.** Su ejemplo «pico de diamante y hacha de hierro» describe esta independencia, no confirma diamante como material del juego. Nombre definitivo, atributos, recetas, costes y niveles pendientes. Mantener la utilidad de los recursos y evitar materiales repetitivos con pocos usos. Esto no elimina los arbustos de herboristería ni sustituye herramientas de otras actividades como pesca o riego.
+
+**Primer recurso solicitado:** [pico–hacha básico de hierro](assets/herramientas/pico-hacha/README.md), PNG transparente con mango de madera y agarre de cuero. Hierro gris estándar, sin efectos de rareza. Incluye medidas de presentación, regiones independientes de pico/mango/hacha, punto de agarre y rig Godot de prueba para minería y tala. PNG fuente de 1254 × 1254; presentación de 48,5 × 60,5 píxeles dentro de una referencia de 64 × 64, junto al humano de 80. Una sola proyección; coordinación del cuerpo, vistas definitivas y aplicación de mejoras jugables pendientes. Escena de revisión: `prueba/scenes/herramienta.tscn`; no sustituye aún el funcionamiento del personaje en la granja.
 
 **Selección automática confirmada:** al interactuar con un recurso, el personaje utiliza la herramienta correspondiente que tiene equipada en su hueco propio; por ejemplo, el pico para una mena. No hay que seleccionarla manualmente antes de cada interacción. Animaciones, controles y tratamiento de herramientas ausentes pendientes; esta comodidad no define todavía la ejecución de la recolección ni sustituye la automatización futura de la granja.
 
@@ -533,3 +545,13 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** primera prueba visual limitada para revisar el aspecto: movimiento WASD, zoom, terreno y costa provisionales, mochila, cuatro tomates originales, una mena, una flor y cultivo manual básico. Sin nueva generación artística; posteriormente el usuario pide subir la prueba a GitHub en una carpeta propia. Las cifras y la distribución de prueba no son equilibrio ni mapa definitivos.
 
 - **7 de octubre de 2026:** petición explícita de subir la prueba a GitHub. Se organiza el proyecto en `prueba/`, con captura real, código e instrucciones; incluye una descarga de navegador para ejecutar con Python 3. No se publica todavía un sitio web. Los cuatro PNG originales se copian dentro del proyecto de prueba para que Godot pueda exportarlo como carpeta independiente.
+
+- **8 de octubre de 2026:** aceptada la división en mapas o «pantallas» conectadas al estilo Stardew Valley: cámara que se desplaza al acercarse al borde visible, se detiene en los límites y transición al salir por un acceso. El usuario quiere mantener esta dinámica como base de todo el juego y pide comparar alternativas. Tamaños, distribución y tratamiento del mar pendientes; sin modificar código ni subir estos acuerdos todavía.
+
+- **8 de octubre de 2026:** tras comparar alternativas, aceptada la dirección de zonas conectadas de tamaños distintos, con regiones marítimas amplias. La cantidad, dimensiones y distribución siguen pendientes. Se continúa el diseño sin implementar todavía las transiciones.
+
+- **8 de octubre de 2026:** elegido `isla-bitu-concepto.png` como referencia de estructura. El usuario destaca la isla amplia, los caminos hacia todos los maestros desde la granja y el comercio cercano. La granja costera junto a la bahía del dibujo pasa a ser referencia general; adaptación a zonas y distribución detallada pendientes. Sin generar imágenes ni modificar código.
+
+- **8 de octubre de 2026:** el usuario prefiere terreno despejado y descarta la hoz propuesta para maleza; considera poco útil añadir ese recurso y esa herramienta. Plantea combinar pico y hacha en una cabeza con punta de pico y filo de hacha, y pregunta por su realismo. La herramienta combinada sigue como propuesta; no modificar el prototipo aún por esta conversación.
+
+- **8 de octubre de 2026:** aceptado el pico–hacha con mejoras y materiales visibles independientes por extremo. El usuario solicita imagen pixel art equipada con medidas y detalles necesarios para animarla, una versión básica de hierro, y su subida a GitHub. Preparados recurso transparente, metadatos, regiones de componentes y escena de revisión en Godot. Las cifras de animación son parámetros de prueba; diamante sigue siendo solo su ejemplo hipotético.

@@ -145,6 +145,8 @@ Una mejora puede cambiar el aspecto de una herramienta, barco o casa conservando
 
 Para equipo visible, decidir más adelante entre animaciones específicas y piezas combinables; esta escala permite estudiar ambas opciones. Una armadura o arma encontrada como botín necesita representación en el suelo aunque luego use un hueco propio al equiparse. Reglas para guardarla antes de equiparla siguen pendientes.
 
+**Caso posterior confirmado: pico–hacha con extremos mejorables por separado.** Su primer [recurso básico de hierro](../assets/herramientas/pico-hacha/README.md) incluye regiones independientes de pico, mango y hacha, registro de agarre y rig Godot de revisión. Tamaño presentado de 48,5 × 60,5 dentro de la referencia equipada de 64 × 64, junto al humano de 80; PNG fuente de 1254 × 1254. Se conserva el original y se ajusta la presentación en el motor. Es una proyección con movimientos de prueba; no cierra las vistas ni animaciones de todos los equipos.
+
 Las instalaciones de los maestros respetan sus casas y terrenos: astillero en la propiedad de Flavia, mina junto al minero/herrero y espacios de profesión dentro, fuera o en anexos según el diseño final. El marco no convierte Bītu en una plaza comercial.
 
 ## 11. Preparación de recursos y validación futura
@@ -159,4 +161,4 @@ Futuras comprobaciones, una vez autorizadas: personaje junto a cultivo, arbusto,
 
 Este documento no crea una primera versión con todo el contenido. Existe una prueba visual limitada descrita en [prueba visual](prueba-visual.md); el alcance completo sigue pendiente. No se generan imágenes nuevas ni se suben cambios salvo petición explícita.
 
-Referencias: [diseño vigente](../DISENO.md), [organización del terreno](terreno.md), [tomates existentes](../assets/objetos/cultivos/README.md). Fecha: **7 de octubre de 2026**.
+Referencias: [diseño vigente](../DISENO.md), [organización del terreno](terreno.md), [tomates existentes](../assets/objetos/cultivos/README.md). Fecha: **8 de octubre de 2026**.

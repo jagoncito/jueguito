@@ -79,9 +79,11 @@ Acantilados y pendientes necesitan reglas explícitas de acceso. Natación, vade
 
 Ordenar personajes y objetos por su punto de apoyo para que se vean delante o detrás de edificios y árboles al moverse. Si una copa o tejado oculta al personaje, estudiar transparencia parcial o una silueta visible. Interiores y comportamiento definitivo de ocultación pendientes.
 
-Organizar el archipiélago en islas/regiones y dividir los mapas grandes en sectores cargables. Mantener continuidad de navegación y posiciones al cruzar sectores. El tamaño de sectores, las transiciones y el cálculo de tiempos fuera de pantalla requieren pruebas futuras en Godot 4 para navegador.
+**Organización visible aceptada el 8 de octubre:** mapas o zonas conectadas, con referencia Stardew Valley. Cada zona puede superar lo que cabe en el monitor. La cámara se desplaza al acercarse al borde visible y se detiene en los límites del mapa; salir por un acceso conduce mediante una transición a otro mapa. Esta es la base deseada para el juego; tamaños, conexiones y tratamiento del mar e interiores pendientes. La prueba actual aún no lo implementa.
 
-En Bītu, respetar las casas dispersas, pocas personas y el único recorrido inicial desde las ruinas al astillero. Su distribución definitiva sigue pendiente; esta estructura no selecciona uno de los mapas conceptuales.
+La carga técnica en sectores dentro de un mapa sigue como posibilidad independiente. Un sector técnico de 32 × 32 no determina el tamaño de una zona ni obliga a mostrar una transición. El cálculo del tiempo fuera de la zona y la continuidad del estado requieren definición y pruebas posteriores. Las zonas de aparición de recursos siguen siendo subdivisiones con una función distinta.
+
+En Bītu, respetar las casas dispersas, pocas personas y el único recorrido inicial desde las ruinas al astillero. El usuario elige `mapas/isla-bitu-concepto.png` como referencia de estructura: isla amplia, granja junto a la bahía, comercio cercano y caminos hacia todos los maestros. Adaptar esa geografía a mapas conectados; límites de zonas, distancias y distribución detallada siguen pendientes.
 
 ## Próximo paso de validación visual
 
@@ -89,4 +91,4 @@ Antes de producir conjuntos de escenarios o animaciones, comprobar la escala de 
 
 Extender esa futura comprobación a menas/vetas, flores/arbustos, peces, mobs pequeños y grandes, barcos, ríos, lagos, puentes y más de una región. La aceptación de la escala de referencia no valida por sí sola los tamaños finales de todos esos recursos.
 
-Documento principal: [DISENO.md](../DISENO.md). Fecha: **7 de octubre de 2026**.
+Documento principal: [DISENO.md](../DISENO.md). Fecha: **8 de octubre de 2026**.

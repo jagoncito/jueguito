@@ -27,6 +27,7 @@ Los mapas son conceptuales; ninguna distribución es definitiva. El bloc contien
 - [Unamahloni — pose quieta en pixel art](assets/personajes/unamahloni-idle.png): versión original, PNG transparente de 1143 × 1376 píxeles.
 - [Notas de uso del personaje](assets/personajes/README.md).
 - [Cuatro tomates en pixel art](assets/objetos/cultivos/README.md): común, prístino, Siru y Siru prístino; PNG independientes con fondo transparente.
+- [Pico–hacha de hierro](assets/herramientas/pico-hacha/README.md): PNG transparente, medidas, agarre, componentes visuales independientes y escena de revisión animable en Godot.
 
 Para ejecutar la prueba en tu ordenador: instala Godot **4.6.3**, importa `prueba/project.godot` y pulsa **F5** para jugar. También puedes usar la [descarga para navegador](prueba/descargas/bitu-navegador.zip), con Python 3; consulta las [instrucciones de la prueba](prueba/README.md). Movimiento WASD, rueda para zoom, E para interactuar y Tab para mostrar la mochila. La prueba no guarda progreso.
 

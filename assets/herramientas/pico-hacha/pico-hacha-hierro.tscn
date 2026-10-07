@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/herramientas/pico-hacha/pico-hacha-hierro.png" id="1_texture"]
+[ext_resource type="Script" path="res://assets/herramientas/pico-hacha/pico-hacha.gd" id="2_script"]
+
+[sub_resource type="AtlasTexture" id="Atlas_pick"]
+atlas = ExtResource("1_texture")
+region = Rect2(240,164,314,968)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_handle"]
+atlas = ExtResource("1_texture")
+region = Rect2(554,164,150,968)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_axe"]
+atlas = ExtResource("1_texture")
+region = Rect2(704,164,312,968)
+filter_clip = true
+
+[node name="AgarrePicoHacha" type="Node2D"]
+texture_filter = 1
+script = ExtResource("2_script")
+
+[node name="Pico" type="Sprite2D" parent="."]
+position = Vector2(-14.5625,-15.75)
+scale = Vector2(0.0625,0.0625)
+texture = SubResource("Atlas_pick")
+
+[node name="Mango" type="Sprite2D" parent="."]
+position = Vector2(-0.0625,-15.75)
+scale = Vector2(0.0625,0.0625)
+texture = SubResource("Atlas_handle")
+
+[node name="Hacha" type="Sprite2D" parent="."]
+position = Vector2(14.375,-15.75)
+scale = Vector2(0.0625,0.0625)
+texture = SubResource("Atlas_axe")

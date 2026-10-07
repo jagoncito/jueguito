@@ -39,3 +39,9 @@ Los cuatro PNG de tomates se incluyen en `assets/objetos/cultivos/` dentro de es
 **No guarda progreso.** Personaje, edificios, terreno y tiempos son provisionales. Los tomates junto a la orilla son muestras para comparar sus diseños; las cosechas normales de esta prueba dan tomate común. Todavía no incluye pesca, barco ni el inicio narrativo del juego.
 
 Consulta [alcance y comprobaciones](../docs/prueba-visual.md). Para regenerar la exportación web, instala las plantillas Godot 4.6.3, crea `build/web` y usa el preset **Web**. Los archivos generados y la caché `.godot` se excluyen de Git.
+
+## Revisar el pico–hacha
+
+Abre `scenes/herramienta.tscn` en Godot y pulsa **F6**. Muestra el personaje provisional y el [pico–hacha de hierro](../assets/herramientas/pico-hacha/README.md), con proporciones reales ampliadas ×4. **1** reproduce minería, **2** tala y **R** restaura las poses. Esta escena de revisión es independiente de la granja y no implementa las mejoras jugables.
+
+![Comprobación real de escala y agarre](capturas/pico-hacha-escala.png)

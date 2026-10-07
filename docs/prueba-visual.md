@@ -15,6 +15,8 @@ Los cuatro tomates junto a la orilla son **muestras de comparación**, no un eje
 
 Las herramientas se indican aparte de la mochila. Sus huecos interactivos, requisitos y mejoras siguen pendientes.
 
+El 8 de octubre se añade una **escena de revisión independiente del pico–hacha** pedido por el usuario: `prueba/scenes/herramienta.tscn`, abrir con F6. Incluye el nuevo PNG de hierro, tres regiones visuales registradas y movimientos de prueba. No cambia el comportamiento del personaje de la granja ni implementa las mejoras de herramienta. [Medidas, agarre y uso](../assets/herramientas/pico-hacha/README.md).
+
 ## Ejecutar en tu ordenador
 
 Instala **Godot 4.6.3 estándar**, descarga el proyecto y usa **Importar** para abrir `prueba/project.godot`. Pulsa **F5** para jugar. No hace falta Node, npm ni compilar manualmente.
