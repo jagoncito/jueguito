@@ -7,5 +7,6 @@
 - Mantén el bloc al día cuando se acuerden cambios. Usa el estado actual del documento; las notas antiguas del historial de Git pueden haber sido sustituidas.
 - Los secretos de los creadores no son información inicial del jugador. Respeta especialmente el antiguo maestro granjero y la imposibilidad de morir.
 - Conserva la grafía **Bītu**. Recuerda: pocas personas, casas dispersas con instalaciones dentro o fuera de sus terrenos, agricultura distinta de herboristería y juego individual.
-- Los mapas son propuestas de distribución; el juego será pixel art. No hay mapa definitivo ni tecnología elegida.
+- Todo el juego será **pixel art**, con **vista desde arriba isométrica cenital** (cámara elevada en tres cuartos; referencia de perspectiva: Diablo IV). Los mapas son propuestas de distribución; no hay mapa definitivo ni tecnología elegida.
+- El usuario ha pedido detener la generación de imágenes. No generar nuevas imágenes salvo una petición explícita posterior del usuario. Conservar el recurso pixel art de Unamahloni; las dos variantes ilustradas descartadas fueron eliminadas.
 - Usa el checkout existente. No crear otro checkout o un worktree salvo que el usuario lo solicite.

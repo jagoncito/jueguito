@@ -8,13 +8,21 @@ Este es el documento de referencia para retomar el proyecto, también en otro ch
 
 ## 1. Visión del juego
 
-Juego **individual**, de fantasía, en **pixel art y visto desde arriba**. El jugador llega a una tierra misteriosa con pocos habitantes, comienza en **Isla Bītu**, construye su primer barco y explora un archipiélago extenso.
+Juego **individual**, de fantasía, **íntegramente en pixel art**, con **vista desde arriba isométrica cenital**. El jugador llega a una tierra misteriosa con pocos habitantes, comienza en **Isla Bītu**, construye su primer barco y explora un archipiélago extenso.
 
 La experiencia se centra en **farmear, mejorar, explorar y coleccionar**. Minería y pesca son especialmente importantes para el usuario. También habrá agricultura, herboristería, alquimia, herrería y cocina. Cada jugador puede dedicar tiempo a todas las profesiones o solo a las que le apetezcan.
 
 Bucle de referencia: explorar → conseguir recursos y hallazgos → conservar piezas especiales y vender o utilizar materiales → mejorar habilidades, herramientas, casa y barco → explorar nuevos lugares.
 
 Se busca que las mejoras se noten y que encontrar algo especial dé ilusión. La presentación concreta de ese bucle y su equilibrio siguen en diseño.
+
+### Estilo visual y cámara — decisiones confirmadas
+
+- **Pixel art para el juego entero:** personajes, escenarios, recursos y demás elementos visuales del juego.
+- **Vista desde arriba isométrica cenital**, entendida como cámara elevada en tres cuartos dirigida hacia el suelo. Diablo IV sirve de referencia de perspectiva.
+- Ángulo exacto, escala y resolución de los recursos pendientes; la dirección de cámara ya está elegida.
+- Tras comparar estilos, se conserva la versión pixel art de Unamahloni y se eliminan las dos variantes ilustradas del repositorio.
+- **Generación de imágenes detenida por petición del usuario.** No crear más imágenes salvo una petición explícita posterior. La programación sigue en pausa.
 
 ## 2. Premisa y misterio
 
@@ -178,15 +186,13 @@ Es metódico, observador, muy curioso, tímido y religioso. **Venera a los espí
 
 **Apariencia confirmada:** piel grisácea azulada, orejas de forma humana, **ojos ámbar y cabello de un color similar al ámbar**. Las marcas naturales deben ser **discretas, poco llamativas**; patrón, ubicación y color por definir. El cabello blanco se descartó. Ishari y Aruven dejan de ser alternativas activas; el nombre elegido es Veyari. El fauno sugerido anteriormente no fue elegido.
 
-Las propuestas anteriores de cabello azul petróleo o negro violáceo y ojos de dos tonos no son la dirección elegida. El anillo oscuro del iris tampoco está confirmado. **Peinado liso confirmado** al solicitar la segunda imagen. Matiz exacto del cabello, longitud, ropa y demás detalles se podrán retomar más adelante. Ojos y cabello elegidos describen a Unamahloni; no obligan a todos los Veyari a tener esos colores.
+Las propuestas anteriores de cabello azul petróleo o negro violáceo y ojos de dos tonos no son la dirección elegida. El anillo oscuro del iris tampoco está confirmado. **Peinado liso confirmado**; esa decisión permanece al volver al pixel art. Matiz exacto del cabello, longitud, ropa y demás detalles se podrán retomar más adelante. Ojos y cabello elegidos describen a Unamahloni; no obligan a todos los Veyari a tener esos colores.
 
 **Personaje en pausa por petición del usuario:** dejarlo por ahora con estas decisiones y no seguir preguntando sobre él hasta que el usuario quiera retomarlo.
 
 El usuario ha solicitado después una imagen pixel art para la futura programación. Primer recurso generado: [Unamahloni — pose quieta](assets/personajes/unamahloni-idle.png), PNG transparente de 1143 × 1376 píxeles. [Notas de uso](assets/personajes/README.md). Es una sola pose, sin animaciones; ropa y accesorios de esta imagen pueden revisarse. Se mantiene la pausa del diseño detallado y de la programación.
 
-Segunda imagen solicitada: [Unamahloni — versión Ghibli con pelo liso](assets/personajes/unamahloni-ghibli.png), también PNG transparente de 1143 × 1376 píxeles. Conserva la identidad, colores y pose, con renderizado de animación dibujada. Se guarda como variante independiente; el estilo global pixel art del juego no se ha revisado todavía.
-
-Tercera imagen solicitada: [Unamahloni — vista isométrica elevada](assets/personajes/unamahloni-isometrico.png), PNG transparente de 1143 × 1376 píxeles. La cámara mira desde arriba en tres cuartos, con referencia a la perspectiva de juego de Diablo IV. Conserva estética Ghibli y pelo liso. Es la variante más reciente del recurso, sin animaciones ni integración en un motor.
+Las dos variantes ilustradas se descartaron tras comparar estilos y se eliminaron. El recurso pixel art original permanece intacto como primer boceto; todavía no se ha adaptado a la cámara isométrica cenital definitiva ni al peinado liso. No se ha generado una nueva imagen para hacerlo, respetando la petición de detener la generación.
 
 La timidez y la religiosidad son rasgos de Unamahloni, no una personalidad común obligatoria para toda su especie.
 
@@ -446,5 +452,4 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** confirmadas zonas de aparición propias de cada recurso, con posiciones variables dentro de cada zona. Minería: muchas más menas que vetas, con mejores recompensas en vetas. Herboristería: misma relación entre flores y arbustos.
 - **7 de octubre de 2026:** confirmado que ciertas herramientas avanzadas permiten recoger nuevos recursos, además de mejorar velocidad y rendimiento. Requisitos concretos pendientes.
 - **7 de octubre de 2026:** creado a petición del usuario el primer recurso pixel art de Unamahloni, PNG transparente de una pose. Solicitada su subida a GitHub; no se ha iniciado código del juego.
-- **7 de octubre de 2026:** solicitada y creada variante de Unamahloni con estética Ghibli y pelo liso, guardada aparte para conservar el original pixel art. El usuario pide subirla a GitHub.
-- **7 de octubre de 2026:** creada variante isométrica elevada de Unamahloni, con Diablo IV como referencia de cámara y conservando estética Ghibli y pelo liso.
+- **7 de octubre de 2026:** tras comparar variantes, confirmado pixel art para todo el juego y vista desde arriba isométrica cenital. Eliminadas las dos variantes ilustradas; conservado el original pixel art. Generación de imágenes detenida por petición del usuario.
