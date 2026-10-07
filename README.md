@@ -12,4 +12,9 @@ Proyecto de juego individual de fantasía en pixel art, visto desde arriba, cent
 
 Los mapas son conceptuales; ninguna distribución es definitiva. El bloc contiene información narrativa que el jugador desconocerá al principio.
 
+## Recursos gráficos
+
+- [Unamahloni — pose quieta](assets/personajes/unamahloni-idle.png): PNG con fondo transparente, 1143 × 1376 píxeles.
+- [Notas de uso del personaje](assets/personajes/README.md).
+
 Para retomar en otro chat, empezar por el bloc y continuar con una decisión cada vez. No hay aplicación ni dependencias que instalar todavía.

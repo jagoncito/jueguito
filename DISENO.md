@@ -182,6 +182,8 @@ Las propuestas anteriores de cabello azul petróleo o negro violáceo y ojos de 
 
 **Personaje en pausa por petición del usuario:** dejarlo por ahora con estas decisiones y no seguir preguntando sobre él hasta que el usuario quiera retomarlo.
 
+El usuario ha solicitado después una imagen pixel art para la futura programación. Primer recurso generado: [Unamahloni — pose quieta](assets/personajes/unamahloni-idle.png), PNG transparente de 1143 × 1376 píxeles. [Notas de uso](assets/personajes/README.md). Es una sola pose, sin animaciones; ropa y accesorios de esta imagen pueden revisarse. Se mantiene la pausa del diseño detallado y de la programación.
+
 La timidez y la religiosidad son rasgos de Unamahloni, no una personalidad común obligatoria para toda su especie.
 
 Los nombres, aspectos y relatos todavía no definidos de los personajes siguen abiertos. Los nombres propuestos anteriormente —Ena, Orun y Sila— no fueron elegidos.
@@ -210,6 +212,23 @@ Ubicación exacta, acceso a la propiedad, reparaciones y ampliaciones pendientes
 
 **Base provisional que encaja al usuario:** experiencia al practicar y nuevas posibilidades al progresar; materiales y monedas para mejorar herramientas. Niveles, desbloqueos y requisitos de maestría se decidirán después.
 
+### Aparición de recursos: minería y herboristería
+
+Regla confirmada para ambas actividades: **cada tipo de recurso tiene su propia zona de aparición y reaparición**. El recurso aparece en distintos puntos dentro de esa misma zona; no vuelve obligatoriamente a la coordenada exacta donde se recogió ni se redistribuye por cualquier lugar del mundo.
+
+| Actividad | Forma mucho más frecuente | Forma menos frecuente, con mejores recompensas |
+|---|---|---|
+| Minería | Menas | Vetas |
+| Herboristería | Flores | Arbustos |
+
+La diferencia de frecuencia debe ser importante. Proporciones exactas, tiempos de reaparición, cantidades simultáneas, límites de cada zona y contenido de las recompensas pendientes. Esta regla se aplica a plantas silvestres; los cultivos de la granja se diseñan por separado.
+
+### Herramientas y acceso a recursos
+
+Confirmado: ciertos recursos requieren una herramienta más avanzada para recogerlos. Puedes encontrar, por ejemplo, una veta valiosa antes de tener un pico capaz de extraerla.
+
+Las mejoras de herramientas también aumentan velocidad y rendimiento. Así permiten trabajar mejor y acceder a nuevos materiales. Tipos de herramientas, niveles, recursos afectados, costes y requisitos exactos pendientes; esto no fija automáticamente un requisito de nivel de profesión para cada recurso.
+
 ### Minería y herrería
 
 - Explorar minas y galerías con vetas, criaturas y secretos al profundizar.
@@ -217,7 +236,9 @@ Ubicación exacta, acceso a la propiedad, reparaciones y ampliaciones pendientes
 - Existen **rocas básicas**.
 - También hay **vetas preciosas y muy valiosas en la superficie de islas difíciles y peligrosas**.
 
-El valor depende del lugar y sus peligros, además de la profundidad. Minerales, extracción, requisitos de pico y reaparición de vetas pendientes. Fundición y fabricación de equipo son propuestas vinculadas a herrería.
+Además de las rocas básicas, habrá **menas y vetas**, con muchas más menas que vetas. Las vetas darán mejores recompensas y ambas seguirán sus zonas de aparición.
+
+El valor depende del lugar y sus peligros, además de la profundidad. Minerales, extracción, requisitos de pico y tiempos de reaparición pendientes. Fundición y fabricación de equipo son propuestas vinculadas a herrería.
 
 ### Pesca y cocina
 
@@ -240,6 +261,8 @@ El maestro de pesca/cocina sí ofrecerá orientación secundaria sobre granja, a
 ### Herboristería y alquimia
 
 **Herboristería:** recolectar plantas silvestres para alquimia durante la exploración. Es distinta de plantar alimentos en la granja; el herboristero no es el maestro de agricultura.
+
+Habrá **flores y arbustos**, siguiendo la misma relación que menas y vetas: muchas más flores y arbustos menos frecuentes con mejores recompensas. Cada tipo tiene su zona de aparición, con posiciones variables dentro de ella.
 
 **Flor de Yde** es un ejemplo inventado por el usuario, no una especie definitiva.
 
@@ -357,7 +380,7 @@ El usuario dijo que el siguiente esquema encaja, pero lo considera denso y quier
 
 La navegación, primera expedición, granja desarrollada, cocina completa, jefes y resto del archipiélago requieren revisar el alcance antes de incluirlos. Las propuestas anteriores de un jefe inicial o un destino cercano no son requisitos cerrados de esta versión.
 
-Guardado local es una propuesta inicial; plataforma y sistema definitivo de guardado pendientes. **No se ha elegido motor, tecnología ni plataforma de ejecución.** El proyecto todavía contiene documentación y mapas, sin implementación.
+Guardado local es una propuesta inicial; plataforma y sistema definitivo de guardado pendientes. **No se ha elegido motor, tecnología ni plataforma de ejecución.** El proyecto contiene documentación, mapas y un primer recurso gráfico de personaje, sin implementación.
 
 ## 14. Pendientes para futuras conversaciones
 
@@ -416,3 +439,6 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** confirmadas piel grisácea azulada y orejas humanas para Unamahloni/Veyari. Retirada la propuesta de cabello blanco; nuevas opciones de cabello y ojos pendientes de elección.
 - **7 de octubre de 2026:** elegidos para Unamahloni ojos ámbar y cabello de color similar. El usuario deja el personaje en pausa por ahora.
 - **7 de octubre de 2026:** confirmada granja manual al comienzo, con automatización mediante mejoras más adelante. Sistemas y desbloqueos pendientes.
+- **7 de octubre de 2026:** confirmadas zonas de aparición propias de cada recurso, con posiciones variables dentro de cada zona. Minería: muchas más menas que vetas, con mejores recompensas en vetas. Herboristería: misma relación entre flores y arbustos.
+- **7 de octubre de 2026:** confirmado que ciertas herramientas avanzadas permiten recoger nuevos recursos, además de mejorar velocidad y rendimiento. Requisitos concretos pendientes.
+- **7 de octubre de 2026:** creado a petición del usuario el primer recurso pixel art de Unamahloni, PNG transparente de una pose. Solicitada su subida a GitHub; no se ha iniciado código del juego.
