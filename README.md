@@ -4,7 +4,7 @@ Proyecto de juego individual de fantasía, **íntegramente en pixel art**, con *
 
 **Estamos diseñando el juego. La programación no ha comenzado y sigue en pausa hasta que el usuario indique explícitamente que quiere empezar.**
 
-La generación de imágenes también está en pausa por petición del usuario.
+La generación general de imágenes está en pausa; solo se crean recursos cuando el usuario los pide explícitamente.
 
 ## Documentos
 
@@ -18,5 +18,6 @@ Los mapas son conceptuales; ninguna distribución es definitiva. El bloc contien
 
 - [Unamahloni — pose quieta en pixel art](assets/personajes/unamahloni-idle.png): versión original, PNG transparente de 1143 × 1376 píxeles.
 - [Notas de uso del personaje](assets/personajes/README.md).
+- [Cuatro tomates en pixel art](assets/objetos/cultivos/README.md): común, prístino, Siru y Siru prístino; PNG independientes con fondo transparente.
 
 Para retomar en otro chat, empezar por el bloc y continuar con una decisión cada vez. No hay aplicación ni dependencias que instalar todavía.

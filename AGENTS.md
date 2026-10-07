@@ -5,6 +5,7 @@
 - El usuario quiere avanzar con decisiones pequeñas, una por una. Evita cuestionarios extensos y preguntas prematuras sobre detalles de implementación.
 - Distingue decisiones confirmadas, propuestas y pendientes. No conviertas tus sugerencias en decisiones sin aceptación del usuario.
 - Mantén el bloc al día cuando se acuerden cambios. Usa el estado actual del documento; las notas antiguas del historial de Git pueden haber sido sustituidas.
+- Guarda los acuerdos localmente. Solo subir cambios a GitHub cuando el usuario lo pida explícitamente; las peticiones anteriores de subida no autorizan subidas continuas.
 - Los secretos de los creadores no son información inicial del jugador. Respeta especialmente el antiguo maestro granjero y la imposibilidad de morir.
 - Conserva la grafía **Bītu**. Recuerda: pocas personas, casas dispersas con instalaciones dentro o fuera de sus terrenos, agricultura distinta de herboristería y juego individual.
 - Todo el juego será **pixel art**, con **vista desde arriba isométrica cenital** (cámara elevada en tres cuartos; referencia de perspectiva: Diablo IV). Los mapas son propuestas de distribución; no hay mapa definitivo ni tecnología elegida.

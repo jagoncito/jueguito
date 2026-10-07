@@ -266,9 +266,21 @@ Cultivar alimentos, por ejemplo **patatas y tomates**, en la granja del jugador.
 
 **Falta de riego confirmada:** los cultivos detienen su crecimiento, sin marchitarse ni perder el progreso acumulado. Vuelven a crecer cuando el jugador retoma el riego. Esto permite salir de expedición sin perder la plantación por no atenderla.
 
+**Cosechas excepcionales confirmadas:** habrá productos de mejor calidad y, ocasionalmente, variantes muy raras, incorporando el coleccionismo a la agricultura. Tipos, probabilidades, condiciones de obtención y efectos de la calidad pendientes.
+
+**Experiencia específica por cultivo:** recoger tomates da experiencia en el cultivo de tomates. Al aumentar esa habilidad, aumentan las probabilidades de obtener tomates de calidad excepcional. Cada cultivo tiene su propio progreso; cultivar tomates no sube automáticamente la habilidad de cultivar patatas. Niveles, cantidades de experiencia y probabilidades pendientes.
+
+**Nombre confirmado para la máxima calidad: «Prístino»** (por ejemplo, «tomate prístino»). El resto de categorías de calidad está pendiente. Tomate dorado, semillas especiales, fertilizantes y efectos concretos en cocina o precio fueron ejemplos del asistente, no decisiones confirmadas.
+
+**Nombre elegido para la variante rara: «Siru».** Grafía usada por el usuario para el juego; referencia lingüística: acadio **ṣīru**, «elevado, excelso, sublime». Ejemplo: «tomate Siru». Se mantiene la distinción entre variante y calidad: un ejemplar Siru podría alcanzar calidad prístina. Aspecto, obtención, probabilidades y aplicación del nombre a otros recursos pendientes. Aurath, Náreth y Elyr fueron nombres inventados y no elegidos; no atribuirles significados históricos.
+
+**Recursos gráficos solicitados:** [tomate](assets/objetos/cultivos/tomate.png), [tomate prístino](assets/objetos/cultivos/tomate-pristino.png), [tomate Siru](assets/objetos/cultivos/tomate-siru.png) y [tomate Siru prístino](assets/objetos/cultivos/tomate-siru-pristino.png). Cuatro PNG transparentes pixel art de una pieza cada uno, con vista elevada en tres cuartos. [Previsualizaciones y notas de importación](assets/objetos/cultivos/README.md).
+
+Paleta propuesta en estas imágenes: común rojo; prístino rojo intenso con forma más equilibrada y reflejos limpios; Siru índigo oscuro con vetas doradas; Siru prístino con vetas más brillantes y hojas más vivas. El usuario pidió crear y subir estas cuatro imágenes, sin autorizar código ni nuevas imágenes ajenas a este encargo. Su aspecto definitivo puede revisarse; las vetas luminosas no confirman efectos mágicos jugables.
+
 Semillas, frecuencia de riego, otros cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. No hay un maestro agricultor vivo adicional confirmado. Esta decisión no determina el progreso mientras el juego está cerrado.
 
-El maestro de pesca/cocina sí ofrecerá orientación secundaria sobre granja, agricultura y animales, incluidos consejos a veces mágicos. El usuario ha mencionado ganadería como uno de sus intereses; la existencia y alcance de un sistema jugable de ganadería todavía deben concretarse.
+El maestro de pesca/cocina sí ofrecerá orientación secundaria sobre granja, agricultura y animales, incluidos consejos a veces mágicos. El usuario propone aplicar también experiencia específica por tipo de animal. Acciones que dan experiencia, productos afectados, especies y alcance del sistema de ganadería todavía deben concretarse.
 
 ### Herboristería y alquimia
 
@@ -420,6 +432,7 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 ## 16. Continuidad y publicación
 
 - Repositorio: **jagoncito/jueguito**, rama remota **main**.
+- Mantener los acuerdos en el bloc local. **Subir a GitHub solo cuando el usuario lo pida explícitamente**, sin subidas automáticas tras cada decisión.
 - Este bloc contiene el estado actual. Versiones anteriores y cambios están en el historial de Git.
 - Ambos mapas son propuestas visuales; ninguna es el escenario definitivo.
 - Al retomar, leer este documento y confirmar qué tema quiere desarrollar el usuario.
@@ -456,3 +469,7 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **7 de octubre de 2026:** creado a petición del usuario el primer recurso pixel art de Unamahloni, PNG transparente de una pose. Solicitada su subida a GitHub; no se ha iniciado código del juego.
 - **7 de octubre de 2026:** tras comparar variantes, confirmado pixel art para todo el juego y vista desde arriba isométrica cenital. Eliminadas las dos variantes ilustradas; conservado el original pixel art. Generación de imágenes detenida por petición del usuario.
 - **7 de octubre de 2026:** confirmado que los cultivos sin regar detienen su crecimiento y lo retoman al volver a regarlos; no se marchitan por falta de riego.
+- **7 de octubre de 2026:** aceptadas cosechas de mejor calidad y variantes muy raras. El usuario indica guardar los acuerdos localmente y subirlos a GitHub únicamente cuando lo pida.
+- **7 de octubre de 2026:** definido progreso específico por cultivo: cosechar tomates aumenta la habilidad con tomates y las probabilidades de mejor calidad. El usuario propone «Prístino» como nombre de calidad y una lógica de experiencia específica también para animales; detalles pendientes.
+- **7 de octubre de 2026:** elegido «Siru» como nombre de la variante rara, inspirado en el acadio ṣīru, «elevado, excelso, sublime». Aspecto y obtención pendientes.
+- **7 de octubre de 2026:** solicitados cuatro recursos pixel art independientes: tomate, tomate prístino, tomate Siru y tomate Siru prístino, con subida explícita a GitHub. Generados PNG transparentes; paleta propuesta roja para comunes e índigo con vetas doradas para Siru. Confirmado el uso de «Prístino» como máxima calidad. Programación en pausa.
