@@ -1,0 +1,35 @@
+{
+  "status": "integrated_prototype",
+  "created": "2026-10-08",
+  "source": {
+    "file": "palin-herborista-exotico.png",
+    "width": 1254,
+    "height": 1254,
+    "transparent": true
+  },
+  "presentation": {
+    "source_scale": 0.03125,
+    "full_canvas_pixels": [
+      39.1875,
+      39.1875
+    ],
+    "filter": "nearest",
+    "human_reference_height": 80
+  },
+  "source_grip": [
+    440,
+    820
+  ],
+  "source_tip": [
+    1170,
+    155
+  ],
+  "animation": {
+    "duration_seconds": 2.0,
+    "extract_at_seconds": 1.5,
+    "impact_angle_degrees": 85,
+    "kneeling": true,
+    "provisional": true
+  },
+  "notes": "Una proyección con orientación lateral. Materiales, rareza y propiedades no se deducen de la apariencia."
+}

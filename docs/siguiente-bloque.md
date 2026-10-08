@@ -90,7 +90,7 @@ No marcar estas comprobaciones como realizadas antes de existir el juego. La pru
 - Godot **4.6.3 estable** ya está instalado en este entorno y pertenece a la familia elegida Godot 4. La versión definitiva del proyecto puede fijarse al comenzar.
 - Disponible Chromium para una futura comprobación de navegador.
 - **Importación de los cuatro PNG verificada:** proyecto temporal fuera del repositorio, importación sin errores y carga como `Texture2D`/`Sprite2D`, con filtrado por vecino más cercano y presentación proporcional de 32 píxeles. Esta prueba no verifica una escena jugable ni el aspecto final a esa escala.
-- Plantillas web oficiales **4.6.3** instaladas, con SHA-512 contrastado con la lista oficial. Ya existe una exportación sin hilos y la escena ha cargado en Chromium con WebGL 2. Los detalles de las comprobaciones y los límites están en [prueba visual](prueba-visual.md).
+- La exportación anterior se creó con plantillas oficiales **4.6.3**, con SHA-512 contrastado con la lista oficial. En la máquina actual del 8 de octubre no están instaladas: `prueba/tools/export_web.py` exporta los datos con Godot y reutiliza el runtime de aquella descarga, comprobando su SHA-256. La integración de minería y tala ha cargado en Chromium con WebGL 2. Los detalles y límites están en [prueba visual](prueba-visual.md).
 
 ### Directorios de Godot en este entorno
 

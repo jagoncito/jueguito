@@ -34,13 +34,20 @@ func _ready() -> void:
 func add_obstacle(cell: Vector2i) -> void:
 	if blocked.has(cell):
 		return
-	blocked[cell] = true
 	var body := StaticBody2D.new()
+	blocked[cell] = body
 	body.position = cell_to_world(cell)
 	var shape := CollisionPolygon2D.new()
 	shape.polygon = PackedVector2Array([Vector2(0, -16), Vector2(32, 0), Vector2(0, 16), Vector2(-32, 0)])
 	body.add_child(shape)
 	add_child(body)
+
+func remove_obstacle(cell: Vector2i) -> void:
+	if not blocked.has(cell) or is_water(cell) or is_house(cell):
+		return
+	var body := blocked[cell] as StaticBody2D
+	blocked.erase(cell)
+	body.queue_free()
 
 func _draw() -> void:
 	for y in range(MAP_SIZE):

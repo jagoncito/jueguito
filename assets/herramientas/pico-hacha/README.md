@@ -42,13 +42,14 @@ Para mejorar una pieza, sustituir solo su textura mediante `set_part_texture("pi
 - Giro alrededor del agarre; duración provisional de **0,62 s**, señal `impact` a los **0,33 s** y señal `work_finished` al terminar.
 - Una acción en curso impide iniciar otra; `reset_pose()` cancela y restaura el reposo.
 - `contact_point("minar")` y `contact_point("talar")` devuelven la posición global de cada extremo para colocar partículas visuales. No fijan daño, alcance ni tiempo final de extracción.
+- `impact_vector(acción)` devuelve el desplazamiento del extremo respecto al agarre en la pose de impacto; el personaje lo usa para orientar el movimiento hacia el recurso.
 - Sin colisión propia del PNG: alcance, selección de recurso y reglas de trabajo corresponden al juego.
 
 Es un **rig 2D de una pose**, no una hoja de fotogramas ni las animaciones definitivas del personaje. Al producirlas habrá que coordinar hombros, brazos y ambas manos, comprobar oclusión del torso y recursos, y adaptar o generar las proyecciones necesarias por dirección. Las piezas son asimétricas: al cambiar orientación se debe mantener qué extremo trabaja y qué material pertenece a cada función.
 
 ## Revisar en Godot
 
-La copia preparada para el proyecto está en `prueba/assets/herramientas/pico-hacha/`. Abre `prueba/project.godot`, selecciona **`scenes/herramienta.tscn`** y pulsa **F6**. La revisión muestra la herramienta junto al humano de referencia, ampliados ×4, y poses de agarre, minería y tala. **1** reproduce minería, **2** tala y **R** restaura las poses. El jugador de la granja mantiene su comportamiento anterior.
+La copia preparada para el proyecto está en `prueba/assets/herramientas/pico-hacha/`. Abre `prueba/project.godot`, selecciona **`scenes/herramienta.tscn`** y pulsa **F6**. La revisión muestra la herramienta junto al humano de referencia, ampliados ×4, y poses de agarre, minería y tala. **1** reproduce minería, **2** tala y **R** restaura las poses. Con **F5**, el jugador de la granja lleva la herramienta: **un clic izquierdo sobre una mena o árbol cercano** completa la extracción, con brazos y ambas manos coordinados de forma provisional. No incluye todavía todas las proyecciones ni mejoras de materiales jugables.
 
 ![Captura real de la comprobación de escala](../../../prueba/capturas/pico-hacha-escala.png)
 

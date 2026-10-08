@@ -45,6 +45,12 @@ func contact_point(function: StringName) -> Vector2:
 		return global_position
 	return to_global((CONTACTS[String(function)]-SOURCE_GRIP)*SOURCE_SCALE)
 
+func impact_vector(function: StringName) -> Vector2:
+	if not MOTIONS.has(String(function)):
+		return Vector2.ZERO
+	var local_point: Vector2 = (CONTACTS[String(function)]-SOURCE_GRIP)*SOURCE_SCALE
+	return local_point.rotated(deg_to_rad(float(MOTIONS[String(function)][1][0])))
+
 func set_part_texture(part: StringName, replacement: Texture2D) -> bool:
 	# Las texturas nuevas conservan las dimensiones y registro de su región.
 	var paths := {"pick":"Pico", "axe":"Hacha", "handle":"Mango"}

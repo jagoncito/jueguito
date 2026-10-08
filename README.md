@@ -2,7 +2,7 @@
 
 Proyecto de juego individual de fantasía, **íntegramente en pixel art**, con **vista desde arriba isométrica cenital**, centrado en explorar, farmear, mejorar y coleccionar.
 
-**Primera prueba visual jugable:** una zona provisional de Bītu para revisar la escala, el movimiento, el zoom y el farmeo básico. El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
+**Primera prueba visual jugable:** una zona provisional de Bītu para revisar la escala, el movimiento, el zoom y el farmeo básico. El pico–hacha se empuña al minar y talar; el árbol deja un tocón y madera recogible. Al recoger flores, el personaje se arrodilla y usa el palín de herborista. Un clic inicia toda la extracción. El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
 
 Motor elegido: **Godot 4**. Primera plataforma: **navegador en ordenador, con teclado y ratón**. La versión descargable queda como posibilidad futura.
 
@@ -28,7 +28,8 @@ Los mapas son conceptuales; ninguna distribución es definitiva. El bloc contien
 - [Notas de uso del personaje](assets/personajes/README.md).
 - [Cuatro tomates en pixel art](assets/objetos/cultivos/README.md): común, prístino, Siru y Siru prístino; PNG independientes con fondo transparente.
 - [Pico–hacha de hierro](assets/herramientas/pico-hacha/README.md): PNG transparente, medidas, agarre, componentes visuales independientes y escena de revisión animable en Godot.
+- [Palín de herborista](assets/herramientas/palin-herborista/README.md): diseño exótico con hoja vegetal, integrado en la recolección arrodillada de flores.
 
-Para ejecutar la prueba en tu ordenador: instala Godot **4.6.3**, importa `prueba/project.godot` y pulsa **F5** para jugar. También puedes usar la [descarga para navegador](prueba/descargas/bitu-navegador.zip), con Python 3; consulta las [instrucciones de la prueba](prueba/README.md). Movimiento WASD, rueda para zoom, E para interactuar y Tab para mostrar la mochila. La prueba no guarda progreso.
+Para ejecutar la prueba en tu ordenador: instala Godot **4.6.3**, importa `prueba/project.godot` y pulsa **F5** para jugar. También puedes usar la [descarga para navegador](prueba/descargas/bitu-navegador.zip), con Python 3; consulta las [instrucciones de la prueba](prueba/README.md). Movimiento WASD, rueda para zoom, un clic izquierdo sobre mena, árbol o flor cercana para extraer, E para las otras interacciones y Tab para mostrar la mochila. La prueba no guarda progreso.
 
 Para retomar en otro chat, empezar por el bloc y continuar con una decisión cada vez.

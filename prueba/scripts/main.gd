@@ -1,13 +1,14 @@
 extends Node2D
 
 const TOMATO_IDS := ["tomate", "tomate-pristino", "tomate-siru", "tomate-siru-pristino"]
-const NAMES := {"tomate":"Tomate", "tomate-pristino":"Tomate prístino", "tomate-siru":"Tomate Siru", "tomate-siru-pristino":"Siru prístino", "mineral":"Mineral", "flor":"Flor"}
+const NAMES := {"tomate":"Tomate", "tomate-pristino":"Tomate prístino", "tomate-siru":"Tomate Siru", "tomate-siru-pristino":"Siru prístino", "mineral":"Mineral", "flor":"Flor", "madera":"Madera"}
 var terrain: BituTerrain
 var objects: Node2D
 var player: BituPlayer
 var camera: Camera2D
 var crops: Array[BituCrop] = []
 var resources: Array[BituResource] = []
+var trees: Array[BituTree] = []
 var drops: Array[BituLoot] = []
 var inventory := BituInventory.new()
 var textures: Dictionary = {}
@@ -18,13 +19,17 @@ var progress: ProgressBar
 var xp_label: Label
 var backpack: PanelContainer
 var target: Node2D
-var task: BituResource
+var task: Node2D
 var task_time := 0.0
+var task_hits := 0
+var required_hits := 0
+var task_complete := false
 var tomato_xp := 0
 var message_time := 0.0
 var full_notice := 0.0
 var zoom_index := 1
 const ZOOMS := [0.75, 1.0, 1.5, 2.0]
+const INTERACTION_RANGE := 47.0
 
 func _ready() -> void:
 	_register_inputs()
@@ -40,9 +45,11 @@ func _ready() -> void:
 	home.position = BituTerrain.cell_to_world(Vector2(15,9))
 	objects.add_child(home)
 	for cell in [Vector2i(9,15), Vector2i(11,22), Vector2i(18,8), Vector2i(20,21), Vector2i(6,12), Vector2i(7,20), Vector2i(19,4), Vector2i(4,17)]:
-		var tree := BituDecoration.new()
+		var tree := BituTree.new()
+		tree.cell = cell
 		tree.position = BituTerrain.cell_to_world(cell)
 		objects.add_child(tree)
+		trees.append(tree)
 		terrain.add_obstacle(cell)
 	for cell in terrain.farm_cells:
 		var crop := BituCrop.new()
@@ -57,8 +64,11 @@ func _ready() -> void:
 	_create_resource("ore", ore_zone)
 	_create_resource("flower", flower_zone)
 	player = BituPlayer.new()
+	player.equipment_enabled = true
 	player.position = BituTerrain.cell_to_world(Vector2(17,16))
 	objects.add_child(player)
+	player.work_impact.connect(_on_work_impact)
+	player.work_finished.connect(_on_work_finished)
 	camera = Camera2D.new()
 	camera.position = player.position + Vector2(0,-100)
 	add_child(camera)
@@ -117,14 +127,8 @@ func _process(delta: float) -> void:
 		status.text = ""
 	if task != null:
 		task_time += delta
-		progress.value = task_time / 2.0 * 100.0
-		if task_time >= 2.0:
-			var item_id := "mineral" if task.kind == "ore" else "flor"
-			_spawn_drop(item_id,task.position + Vector2(0,12))
-			task.harvest()
-			task = null
-			player.busy = false
-			progress.visible = false
+		if required_hits == 0:
+			progress.value = task_time / 2.0 * 100.0
 	_find_target()
 	if Input.is_action_just_pressed("interact") and task == null:
 		_interact()
@@ -133,7 +137,11 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			_click_resource(get_global_mouse_position())
+			get_viewport().set_input_as_handled()
+			return
+		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			zoom_index = mini(zoom_index+1,ZOOMS.size()-1)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			zoom_index = maxi(zoom_index-1,0)
@@ -141,20 +149,50 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
 
+func _click_resource(point: Vector2) -> void:
+	if task != null or player.busy:
+		return
+	var clicked: Node2D
+	for candidate in resources + trees:
+		if not candidate.active:
+			continue
+		var local_point: Vector2 = candidate.to_local(point)
+		var contains := false
+		if candidate is BituTree:
+			contains = Rect2(-54,-160,111,91).has_point(local_point) or Rect2(-16,-69,32,73).has_point(local_point)
+		elif candidate.kind == "ore":
+			contains = Rect2(-26,-39,52,41).has_point(local_point)
+		else:
+			contains = Rect2(-14,-38,28,40).has_point(local_point)
+		# Elegir el recurso visible delante si sus dibujos se solapan.
+		if contains and (clicked == null or candidate.global_position.y >= clicked.global_position.y):
+			clicked = candidate
+	if clicked == null:
+		return
+	if player.global_position.distance_to(clicked.global_position) >= INTERACTION_RANGE:
+		_notify("Acércate al recurso para trabajar")
+		return
+	_begin_extraction(clicked)
+
 func _find_target() -> void:
 	target = null
-	var best_distance := 47.0
-	for candidate in crops + resources:
-		if candidate is BituResource and not candidate.active:
+	var best_distance := INTERACTION_RANGE
+	for candidate in crops + resources + trees:
+		if (candidate is BituResource or candidate is BituTree) and not candidate.active:
 			continue
 		var distance := player.position.distance_to(candidate.position)
 		if distance < best_distance:
 			best_distance = distance
 			target = candidate
 	if task != null:
-		hint.text = "Recogiendo…"
+		if required_hits > 0:
+			hint.text = "%s · %d/%d golpes" % ["Talando" if task is BituTree else "Minando",task_hits,required_hits]
+		else:
+			hint.text = "Recogiendo…"
+	elif target is BituTree:
+		hint.text = "Clic izquierdo en el árbol · Talar"
 	elif target is BituResource:
-		hint.text = "E · Picar la mena" if target.kind == "ore" else "E · Recoger la flor"
+		hint.text = "Clic izquierdo en la mena · Minar" if target.kind == "ore" else "Clic izquierdo en la flor · Recoger"
 	elif target is BituCrop:
 		if not target.planted:
 			hint.text = "E · Plantar tomate"
@@ -165,16 +203,12 @@ func _find_target() -> void:
 		else:
 			hint.text = "Tomate creciendo · %.0f%%" % (target.growth / 12.0 * 100.0)
 	else:
-		hint.text = "Acércate a la parcela, a la mena o a la flor"
+		hint.text = "Acércate a una parcela, mena, flor o árbol"
 
 func _interact() -> void:
-	if target is BituResource:
-		task = target
-		task_time = 0
-		player.busy = true
-		progress.value = 0
-		progress.visible = true
-	elif target is BituCrop:
+	if task != null or player.busy:
+		return
+	if target is BituCrop:
 		if not target.planted:
 			target.plant()
 			_notify("Tomate plantado. Ahora necesita agua.")
@@ -189,9 +223,77 @@ func _interact() -> void:
 		else:
 			_notify("Tiene agua. Sigue creciendo.")
 
-func _spawn_drop(item_id: String, point: Vector2) -> void:
+func _begin_extraction(resource: Node2D) -> void:
+	task = resource
+	task_time = 0
+	task_hits = 0
+	task_complete = false
+	if task is BituTree:
+		required_hits = BituTree.HITS_REQUIRED-task.hits
+		player.begin_work(&"talar",task.position+Vector2(0,-24))
+	elif task.kind == "ore":
+		required_hits = 3
+		player.begin_work(&"minar",task.position+Vector2(0,-22))
+	else:
+		required_hits = 0
+		player.begin_gathering(task.position+Vector2(0,-5))
+	progress.value = 0
+	progress.visible = true
+
+func _on_work_impact(action: StringName) -> void:
+	if task == null or task_complete:
+		return
+	if required_hits == 0:
+		if action == &"recolectar":
+			var soil := BituHitEffect.new()
+			soil.herbal = true
+			soil.position = task.position+Vector2(0,-5)
+			objects.add_child(soil)
+			_deplete_task()
+		return
+	var expected := &"talar" if task is BituTree else &"minar"
+	if action != expected:
+		return
+	task_hits += 1
+	var effect := BituHitEffect.new()
+	effect.wood = task is BituTree
+	effect.position = task.position+Vector2(0,-24)
+	objects.add_child(effect)
+	if task is BituTree:
+		task.hit()
+	progress.value = float(task_hits)/required_hits*100
+	if task_hits >= required_hits:
+		_deplete_task()
+
+func _deplete_task() -> void:
+	if task_complete:
+		return
+	task_complete = true
+	var item_id := "madera" if task is BituTree else ("mineral" if task.kind == "ore" else "flor")
+	var point := task.position+(player.position-task.position).normalized()*20
+	_spawn_drop(item_id,point,3 if task is BituTree else 1)
+	if task is BituTree:
+		terrain.remove_obstacle(task.cell)
+	else:
+		task.harvest()
+
+func _on_work_finished() -> void:
+	if task == null:
+		return
+	if task_complete:
+		_finish_work()
+	else:
+		player.repeat_work()
+
+func _finish_work() -> void:
+	task = null
+	player.end_work()
+	progress.visible = false
+
+func _spawn_drop(item_id: String, point: Vector2, amount: int = 1) -> void:
 	var drop := BituLoot.new()
 	drop.item_id = item_id
+	drop.amount = amount
 	drop.texture = textures.get(item_id)
 	drop.position = point
 	objects.add_child(drop)
@@ -216,7 +318,7 @@ func _panel() -> PanelContainer:
 	style.set_border_width_all(1)
 	style.set_content_margin_all(14)
 	panel.add_theme_stylebox_override("panel",style)
-	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	return panel
 
 func _texture_view(texture: Texture2D, dimensions: Vector2 = Vector2(64,64)) -> TextureRect:
@@ -244,6 +346,7 @@ func _build_ui() -> void:
 	headings.add_child(_label("BĪTU",30,Color("e6cc83")))
 	headings.add_child(_label("Primera prueba · tu rincón del archipiélago",15))
 	headings.add_child(_label("WASD · mover    Rueda · zoom    E · interactuar",14,Color("a7b797")))
+	headings.add_child(_label("Clic izquierdo · minar, talar o recoger flores",14,Color("a7b797")))
 	backpack = _panel()
 	hud.add_child(backpack)
 	backpack.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
@@ -253,7 +356,7 @@ func _build_ui() -> void:
 	var bag_content := VBoxContainer.new()
 	backpack.add_child(bag_content)
 	bag_content.add_child(_label("MOCHILA  ·  Tab",18,Color("e6cc83")))
-	bag_content.add_child(_label("Pico y regadera · huecos propios",13,Color("a7b797")))
+	bag_content.add_child(_label("Pico–hacha, palín y regadera · equipo",13,Color("a7b797")))
 	var grid := GridContainer.new()
 	grid.columns = 3
 	grid.add_theme_constant_override("h_separation",8)
@@ -311,9 +414,15 @@ func _refresh_backpack() -> void:
 			if textures.has(slot["id"]):
 				view.add_child(_texture_view(textures[slot["id"]]))
 			else:
-				var icon := _label("◆" if slot["id"] == "mineral" else "✿",40)
-				icon.custom_minimum_size = Vector2(64,64)
-				view.add_child(icon)
+				var icon_frame := Control.new()
+				icon_frame.custom_minimum_size = Vector2(64,64)
+				var icon := BituLoot.new()
+				icon.item_id = slot["id"]
+				icon.position = Vector2(32,58)
+				icon.scale = Vector2(2,2)
+				icon.set_process(false)
+				icon_frame.add_child(icon)
+				view.add_child(icon_frame)
 			view.add_child(_label("%s ×%d" % [NAMES[slot["id"]],slot["amount"]],11))
 		else:
 			var empty := _label("·",28,Color("4c6049"))
