@@ -1,8 +1,8 @@
 # Primera prueba visual de Bītu
 
-Una pequeña escena para revisar **el aspecto y la escala** después de la petición de probar cómo se ve. El terreno, la casa, las plantas y los árboles son referencias temporales dibujadas por Godot. Los cuatro tomates son los PNG originales del repositorio. El 9 de octubre el usuario solicita integrar el **dragón protagonista bípedo**, conservando la misma cara original y creando las piezas de su cuerpo. Ya sustituye al humano de prueba, con filtrado por vecino más cercano.
+Una pequeña escena para revisar **el aspecto y la escala**. El terreno, casa, plantas y árboles son referencias temporales dibujadas por Godot. Los cuatro tomates son PNG originales. El dragón protagonista bípedo tiene ahora ocho vistas y anatomía reajustada por petición del usuario; conserva rasgos faciales y paleta. El PNG de referencia original sigue intacto. Presentación con vecino más cercano.
 
-La [ficha del dragón](../assets/personajes/dragon-avatar/README.md) registra los originales intactos, regiones y escala aproximada de 84 px. Incluye reposo, caminar con herramienta, espalda, minería, tala y palín; son animaciones articuladas, no una hoja completa de ocho vistas. Revisión ampliada en `prueba/scenes/dragon.tscn` con F6, o `?vista=dragon` en la exportación web. Riego con regadera, pesca y combate todavía sin animaciones propias.
+La [ficha del dragón](../assets/personajes/dragon-avatar/README.md) registra cinco atlas con poses completas y escala erguida aproximada de 90 px. Cola y extremidades están dibujadas en cada pose, sin piezas estiradas. Marcha, carga, golpe y palín se revisan en ocho direcciones con `prueba/scenes/dragon.tscn` (F6), o `?vista=dragon` en la exportación web. Teclas **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín**; vista ampliada ×2. Orientación hacia el suelo del recurso, separada de la altura del impacto. Riego con regadera, pesca y combate todavía sin animaciones propias.
 
 ## Qué se puede probar
 
@@ -16,7 +16,7 @@ La [ficha del dragón](../assets/personajes/dragon-avatar/README.md) registra lo
 
 Los cuatro tomates junto a la orilla son **muestras de comparación**, no un ejemplo de rareza normal. Las cosechas de esta prueba dan tomate común y aumentan el contador de experiencia del tomate. Todavía no hay probabilidades de calidad ni variantes en la cosecha.
 
-Las herramientas se indican aparte de la mochila. Sus huecos interactivos, requisitos y mejoras siguen pendientes. El [palín de herborista](../assets/herramientas/palin-herborista/README.md) está integrado por petición del usuario: se equipa automáticamente para la flor, el personaje baja a una rodilla, hace paladas, extrae y se levanta. La postura, los brazos y el movimiento son provisionales, con el PNG exótico original y ambas orientaciones laterales; no constituye una hoja completa de animaciones direccionales.
+Las herramientas se indican aparte de la mochila. Huecos interactivos, requisitos y mejoras pendientes. El [palín de herborista](../assets/herramientas/palin-herborista/README.md) se equipa para la flor: pose arrodillada en cada dirección, paladas breves, extracción y recuperación. El mango se registra en la palma y el cambio de apoyo limita su escala; no desplaza al jugador ni cambia el alcance. La elevación E conserva la pose baja porque el fotograma generado de elevación no mantenía correctamente su perfil. El acabado sigue siendo de prototipo.
 
 El 8 de octubre se integra el **pico–hacha en la granja**, tras delegar el usuario el siguiente paso técnico. Los brazos acompañan la herramienta; el trabajo bloquea el movimiento hasta acabar la recuperación del golpe final. Recoger flores guarda la herramienta. Se conserva la escena independiente `prueba/scenes/herramienta.tscn`, abrir con F6, para revisar escala y componentes. Las mejoras de materiales siguen pendientes. [Medidas, agarre y uso](../assets/herramientas/pico-hacha/README.md).
 
@@ -34,11 +34,11 @@ Esta entrega incluye la petición explícita del usuario de integrar el palín y
 
 | Referencia | Valor de esta prueba |
 |---|---|
-| Suelo / humano / botín / iconos | 64 × 32 / 80 de alto / 32 × 32 / 64 × 64 píxeles |
+| Suelo / dragón / botín / iconos | 64 × 32 / unos 90 de alto / 32 × 32 / 64 × 64 píxeles |
 | Sector | 32 × 32 casillas |
 | Mochila | 12 huecos; pilas de hasta 50 |
 | Movimiento | 150 píxeles por segundo |
-| Zoom | 0,75; 1; 1,5; 2 |
+| Zoom | 0,75; 1; 1,5 inicial; 2 |
 | Recogida / interacción | 29 / 47 píxeles |
 | Minería / tala | 3 / 4 golpes; 0,62 segundos por golpe |
 | Impacto de cada golpe | A los 0,33 segundos |
@@ -59,7 +59,7 @@ Estos valores permiten revisar rápido, no fijan dificultad, velocidad o econom�
 
 `tests/smoke.gd` comprueba capacidad y recogida parcial, separación de calidad y variante, conservación del crecimiento sin riego, reaparición dentro de la zona y conversión isométrica.
 
-`tests/tool-smoke.gd` comprueba el registro de piezas, la sustitución independiente de sus texturas y las señales del movimiento. `tests/scene-smoke.gd` ejecuta la granja y comprueba selección por clic frente a otro recurso más cercano, alcance, clic en suelo, impactos sin entregas anticipadas ni duplicadas, tala, madera, retirada de la colisión del árbol, recolección de flores y colisión real contra el agua. También verifica el palín visible, postura arrodillada, agarre, contacto con la tierra, ambas orientaciones laterales y recuperación de pie. Las tres pruebas han pasado. La exportación se ha abierto en Chromium con WebGL 2, sin errores de consola; se revisaron minería, tala y flores mediante clics reales y capturas del resultado renderizado. La flor llega a la mochila con un solo clic y otro clic durante el trabajo no reinicia su recolección.
+`tests/tool-smoke.gd` comprueba el registro de piezas, la sustitución independiente de sus texturas y las señales del movimiento. `tests/scene-smoke.gd` ejecuta la granja y comprueba selección por clic frente a otro recurso más cercano, alcance, clic en suelo, impactos sin entregas anticipadas ni duplicadas, tala, madera, retirada de la colisión del árbol, recolección de flores y colisión real contra el agua. También verifica el palín visible, postura arrodillada, agarre, contacto con la tierra, ambas orientaciones laterales y recuperación de pie. `tests/dragon-smoke.gd` comprueba las ocho orientaciones, el giro hacia la base del recurso aunque el impacto elevado esté en otra dirección, las poses completas sin estirar el cuerpo, agarres, contactos de pico/hacha y palín en todas las vistas y registro independiente de la escala de revisión. Las cuatro pruebas han pasado. La exportación se ha abierto en Chromium con WebGL 2, sin errores de consola; se revisaron minería, tala y flores mediante clics reales y capturas del resultado renderizado. La flor llega a la mochila con un solo clic y otro clic durante el trabajo no reinicia su recolección.
 
 ```sh
 cd prueba
@@ -78,4 +78,4 @@ En el entorno cloud, anteponer a cada comando Godot:
 env XDG_DATA_HOME=/workspace/.local/godot/data XDG_CONFIG_HOME=/workspace/.local/godot/config XDG_CACHE_HOME=/workspace/.cache/godot
 ```
 
-Las carpetas deben existir. Aplicar también estas variables al comando Python de exportación, que inicia Godot. No cambiar `HOME`. Para repetir la revisión web en cloud, sirve `prueba/build/web` en el puerto 8765 y ejecuta `python prueba/tools/browser_smoke.py` desde la raíz; requiere Playwright, Pillow y Chromium y guarda capturas en `prueba/build`. También selecciona la flor por sus pétalos y comprueba su llegada a la mochila tras un clic. `python prueba/tools/dragon_browser_smoke.py` comprueba las cinco acciones animadas de la revisión ampliada y guarda captura y vídeo WebM real del canvas en `prueba/capturas`. No requiere descargar un grabador externo. La configuración de entorno guardada es un borrador; su publicación es independiente de esta prueba.
+Las carpetas deben existir. Aplicar también estas variables al comando Python de exportación, que inicia Godot. No cambiar `HOME`. Para repetir la revisión web en cloud, sirve `prueba/build/web` en el puerto 8765 y ejecuta `python prueba/tools/browser_smoke.py` desde la raíz; requiere Playwright, Pillow y Chromium y guarda capturas en `prueba/build`. También selecciona la flor por sus pétalos y comprueba su llegada a la mochila tras un clic. `python prueba/tools/dragon_browser_smoke.py` comprueba las ocho direcciones en los cinco modos de la revisión ampliada y guarda captura y vídeo WebM real del canvas en `prueba/capturas`. No requiere descargar un grabador externo. La configuración de entorno guardada es un borrador; su publicación es independiente de esta prueba.

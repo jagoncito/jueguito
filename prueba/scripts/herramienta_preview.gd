@@ -6,7 +6,7 @@ func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("18251e"))
 	_label("PICO–HACHA · HIERRO",Vector2(36,24),28,Color("e6cc83"))
 	_label("Un mango · dos funciones · mejoras visuales independientes",Vector2(36,64),17)
-	_label("Escala ampliada ×4 · dragón bípedo: unos 84 px · herramienta: 48,5 × 60,5 px",Vector2(36,96),16)
+	_label("Escala ampliada ×4 · dragón bípedo: unos 90 px · herramienta equipada: 35 × 44 px",Vector2(36,96),16)
 	var titles := ["AGARRE", "MINAR · lado del pico", "TALAR · lado del hacha"]
 	for index in range(3):
 		var actor := BituPlayer.new()
@@ -22,7 +22,7 @@ func _ready() -> void:
 	_label("1 · movimiento de minería     2 · movimiento de tala     R · restaurar poses",Vector2(36,573),16)
 	_label("Marco equipado 64 × 64 · icono 64 × 64 · botín 32 × 32 · giro alrededor de la mano",Vector2(36,604),16)
 	_label("Pico y hacha se sustituyen por separado; el mango conserva el mismo punto de agarre.",Vector2(36,635),16)
-	_label("Cara original del dragón · brazos y manos coordinados con las herramientas del juego.",Vector2(36,676),14,Color("a7b797"))
+	_label("Rasgos originales del dragón · poses completas coordinadas con las herramientas del juego.",Vector2(36,676),14,Color("a7b797"))
 	print("BITU_TOOL_READY")
 
 func _unhandled_key_input(event: InputEvent) -> void:

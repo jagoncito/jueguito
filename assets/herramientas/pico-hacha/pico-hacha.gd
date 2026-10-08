@@ -10,6 +10,7 @@ const MOTIONS := {
 }
 var motion: Tween
 var working := false
+var externally_posed := false
 const SOURCE_GRIP := Vector2(630,900)
 const SOURCE_SCALE := 0.0625
 const CONTACTS := {"minar":Vector2(250,414),"talar":Vector2(1000,350)}
@@ -21,7 +22,7 @@ func reset_pose() -> void:
 	if motion != null and motion.is_valid():
 		motion.kill()
 	working = false
-	rotation = deg_to_rad(REST_ANGLE)
+	rotation = 0.0 if externally_posed else deg_to_rad(REST_ANGLE)
 
 func play_work(function: StringName) -> void:
 	if working or not MOTIONS.has(String(function)):
@@ -29,6 +30,15 @@ func play_work(function: StringName) -> void:
 	working = true
 	motion = create_tween()
 	motion.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+	if externally_posed:
+		motion.tween_interval(.33)
+		motion.tween_callback(func(): impact.emit(function))
+		motion.tween_interval(.29)
+		motion.tween_callback(func():
+			working = false
+			work_finished.emit()
+		)
+		return
 	var frames: Array = MOTIONS[String(function)]
 	for index in range(frames.size()):
 		var frame: Array = frames[index]

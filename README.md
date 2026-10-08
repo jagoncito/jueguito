@@ -2,13 +2,13 @@
 
 Proyecto de juego individual de fantasía, **íntegramente en pixel art**, con **vista desde arriba isométrica cenital**, centrado en explorar, farmear, mejorar y coleccionar.
 
-**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo y su cara original intacta**. Camina con el pico–hacha, mina, tala y usa el palín al arrodillarse. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon-avatar/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
+**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo y sus rasgos faciales originales y ocho direcciones**. Camina con el pico–hacha, mina, tala y usa el palín al arrodillarse. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon-avatar/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
 
 Motor elegido: **Godot 4**. Primera plataforma: **navegador en ordenador, con teclado y ratón**. La versión descargable queda como posibilidad futura.
 
 La generación general de imágenes está en pausa; solo se crean recursos cuando el usuario los pide explícitamente.
 
-[![Captura real de la prueba](prueba/capturas/bitu.png)](prueba/README.md)
+[![Captura real de la prueba](prueba/capturas/dragon-en-juego.png)](prueba/README.md)
 
 ## Documentos
 

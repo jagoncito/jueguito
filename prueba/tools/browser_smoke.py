@@ -23,6 +23,8 @@ async def main():
             await page.wait_for_function("document.getElementById('status') === null", timeout=60000)
             await page.wait_for_timeout(500)
             await page.screenshot(path=str(PROJECT / "build/entrada.png"))
+            await page.mouse.wheel(0,120)
+            await page.wait_for_timeout(100)
             # Entrar en el alcance desde el norte, sin bajar hasta el árbol.
             await move(page, "s", 120)
             await page.mouse.click(668, camera_y(576-20, 528+24))
@@ -42,17 +44,28 @@ async def main():
             await page.reload(wait_until="networkidle")
             await page.wait_for_function("document.getElementById('status') === null", timeout=60000)
             await page.wait_for_timeout(500)
+            await page.mouse.wheel(0,120)
+            await page.wait_for_timeout(100)
             await move(page, "d", 1100)
             # Selección con zoom: comprobar la conversión de ratón a mundo.
             await page.mouse.move(700,450)
             for _ in range(2):
                 await page.mouse.wheel(0,-120)
                 await page.wait_for_timeout(100)
-            shot = Image.open(io.BytesIO(await page.screenshot())).convert("RGB")
-            petals = [(x,y) for y in range(170,550) for x in range(360,970)
-                      if shot.getpixel((x,y)) == (191,154,194)]
-            assert petals, "No se ve la flor para seleccionarla"
-            await page.mouse.click(sum(x for x,y in petals)/len(petals), sum(y for x,y in petals)/len(petals))
+            # Corregir la aproximación con el resultado visible, no solo tiempo
+            # de teclado: WebGL por software puede reducir los pasos de física.
+            for attempt in range(5):
+                shot = Image.open(io.BytesIO(await page.screenshot())).convert("RGB")
+                petals = [(x,y) for y in range(170,550) for x in range(360,970)
+                          if shot.getpixel((x,y)) == (191,154,194)]
+                assert petals, "No se ve la flor para seleccionarla"
+                flower_x = sum(x for x,y in petals)/len(petals)
+                flower_y = sum(y for x,y in petals)/len(petals)
+                if abs(flower_x-640) <= 64:
+                    break
+                await move(page, "d" if flower_x > 640 else "a", 100)
+            assert abs(flower_x-640) <= 64, "No se logró entrar en alcance de la flor"
+            await page.mouse.click(flower_x, flower_y)
             await page.wait_for_timeout(500)
             await page.screenshot(path=str(PROJECT / "build/recogiendo-flor.png"))
             await page.wait_for_timeout(600)

@@ -2,7 +2,7 @@
 
 ## Protagonista: dragón bípedo
 
-El usuario elige el dragón del avatar como protagonista el 9 de octubre. Cabeza original intacta, cuerpo articulado y animaciones de caminar con herramientas, minería, tala y palín ya integradas en la prueba. [Ficha y archivos](dragon-avatar/README.md). Esta elección sustituye al protagonista humano anterior; Unamahloni mantiene su propio papel.
+El usuario elige el dragón del avatar como protagonista el 9 de octubre. Tras revisar la primera adaptación, solicita proporciones nuevas y ocho vistas, conservando sus rasgos faciales. Reposo, marcha, minería, tala y palín usan poses completas con cola conectada, ya integradas en la prueba. [Ficha y archivos](dragon-avatar/README.md). Esta elección sustituye al protagonista humano anterior; Unamahloni mantiene su propio papel.
 
 ## Unamahloni — versión original pixel art
 

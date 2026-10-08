@@ -22,7 +22,7 @@ En cada animación conservar el tamaño del cuerpo y un punto de apoyo estable. 
 
 Para nuevos elementos, aplicar la referencia de su familia y discutir excepciones o familias nuevas; no hace falta pedir una medida desde cero por cada nombre. El usuario puede revisar cualquier referencia al desarrollar un recurso concreto.
 
-**Protagonista elegido después:** dragón bípedo con cabeza original y cuerpo articulado, unos **84 px de alto** antes del zoom, compatible con la referencia de 80 px. Punto de apoyo en (0,0), colisión circular de radio 7 en (0,-3), fotograma orientativo 128 × 128. Los PNG grandes se conservan; recorte de cabeza mediante UV, piezas con AtlasTexture y filtrado por vecino más cercano. La altura y el lienzo de referencia no convierten estos originales en sprites nativos de 128 × 128. [Ficha y revisión jugable](../assets/personajes/dragon-avatar/README.md).
+**Protagonista elegido después:** dragón bípedo, reajustado por petición del usuario para mejorar proporciones y cola. Altura erguida aproximada de **90 px** antes del zoom, próxima a la referencia humana de 80 px; menor al arrodillarse. Ocho vistas y poses completas, con escala uniforme por atlas y anclas de suelo registradas. La identidad de la cara se conserva al redibujar las perspectivas; original intacto como referencia. Colisión circular de radio 7 en (0,-3). PNG fuente grandes con AtlasTexture y vecino más cercano: no son sprites nativos de 128 × 128. Herramienta equipada a 0,72 de su escala de revisión (unos 35 × 44 px). [Ficha y revisión jugable](../assets/personajes/dragon-avatar/README.md).
 
 ## 2. Familias y proporciones
 
@@ -159,7 +159,7 @@ Por recurso, acordar: identidad, familia, escala, punto de apoyo, superficie y c
 
 Para suelo, preparar piezas de terreno, variaciones y transiciones de bordes: riberas, esquinas, costas, caminos y desniveles. Para edificios, prever bases, entradas y elementos que puedan ocultar al personaje. Elementos muy grandes pueden necesitar dibujos divididos para ordenar correctamente la profundidad.
 
-Conservar PNG transparentes para objetos y personajes; filtrado por vecino más cercano y márgenes para efectos. Mantener un punto de apoyo estable entre direcciones y fotogramas. Los originales generados que existen son referencias visuales grandes, no hojas de animación ni exportaciones normalizadas a estas medidas.
+Conservar PNG transparentes para objetos y personajes; filtrado por vecino más cercano y márgenes para efectos. Mantener un punto de apoyo estable entre direcciones y fotogramas. Los primeros bocetos y objetos son referencias visuales grandes; el protagonista dispone después de atlas de poses completas. Ninguno se convierte automáticamente en una exportación normalizada a estas medidas.
 
 Futuras comprobaciones, una vez autorizadas: personaje junto a cultivo, arbusto, árbol y casa; criatura grande en un paso; botín común y raro con varios niveles de zoom; pesca en río, lago y costa; puente con superficies superpuestas; recursos al cargar y descargar sectores. Medir rendimiento de Godot 4 en navegador con contenido representativo antes de fijar densidad y distancias de carga.
 

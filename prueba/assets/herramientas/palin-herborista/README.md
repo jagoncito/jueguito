@@ -12,6 +12,6 @@ El PNG original **RGBA de 1254 × 1254** se conserva sin modificar. Se presenta 
 
 Metadatos: [palin-herborista.json](palin-herborista.json). La copia del proyecto está en `prueba/assets/herramientas/palin-herborista/`. Abrir `prueba/project.godot` y usar **F5**; acercarse a la flor y hacer clic sobre ella. Imagen original y copia del proyecto idénticas.
 
-![Captura real de la recolección arrodillada](../../../capturas/palin-en-juego.png)
+![Captura real de la recolección arrodillada](../../../capturas/dragon-recolectando.png)
 
 Las pruebas de la escena verifican agarre, contacto, orientación desde ambos lados, postura, ausencia de botín duplicado y recuperación. La subida de esta entrega fue solicitada expresamente; no autoriza futuras subidas automáticas.

@@ -27,7 +27,7 @@ var task_complete := false
 var tomato_xp := 0
 var message_time := 0.0
 var full_notice := 0.0
-var zoom_index := 1
+var zoom_index := 2
 const ZOOMS := [0.75, 1.0, 1.5, 2.0]
 const INTERACTION_RANGE := 47.0
 
@@ -77,6 +77,7 @@ func _ready() -> void:
 	player.work_finished.connect(_on_work_finished)
 	camera = Camera2D.new()
 	camera.position = player.position + Vector2(0,-100)
+	camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
 	add_child(camera)
 	for index in range(TOMATO_IDS.size()):
 		_spawn_drop(TOMATO_IDS[index], BituTerrain.cell_to_world(Vector2(20+index*0.5,20-index*0.5)))
@@ -104,6 +105,7 @@ func _create_resource(kind: String, zone: Array[Vector2i]) -> void:
 
 func _process(delta: float) -> void:
 	camera.position = player.position + Vector2(0,-100)
+	camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
 	for crop in crops:
 		crop.advance(delta)
 	for resource in resources:
@@ -236,13 +238,13 @@ func _begin_extraction(resource: Node2D) -> void:
 	task_complete = false
 	if task is BituTree:
 		required_hits = BituTree.HITS_REQUIRED-task.hits
-		player.begin_work(&"talar",task.position+Vector2(0,-24))
+		player.begin_work(&"talar",task.position+Vector2(0,-24),task.global_position)
 	elif task.kind == "ore":
 		required_hits = 3
-		player.begin_work(&"minar",task.position+Vector2(0,-22))
+		player.begin_work(&"minar",task.position+Vector2(0,-22),task.global_position)
 	else:
 		required_hits = 0
-		player.begin_gathering(task.position+Vector2(0,-5))
+		player.begin_gathering(task.position+Vector2(0,-5),task.global_position)
 	progress.value = 0
 	progress.visible = true
 

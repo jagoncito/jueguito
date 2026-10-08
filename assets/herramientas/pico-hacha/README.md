@@ -51,6 +51,6 @@ Es un **rig 2D de una pose**, no una hoja de fotogramas ni las animaciones defin
 
 La copia preparada para el proyecto está en `prueba/assets/herramientas/pico-hacha/`. Abre `prueba/project.godot`, selecciona **`scenes/herramienta.tscn`** y pulsa **F6**. La revisión muestra la herramienta junto al humano de referencia, ampliados ×4, y poses de agarre, minería y tala. **1** reproduce minería, **2** tala y **R** restaura las poses. Con **F5**, el jugador de la granja lleva la herramienta: **un clic izquierdo sobre una mena o árbol cercano** completa la extracción, con brazos y ambas manos coordinados de forma provisional. No incluye todavía todas las proyecciones ni mejoras de materiales jugables.
 
-![Captura real de la comprobación de escala](../../../prueba/capturas/pico-hacha-escala.png)
+![Dragón equipado con la herramienta](../../../prueba/capturas/dragon-en-juego.png)
 
 La escena y `tests/tool-smoke.gd` comprueban registro común, cambio de una pieza sin alterar las otras, dimensiones compatibles, un impacto por acción y recuperación del agarre. El conjunto se importa con Godot 4.6.3. Metadatos completos: [pico-hacha-hierro.json](pico-hacha-hierro.json).

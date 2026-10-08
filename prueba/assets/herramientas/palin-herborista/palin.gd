@@ -9,6 +9,7 @@ const SOURCE_SCALE := 1.0/32.0
 const IMPACT_ANGLE := 85.0
 const DURATION := 2.0 # Provisional: incluye agacharse, extraer y levantarse.
 var working := false
+var externally_posed := false
 var motion: Tween
 
 func contact_vector() -> Vector2:
@@ -21,7 +22,7 @@ func reset_pose() -> void:
 	if motion != null and motion.is_valid():
 		motion.kill()
 	working = false
-	rotation = deg_to_rad(-20)
+	rotation = 0.0 if externally_posed else deg_to_rad(-20)
 
 func play_work() -> void:
 	if working:
@@ -29,6 +30,15 @@ func play_work() -> void:
 	working = true
 	motion = create_tween()
 	motion.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+	if externally_posed:
+		motion.tween_interval(1.5)
+		motion.tween_callback(func(): impact.emit(&"recolectar"))
+		motion.tween_interval(.5)
+		motion.tween_callback(func():
+			working = false
+			work_finished.emit()
+		)
+		return
 	for frame in [[-20.0,0.25],[55.0,0.30],[25.0,0.20],[65.0,0.30],[40.0,0.20],[IMPACT_ANGLE,0.25]]:
 		motion.tween_property(self,"rotation",deg_to_rad(frame[0]),frame[1]).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	motion.tween_callback(func(): impact.emit(&"recolectar"))

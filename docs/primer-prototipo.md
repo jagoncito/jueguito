@@ -10,7 +10,7 @@ Tras su petición de subir lo pendiente y preparar lo siguiente, se desarrolla l
 |---|---|
 | Motor y plataforma | Godot 4; navegador en ordenador, teclado y ratón; individual. |
 | Presentación | Pixel art, vista isométrica elevada, zoom ajustable. |
-| Protagonista | Dragón del repositorio, bípedo y con la misma cara original; sustituye al humano anterior. Rig integrado para reposo, caminar con herramientas, minería, tala y palín; nombre, especie concreta y personalización abiertos. |
+| Protagonista | Dragón del repositorio, bípedo y con sus rasgos faciales originales; sustituye al humano anterior. Ocho vistas y poses completas con cola conectada, integradas para reposo, caminar con herramientas, minería, tala y palín; nombre, especie concreta y personalización abiertos. |
 | Escala | Suelo 64 × 32; humano de referencia de unos 80 px; botín 32 × 32 e iconos de inventario 64 × 64. |
 | Mundo | Archipiélago de unas 20 islas, con Bītu como hogar tranquilo y habitantes dispersos. |
 | Tiempo al salir | Todo se detiene cuando el jugador deja de jugar; conservar progreso y tiempos restantes para retomar en el mismo momento. Sin avance durante la ausencia ni en pausa. Guardado todavía sin implementar. |
@@ -54,7 +54,7 @@ Una pequeña zona provisional de Bītu, en la escala acordada, que permita compr
 5. Plantar, regar y cosechar tomates; experiencia específica del tomate y demostración de calidad/variante con parámetros de prueba, sin fijar rarezas definitivas.
 6. Preparar un acceso de pesca para desarrollar el desafío activo en el siguiente tramo, o incluirlo si se prioriza pesca frente a agricultura.
 
-Los cuatro PNG de tomates existentes se pueden importar ajustando su presentación; no crear imágenes nuevas por iniciativa propia. El 9 de octubre el usuario pide explícitamente adaptar el dragón existente e integrarlo como protagonista bípedo con su cara intacta. Esta excepción autoriza sus piezas y animaciones, sin reabrir la generación general. No usar a Unamahloni como protagonista.
+Los cuatro PNG de tomates existentes se pueden importar ajustando su presentación; no crear imágenes nuevas por iniciativa propia. El 9 de octubre el usuario pide explícitamente adaptar el dragón existente e integrarlo como protagonista bípedo con su identidad facial. La petición posterior permite reajustar cabeza y anatomía y redibujar ocho vistas. Esta excepción autoriza sus imágenes y animaciones, sin reabrir la generación general. No usar a Unamahloni como protagonista.
 
 ## Primer capítulo, después de validar la base
 
