@@ -1,0 +1,674 @@
+{
+  "character": "Flavia",
+  "created": "2026-10-09",
+  "status": "provisional_visual_animation_study",
+  "references_agreed": [
+    "Éowyn",
+    "Lagertha",
+    "Faye"
+  ],
+  "presentation": {
+    "frame_reference_px": [
+      128,
+      128
+    ],
+    "character_height_reference_px": 80,
+    "native_128px_frames": false
+  },
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "walk_frames_per_direction": 4,
+  "preview_fps": 6,
+  "preview_registration": "La marcha usa una escala constante por dirección, con la silueta más alta a 80 píxeles. Se centra por la cabeza y se alinea su parte superior en y=32. Es un ajuste de visualización, no un registro de animación definitivo.",
+  "limitations": [
+    "Fuentes generadas grandes, no fotogramas nativos de 128 × 128 ni ampliación exacta de esa cuadrícula.",
+    "El ciclo requiere revisar anatomía, fases del paso, registro común, silueta y consistencia de accesorios.",
+    "Las regiones medidas sirven para esta vista previa; no confirman un atlas uniforme listo para integrar.",
+    "Perspectiva y detalle varían ligeramente entre la pose base, el giro y la marcha.",
+    "No integrado en Godot."
+  ],
+  "files": [
+    {
+      "file": "flavia-base.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "14efc7afd0b53c6d2712691f696ae67e2e99f0a5d61e429978da3ac4781c7e27",
+      "grid_proposed": [
+        1,
+        1
+      ],
+      "frames": [
+        {
+          "direction": "SW",
+          "row": 0,
+          "column": 0,
+          "region_px": [
+            376,
+            28,
+            471,
+            1200
+          ],
+          "head_center_x_px": 608.222,
+          "scale_for_height_80": 0.06666666666666667,
+          "preview_scale": 0.06666666666666667
+        }
+      ]
+    },
+    {
+      "file": "flavia-orientaciones.png",
+      "dimensions_px": [
+        1774,
+        887
+      ],
+      "mode": "RGBA",
+      "sha256": "99fd6268facec6829ce97ab3fc947d410ef9412e1d9c582dbab2f8f42d76fb41",
+      "grid_proposed": [
+        4,
+        2
+      ],
+      "frames": [
+        {
+          "direction": "S",
+          "row": 0,
+          "column": 0,
+          "region_px": [
+            214,
+            15,
+            219,
+            423
+          ],
+          "head_center_x_px": 322.434,
+          "scale_for_height_80": 0.18912529550827423,
+          "preview_scale": 0.18912529550827423
+        },
+        {
+          "direction": "SW",
+          "row": 0,
+          "column": 1,
+          "region_px": [
+            608,
+            16,
+            209,
+            429
+          ],
+          "head_center_x_px": 707.407,
+          "scale_for_height_80": 0.1864801864801865,
+          "preview_scale": 0.1864801864801865
+        },
+        {
+          "direction": "W",
+          "row": 0,
+          "column": 2,
+          "region_px": [
+            1009,
+            16,
+            145,
+            429
+          ],
+          "head_center_x_px": 1071.003,
+          "scale_for_height_80": 0.1864801864801865,
+          "preview_scale": 0.1864801864801865
+        },
+        {
+          "direction": "NW",
+          "row": 0,
+          "column": 3,
+          "region_px": [
+            1359,
+            15,
+            204,
+            426
+          ],
+          "head_center_x_px": 1453.095,
+          "scale_for_height_80": 0.18779342723004694,
+          "preview_scale": 0.18779342723004694
+        },
+        {
+          "direction": "N",
+          "row": 1,
+          "column": 0,
+          "region_px": [
+            211,
+            452,
+            221,
+            416
+          ],
+          "head_center_x_px": 321.102,
+          "scale_for_height_80": 0.19230769230769232,
+          "preview_scale": 0.19230769230769232
+        },
+        {
+          "direction": "NE",
+          "row": 1,
+          "column": 1,
+          "region_px": [
+            600,
+            454,
+            207,
+            414
+          ],
+          "head_center_x_px": 714.388,
+          "scale_for_height_80": 0.1932367149758454,
+          "preview_scale": 0.1932367149758454
+        },
+        {
+          "direction": "E",
+          "row": 1,
+          "column": 2,
+          "region_px": [
+            989,
+            452,
+            142,
+            425
+          ],
+          "head_center_x_px": 1069.25,
+          "scale_for_height_80": 0.18823529411764706,
+          "preview_scale": 0.18823529411764706
+        },
+        {
+          "direction": "SE",
+          "row": 1,
+          "column": 3,
+          "region_px": [
+            1359,
+            454,
+            206,
+            420
+          ],
+          "head_center_x_px": 1464.324,
+          "scale_for_height_80": 0.19047619047619047,
+          "preview_scale": 0.19047619047619047
+        }
+      ]
+    },
+    {
+      "file": "flavia-marcha-1.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "8abf60bd220794ca56b658db0ea6f67542d5ad3ddbb5deb3f0bb3b3b89ea9703",
+      "grid_proposed": [
+        4,
+        4
+      ],
+      "frames": [
+        {
+          "direction": "S",
+          "row": 0,
+          "column": 0,
+          "region_px": [
+            116,
+            88,
+            136,
+            232
+          ],
+          "head_center_x_px": 184.109,
+          "scale_for_height_80": 0.3448275862068966,
+          "preview_scale": 0.3404255319148936
+        },
+        {
+          "direction": "S",
+          "row": 0,
+          "column": 1,
+          "region_px": [
+            411,
+            88,
+            139,
+            232
+          ],
+          "head_center_x_px": 479.399,
+          "scale_for_height_80": 0.3448275862068966,
+          "preview_scale": 0.3404255319148936
+        },
+        {
+          "direction": "S",
+          "row": 0,
+          "column": 2,
+          "region_px": [
+            707,
+            88,
+            138,
+            234
+          ],
+          "head_center_x_px": 777.083,
+          "scale_for_height_80": 0.3418803418803419,
+          "preview_scale": 0.3404255319148936
+        },
+        {
+          "direction": "S",
+          "row": 0,
+          "column": 3,
+          "region_px": [
+            1003,
+            88,
+            137,
+            235
+          ],
+          "head_center_x_px": 1071.485,
+          "scale_for_height_80": 0.3404255319148936,
+          "preview_scale": 0.3404255319148936
+        },
+        {
+          "direction": "SW",
+          "row": 1,
+          "column": 0,
+          "region_px": [
+            112,
+            384,
+            144,
+            230
+          ],
+          "head_center_x_px": 184.429,
+          "scale_for_height_80": 0.34782608695652173,
+          "preview_scale": 0.34782608695652173
+        },
+        {
+          "direction": "SW",
+          "row": 1,
+          "column": 1,
+          "region_px": [
+            425,
+            384,
+            134,
+            230
+          ],
+          "head_center_x_px": 487.599,
+          "scale_for_height_80": 0.34782608695652173,
+          "preview_scale": 0.34782608695652173
+        },
+        {
+          "direction": "SW",
+          "row": 1,
+          "column": 2,
+          "region_px": [
+            707,
+            384,
+            142,
+            230
+          ],
+          "head_center_x_px": 777.528,
+          "scale_for_height_80": 0.34782608695652173,
+          "preview_scale": 0.34782608695652173
+        },
+        {
+          "direction": "SW",
+          "row": 1,
+          "column": 3,
+          "region_px": [
+            1016,
+            384,
+            131,
+            230
+          ],
+          "head_center_x_px": 1077.831,
+          "scale_for_height_80": 0.34782608695652173,
+          "preview_scale": 0.34782608695652173
+        },
+        {
+          "direction": "W",
+          "row": 2,
+          "column": 0,
+          "region_px": [
+            114,
+            673,
+            139,
+            226
+          ],
+          "head_center_x_px": 180.813,
+          "scale_for_height_80": 0.35398230088495575,
+          "preview_scale": 0.35398230088495575
+        },
+        {
+          "direction": "W",
+          "row": 2,
+          "column": 1,
+          "region_px": [
+            445,
+            674,
+            114,
+            216
+          ],
+          "head_center_x_px": 489.226,
+          "scale_for_height_80": 0.37037037037037035,
+          "preview_scale": 0.35398230088495575
+        },
+        {
+          "direction": "W",
+          "row": 2,
+          "column": 2,
+          "region_px": [
+            711,
+            674,
+            137,
+            226
+          ],
+          "head_center_x_px": 775.95,
+          "scale_for_height_80": 0.35398230088495575,
+          "preview_scale": 0.35398230088495575
+        },
+        {
+          "direction": "W",
+          "row": 2,
+          "column": 3,
+          "region_px": [
+            1037,
+            674,
+            113,
+            226
+          ],
+          "head_center_x_px": 1078.655,
+          "scale_for_height_80": 0.35398230088495575,
+          "preview_scale": 0.35398230088495575
+        },
+        {
+          "direction": "NW",
+          "row": 3,
+          "column": 0,
+          "region_px": [
+            117,
+            952,
+            142,
+            227
+          ],
+          "head_center_x_px": 182.669,
+          "scale_for_height_80": 0.3524229074889868,
+          "preview_scale": 0.3524229074889868
+        },
+        {
+          "direction": "NW",
+          "row": 3,
+          "column": 1,
+          "region_px": [
+            418,
+            952,
+            141,
+            225
+          ],
+          "head_center_x_px": 485.407,
+          "scale_for_height_80": 0.35555555555555557,
+          "preview_scale": 0.3524229074889868
+        },
+        {
+          "direction": "NW",
+          "row": 3,
+          "column": 2,
+          "region_px": [
+            706,
+            952,
+            146,
+            227
+          ],
+          "head_center_x_px": 771.906,
+          "scale_for_height_80": 0.3524229074889868,
+          "preview_scale": 0.3524229074889868
+        },
+        {
+          "direction": "NW",
+          "row": 3,
+          "column": 3,
+          "region_px": [
+            1009,
+            952,
+            138,
+            226
+          ],
+          "head_center_x_px": 1073.271,
+          "scale_for_height_80": 0.35398230088495575,
+          "preview_scale": 0.3524229074889868
+        }
+      ]
+    },
+    {
+      "file": "flavia-marcha-2.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "6fa2e2e1e9aa66798c54fadde82cceb4a24a552d0e701eeff4be796c65097344",
+      "grid_proposed": [
+        4,
+        4
+      ],
+      "frames": [
+        {
+          "direction": "N",
+          "row": 0,
+          "column": 0,
+          "region_px": [
+            116,
+            91,
+            131,
+            233
+          ],
+          "head_center_x_px": 182.053,
+          "scale_for_height_80": 0.34334763948497854,
+          "preview_scale": 0.3418803418803419
+        },
+        {
+          "direction": "N",
+          "row": 0,
+          "column": 1,
+          "region_px": [
+            412,
+            91,
+            135,
+            234
+          ],
+          "head_center_x_px": 478.943,
+          "scale_for_height_80": 0.3418803418803419,
+          "preview_scale": 0.3418803418803419
+        },
+        {
+          "direction": "N",
+          "row": 0,
+          "column": 2,
+          "region_px": [
+            713,
+            91,
+            136,
+            233
+          ],
+          "head_center_x_px": 782.182,
+          "scale_for_height_80": 0.34334763948497854,
+          "preview_scale": 0.3418803418803419
+        },
+        {
+          "direction": "N",
+          "row": 0,
+          "column": 3,
+          "region_px": [
+            1007,
+            91,
+            137,
+            234
+          ],
+          "head_center_x_px": 1074.628,
+          "scale_for_height_80": 0.3418803418803419,
+          "preview_scale": 0.3418803418803419
+        },
+        {
+          "direction": "NE",
+          "row": 1,
+          "column": 0,
+          "region_px": [
+            113,
+            379,
+            146,
+            242
+          ],
+          "head_center_x_px": 188.079,
+          "scale_for_height_80": 0.3305785123966942,
+          "preview_scale": 0.3305785123966942
+        },
+        {
+          "direction": "NE",
+          "row": 1,
+          "column": 1,
+          "region_px": [
+            422,
+            379,
+            144,
+            241
+          ],
+          "head_center_x_px": 496.553,
+          "scale_for_height_80": 0.33195020746887965,
+          "preview_scale": 0.3305785123966942
+        },
+        {
+          "direction": "NE",
+          "row": 1,
+          "column": 2,
+          "region_px": [
+            714,
+            379,
+            148,
+            242
+          ],
+          "head_center_x_px": 789.616,
+          "scale_for_height_80": 0.3305785123966942,
+          "preview_scale": 0.3305785123966942
+        },
+        {
+          "direction": "NE",
+          "row": 1,
+          "column": 3,
+          "region_px": [
+            1013,
+            379,
+            147,
+            242
+          ],
+          "head_center_x_px": 1091.42,
+          "scale_for_height_80": 0.3305785123966942,
+          "preview_scale": 0.3305785123966942
+        },
+        {
+          "direction": "E",
+          "row": 2,
+          "column": 0,
+          "region_px": [
+            130,
+            680,
+            133,
+            232
+          ],
+          "head_center_x_px": 197.743,
+          "scale_for_height_80": 0.3448275862068966,
+          "preview_scale": 0.3404255319148936
+        },
+        {
+          "direction": "E",
+          "row": 2,
+          "column": 1,
+          "region_px": [
+            428,
+            679,
+            118,
+            233
+          ],
+          "head_center_x_px": 490.412,
+          "scale_for_height_80": 0.34334763948497854,
+          "preview_scale": 0.3404255319148936
+        },
+        {
+          "direction": "E",
+          "row": 2,
+          "column": 2,
+          "region_px": [
+            723,
+            678,
+            140,
+            235
+          ],
+          "head_center_x_px": 793.976,
+          "scale_for_height_80": 0.3404255319148936,
+          "preview_scale": 0.3404255319148936
+        },
+        {
+          "direction": "E",
+          "row": 2,
+          "column": 3,
+          "region_px": [
+            1028,
+            679,
+            113,
+            235
+          ],
+          "head_center_x_px": 1093.22,
+          "scale_for_height_80": 0.3404255319148936,
+          "preview_scale": 0.3404255319148936
+        },
+        {
+          "direction": "SE",
+          "row": 3,
+          "column": 0,
+          "region_px": [
+            125,
+            955,
+            146,
+            232
+          ],
+          "head_center_x_px": 195.381,
+          "scale_for_height_80": 0.3448275862068966,
+          "preview_scale": 0.3418803418803419
+        },
+        {
+          "direction": "SE",
+          "row": 3,
+          "column": 1,
+          "region_px": [
+            418,
+            955,
+            146,
+            233
+          ],
+          "head_center_x_px": 489.076,
+          "scale_for_height_80": 0.34334763948497854,
+          "preview_scale": 0.3418803418803419
+        },
+        {
+          "direction": "SE",
+          "row": 3,
+          "column": 2,
+          "region_px": [
+            718,
+            955,
+            153,
+            234
+          ],
+          "head_center_x_px": 789.287,
+          "scale_for_height_80": 0.3418803418803419,
+          "preview_scale": 0.3418803418803419
+        },
+        {
+          "direction": "SE",
+          "row": 3,
+          "column": 3,
+          "region_px": [
+            1016,
+            955,
+            144,
+            232
+          ],
+          "head_center_x_px": 1084.455,
+          "scale_for_height_80": 0.3448275862068966,
+          "preview_scale": 0.3418803418803419
+        }
+      ]
+    }
+  ]
+}
