@@ -22,7 +22,9 @@ Clic izquierdo sobre una mena, árbol o flor cercana: completa toda la extracci�
 No hace falta mantener pulsado ni repetir clics por golpe.
 Para flores se equipa el palín y el personaje se arrodilla, extrae y se levanta.
 E: plantar, regar o cosechar.
-No guarda progreso. Entorno y personaje provisionales.
+Dragón bípedo integrado: cara original, caminar, minar, talar y palín.
+Para ver las animaciones ampliadas, añade ?vista=dragon a la URL del juego.
+No guarda progreso. Entorno y animaciones de prototipo.
 Sin Python, usa el repositorio y Godot 4.6.3: importar prueba/project.godot y F5.
 """
 
@@ -52,6 +54,10 @@ def main():
     config["args"] = []
     config["fileSizes"]["index.pck"] = (OUTPUT / "index.pck").stat().st_size
     config["fileSizes"]["index.wasm"] = len(runtime)
+    legacy_preview = '\nif (new URLSearchParams(location.search).get("vista") === "dragon") { GODOT_CONFIG.args = ["res://scenes/dragon.tscn"]; }'
+    # El runtime web no admite rutas de escena como argumentos de arranque.
+    # El propio proyecto lee el selector de revisión; limpiar el contenedor anterior.
+    html = html.replace(legacy_preview, "")
     html = re.sub(pattern, lambda _: "const GODOT_CONFIG = " + json.dumps(config, separators=(",", ":")) + ";", html)
     (OUTPUT / "index.html").write_text(html)
     temporary = OUTPUT.parent / "bitu-navegador.zip.tmp"

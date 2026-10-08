@@ -22,6 +22,8 @@ En cada animación conservar el tamaño del cuerpo y un punto de apoyo estable. 
 
 Para nuevos elementos, aplicar la referencia de su familia y discutir excepciones o familias nuevas; no hace falta pedir una medida desde cero por cada nombre. El usuario puede revisar cualquier referencia al desarrollar un recurso concreto.
 
+**Protagonista elegido después:** dragón bípedo con cabeza original y cuerpo articulado, unos **84 px de alto** antes del zoom, compatible con la referencia de 80 px. Punto de apoyo en (0,0), colisión circular de radio 7 en (0,-3), fotograma orientativo 128 × 128. Los PNG grandes se conservan; recorte de cabeza mediante UV, piezas con AtlasTexture y filtrado por vecino más cercano. La altura y el lienzo de referencia no convierten estos originales en sprites nativos de 128 × 128. [Ficha y revisión jugable](../assets/personajes/dragon-avatar/README.md).
+
 ## 2. Familias y proporciones
 
 Rangos orientativos, en píxeles del recurso antes del zoom. Los cultivos citados además de patata y tomate son ejemplos de formas posibles, no nuevas especies confirmadas.
@@ -112,7 +114,7 @@ La escala del mundo se mantiene al viajar entre islas. El mapa general puede rep
 
 Admitir costa, interior, minas, cuevas y otros lugares conectados con puntos de entrada y retorno estables. Sectores de 32 × 32 casillas son una propuesta de carga, no el límite de una isla. La continuidad marítima y cómo se muestran las transiciones requieren validación futura.
 
-Mantener fuera de pantalla la información necesaria: recursos recogidos, cambios del terreno de la granja, crecimiento, botín temporal y tiempos pendientes. Descargar un sector no debería reiniciar sus recompensas ni su reaparición. Reloj de juego, pausa y avance al cerrar el navegador siguen pendientes; el marco debe poder aplicar lo que se elija.
+Mantener fuera de pantalla la información necesaria: recursos recogidos, cambios del terreno de la granja, crecimiento, botín temporal y tiempos pendientes. Descargar un sector no debería reiniciar sus recompensas ni su reaparición. Regla confirmada después: todo el mundo se detiene al salir de la partida o pausarla; no avanza durante la ausencia. Conservar progreso y tiempos restantes para retomar al volver. Duración del ciclo, activación exacta de la pausa y sistema de guardado todavía pendientes de implementación.
 
 Separar ubicación e identidad del recurso: una mena reaparece en otra posición de su zona, pero no se convierte en un objeto de otra isla. Las zonas de aparición no equivalen a sectores de carga y pueden cruzar varios de ellos. Generación fija o procedural sigue abierta.
 
@@ -121,6 +123,8 @@ Separar ubicación e identidad del recurso: una mena reaparece en otra posición
 Preparar por familia qué características admite: especie o tipo, variante, calidad, tamaño y otros datos acordados. Esas características son independientes. La habilidad específica del tomate está confirmada; no extender automáticamente ese mismo progreso a minería o pesca.
 
 Prístino es máxima calidad; Siru es el nombre elegido para la variante rara del ejemplo de tomate. No llamar Siru a todos los peces, minerales o mobs raros sin elegirlo. Tampoco añadir calidad prístina a criaturas vivas por defecto.
+
+Obtención de Siru en tomates acordada después: mutación rara de la planta durante el crecimiento, ligada a la maestría específica, con cambio visual de la tomatera y cosechas posteriores Siru hasta agotar su vida. También semillas Siru muy escasas encontradas explorando, en cofres o lugares perdidos. Aceptada además una pequeña posibilidad de dejar una semilla Siru al agotarse. Prístino conserva su eje de calidad independiente. Probabilidades, umbrales, momentos de comprobación y entrega de la semilla final pendientes; no convertirlo en una regla general para otras familias. Todavía sin implementar.
 
 Conservar el mismo tamaño de píxel en variantes, con cambios de color, marcas y destellos que sean visibles en el suelo y en inventario. Los actuales tomates básicos están aprobados y los prístinos tienen brillos destacados. Una aparición rara no necesita bloquear el juego con una ventana.
 
@@ -132,7 +136,7 @@ Todas las profesiones utilizan la misma referencia gráfica. Separar el objeto e
 
 | Familia | Recursos que conviene prever | Reglas de diseño vigentes |
 |---|---|---|
-| Cocina | Ingredientes, alimentos preparados, utensilios y lugar de trabajo. | Usos y recetas por definir; no alimentación constante obligatoria. |
+| Cocina | Ingredientes, alimentos preparados, utensilios y lugar de trabajo. | Kit portátil reutilizable con hueco propio, combustible al encender y cocina por lotes desde libro con filtros; combustible concreto pendiente. Prístino mejora recetas y Siru permite preparaciones especiales, sin extender Siru a otras familias. Comida opcional con ventajas duraderas; recetas aprendidas del maestro y explorando. Catálogo, efectos y balance pendientes. |
 | Alquimia | Plantas, ingredientes, preparados, recipientes y mesa o espacio de trabajo. | Herboristería silvestre diferenciada de agricultura; recetas y efectos concretos pendientes. |
 | Herrería | Minerales, materiales procesados si se eligen, herramientas, equipo y forja. | Mejoras con requisitos pendientes; herramientas permanentes sin desgaste. |
 | Agricultura | Semillas, etapas de cultivo, cosechas, herramientas e instalaciones futuras. | Distribución libre, trabajo manual inicial y automatización posterior. |

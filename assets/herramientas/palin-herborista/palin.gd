@@ -28,6 +28,7 @@ func play_work() -> void:
 		return
 	working = true
 	motion = create_tween()
+	motion.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	for frame in [[-20.0,0.25],[55.0,0.30],[25.0,0.20],[65.0,0.30],[40.0,0.20],[IMPACT_ANGLE,0.25]]:
 		motion.tween_property(self,"rotation",deg_to_rad(frame[0]),frame[1]).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	motion.tween_callback(func(): impact.emit(&"recolectar"))

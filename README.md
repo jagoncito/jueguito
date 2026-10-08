@@ -2,7 +2,7 @@
 
 Proyecto de juego individual de fantasía, **íntegramente en pixel art**, con **vista desde arriba isométrica cenital**, centrado en explorar, farmear, mejorar y coleccionar.
 
-**Primera prueba visual jugable:** una zona provisional de Bītu para revisar la escala, el movimiento, el zoom y el farmeo básico. El pico–hacha se empuña al minar y talar; el árbol deja un tocón y madera recogible. Al recoger flores, el personaje se arrodilla y usa el palín de herborista. Un clic inicia toda la extracción. El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
+**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo y su cara original intacta**. Camina con el pico–hacha, mina, tala y usa el palín al arrodillarse. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon-avatar/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
 
 Motor elegido: **Godot 4**. Primera plataforma: **navegador en ordenador, con teclado y ratón**. La versión descargable queda como posibilidad futura.
 

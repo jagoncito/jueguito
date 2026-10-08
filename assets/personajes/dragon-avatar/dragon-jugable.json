@@ -1,0 +1,59 @@
+{
+  "id": "dragon-protagonista-bipedo",
+  "created": "2026-10-09",
+  "status": "integrated_prototype_rig",
+  "face": {
+    "source": "dragon-idle.png",
+    "source_size_px": [1254, 1254],
+    "sha256": "c635a770fd4cba7803ffbb18d7cb31495538adc16f908431f57fba628441ecba",
+    "unchanged": true,
+    "extraction": "Polygon2D UV contour in dragon_visual.gd; no face repaint",
+    "scale": 0.055,
+    "source_anchor_px": [650, 815],
+    "local_anchor_px": [0, -44]
+  },
+  "body_atlas": {
+    "source": "dragon-cuerpo.png",
+    "size_px": [1254, 1254],
+    "regions_xywh": {
+      "torso": [49, 160, 328, 468],
+      "upper_arm": [417, 238, 185, 277],
+      "forearm": [707, 244, 154, 356],
+      "hand": [951, 323, 258, 275],
+      "thigh": [60, 711, 195, 365],
+      "shin_foot": [331, 724, 218, 405],
+      "tail": [566, 729, 397, 352],
+      "wing": [980, 746, 240, 310]
+    }
+  },
+  "back_atlas": {
+    "source": "dragon-espalda.png",
+    "size_px": [1774, 887],
+    "regions_xywh": {
+      "head": [96, 81, 878, 678],
+      "torso": [1159, 178, 488, 628]
+    }
+  },
+  "presentation": {
+    "height_px_approx": 84,
+    "reference_frame_px": [128, 128],
+    "ground_anchor_px": [0, 0],
+    "collision_center_px": [0, -3],
+    "collision_radius_px": 7,
+    "filter": "nearest",
+    "native_128px_sprite": false,
+    "rig": "res://scripts/dragon_visual.gd",
+    "preview_scene": "res://scenes/dragon.tscn",
+    "direction_views": "front three-quarter, reflected left, rear; no eight-angle sprite sheet"
+  },
+  "animation": {
+    "method": "articulated parts in Godot; tool motion on physics step, hands updated for rendering",
+    "idle": "breathing, wings, tail",
+    "walk": "alternating feet and arms, equipped tool, front/rear",
+    "mine": "two grips, pick impact, recovery; 0.62s stroke",
+    "chop": "two grips, axe impact, recovery; 0.62s stroke",
+    "gather": "kneel, herbal spade, extraction at 1.5s, recovery at 2s",
+    "timings_are_provisional": true,
+    "not_implemented": ["fishing", "watering_can", "combat", "dodge", "damage"]
+  }
+}

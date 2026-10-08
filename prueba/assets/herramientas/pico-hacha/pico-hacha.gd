@@ -28,6 +28,7 @@ func play_work(function: StringName) -> void:
 		return
 	working = true
 	motion = create_tween()
+	motion.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	var frames: Array = MOTIONS[String(function)]
 	for index in range(frames.size()):
 		var frame: Array = frames[index]

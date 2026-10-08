@@ -1,5 +1,9 @@
 # Recursos de personajes
 
+## Protagonista: dragón bípedo
+
+El usuario elige el dragón del avatar como protagonista el 9 de octubre. Cabeza original intacta, cuerpo articulado y animaciones de caminar con herramientas, minería, tala y palín ya integradas en la prueba. [Ficha y archivos](dragon-avatar/README.md). Esta elección sustituye al protagonista humano anterior; Unamahloni mantiene su propio papel.
+
 ## Unamahloni — versión original pixel art
 
 [unamahloni-idle.png](unamahloni-idle.png) es el primer recurso gráfico generado para el maestro alquimista/herboristero Veyari.

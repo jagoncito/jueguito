@@ -47,9 +47,9 @@
   "provisional": {
     "body": "cuadrúpedo compacto, patas cortas, alas pequeñas y cola curvada; partes no visibles completas en el avatar",
     "name": null,
-    "role": null,
+    "role": "protagonista; adaptación bípedo integrada posteriormente",
     "animations": null,
     "directions": null
   },
-  "notes": "Original generado conservado sin redimensionar. Una pose estática; medidas de presentación orientativas, requiere comprobación a escala jugable."
+  "notes": "Original generado conservado sin redimensionar. Esta pose cuadrúpeda sigue siendo referencia estática; su cabeza se usa intacta en el protagonista bípedo. Véase dragon-jugable.json para el rig, presentación y animaciones integradas."
 }

@@ -32,6 +32,12 @@ const ZOOMS := [0.75, 1.0, 1.5, 2.0]
 const INTERACTION_RANGE := 47.0
 
 func _ready() -> void:
+	# El runtime web impide cambiar la escena por argumentos de arranque.
+	# La revisión opcional se abre desde el proyecto, igual que en Godot.
+	if OS.has_feature("web") and bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('vista') === 'dragon'")):
+		set_process(false)
+		get_tree().call_deferred("change_scene_to_file","res://scenes/dragon.tscn")
+		return
 	_register_inputs()
 	for item_id in TOMATO_IDS:
 		textures[item_id] = load("res://assets/objetos/cultivos/%s.png" % item_id)

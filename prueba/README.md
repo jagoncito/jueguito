@@ -1,6 +1,6 @@
 # Prueba visual de Bītu
 
-![Captura real de la escena](capturas/bitu.png)
+![Dragón protagonista dentro del juego](capturas/dragon-en-juego.png)
 
 Una zona provisional para revisar el aspecto, la escala y el farmeo básico.
 
@@ -37,16 +37,22 @@ Los cuatro PNG de tomates se incluyen en `assets/objetos/cultivos/` dentro de es
 | Mostrar u ocultar la mochila | Tab |
 | Recoger botín del suelo | Acercarte |
 
-**No guarda progreso.** Personaje, edificios, terreno y tiempos son provisionales. Los tomates junto a la orilla son muestras para comparar sus diseños; las cosechas normales de esta prueba dan tomate común. Todavía no incluye pesca, barco ni el inicio narrativo del juego.
+**No guarda progreso.** El protagonista es el dragón bípedo, con la misma cara original y animaciones mediante piezas articuladas. Edificios, terreno, tiempos y acabado de movimientos son provisionales. Los tomates junto a la orilla son muestras para comparar sus diseños; las cosechas normales de esta prueba dan tomate común. Todavía no incluye pesca, barco ni el inicio narrativo del juego.
 
 El pico–hacha está equipado y elige automáticamente el extremo correspondiente a mena o árbol. **Un clic inicia toda la extracción**, sin mantener pulsado ni repetir clics por golpe. Al seleccionar una flor, guarda el pico–hacha, se arrodilla y usa el **palín de herborista**; tras extraerla se levanta y recuperas el movimiento. Debes estar cerca; clic en suelo no extrae y clic desde lejos no mueve al personaje. Cada golpe tiene preparación, impacto y recuperación. El golpe final suelta mineral o madera, que se recoge al acercarte; talar deja un tocón transitable. Los árboles no reaparecen hasta reiniciar esta prueba; su regeneración definitiva queda pendiente.
 
-![Palín y postura de recolección dentro del juego](capturas/palin-en-juego.png)
+![Dragón usando el palín dentro del juego](capturas/dragon-recolectando.png)
+
+## Revisar el dragón y sus animaciones
+
+Abre `scenes/dragon.tscn` en Godot y pulsa **F6**: reposo, caminar con herramienta, caminar de espalda, minería, tala y recolección ampliados ×3. Son las mismas piezas y animaciones utilizadas en la granja. En el navegador, añade **`?vista=dragon`** a la URL abierta por `JUGAR.py` para ver esa escena. [Ficha del personaje](../assets/personajes/dragon-avatar/README.md).
+
+![Revisión de las animaciones reales](capturas/dragon-animaciones.png)
 
 Consulta [alcance y comprobaciones](../docs/prueba-visual.md). Para regenerar la exportación web desde la raíz del repositorio, ejecuta `python prueba/tools/export_web.py` con Godot 4.6.3 disponible. Reutiliza el runtime web comprobado del ZIP existente y exporta los datos actuales, sin descargar plantillas. También puedes instalar las plantillas 4.6.3 y exportar mediante el preset **Web**. `build/` y la caché `.godot` se excluyen de Git.
 
 ## Revisar el pico–hacha
 
-Abre `scenes/herramienta.tscn` en Godot y pulsa **F6**. Muestra el personaje provisional y el [pico–hacha de hierro](../assets/herramientas/pico-hacha/README.md), con proporciones reales ampliadas ×4. **1** reproduce minería, **2** tala y **R** restaura las poses. Esta revisión independiente se conserva; **F5** abre la granja con la herramienta integrada. Las mejoras de materiales todavía no son jugables.
+Abre `scenes/herramienta.tscn` en Godot y pulsa **F6**. Muestra el dragón y el [pico–hacha de hierro](../assets/herramientas/pico-hacha/README.md), con proporciones reales ampliadas ×4. **1** reproduce minería, **2** tala y **R** restaura las poses. Esta revisión independiente se conserva; **F5** abre la granja con la herramienta integrada. Las mejoras de materiales todavía no son jugables.
 
-![Comprobación real de escala y agarre](capturas/pico-hacha-escala.png)
+[Captura histórica de la primera escala con humano de referencia](capturas/pico-hacha-escala.png).

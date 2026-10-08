@@ -1,6 +1,6 @@
 # Bloc de diseño — Bītu y el archipiélago
 
-Última revisión: **8 de octubre de 2026**.
+Última revisión: **9 de octubre de 2026**.
 
 **Estado: diseño en conversación y primera prueba visual limitada.** Después de expresar que quiere empezar a programar y preguntar cuándo se podría probar el aspecto, se prepara una pequeña escena provisional de Bītu. No representa el juego completo ni cierra las decisiones pendientes. [Alcance y ejecución](docs/prueba-visual.md).
 
@@ -55,11 +55,19 @@ La propuesta de que el mundo «pierde su historia» **no se adoptó como premisa
 
 1. Despertar en unas ruinas costeras de Bītu.
 2. Recorrer un único camino transitable hasta el astillero de Flavia.
-3. Conocerla y empezar a preparar la construcción del primer barco.
+3. Conocer a Flavia y al maestro minero/herrero, presente en el astillero al comienzo, y empezar a preparar la construcción del primer barco.
 4. Acceder al resto de Bītu, conocer a sus habitantes y reunir recursos.
 5. Construir el barco y abrir la exploración marítima.
 
-El camino inicial conduce al astillero: no debe permitir saltarse ese primer encuentro. Se pueden incluir pequeños recovecos que regresen al mismo sendero.
+El camino inicial conduce al astillero: no debe permitir saltarse ese primer encuentro. Se pueden incluir recovecos que regresen al mismo sendero.
+
+**Zona inicial amplia:** se mantiene la dirección de reunir ruinas, sendero y astillero en una misma zona de mapa. El usuario aclara que compartir zona **no implica hacerla pequeña**: deberá conservar una escala amplia y distancias coherentes con el mapa conceptual de Bītu. La cámara recorre un terreno mayor que el área visible. Un único camino de avance es compatible con espacios de exploración alrededor; no reducir el comienzo a un pasillo corto ni comprimir los lugares para que quepan juntos en pantalla. Dimensiones, duración del recorrido y límites pendientes. La primera transición al salir del astillero hacia el interior es la propuesta de conexión; todavía sin implementación.
+
+**Encuentro inicial importante, confirmado por el usuario:** el **maestro minero/herrero está en el astillero al comienzo**. Conecta con el protagonista, le cae bien y le entrega herramientas propias para poder picar y talar desde ese momento, tanto por los caminos como en la granja. En el diseño vigente, pico y hacha forman el pico–hacha combinado. **También entrega una regadera sencilla**, aceptada para comenzar con los cultivos y con su hueco propio de herramienta. Lo invita a visitar su casa, herrería y mina para aprender y mejorar. Su presencia inicial no traslada allí su hogar ni sus instalaciones. Diálogo, motivo de su estancia y otros suministros adicionales pendientes.
+
+**Bienvenida de Flavia confirmada:** durante el encuentro inicial en el astillero, Flavia entrega la mochila al protagonista como parte de su bienvenida. El herrero mantiene el regalo de sus herramientas y Unamahloni entregará el primer palín cuando se lo visite. Diálogos, apariencia de la mochila y condiciones de sus mejoras pendientes; todavía sin implementación narrativa.
+
+**Presentación del hogar acordada:** Flavia y el herrero mencionan la casa abandonada durante el encuentro del astillero. Después, el comerciante, de camino, se la presenta al protagonista y cuenta que allí vivía un maestro muy antiguo. Las menciones iniciales y la presentación posterior se complementan; no revelan al jugador la especialidad del antiguo dueño. Diálogos, recorrido exacto y forma de señalar o enseñar la casa pendientes; todavía sin implementación.
 
 ### Propuestas de distribución y narrativa
 
@@ -67,7 +75,7 @@ El camino inicial conduce al astillero: no debe permitir saltarse ese primer enc
 - Abrir el paso al interior después del encuentro con Flavia, atravesando su terreno. La puerta dibujada en los mapas es una propuesta, no una mecánica definitiva.
 - Encontrar marcas antiguas o llevar una pieza extraña como posible hilo de misterio. El objeto, su función y su vínculo con otras islas siguen sin confirmar.
 
-**Pendiente:** punto exacto de aparición, primeros diálogos, momento de apertura del paso, tareas iniciales, materiales del barco y primera expedición. No hay una persona confirmada que te encuentre en las ruinas.
+**Pendiente:** punto exacto de aparición, primeros diálogos, momento de apertura del paso, tareas iniciales, tipos concretos, cantidades y costes de los materiales del barco y primera expedición. No hay una persona confirmada que te encuentre en las ruinas.
 
 ## 4. Mundo y archipiélago
 
@@ -84,6 +92,8 @@ El camino inicial conduce al astillero: no debe permitir saltarse ese primer enc
 **Organización por zonas conectadas aceptada:** referencia Stardew Valley. Una «pantalla» significa aquí un mapa o zona, que puede ser mayor que el área visible del monitor. La granja tiene su propio mapa; al salir por un acceso se hace una transición a otro mapa, con sus propios límites. Se conserva una geografía coherente entre caminos y destinos. El usuario quiere seguir esta dinámica como base del juego completo; número, tamaños, conexiones concretas y tratamiento del mar e interiores por cerrar. La prueba actual todavía no implementa estas transiciones ni la cámara acordada.
 
 **Dirección aceptada:** zonas de tamaños distintos, con espacios amplios de exploración y regiones marítimas grandes para evitar transiciones demasiado frecuentes. Dimensiones y conexiones concretas pendientes. Bosques con varios lugares y minas divididas en niveles o sectores son ejemplos, no distribuciones definitivas. Alternativas comentadas sin adoptar: mundo continuo con carga progresiva; combinación de zonas en tierra y mar continuo. Las zonas de mapa son diferentes de las zonas de aparición de cada recurso.
+
+**Criterio de escala reiterado por el usuario:** agrupar varios lugares en una misma zona no exige reducir su tamaño ni sus distancias. El tamaño del terreno se decide por la geografía y la experiencia de exploración; la agrupación determina dónde ocurre una transición de mapa. Se aplica especialmente al comienzo ruinas–sendero–astillero y sirve como criterio para el resto de Bītu.
 
 | Tipo | Cantidad propuesta | Función posible |
 |---|---:|---|
@@ -115,7 +125,11 @@ El jugador visita la **casa de cada personaje**, con las instalaciones de su ofi
 
 No interpretar esto como talleres obligatoriamente dentro de viviendas ni como personajes que simplemente duermen en sus comercios.
 
-El núcleo propuesto de Bītu incluye los cinco personajes de servicio originales y la pareja del comerciante a cargo del museo. La ubicación exacta de todos ellos sigue abierta. Conviene reunir funciones en pocos habitantes.
+El núcleo propuesto de Bītu incluye los cinco personajes de servicio originales y la pareja del comerciante a cargo del museo. Conviene reunir funciones en pocos habitantes.
+
+**Zona compartida de comercio y museo aceptada:** ambos estarán en la misma zona de mapa, cerca de la granja. El comerciante mantiene el comercio y su pareja el museo, abandonado al comienzo. La propuesta de distribución contempla edificios separados con terreno natural entre ellos, conservando las pocas casas dispersas de Bītu. Límites, dimensiones, accesos y posición exacta de los edificios pendientes; compartir zona no exige que ocupen un mismo edificio. Acuerdo de diseño, todavía sin implementación.
+
+**Dos accesos de la granja aceptados:** una salida al camino principal que conecta con la zona de comercio y museo y, desde ella, con las rutas hacia los demás maestros y el astillero; una segunda salida por un sendero costero que conduce hacia el hogar del maestro de pesca/cocina, siguiendo la bahía del mapa conceptual. Caminos y vegetación pueden marcar estos accesos como propuesta visual, sin imponer un cercado. Posiciones exactas, distancias, límites de mapas y zonas intermedias pendientes. No se han implementado estas conexiones.
 
 ### Mapas conceptuales guardados
 
@@ -124,7 +138,7 @@ El núcleo propuesto de Bītu incluye los cinco personajes de servicio originale
 
 **Referencia de estructura elegida por el usuario:** `mapas/isla-bitu-concepto.png`. Le gusta la amplitud de la isla, la granja conectada por caminos con todos los maestros y el comercio cercano. Se toma también como referencia para la ubicación costera de la granja, junto a la bahía. Esta elección resuelve la orientación general de la pregunta costa/interior; no hay que volver a preguntarla sin motivo.
 
-Ambos muestran instalaciones dispersas, ruinas, camino inicial y un lugar provisional para la granja. **La distribución detallada y los límites de cada zona aún no son definitivos.** La segunda propuesta guía la estructura; el juego será pixel art. La granja dibujada debe entenderse como parte del hogar del jugador. Se adaptarán caminos, distancias, superficies y transiciones manteniendo la geografía de referencia. La ubicación del museo, ausente en el dibujo, sigue pendiente.
+Ambos muestran instalaciones dispersas, ruinas, camino inicial y un lugar provisional para la granja. **La distribución detallada y los límites de cada zona aún no son definitivos.** La segunda propuesta guía la estructura; el juego será pixel art. La granja dibujada debe entenderse como parte del hogar del jugador. Se adaptarán caminos, distancias, superficies y transiciones manteniendo la geografía de referencia. El museo, ausente en el dibujo, compartirá zona con el comercio cerca de la granja; su posición concreta sigue pendiente.
 
 ## 6. Personajes
 
@@ -132,7 +146,7 @@ Ambos muestran instalaciones dispersas, ruinas, camino inicial y un lugar provis
 
 | Personaje | Función establecida | Servicios adicionales propuestos |
 |---|---|---|
-| Comerciante | Vender recursos y gestionar mejoras por concretar. | Suministros, intercambios, encargos y mejoras de inventario o almacenamiento. |
+| Comerciante | Compraventa de recursos y venta de ampliaciones de mochila por monedas. | Suministros, intercambios, encargos y almacenamiento. |
 | Pareja del comerciante | Ocuparse del museo. | Recuperarlo y estudiar la historia de los hallazgos; detalles pendientes. |
 | Unamahloni, maestro alquimista/herboristero | Alquimia y recolección de plantas para ella. | Identificar plantas, enseñar recetas y mejorar utensilios. |
 | Maestro minero/herrero | Minería y herrería. | Mejorar pico, fundir minerales y fabricar o mejorar equipo. |
@@ -169,6 +183,8 @@ Referencias visuales dentro de la dirección aceptada: trenzas sencillas, ropa p
 
 **Maestro minero/herrero — rasgos confirmados:** enano, gnomo o similar; especie exacta por decidir. Tiene barba larga, es muy sabio y terco. Referencia aclarada por el usuario: **Gimli, de El señor de los anillos**, para orientar su carácter y presencia. Nombre, edad concreta, resto del aspecto e historia pendientes. Paciente y de pocas palabras fueron sugerencias anteriores, no rasgos fijados expresamente.
 
+**Primera aparición confirmada:** en el astillero de Flavia al comenzar. Conecta con el protagonista, le entrega herramientas suyas y lo invita a visitarlo para minería y herrería. El regalo abre la extracción básica antes de recorrer el resto de Bītu. El pico–hacha combinado conserva la mejora independiente de sus extremos; no se vuelve a separar por la mención coloquial de pico y hacha. Equipamiento adicional por concretar.
+
 Trato y hábitos confirmados:
 
 - Enseña mediante demostraciones: cómo leer una veta, colocar el pico o trabajar el metal.
@@ -180,6 +196,8 @@ Propuesta adicional: su terquedad puede expresarse en el cuidado del oficio y en
 Ejemplo provisional de voz: «La piedra avisa antes de romperse. Aprende a escucharla». No es un diálogo definitivo ni confirma capacidades sobrenaturales.
 
 **Maestro de pesca/cocina — carácter confirmado:** tranquilo y buen conversador, con historias del mar y gusto por cocinar para los demás. Es fan de lo raro y legendario; ante una captura excepcional se entusiasma como un niño. Nombre, especie, edad, aspecto e historia concreta pendientes.
+
+**Primer encuentro, caña confirmada:** regala una caña básica directamente al hablar con él por primera vez. No exige materiales, fabricación, encargo previo ni completar una captura para obtenerla. Puede ofrecer consejos y una práctica opcional junto a su casa; el jugador puede empezar a pescar cuando quiera. Entrega narrativa todavía sin implementar.
 
 Es apasionado de toda la naturaleza, incluidos animales además de peces. Se interesa por la granja, la ganadería y la agricultura. **Su oficio principal sigue siendo maestro de pesca/cocina**; de forma secundaria dará consejos, a veces mágicos, para ayudar con la granja y la experiencia del juego. No sustituye la futura maestría granjera del protagonista.
 
@@ -209,19 +227,31 @@ Los nombres, aspectos y relatos todavía no definidos de los personajes siguen a
 
 ### Personaje
 
-- Protagonista **humano y personalizable**, con nombre y aspecto elegidos por el jugador.
+- Protagonista **dragón bípedo**, confirmado el 9 de octubre al elegir el [dragón ya creado](assets/personajes/dragon-avatar/README.md). Se conserva **la misma cara**: ojos ámbar, hocico claro y sonrisa del original. Cuerpo adaptado para caminar sobre dos patas y manejar herramientas; azul grisáceo con marcas ocre y aletas naranjas.
 - La llegada misteriosa es el punto de partida común.
-- Propuesta para empezar: pocas opciones de piel, pelo y ropa, ampliables después. Opciones exactas y amplitud del editor pendientes; la especie humana está confirmada.
+- Esta elección sustituye al protagonista humano anterior. Nombre, especie concreta, historia y personalización del dragón siguen abiertos; no aplicar automáticamente las antiguas opciones de piel y pelo humanos.
+
+**Integración solicitada:** protagonista bípedo en la prueba, con reposo, caminar llevando el pico–hacha, vista de espalda, minería, tala y recolección arrodillado con palín. La cara frontal se toma del PNG original sin retocar mediante una pieza con UV registradas. Referencia jugable de unos **84 píxeles de alto**, cercana a los 80 de escala común; fotograma de referencia 128 × 128 y colisión pequeña en los pies. Animaciones mediante piezas articuladas en Godot, no una hoja completa de fotogramas dibujados. La pesca y el combate requieren sus sistemas y animaciones posteriores. Después de revisar la entrega, el usuario solicita expresamente subirla a GitHub junto al bloc actualizado; futuras subidas requieren nueva petición.
 
 ### Casa y granja
 
-Obtienes una **casa abandonada con un terreno descuidado**, que puedes reparar y transformar poco a poco. Allí vivía el antiguo maestro granjero. El jugador puede llegar a ser **maestro granjero** algún día.
+Obtienes una **casa abandonada pero habitable, con terreno útil despejado**, que puedes mejorar y transformar poco a poco. Allí vivía el antiguo maestro granjero; su especialidad sigue oculta al jugador. El jugador puede llegar a ser **maestro granjero** algún día.
 
-**Preferencia actual del usuario:** terreno útil despejado al comenzar. Rechaza añadir una hoz para limpiar maleza, por su escasa utilidad y por acercarse demasiado a Stardew Valley. No adoptar la propuesta del asistente de una limpieza inicial obligatoria. Vegetación decorativa en los bordes, casa deteriorada y cercas rotas son posibilidades visuales para expresar abandono, pendientes de diseño; la maleza no es un recurso confirmado ni necesita recetas para justificar su existencia.
+**Estado inicial decidido por delegación del usuario:** la casa se puede habitar desde la llegada. Tiene estructura sólida, paredes y tejado en buen estado, con una cama y una mesa sencillas. El abandono se expresa mediante polvo, mobiliario gastado y carpintería exterior envejecida. Las reparaciones de esos detalles son opcionales y podrán acompañar mejoras y ampliaciones; no se exige restaurar la casa antes de establecerse. Una construcción antigua puede conservar una estructura útil: fecha de construcción y tiempo desde el abandono siguen sin fijar, sin atribuir una conservación mágica ni revelar la historia del antiguo dueño. Se incorpora el cofre oculto de semillas y carta descrito abajo. Decisión de diseño, todavía sin implementación.
+
+**Primeras semillas, dirección indicada por el usuario:** se encuentran **escondidas en la casa, en un cofre junto a una carta misteriosa del antiguo maestro**. Se adopta este hallazgo para obtener las primeras semillas; el regalo de semillas del comerciante era una propuesta anterior. El comerciante mantiene la presentación de la casa. Especie, cantidad, ubicación del cofre y texto exacto de la carta pendientes; tomate sigue siendo la propuesta inicial. La carta no debe revelar de entrada que el antiguo dueño era maestro granjero ni resolver el misterio del protagonista. Encontrar un cofre con este contenido no decide todavía su uso posterior como almacenamiento general. Todavía sin implementación.
+
+**Intención de la carta confirmada:** debe insinuar que el antiguo maestro **esperaba la llegada del protagonista**, en vez de ser una nota genérica para cualquiera que ocupe la casa. Cómo podía saberlo, por qué lo esperaba y su relación con el protagonista siguen abiertos y ocultos al jugador. La insinuación no confirma profecías, magia, identidad del protagonista ni que el maestro siga vivo.
+
+**Borrador de tono, texto todavía sin aceptar:**
+
+> «No sabía cuánto tardarías en llegar. He guardado estas semillas para ti. Confío en que sabrás qué hacer con ellas.»
+
+**Preferencia actual del usuario:** terreno útil despejado al comenzar. Rechaza añadir una hoz para limpiar maleza, por su escasa utilidad y por acercarse demasiado a Stardew Valley. No adoptar la propuesta del asistente de una limpieza inicial obligatoria. Vegetación decorativa en los bordes y cercas rotas son posibilidades visuales pendientes; el desgaste de la casa se define arriba sin comprometer su habitabilidad. La maleza no es un recurso confirmado ni necesita recetas para justificar su existencia.
 
 **Distribución libre de la granja confirmada:** el jugador decide dónde colocar cultivos, caminos e instalaciones dentro de su terreno. Reglas de colocación, tamaños y ampliaciones pendientes. El usuario pide desarrollar cómo se organiza el suelo para encajar edificios, vegetación, recursos, mobs y ríos. [Propuesta de organización del terreno](docs/terreno.md): cuadrícula lógica isométrica, superficies de ocupación, movimiento continuo y zonas de aparición; estas soluciones técnicas son propuestas, no decisiones cerradas.
 
-**Flavia o el comerciante** pueden presentarte la casa y contar que hace tiempo vivía allí un antiguo maestro, sin revelar de entrada su especialidad. El comerciante puede estar de camino; no se ha elegido quién lo hace, el recorrido ni el diálogo.
+**Presentación confirmada:** Flavia y el herrero mencionan la casa en el encuentro inicial del astillero; después el comerciante, que está de camino, te la presenta y cuenta que hace tiempo vivía allí un maestro muy antiguo. La especialidad de ese maestro sigue oculta al jugador. Recorrido exacto, diálogos y forma de mostrar la casa pendientes.
 
 Ubicación general de referencia: junto a la bahía y cerca del comercio, según `mapas/isla-bitu-concepto.png`; límites exactos, acceso a la propiedad, reparaciones y ampliaciones pendientes. La exposición doméstica no es necesaria; las colecciones tienen el museo como destino. Una isla privada cercana fue una idea anterior, no una ubicación elegida.
 
@@ -235,7 +265,17 @@ Ubicación general de referencia: junto a la bahía y cerca del comercio, según
 
 ### Inventario
 
-**Límite confirmado: por espacios en la mochila**, no por peso. La mochila se destina a recursos y todo lo recolectable. **Herramientas y equipo tienen huecos propios**, además de otros objetos cuya identidad y distribución quedan pendientes. Número de huecos, objetos apilables, límites de cada pila y tratamiento de objetos recién encontrados que puedan equiparse pendientes. Ampliar la mochila mediante mejoras y disponer de una bodega separada en el barco son propuestas todavía por concretar.
+**Límite confirmado: por espacios en la mochila**, no por peso. La mochila se destina a recursos y todo lo recolectable. **Herramientas y equipo tienen huecos propios**, además de otros objetos cuya identidad y distribución quedan pendientes. La capacidad inicial, el apilado y la separación de propiedades individuales se fijan abajo; ampliaciones y tratamiento de objetos recién encontrados que puedan equiparse pendientes. Disponer de una bodega separada en el barco sigue siendo una propuesta por concretar.
+
+**Mochila inicial y mejoras confirmadas:** Flavia entrega la mochila durante su bienvenida en el encuentro inicial del astillero. El jugador la irá mejorando para ampliar su capacidad. **Las ampliaciones se compran al comerciante por monedas**, obtenidas vendiendo peces, minerales, plantas o cosechas, para progresar mediante la actividad que prefiera. El herrero conserva el regalo del pico–hacha y la regadera. La casa tendrá un cofre oculto con las primeras semillas y una carta misteriosa; capacidad y uso de almacenamiento doméstico general siguen pendientes. Diálogo, apariencia y costes pendientes; entrega narrativa y ampliaciones todavía sin implementar.
+
+**Capacidad inicial confirmada: 24 huecos para recolectables.** La presentación propuesta es de 6 columnas × 4 filas. Primeras ampliaciones posibles a 36 y 48 huecos, todavía sin aceptar ni fijar el máximo. Herramientas y equipo conservan sus huecos aparte.
+
+**Apilado indicado por el usuario: hasta 1.000 unidades por pila, como regla general para todos los objetos iguales.** Las cantidades de 1 a 999 se muestran como enteros y 1.000 como **«1k»**. Calidad y variante diferentes conservan pilas separadas: tomate común, prístino, Siru y Siru prístino son cuatro tipos distintos. Superar 1.000 requiere otra pila. La rareza por sí sola no justifica un límite menor. La capacidad dependerá sobre todo de la variedad y las pilas de cada recurso, aspecto a considerar al equilibrar futuras mejoras.
+
+**Excepción aceptada:** mantener separados los ejemplares con propiedades individuales diferentes para conservar su identidad, por ejemplo equipo con mejoras distintas o peces con peso propio si se incorporan récords de pesca. Esto no confirma pesos ni récords ni cambia los huecos propios del equipo. Recursos y ejemplares equivalentes siguen el límite general de 1.000. **Presentación aceptada:** conservar la cantidad exacta en el detalle y al dividir o vender una pila, aunque el icono muestre «1k». Ejemplo: 1.200 tomates iguales ocupan dos pilas, «1k» y «200».
+
+**Estado de implementación:** la prueba mantiene 12 huecos y pilas de hasta 50. Los acuerdos de 24/1.000 todavía no cambian el código.
 
 ### Botín y recogida
 
@@ -245,15 +285,17 @@ Ubicación general de referencia: junto a la bahía y cerca del comercio, según
 - **Recolección:** los objetos aparecen junto a la flor o recurso cosechado.
 - **Enemigos:** al derrotarlos, los objetos aparecen cerca del cadáver.
 - **Pesca desde la costa:** tras conseguir la captura, el pez se acerca a la orilla cerca del personaje para poder recogerlo. Esto no sustituye el desafío de pesca acordado. Presentación de capturas desde barco pendiente.
-- **Recogida automática por cercanía:** al entrar en el radio de recogida, los objetos pasan a la mochila si hay espacio. Si aparecen a los pies del personaje, se recogen prácticamente de inmediato; no requieren otro clic. Radio, animación, cantidades por objeto visible y tratamiento de sobrantes cuando no cabe todo pendientes.
+- **Recogida automática por cercanía:** al entrar en el radio de recogida, los objetos pasan a la mochila si hay espacio. Si aparecen a los pies del personaje, se recogen prácticamente de inmediato; no requieren otro clic. Radio, animación y cantidades por objeto visible pendientes; recogida parcial y sobrantes acordados abajo.
 
 **Tamaño de botín uniforme confirmado: 32 × 32 píxeles.** Todos los objetos de botín usan ese lienzo, incluidos minerales, flores, cosechas, peces y objetos de enemigos. Ajustar cada silueta manteniendo sus proporciones y alojar sus destellos dentro del lienzo común. Esto no iguala el tamaño de las plantas, depósitos, peces nadando ni criaturas originales. **Iconos de inventario: 64 × 64 píxeles**, también aceptados. Representaciones de museo pendientes. Estas medidas son objetivos de producción; los originales existentes aún no están adaptados.
 
-**Desaparición y reaparición indicadas por el usuario:** al terminar de extraer una mena o recolectar una flor, el recurso desaparece como si se hubiese recogido todo y comienza su tiempo de reaparición, aunque el jugador ignore el botín. No esperar a vaciar la ventana para iniciar ese tiempo. No se ha indicado que desaparezcan recursos intactos solo por pasar de largo. Tratamiento de mochila llena y aplicación exacta a otras formas de recurso pendientes.
+**Desaparición y reaparición indicadas por el usuario:** al terminar de extraer una mena o recolectar una flor, el recurso desaparece como si se hubiese recogido todo y comienza su tiempo de reaparición, aunque el jugador ignore el botín. No esperar a vaciar la ventana para iniciar ese tiempo. No se ha indicado que desaparezcan recursos intactos solo por pasar de largo. Aplicación exacta a otras formas de recurso pendiente.
 
 **Persistencia temporal confirmada para ese botín:** los objetos sin recoger de menas y flores pueden permanecer aproximadamente **10 minutos**, independientemente de la desaparición del recurso y de su tiempo de reaparición. La duración es orientativa; al agotarse, desaparece el botín restante. El cambio de presentación permite volver al lugar y recoger los objetos sin reabrir una ventana. Momento exacto de inicio del plazo y tratamiento al pausar o cerrar el juego pendientes. Plazo para cadáveres y pesca pendiente de concretar.
 
-**Aportaciones del asistente, todavía propuestas:** recoger solo lo que quepa en la mochila y dejar el resto en el mundo; calcular el botín una sola vez; destacar rareza y calidad visualmente, especialmente Siru/prístino; aviso breve de lo obtenido sin bloquear acciones. Para pesca desde barco, situar la captura en la cubierta cerca del personaje. La propuesta de una bolsa para reabrir la ventana queda sustituida por los propios objetos visibles.
+**Mochila llena y recogida parcial confirmadas:** se recoge automáticamente solo lo que cabe, completando pilas compatibles cuando sea posible, y el sobrante permanece visible en el suelo con un aviso breve de mochila llena. No descartar objetos ni sustituir otros para hacer sitio. La recogida parcial conserva el plazo de desaparición original del botín; no lo reinicia. Ejemplo: con 980 tomates y sin huecos libres, recoger 50 añade 20 a la pila hasta «1k» y deja 30 en el suelo. Este comportamiento básico ya existe en la prueba con sus límites provisionales de 12/50; 24/1.000 siguen sin aplicar.
+
+**Aportaciones del asistente, todavía propuestas:** calcular el botín una sola vez; destacar rareza y calidad visualmente, especialmente Siru/prístino; aviso breve de lo obtenido sin bloquear acciones. Para pesca desde barco, situar la captura en la cubierta cerca del personaje. La propuesta de una bolsa para reabrir la ventana queda sustituida por los propios objetos visibles.
 
 ### Aparición de recursos: minería y herboristería
 
@@ -299,9 +341,40 @@ El valor depende del lugar y sus peligros, además de la profundidad. Minerales,
 
 Pescar y coleccionar peces, incluidos hallazgos especiales en distintas aguas y momentos del día. El maestro reúne pesca y cocina.
 
+**Acceso inicial confirmado:** primera caña básica como regalo directo del maestro al conversar por primera vez, sin requisitos de materiales ni encargo. Tiene su hueco propio de herramienta y se puede utilizar desde ese momento. Práctica guiada opcional, sin condicionar la entrega. Mejoras posteriores, materiales, costes y requisitos pendientes.
+
 **Mecánica de pesca acordada:** lanzar la caña, esperar la picada y superar un pequeño desafío para sacar el pez. Los peces comunes serán fáciles; los raros podrán tener comportamientos distintos y una dificultad mayor.
 
-Controles, forma del desafío, tiempos, consecuencias de fallar y comportamiento de cada especie pendientes. Cebos, recetas y efectos de comida también están por definir. Cocinar capturas y alimentos de la granja es una conexión propuesta. Se busca que la comida sea útil sin exigir alimentación constante.
+**Desafío por tensión del sedal aceptado, conservando la propuesta original:** tras la picada, **mantener clic izquierdo recoge sedal y acerca el pez**; **soltar afloja cuando tira fuerte para evitar que escape**. Una pequeña barra muestra la tensión. Se busca acercar el pez a la orilla respondiendo a sus tirones. Comunes fáciles y raros con comportamientos distintos que aprender. Las mejoras de caña aportan mayor control y acceso a capturas más exigentes.
+
+**Balance y detalles pendientes:** lanzamiento y respuesta inicial a la picada, curvas de tensión y acercamiento, comportamiento del avance al aflojar, duración, consecuencias exactas de fallar y propiedades por especie y caña. El usuario retira su preocupación anterior sobre la duración y pide mantener la propuesta original: quedan fuera las sugerencias posteriores de conservar siempre el avance al soltar y de duraciones de 3–5/6–10 segundos. No adoptar esas cifras ni esa simplificación como acuerdos. Pesca todavía sin implementar en la prueba.
+
+Cebos, recetas concretas y efectos específicos de comida están por definir. **Acordado el valor culinario de las cosechas excepcionales:** los ingredientes prístinos mejoran el resultado de recetas y los Siru permiten elaborar preparaciones especiales. Esto conecta los cultivos con el maestro de pesca/cocina. No confirma Siru para todas las familias de ingredientes ni una lista de recetas. Se busca que la comida sea útil y opcional, sin exigir alimentación constante.
+
+**Beneficios de la comida, confirmados:** los platos ofrecen **ventajas temporales duraderas según la actividad**, para prepararse antes de una expedición o una jornada de farmeo. Comer sigue siendo opcional. Mejor control al pescar o más protección durante el combate son ejemplos de efectos por concretar. Duración, intensidad, efectos específicos y acumulación pendientes; todavía sin implementar. Sus tiempos siguen la regla general de mundo detenido al salir o pausar.
+
+**Aprendizaje de recetas, confirmado:** hay **dos vías compatibles: enseñanzas del maestro de pesca/cocina y descubrimientos al explorar**. El maestro enseña gratuitamente las primeras y también puede enseñar otras en distintos momentos de la aventura. Se encuentran recetas por el mundo, incluidas raras, en cofres, ruinas o lugares perdidos. Una vez aprendidas quedan en un **recetario permanente**. Condiciones de las enseñanzas posteriores, catálogo, distribución de recetas y tratamiento de duplicados pendientes; todavía sin implementar.
+
+**Recetario y elaboración, confirmados:** **libro de recetas con filtros y preparación por lotes**. Elegir receta y cantidad, seleccionar ingredientes por calidad/variante y cocinar con una animación breve. Filtros concretos, controles y duración pendientes; todavía sin implementar.
+
+**Cocina portátil confirmada:** el usuario elige la olla de viaje y acepta el funcionamiento del kit siguiente. Las demás instalaciones siguen como posibilidades por concretar.
+
+**Kit de cocina de viaje, funcionamiento acordado:**
+
+- Una olla con soporte plegable como herramienta permanente y reutilizable, con hueco propio separado de la mochila de recursos.
+- Desplegar el kit en un terreno despejado y **gastar combustible al encender la hoguera**, pudiendo preparar varios lotes en esa sesión. El usuario menciona **madera o carbón como opciones por decidir**: no se ha elegido uno ni confirmado que ambos sean utilizables. Tipo, cantidades y controles pendientes; consumo asociado al encendido, sin mantenimiento frecuente del fuego acordado.
+- Usar el libro de recetas con filtros, seleccionar receta, cantidad e ingredientes por calidad/variante, y preparar con una animación breve.
+- Recoger el equipo al terminar para llevarlo a otro lugar. Persistencia y control de recogida pendientes; no perder la herramienta por usarla.
+- Obtención inicial propuesta: regalo del maestro de pesca/cocina al conocerlo, junto a la enseñanza de preparaciones sencillas. Este regalo adicional todavía no está confirmado.
+
+**Otras instalaciones de cocina, propuestas todavía abiertas:**
+
+- Cocina o fogón propio en la casa de Bītu, mejorable con utensilios e instalaciones.
+- Cocina del maestro de pesca/cocina vinculada a su casa y terreno; distribución y acceso pendientes.
+- Ollas o parrillas aprovechables en algunos campamentos encontrados por el mundo, como complemento posible.
+- Cocina del barco como mejora posterior, ligada a su interior accesible ya acordado.
+
+**Compatibilidad y mejoras:** la olla permite preparaciones compatibles con ese utensilio, como sopas y guisos; una instalación con horno o parrilla podría ampliar las recetas disponibles. Catálogo por utensilio, consulta del libro fuera de estaciones, cocina doméstica/naval, obtención del kit, combustible concreto, costes, controles y mejoras todavía por concretar. Aceptar el kit no confirma todas las instalaciones propuestas ni el regalo inicial. No imponer una cocina a todas las islas.
 
 ### Agricultura
 
@@ -309,15 +382,29 @@ Cultivar alimentos, por ejemplo **patatas y tomates**, en la granja del jugador.
 
 **Trabajo confirmado:** al principio plantar, regar y cosechar manualmente. Más adelante se podrá automatizar mediante mejoras. Sistemas concretos, costes y momento de desbloqueo pendientes; esta decisión se refiere a la granja y no confirma automatización de todas las profesiones.
 
+**Cosecha según cultivo, confirmada:** algunos cultivos permanecen después de recoger su producto y vuelven a producir; otros se extraen al cosechar y requieren nueva plantación. Ejemplos de funcionamiento aceptados: **la tomatera permanece y vuelve a dar tomates; las patatas se extraen y se vuelven a plantar**. Catálogo completo y tiempos entre cosechas pendientes. La vida de la tomatera se limita por cosechas, según el acuerdo siguiente.
+
+**Vida de la tomatera, confirmada:** **un número limitado de cosechas**, cuya cifra final se equilibrará después; **cinco sigue siendo solo un ejemplo provisional de balance**. Tras la última, la planta se agota y deja de producir; se puede retirar con una interacción sencilla y plantar de nuevo. Esperar sin cosechar no consume ese número de cosechas, y la falta de agua sigue pausando el crecimiento sin matar la planta. Límite numérico, tiempo entre cosechas y control de retirada pendientes; todavía sin implementación.
+
+**Regadera y recarga aceptadas:** el herrero entrega la regadera sencilla en el astillero, junto al pico–hacha; ocupa un hueco propio de herramienta. Habrá **un grifo rústico junto a la entrada de la casa**, conectado a una cisterna de agua dulce, para llenarla y poder regar desde el comienzo. **Una interacción sencilla llena la regadera por completo.** Consume agua al regar y sus mejoras podrán aumentar la capacidad. Capacidad inicial, consumo por acción, controles, tiempo de recarga y escalones de mejora pendientes de balance y diseño; evitar recargas demasiado frecuentes. El grifo no exige una reparación previa para usarlo.
+
+**Detalle pendiente de la instalación de agua:** apariencia y procedencia exacta del agua de la cisterna abiertos; el acuerdo no incorpora un sistema de gestión de reservas. La regadera equipada, su capacidad y el punto de recarga todavía no están implementados: la prueba solo permite regar las parcelas con E.
+
 **Falta de riego confirmada:** los cultivos detienen su crecimiento, sin marchitarse ni perder el progreso acumulado. Vuelven a crecer cuando el jugador retoma el riego. Esto permite salir de expedición sin perder la plantación por no atenderla.
 
 **Cosechas excepcionales confirmadas:** habrá productos de mejor calidad y, ocasionalmente, variantes muy raras, incorporando el coleccionismo a la agricultura. Tipos, probabilidades, condiciones de obtención y efectos de la calidad pendientes.
 
-**Experiencia específica por cultivo:** recoger tomates da experiencia en el cultivo de tomates. Al aumentar esa habilidad, aumentan las probabilidades de obtener tomates de calidad excepcional. Cada cultivo tiene su propio progreso; cultivar tomates no sube automáticamente la habilidad de cultivar patatas. Niveles, cantidades de experiencia y probabilidades pendientes.
+**Experiencia específica por cultivo:** recoger tomates da experiencia en el cultivo de tomates. Al aumentar esa habilidad, aumentan las probabilidades de obtener tomates de calidad excepcional. Después se acuerda que **el nivel de ese cultivo también interviene en la posibilidad de mutación Siru**: para la tomatera cuenta la maestría de tomates. Cada cultivo tiene su propio progreso; cultivar tomates no sube automáticamente la habilidad de cultivar patatas. Calidad y variante siguen siendo características distintas. Niveles, cantidades de experiencia, umbrales y probabilidades pendientes.
 
-**Nombre confirmado para la máxima calidad: «Prístino»** (por ejemplo, «tomate prístino»). El resto de categorías de calidad está pendiente. Tomate dorado, semillas especiales, fertilizantes y efectos concretos en cocina o precio fueron ejemplos del asistente, no decisiones confirmadas.
+**Nombre confirmado para la máxima calidad: «Prístino»** (por ejemplo, «tomate prístino»). El resto de categorías de calidad está pendiente. Las semillas Siru se confirman después como vía de cultivo de la variante. Tomate dorado, otros tipos de semillas especiales, fertilizantes y efectos concretos en cocina o precio fueron ejemplos del asistente, no decisiones confirmadas.
 
-**Nombre elegido para la variante rara: «Siru».** Grafía usada por el usuario para el juego; referencia lingüística: acadio **ṣīru**, «elevado, excelso, sublime». Ejemplo: «tomate Siru». Se mantiene la distinción entre variante y calidad: un ejemplar Siru podría alcanzar calidad prístina. Aspecto, obtención, probabilidades y aplicación del nombre a otros recursos pendientes. Aurath, Náreth y Elyr fueron nombres inventados y no elegidos; no atribuirles significados históricos.
+**Nombre elegido para la variante rara: «Siru».** Grafía usada por el usuario para el juego; referencia lingüística: acadio **ṣīru**, «elevado, excelso, sublime». Ejemplo: «tomate Siru». Se mantiene la distinción entre variante y calidad: un ejemplar Siru podría alcanzar calidad prístina. Vías de obtención acordadas a continuación; probabilidades y aplicación del nombre a otros recursos pendientes. Aspecto del fruto aprobado en los recursos descritos después. Aurath, Náreth y Elyr fueron nombres inventados y no elegidos; no atribuirles significados históricos.
+
+**Obtención de Siru, confirmada:** la vía principal es **una mutación rara de la planta durante el crecimiento**, con posibilidades ligadas a la maestría del jugador en ese cultivo. Una tomatera normal puede transformarse visiblemente en Siru; sus siguientes cosechas dan tomates Siru hasta agotar su vida por cosechas. La calidad de cada fruto puede ser además prístina, según la maestría. También se pueden encontrar **semillas Siru muy escasas explorando**, en botín de cofres o lugares perdidos, para cultivar la variante en la granja. Esto sustituye la propuesta de un fruto Siru aislado aparecido al cosechar una planta normal. Probabilidades, umbrales, momento y frecuencia de comprobación de la mutación, cantidades de semillas y lugares concretos pendientes; todavía sin implementar. Fertilizantes especiales y experimentación alquímica para obtener Siru siguen como alternativas comentadas, sin confirmar.
+
+**Semilla de una planta Siru, confirmada:** **al agotarse, la planta tiene una pequeña posibilidad de dejar una semilla Siru** para otra plantación. La recompensa es ocasional, no garantizada. Probabilidad exacta y momento de entrega dentro del agotamiento/retirada pendientes; todavía sin implementar.
+
+**Uso culinario de las cosechas excepcionales, confirmado:** los ingredientes prístinos mejoran el resultado de recetas y los Siru sirven para preparaciones especiales, conectando cultivar y coleccionar con el maestro de cocina. En el caso de los tomates, calidad prístina y variante Siru conservan sus funciones diferenciadas. Recetas concretas, efectos, grado de mejora y uso conjunto de Siru/prístino pendientes; todavía sin implementar. Este acuerdo no extiende Siru a nuevas familias de objetos.
 
 **Recursos gráficos solicitados:** [tomate](assets/objetos/cultivos/tomate.png), [tomate prístino](assets/objetos/cultivos/tomate-pristino.png), [tomate Siru](assets/objetos/cultivos/tomate-siru.png) y [tomate Siru prístino](assets/objetos/cultivos/tomate-siru-pristino.png). Cuatro PNG transparentes pixel art de una pieza cada uno, con vista elevada en tres cuartos. [Previsualizaciones y notas de importación](assets/objetos/cultivos/README.md).
 
@@ -325,7 +412,7 @@ Cultivar alimentos, por ejemplo **patatas y tomates**, en la granja del jugador.
 
 **Diferenciación prístina solicitada:** debe distinguirse a primera vista por brillos o detalles destacados. Las imágenes prístinas se sustituyeron por nuevas versiones: tomate rojo con contorno luminoso y grandes destellos perlados; Siru con vetas y contorno dorados más luminosos y grandes destellos de oro y blanco. Se reutilizan los mismos nombres de archivo, sin copias anteriores en la carpeta vigente. Los efectos son estáticos en el PNG y no confirman poderes mágicos jugables. El usuario autorizó generar y subir estos dos reemplazos; la generación general sigue en pausa; la prueba posterior conserva estos originales.
 
-Semillas, frecuencia de riego, otros cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. No hay un maestro agricultor vivo adicional confirmado. Esta decisión no determina el progreso mientras el juego está cerrado.
+Catálogo, cantidades y suministro posterior de semillas comunes, parámetros de semillas Siru, frecuencia de riego, otros cuidados, tiempos de crecimiento, venta y usos culinarios están por definir. Las primeras semillas se encontrarán en el cofre oculto de la casa junto a la carta del antiguo maestro. No hay un maestro agricultor vivo adicional confirmado. Durante la ausencia se aplica la regla acordada de mundo detenido.
 
 El maestro de pesca/cocina sí ofrecerá orientación secundaria sobre granja, agricultura y animales, incluidos consejos a veces mágicos. El usuario propone aplicar también experiencia específica por tipo de animal. Acciones que dan experiencia, productos afectados, especies y alcance del sistema de ganadería todavía deben concretarse.
 
@@ -337,21 +424,45 @@ Habrá **flores y arbustos**, siguiendo la misma relación que menas y vetas: mu
 
 **Flor de Yde** es un ejemplo inventado por el usuario, no una especie definitiva.
 
+**Inicio de la recolección aceptado:** algunas primeras plantas pueden recogerse **con las manos**, para recolectar mientras se visita al comerciante, museo, herrero o pescador, antes de encontrarse con Unamahloni. Se conserva la dirección de que Unamahloni entregue el primer palín al conocerlo y enseñe mediante un pequeño encargo; especies, encargo y diálogo pendientes. El control sigue siendo un clic, con uso contextual de manos o herramienta según el recurso.
+
+**Maestría por planta confirmada:** cada especie tiene su propia experiencia, igual que cada cultivo. El usuario propone recoger una flor y ganar **+1 en esa misma planta**; recolectar otra especie no aumenta la primera. La maestría de una especie permitirá la aparición de ejemplares prístinos al alcanzar un umbral X, con frecuencia por concretar. Común y prístino pertenecen a la misma especie y comparten su progreso. Las primeras plantas comunes se podrán recoger a mano; sus prístinas requerirán palín. Los **100 o 200 puntos son ejemplos**, no umbrales fijados. Cantidades para recolecciones con varios productos y probabilidades pendientes. El usuario duda de extender Siru a plantas y considera quedarse con prístino; sin decisión final.
+
+**Acceso a nuevas especies mediante dos requisitos simultáneos, aclarado por el usuario:** cada planta puede exigir **herboristería general suficiente Y un palín adecuado**. Son avances independientes: farmear mucho no sustituye mejorar la herramienta y conseguir una herramienta avanzada no sustituye aprender recolectando. Una condición puede estar cumplida y la otra pendiente; se necesitan ambas. Palín básico → hierro → otros como oro son ejemplos; materiales, jerarquía exacta, costes y especies de cada escalón pendientes. Una especie nueva se empieza a practicar con su propia maestría inicial una vez cumplidos los requisitos; la maestría de las anteriores no se transfiere.
+
+**Herboristería general y maestría específica cumplen funciones diferentes:** la general representa experiencia acumulada recolectando distintas plantas y participa en el acceso a especies más exigentes; la específica determina el progreso hacia ejemplares prístinos de esa especie. La herramienta aporta el requisito material de extracción. Se conservan los tres componentes; fue incorrecta la interpretación anterior del asistente de reemplazar la general por las mejoras del palín.
+
+**Regla inicial recomendada, balance pendiente:** cada recolección completada da +1 a la maestría de su planta y +1 a herboristería general. Es la misma acción con dos efectos, sin experiencia por cada clic o palada ni por recoger de nuevo botín ya extraído. Cantidades por recurso, progresión de experiencia y límites finales pendientes del catálogo. Como ejemplo de requisitos, una especie podría necesitar 60 de general y palín de hierro: 100 de general con palín básico falla por herramienta; 20 de general con palín de oro falla por experiencia; 60 con hierro cumple ambos. **Estas cifras son ilustrativas**, no equilibrio definitivo. Recomendación de interfaz: mostrar por separado si se cumple habilidad y herramienta al señalar una planta.
+
+**Recomendaciones pendientes de acuerdo:** mantener siempre plantas básicas disponibles, incluso al ganar habilidad, y aumentar gradualmente la frecuencia de prístinas. Para herboristería, empezar con común/prístino y conservar abierta la aplicación de Siru fuera de los cultivos. Habilidad, calidad y herramienta deben registrarse por separado para poder ajustar sus requisitos sin cambiar la identidad de cada especie. Estos sistemas todavía no están implementados en la prueba: la flor provisional usa el palín y no tiene habilidad ni calidad.
+
 **Palín de herborista, nombre de trabajo:** aceptada la dirección de una pala pequeña específica para plantas y de una animación en la que el personaje se arrodilla junto a la tierra para sacar la flor, planta o recoger hojas. La acción concreta se adaptará al recurso; no todas las hojas requieren arrancar raíces. Prestaciones y requisitos pendientes. Por petición explícita del usuario, la prueba incorpora postura de rodillas, paladas y recuperación de pie al recolectar la flor; animación provisional, no todas las vistas definitivas.
 
 **Diseño visual solicitado e integrado:** el usuario pide que el palín sea más exótico que el pico–hacha clásico. Se crea [una hoja cóncava con forma de hoja vegetal](assets/herramientas/palin-herborista/README.md), metal verde azulado con borde de bronce, nervaduras, pequeño detalle ámbar y mango de madera retorcida con correas verdes. Su apariencia no fija rareza, poderes ni un material nuevo confirmado. PNG transparente integrado con escala 1/32 y agarre registrado; la prueba guarda el pico–hacha y equipa el palín durante la recolección. La flor desaparece y comienza su reaparición al extraerla a los 1,5 segundos; la recuperación termina a los 2 segundos. Parámetros de prueba, no tiempos definitivos.
 
-**Alquimia:** elaborar preparaciones con las plantas recolectadas. Recetas e ingredientes concretos pendientes. Curación, resistencia a peligros y mejoras temporales son efectos propuestos. Plantas propias de cada isla, recetas coleccionables y variantes raras son posibilidades por valorar.
+**Alquimia:** elaborar preparaciones con las plantas recolectadas. Aceptada la dirección de pociones de efecto rápido, curación, antídotos, protección breve y **mejoras**, añadidas expresamente por el usuario. Recetas, ingredientes, efectos exactos, intensidad, duración y alcance de las mejoras siguen pendientes; no fijar mejoras permanentes por esta aceptación. Plantas propias de cada isla, recetas coleccionables y variantes raras son posibilidades por valorar. Todavía sin implementación.
 
 ## 9. Navegación y exploración marítima
 
 **Navegación libre:** conduces el barco entre islas. El mar también es espacio de exploración.
 
+**Construcción del primer barco, acordada:** Flavia lo construye con **madera y metal básicos de Bītu**. El jugador puede reunir esos materiales o comprárselos al comerciante con monedas obtenidas al vender peces, cosechas, plantas o minerales; puede avanzar hacia la exploración desde la actividad que prefiera. **El herrero prepara los herrajes y Flavia monta el barco.** Tipos concretos de madera y metal, cantidades, precios, duración de construcción y aspecto del primer barco pendientes. Este acuerdo no fija requisitos de profesión adicionales ni está implementado en la prueba.
+
+**Evolución y distribución:** el usuario imagina un barco bien equipado con **parte superior y parte inferior: cubierta e interior bajo cubierta**, y acepta que el primero sea pequeño porque evolucionará. Después prefiere el interior como mejora y delega la decisión: **el primer barco tendrá cubierta transitable; el interior accesible llegará mediante una mejora posterior en el astillero de Flavia**. Esta decisión sustituye la propuesta de camarote accesible desde el comienzo. Tamaño, tipo de embarcación, coste de la mejora, distribución y usos del interior pendientes; velero y número de velas sin confirmar. La forma concreta de ampliar el casco o sustituirlo sigue abierta.
+
+**Cubierta y conducción acordadas:** se puede detener el barco, soltar el timón y caminar por la cubierta para pescar. Para conducir, el personaje debe colocarse frente al timón; desde allí **WASD controla el barco**. Al soltarlo, WASD vuelve a mover al personaje. El usuario admite estar sentado o simplemente colocado delante; postura definitiva pendiente.
+
+**Parada elegida por delegación del usuario:** **Espacio detiene el barco y suelta el timón**, dejando al personaje junto a él y permitiendo volver a caminar y pescar con la embarcación detenida. Es una acción contextual durante la conducción; no fija controles a pie ni del esquive. Propuesta para tomar el timón: acercarse y hacer clic izquierdo sobre él, con el personaje de pie. Activación exacta, giro, aceleración, frenada, inercia y atraque por concretar; navegación todavía sin implementar.
+
+**Viaje rápido opcional, confirmado:** la primera llegada a una isla se realiza navegando. **Al desembarcar por primera vez se desbloquea ese punto de llegada** para viajar desde el barco entre puntos descubiertos. **El personaje y su embarcación llegan juntos.** Los puntos pueden ser muelles o desembarcaderos naturales; no requieren puertos habitados en todas las islas. Activación, condiciones, costes y relación con el tiempo de juego pendientes; todavía sin implementar. La navegación manual sigue disponible para explorar el mar y buscar hallazgos.
+
+**Mapa marítimo confirmado:** **Bītu aparece al comienzo y el resto del archipiélago se revela mientras navegas**. Las islas y puntos de desembarco descubiertos quedan señalados para futuras visitas. Extensión inicial conocida alrededor de Bītu, alcance del descubrimiento y presentación pendientes; todavía sin implementar.
+
 Puede haber **cuevas, lugares perdidos, objetos únicos y peces especiales entre las islas**. Cuevas costeras accesibles en barco, restos de embarcaciones y lugares especiales de pesca son ejemplos por concretar. Los puntos marítimos no tienen que ser islas adicionales.
 
 Mejoras propuestas: velocidad, capacidad de carga, resistencia y alcance; personalización de velas/casco y cambios visibles en el muelle. Materiales, precios y efectos exactos pendientes.
 
-Controles de navegación, peligros marítimos, buceo, disposición fija o variable y reaparición de descubrimientos están sin decidir.
+Detalles de los controles de navegación, viaje rápido, peligros marítimos, buceo, disposición fija o variable y reaparición de descubrimientos pendientes.
 
 ## 10. Combate y derrota
 
@@ -389,7 +500,9 @@ Cantidad de pérdida, clasificación de objetos, posible recuperación y casos e
 - Hay **ciclo de día y noche**, con peces, plantas o criaturas disponibles en distintos momentos.
 - Se puede seguir jugando de noche sin obligación de dormir.
 
-Beneficios opcionales de comida son una propuesta. Duración del ciclo, rutinas de personajes, alcance de la automatización y progreso mientras no juegas siguen pendientes. La granja empezará manual y se automatizará más adelante. No se ha elegido usar la hora real.
+Beneficios temporales duraderos de comida según el plato confirmados; efectos concretos y balance pendientes. Duración del ciclo, rutinas de personajes y alcance de la automatización siguen pendientes. La granja empezará manual y se automatizará más adelante. No se ha elegido usar la hora real.
+
+**Tiempo durante la ausencia, confirmado:** **todo el mundo se detiene cuando el jugador deja de jugar**. Al cerrar o salir de la partida no avanzan cultivos, día/noche, reapariciones de recursos, plazos de botín ni automatizaciones. Se conservan el progreso y los tiempos restantes para retomar en el mismo momento al volver. El mundo en pausa tampoco avanza. No hay progreso durante la ausencia. Sistema de guardado y activación exacta de la pausa todavía por concretar e implementar; la prueba actual no guarda progreso.
 
 ## 12. Coleccionables premium y ultraexclusivos
 
@@ -474,7 +587,7 @@ No convertir esta lista en un cuestionario completo. Elegir un tema útil cada v
 - Detalles del desafío de pesca; mecánicas de extracción, cultivos, recetas y maestrías.
 - Esquive, armas y enemigos; estas preguntas se aplazaron a petición del usuario.
 - Duración del día, efectos nocturnos y mejoras para automatizar la granja.
-- Controles y peligros del barco; primera isla visitable.
+- Detalles de conducción y parada del barco, viaje rápido propuesto y peligros marítimos; primera isla visitable.
 - Museo: recompensas por donación definitiva, ubicación y requisitos de completado. Categorías y probabilidades de piezas especiales.
 - Detalles de la penalización por derrota, incluido qué ocurre con el barco.
 - Guardado, alojamiento, detalles técnicos de Godot 4 y alcance concreto de la primera implementación.
@@ -573,3 +686,81 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **8 de octubre de 2026:** aceptada la dirección del palín pequeño y de arrodillarse para recolectar. Solicitado un diseño exótico en pixel art; generado PNG transparente con hoja vegetal verde azulada, borde bronce y mango orgánico. Aspecto por revisar, sin animación nueva, integración ni subida a GitHub.
 
 - **8 de octubre de 2026:** petición explícita de implementar el palín y subirlo a GitHub para probarlo. Incorporados equipamiento contextual, postura a una rodilla, movimiento de paladas, extracción y recuperación, con contacto y agarre comprobados desde ambos lados. Actualizadas descarga, captura y notas; código de minería y tala incluido en esta entrega. Continúan pendientes guardado y animaciones definitivas.
+
+- **8 de octubre de 2026:** aceptada la combinación de primeras plantas recogibles a mano y obtención del palín de Unamahloni. El usuario plantea requisitos de habilidad y más ejemplares prístinos que exijan palín al progresar; Siru en herboristería sigue en duda, 100/200 puntos son ejemplos. Confirmado como detalle importante que el minero/herrero aparece inicialmente en el astillero, conecta con el protagonista, le regala herramientas propias y lo invita a su hogar, mina y herrería; permite picar y talar en los caminos y en la granja desde el inicio. Suministros adicionales pendientes. Acuerdos locales, sin código ni nueva subida.
+
+- **8 de octubre de 2026:** aclarada maestría independiente por planta: recoger una flor aumenta la habilidad de esa misma especie, con aparición de prístinas a partir de X. El usuario recomienda acceso a nuevas especies mediante mejoras de palín; hierro y oro son ejemplos de escalones, pendientes de definir. Herboristería general solo se considerará con una función justificada y compatible; no adoptada como requisito. Actualizado el bloc localmente, sin programación ni subida.
+
+- **8 de octubre de 2026:** corrección explícita del usuario: experiencia general y herramienta son requisitos independientes que se conservan y deben cumplirse simultáneamente. Puede tenerse experiencia suficiente sin palín adecuado, o buen palín con experiencia insuficiente. La maestría por especie sigue ligada a sus prístinas. El asistente debe gestionar la compatibilidad y el balance, sin sustituir un sistema por el otro. Corregido el bloc; +1 general por recolección y ejemplo de 60/hierro son recomendaciones provisionales, todavía sin código ni subida.
+
+- **8 de octubre de 2026:** el usuario confirma que las cifras de progresión son ejemplos y deberán equilibrarse después. Al retomar la distribución de Bītu, acepta que comercio y museo compartan zona cerca de la granja. Límites, accesos y posiciones concretas pendientes. Guardado en el bloc local, sin programación ni subida.
+
+- **8 de octubre de 2026:** al proponer ruinas, sendero y astillero en una misma zona, el usuario precisa que eso no debe hacerla pequeña. Conservada la dirección de una zona inicial amplia, con escala y distancias coherentes con el mapa conceptual. Dimensiones y conexión concreta al interior pendientes; sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptados dos accesos para la granja: camino principal hacia comercio/museo y rutas de los maestros y el astillero, y sendero costero hacia el maestro de pesca/cocina. Se conserva la bahía y la amplitud del mapa conceptual. Posiciones y límites concretos pendientes; guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** descartado el arcón inicial propuesto junto a la casa. El usuario prefiere recibir de Flavia o del herrero una mochila que se irá mejorando y pregunta por la capacidad. Personaje que la entrega por decidir; propuesta de 24 huecos, primeras ampliaciones a 36/48 y ejemplo de pila de 100 pendientes de aceptación y balance. La prueba conserva 12/50. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptados 24 huecos iniciales. El usuario indica apilado general de hasta 1.000 unidades, mostrando «1k» al superar 999, y pide señalar problemas posibles. Se conserva la separación por calidad/variante; propuesta pendiente de excepción para propiedades individuales diferentes y de mostrar la cifra exacta en el detalle. Ampliaciones 36/48 pendientes; la prueba conserva 12/50. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptada la excepción de mantener separados los objetos con propiedades individuales diferentes y conservar cantidades exactas en el detalle al vender o dividir pilas. Los ejemplares equivalentes, incluidos raros, pueden apilarse hasta 1.000. Pesos y récords de peces siguen siendo ejemplos condicionales, no funciones confirmadas. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptada recogida parcial cuando la mochila se llena: completar lo que cabe, dejar el sobrante visible en el suelo, avisar brevemente y conservar su plazo original de desaparición. Ejemplo 980 + 50: pila de 1.000 y 30 en el suelo. La prueba ya admite recogida parcial con límites 12/50; los acuerdos 24/1.000 aún no están implementados. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** confirmado que Flavia regala la mochila como parte de su bienvenida en el astillero. El herrero entrega el pico–hacha y Unamahloni el palín en su primera visita. Diálogos y mejoras pendientes; entrega narrativa sin implementar. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptado que el comerciante presente la casa de camino, con la precisión de que Flavia y el herrero también la mencionan en el astillero. El comerciante cuenta que allí vivía un maestro muy antiguo, sin revelar su especialidad al jugador. Diálogos y recorrido exactos pendientes. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** el usuario delega decidir el estado inicial de la casa, pidiendo coherencia. Elegida casa habitable al llegar, de estructura sólida con cama y mesa básicas; polvo, muebles gastados y carpintería envejecida muestran abandono. Reparaciones y ampliaciones opcionales, terreno útil despejado y sin arcón inicial. Antigüedad y duración del abandono pendientes, sin inventar una explicación mágica. Corregida la descripción antigua de terreno descuidado. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptada regadera sencilla como regalo inicial del herrero junto al pico–hacha. El usuario añade un grifo o punto de agua en la entrada de la casa para llenarla. Capacidad y consumo pendientes; propuesta de grifo rústico con cisterna de agua dulce y recarga completa mediante una interacción sencilla, sin confirmar esa instalación exacta. Riego actual del prototipo sin regadera equipada ni recarga. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptados grifo rústico con cisterna de agua dulce junto a la entrada y recarga completa con una interacción sencilla. Dirección de mejoras de capacidad; valores y frecuencia de recarga por equilibrar para que no sea una tarea constante. Instalación y herramienta todavía sin implementar. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** el usuario propone primeras semillas escondidas en la casa, dentro de un cofre con una carta misteriosa del antiguo maestro. Adoptado ese hallazgo como dirección frente al regalo de semillas propuesto para el comerciante; este conserva la presentación de la casa. Especie, cantidad, ubicación del cofre, destinatario y texto de la carta pendientes. Se actualiza la antigua exclusión de un arcón inicial, sin fijar todavía almacenamiento general ni revelar la profesión del maestro. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** el usuario elige que la carta insinúe que el maestro esperaba su llegada. Motivo, forma de anticiparla y vínculo con el protagonista abiertos; no revelar especialidad del maestro ni secretos iniciales. Añadido un borrador breve de tono, pendiente de aceptación del texto exacto. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptada la propuesta original de pesca por tensión: lanzar, esperar picada, mantener clic izquierdo para recoger y soltar para aflojar ante tirones, con barra de tensión y comportamiento por pez. El usuario pide olvidar su objeción sobre duración y volver a esa propuesta. Retiradas las sugerencias posteriores de progreso siempre conservado al aflojar y tiempos 3–5/6–10 segundos; duración y curvas de avance siguen pendientes. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** el usuario elige recibir la caña básica como regalo al hablar por primera vez con el maestro de pesca/cocina, evitando pedir unos materiales triviales para obtenerla. No requiere fabricación, encargo ni primera captura; la práctica puede ser opcional después. Mejora futura por definir. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptado que el comerciante venda ampliaciones de mochila por monedas, obtenidas mediante venta de peces, minerales, plantas o cosechas. Así el jugador puede avanzar con la actividad que prefiera. Precios y tamaños de mejora pendientes; los ejemplos 36/48 no quedan fijados. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptada la construcción del primer barco por Flavia con madera y metal básicos de Bītu, recolectados o comprados al comerciante con ingresos de la actividad elegida. El herrero prepara los herrajes y Flavia monta el barco. Materiales concretos, cantidades, precios, duración y diseño pendientes. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** el usuario imagina un barco con parte superior e inferior y acepta comenzar con uno pequeño porque evolucionará. Registrada la dirección de cubierta e interior bajo cubierta; acceso inicial al interior, tipo, tamaño y forma de evolución pendientes. Camarote inicial accesible como propuesta, sin confirmar velero ni número de velas. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** el usuario prefiere que el interior llegue como mejora y delega la decisión. Elegido primer barco pequeño con cubierta transitable e interior accesible mediante mejora posterior en el astillero de Flavia. Sustituida la propuesta de camarote inicial; dimensiones, coste, distribución y funciones pendientes. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptado detener el barco y caminar por cubierta para pescar. El usuario concreta que se controla con WASD al colocarse frente al timón y delega el botón de parada; elegido Espacio para detenerlo y soltar el timón. Clic izquierdo cercano para tomarlo y postura de pie como propuestas. Planteado viaje rápido opcional después de visitar otras islas; recomendación de desbloquear puntos al desembarcar y trasladar personaje y barco juntos, pendiente de aprobación y detalle. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** confirmado el viaje rápido opcional entre puntos de desembarco descubiertos: primera llegada navegando, desbloqueo al desembarcar por primera vez y traslado conjunto del personaje y su barco. Muelles o desembarcaderos naturales válidos. Activación, condiciones, costes y tiempo pendientes; navegación manual disponible. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** confirmado que el mapa comienza con Bītu y revela el resto del archipiélago al navegar, conservando señaladas las islas y puntos de desembarco descubiertos. Extensión inicial, alcance y presentación pendientes. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** el usuario confirma que todo se detiene cuando deja de jugar. Fijado mundo sin avance durante la ausencia, conservando progreso y tiempos restantes para volver al mismo momento. Cultivos, día/noche, reapariciones, botín temporal y automatizaciones siguen esa regla; el guardado todavía no está implementado. Actualizado el diseño local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptada cosecha según el cultivo: tomatera que permanece y vuelve a producir, y patatas que se extraen y requieren replantar. El usuario pregunta hasta cuándo duraría la tomatera. Propuesto límite por número de cosechas, con cinco como ejemplo provisional y retirada sencilla tras agotarse; duración y límite todavía sin confirmar. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptada vida de la tomatera limitada por número de cosechas y retirada sencilla tras agotarse. Esperar no consume cosechas; la falta de agua pausa el crecimiento. Cinco cosechas sigue siendo una cifra provisional por equilibrar, sin fijar el límite final. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** elegida mutación rara de la planta como vía principal de Siru, dependiendo del nivel del cultivo específico. La tomatera transformada produce frutos Siru durante sus cosechas posteriores, con calidad prístina independiente. Aceptadas también semillas Siru muy escasas encontradas explorando; el usuario propone cofres y lugares perdidos como fuentes. Probabilidades, umbrales y detalles pendientes; recuperación de semillas de la propia planta todavía sin decidir. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptada pequeña posibilidad de que una planta Siru deje una semilla Siru al agotarse, permitiendo continuar su linaje de forma ocasional. Probabilidad exacta y entrega pendientes. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** confirmado valor culinario de las cosechas excepcionales: ingredientes prístinos que mejoran el resultado de recetas e ingredientes Siru para preparaciones especiales. Vinculado cultivo con el maestro de cocina. Recetas y efectos concretos pendientes; no extender Siru automáticamente a otras familias. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** confirmados beneficios temporales duraderos según el plato y la actividad, para preparar expediciones o jornadas de farmeo. Comida opcional; control al pescar y protección en combate como ejemplos por concretar. Efectos, intensidad, duración y acumulación pendientes. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptado aprender recetas tanto del maestro de pesca/cocina como explorando el mundo. El usuario precisa que el maestro puede enseñarlas a veces, más allá de las primeras gratuitas propuestas. Las aprendidas se conservan en el recetario; catálogo, condiciones de enseñanzas posteriores y distribución de hallazgos pendientes. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** el usuario propone libro de recetas con filtros al discutir cocinar por lotes y pregunta dónde se elaboran los platos, incluyendo puntos del mapa y ollas. Registrada dirección del recetario; propuestas de cocina propia, instalaciones del maestro, campamentos y futura cocina naval pendientes de aceptación. Portabilidad y requisitos de estaciones abiertos. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** el usuario prefiere la olla de viaje frente a priorizar puntos fijos de cocina y pide describirla. Propuesto kit reutilizable con hueco de herramienta, montaje en terreno despejado, pequeña cantidad de madera por sesión, cocina por lotes y recogida al terminar. Regalo del maestro y compatibilidad por utensilio como propuestas adicionales, todavía sin confirmar. Guardado local, sin programación ni subida.
+
+- **8 de octubre de 2026:** aceptado el funcionamiento del kit portátil: herramienta reutilizable con hueco propio, montaje en terreno despejado, combustible al encender, cocina por lotes desde el libro con filtros y recogida al terminar. El usuario propone madera o carbón y deja el combustible concreto por decidir. Cantidades, controles y obtención del kit pendientes; regalo del maestro todavía como propuesta. Guardado local, sin programación ni subida.
+
+- **9 de octubre de 2026:** aceptada la dirección de alquimia con preparaciones rápidas, curación, antídotos y protección breve; el usuario añade mejoras. Efectos y recetas por concretar; guardado local, sin implementar alquimia.
+- **9 de octubre de 2026:** el usuario elige el dragón del repositorio como protagonista y solicita adaptarlo a bípedo, conservar exactamente su cara y preparar animaciones dentro del juego con herramientas. Sustituye la especie humana anterior. Se conserva intacto el PNG original y se articula un nuevo cuerpo, con vistas frontal/reflejada y de espalda, caminar, minería, tala y palín. Integración limitada a la prueba; no autoriza subida automática ni otros sistemas.
+- **9 de octubre de 2026:** el usuario solicita subir a GitHub la entrega preparada: dragón bípedo, animaciones integradas, capturas y vídeo, prueba de navegador actualizada y acuerdos pendientes del bloc. Original intacto; validada la prueba en Godot y navegador. Esta petición no autoriza futuras subidas automáticas.

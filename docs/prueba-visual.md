@@ -1,6 +1,8 @@
 # Primera prueba visual de Bītu
 
-Una pequeña escena para revisar **el aspecto y la escala** después de la petición de probar cómo se ve. El terreno, el personaje, la casa, las plantas y los árboles son referencias temporales dibujadas por Godot. Los cuatro tomates son los PNG originales del repositorio, con proporciones conservadas y filtrado por vecino más cercano. No se generaron imágenes artísticas nuevas.
+Una pequeña escena para revisar **el aspecto y la escala** después de la petición de probar cómo se ve. El terreno, la casa, las plantas y los árboles son referencias temporales dibujadas por Godot. Los cuatro tomates son los PNG originales del repositorio. El 9 de octubre el usuario solicita integrar el **dragón protagonista bípedo**, conservando la misma cara original y creando las piezas de su cuerpo. Ya sustituye al humano de prueba, con filtrado por vecino más cercano.
+
+La [ficha del dragón](../assets/personajes/dragon-avatar/README.md) registra los originales intactos, regiones y escala aproximada de 84 px. Incluye reposo, caminar con herramienta, espalda, minería, tala y palín; son animaciones articuladas, no una hoja completa de ocho vistas. Revisión ampliada en `prueba/scenes/dragon.tscn` con F6, o `?vista=dragon` en la exportación web. Riego con regadera, pesca y combate todavía sin animaciones propias.
 
 ## Qué se puede probar
 
@@ -65,6 +67,7 @@ godot --headless --editor --path . --import
 godot --headless --path . --script res://tests/smoke.gd
 godot --headless --path . --script res://tests/tool-smoke.gd
 godot --headless --path . --script res://tests/scene-smoke.gd
+godot --headless --path . --script res://tests/dragon-smoke.gd
 godot --headless --path . --quit-after 120
 python tools/export_web.py
 ```
@@ -75,4 +78,4 @@ En el entorno cloud, anteponer a cada comando Godot:
 env XDG_DATA_HOME=/workspace/.local/godot/data XDG_CONFIG_HOME=/workspace/.local/godot/config XDG_CACHE_HOME=/workspace/.cache/godot
 ```
 
-Las carpetas deben existir. Aplicar también estas variables al comando Python de exportación, que inicia Godot. No cambiar `HOME`. Para repetir la revisión web en cloud, sirve `prueba/build/web` en el puerto 8765 y ejecuta `python prueba/tools/browser_smoke.py` desde la raíz; requiere Playwright, Pillow y Chromium y guarda capturas en `prueba/build`. También selecciona la flor por sus pétalos y comprueba su llegada a la mochila tras un clic. La configuración de entorno guardada es un borrador; su publicación es independiente de esta prueba.
+Las carpetas deben existir. Aplicar también estas variables al comando Python de exportación, que inicia Godot. No cambiar `HOME`. Para repetir la revisión web en cloud, sirve `prueba/build/web` en el puerto 8765 y ejecuta `python prueba/tools/browser_smoke.py` desde la raíz; requiere Playwright, Pillow y Chromium y guarda capturas en `prueba/build`. También selecciona la flor por sus pétalos y comprueba su llegada a la mochila tras un clic. `python prueba/tools/dragon_browser_smoke.py` comprueba las cinco acciones animadas de la revisión ampliada y guarda captura y vídeo WebM real del canvas en `prueba/capturas`. No requiere descargar un grabador externo. La configuración de entorno guardada es un borrador; su publicación es independiente de esta prueba.
