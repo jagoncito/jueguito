@@ -1,0 +1,806 @@
+{
+  "version": 1,
+  "status": "Sprites de desarrollo independientes; sin integración en el juego.",
+  "reference": {
+    "ground_tile_px": [
+      64,
+      32
+    ],
+    "humanoid_height_px": 80,
+    "dragon_height_px": 90,
+    "filter": "nearest"
+  },
+  "house": {
+    "footprint_tiles": [
+      10,
+      7
+    ],
+    "footprint_projection_px": [
+      544,
+      272
+    ],
+    "footprint_cells": [
+      [
+        0,
+        0
+      ],
+      [
+        10,
+        0
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        0,
+        7
+      ]
+    ],
+    "placement_anchor_cells": [
+      10,
+      7
+    ],
+    "door_world_offset_px": [
+      60.37165354330706,
+      -123.36377952755905
+    ],
+    "door_height_px": 89.5,
+    "note": "Reserva técnica de escala incluyendo porche y acceso. No fija la futura colisión ni ubicación del edificio."
+  },
+  "sources": {
+    "house": {
+      "file": "casa-fuente.png",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "sha256": "8566c0d910b3baf30b250e8a2576c031149677ebac8412f36259997eb9173acb"
+    },
+    "water": {
+      "file": "agua-fuente.png",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "sha256": "ba3f92c862de14db1d101cabdf168b5df3c6b38bb07eac106c90b3d584014dfa"
+    },
+    "shore": {
+      "file": "orillas-fuente.png",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "sha256": "eea010a93014943a4b178ce3407c5316dffd5ce41b219e6dcc2fcadef557511a"
+    }
+  },
+  "families": {
+    "superficie": {
+      "base_color": "#117e91",
+      "label": "Agua turquesa"
+    },
+    "profunda": {
+      "base_color": "#07536b",
+      "label": "Agua profunda"
+    },
+    "somera": {
+      "base_color": "#27999e",
+      "label": "Agua somera"
+    },
+    "espuma": {
+      "base_color": "#117e91",
+      "label": "Reflejos y espuma"
+    },
+    "orilla": {
+      "base_color": "#117e91",
+      "label": "Orillas"
+    }
+  },
+  "frames": {
+    "casa": {
+      "source": "house",
+      "region_px": [
+        103,
+        16,
+        1270,
+        966
+      ],
+      "anchor_px": [
+        747.0588235294118,
+        1139
+      ],
+      "scale": 0.4283464566929134,
+      "visible_size_px": [
+        544,
+        413.7826771653543
+      ],
+      "native_canvas_px": [
+        640,
+        512
+      ],
+      "native_anchor_px": [
+        368,
+        496
+      ],
+      "native_file": "sprites/casa.png",
+      "native_sha256": "ceb1bd364eda52c2d398717d0feae0125880ddab608a72b8dc73d2bf1743192c"
+    },
+    "agua-superficie-0": {
+      "source": "water",
+      "family": "superficie",
+      "region_px": [
+        17,
+        74,
+        361,
+        178
+      ],
+      "anchor_px": [
+        180.5,
+        89.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        0,
+        0,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-superficie-0.png",
+      "native_sha256": "3f69070eaf7ac16de6091acc37ed9a16634238d308eee22c65aadfce330dc261"
+    },
+    "agua-superficie-1": {
+      "source": "water",
+      "family": "superficie",
+      "region_px": [
+        397,
+        74,
+        363,
+        178
+      ],
+      "anchor_px": [
+        181.5,
+        89.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        64,
+        0,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-superficie-1.png",
+      "native_sha256": "465527fb22f7d9758ef28240a4a3f3beb7d181be21f5ab83379e45ee3c860428"
+    },
+    "agua-superficie-2": {
+      "source": "water",
+      "family": "superficie",
+      "region_px": [
+        777,
+        74,
+        363,
+        178
+      ],
+      "anchor_px": [
+        181.5,
+        89.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        128,
+        0,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-superficie-2.png",
+      "native_sha256": "066e5f33451919c4742370a4decd4cff4b58196ba8b14bfbf2788394093ffec5"
+    },
+    "agua-superficie-3": {
+      "source": "water",
+      "family": "superficie",
+      "region_px": [
+        1158,
+        74,
+        362,
+        178
+      ],
+      "anchor_px": [
+        181.0,
+        89.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        192,
+        0,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-superficie-3.png",
+      "native_sha256": "2c87e5b887cf2b90b110ae18eca33521c7d3c27727a43cd62631e5ebe1e78c03"
+    },
+    "agua-profunda-0": {
+      "source": "water",
+      "family": "profunda",
+      "region_px": [
+        16,
+        301,
+        363,
+        177
+      ],
+      "anchor_px": [
+        181.5,
+        88.5
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        0,
+        32,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-profunda-0.png",
+      "native_sha256": "b262cebdd754ea281c36177cfd7b74d3d3d4c257e391f6b2ae8bd3bb4ae69093"
+    },
+    "agua-profunda-1": {
+      "source": "water",
+      "family": "profunda",
+      "region_px": [
+        397,
+        301,
+        363,
+        177
+      ],
+      "anchor_px": [
+        181.5,
+        88.5
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        64,
+        32,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-profunda-1.png",
+      "native_sha256": "92406319c2387ffe7e032b028fa988407f41ec9b460b33f15484995c9f9317a7"
+    },
+    "agua-profunda-2": {
+      "source": "water",
+      "family": "profunda",
+      "region_px": [
+        777,
+        301,
+        363,
+        177
+      ],
+      "anchor_px": [
+        181.5,
+        88.5
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        128,
+        32,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-profunda-2.png",
+      "native_sha256": "ec90c9f12fb9052a16e7749693fa2c34e703198b11800c545be851675c20d41e"
+    },
+    "agua-profunda-3": {
+      "source": "water",
+      "family": "profunda",
+      "region_px": [
+        1158,
+        301,
+        362,
+        177
+      ],
+      "anchor_px": [
+        181.0,
+        88.5
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        192,
+        32,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-profunda-3.png",
+      "native_sha256": "23103d3608a5ef9c38815d154c66b309734b8edf0fca4cc81d20f36f158a5c58"
+    },
+    "agua-somera-0": {
+      "source": "water",
+      "family": "somera",
+      "region_px": [
+        17,
+        534,
+        362,
+        179
+      ],
+      "anchor_px": [
+        181.0,
+        89.5
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        0,
+        64,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-somera-0.png",
+      "native_sha256": "4665e4b4491edd8a453f58a9f84a975b158229e87fe88d981be7a6ce0e34b11c"
+    },
+    "agua-somera-1": {
+      "source": "water",
+      "family": "somera",
+      "region_px": [
+        396,
+        534,
+        364,
+        179
+      ],
+      "anchor_px": [
+        182.0,
+        89.5
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        64,
+        64,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-somera-1.png",
+      "native_sha256": "dc50e619608dff07348d66b520163e5dff9818d65d6ffe5288b32f81b245dee6"
+    },
+    "agua-somera-2": {
+      "source": "water",
+      "family": "somera",
+      "region_px": [
+        777,
+        534,
+        363,
+        179
+      ],
+      "anchor_px": [
+        181.5,
+        89.5
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        128,
+        64,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-somera-2.png",
+      "native_sha256": "d5176cecfaf46b072af2cd5cc988ddf7c5ac9be923f88fbb48c27e25a91c4ec3"
+    },
+    "agua-somera-3": {
+      "source": "water",
+      "family": "somera",
+      "region_px": [
+        1158,
+        534,
+        362,
+        179
+      ],
+      "anchor_px": [
+        181.0,
+        89.5
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        192,
+        64,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-somera-3.png",
+      "native_sha256": "63383f876eb720e65475bc92784a5b5b526d64915c2272f18b5dde4075e21cd4"
+    },
+    "agua-espuma-0": {
+      "source": "water",
+      "family": "espuma",
+      "region_px": [
+        16,
+        778,
+        363,
+        180
+      ],
+      "anchor_px": [
+        181.5,
+        90.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        0,
+        96,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-espuma-0.png",
+      "native_sha256": "6f1c915b1d12946753f4c6addf2eea91bcf15e45961b599dcda56d4a50ed195a"
+    },
+    "agua-espuma-1": {
+      "source": "water",
+      "family": "espuma",
+      "region_px": [
+        396,
+        778,
+        364,
+        181
+      ],
+      "anchor_px": [
+        182.0,
+        90.5
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        64,
+        96,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-espuma-1.png",
+      "native_sha256": "b65aaa4c3c70baee37d1f0f1b7e89fb45b03cb1c64307d9b9cf51afa68d7b990"
+    },
+    "agua-espuma-2": {
+      "source": "water",
+      "family": "espuma",
+      "region_px": [
+        777,
+        778,
+        363,
+        180
+      ],
+      "anchor_px": [
+        181.5,
+        90.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        128,
+        96,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-espuma-2.png",
+      "native_sha256": "b0017f6dc5ead9a986933bf31ae15c8b2894d317565c1d73282324a1143fdb04"
+    },
+    "agua-espuma-3": {
+      "source": "water",
+      "family": "espuma",
+      "region_px": [
+        1158,
+        778,
+        362,
+        180
+      ],
+      "anchor_px": [
+        181.0,
+        90.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        192,
+        96,
+        64,
+        32
+      ],
+      "native_file": "sprites/agua-espuma-3.png",
+      "native_sha256": "ab5e8a7bb694ae4b2767ebba2dc4a29442c967d98316427fcba313aa695e3f94"
+    },
+    "orilla-borde-no": {
+      "source": "shore",
+      "family": "orilla",
+      "region_px": [
+        10,
+        178,
+        370,
+        250
+      ],
+      "anchor_px": [
+        185.0,
+        125.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        0,
+        128,
+        64,
+        32
+      ],
+      "native_file": "sprites/orilla-borde-no.png",
+      "native_sha256": "41c447d17bcc91c16b2dece7ea23363aceb01317e858cb00c0c0747fe0fde795"
+    },
+    "orilla-borde-ne": {
+      "source": "shore",
+      "family": "orilla",
+      "region_px": [
+        394,
+        178,
+        374,
+        250
+      ],
+      "anchor_px": [
+        187.0,
+        125.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        64,
+        128,
+        64,
+        32
+      ],
+      "native_file": "sprites/orilla-borde-ne.png",
+      "native_sha256": "2eddca83c40b0843133e9034be990da772686317b1651aa1a0844ac936ae4448"
+    },
+    "orilla-borde-se": {
+      "source": "shore",
+      "family": "orilla",
+      "region_px": [
+        778,
+        178,
+        374,
+        250
+      ],
+      "anchor_px": [
+        187.0,
+        125.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        128,
+        128,
+        64,
+        32
+      ],
+      "native_file": "sprites/orilla-borde-se.png",
+      "native_sha256": "1a0c599fdf6395eebb499bc36c4ccc610bd80753dfe2d4319636ee5d7453efb8"
+    },
+    "orilla-borde-so": {
+      "source": "shore",
+      "family": "orilla",
+      "region_px": [
+        1158,
+        178,
+        370,
+        250
+      ],
+      "anchor_px": [
+        185.0,
+        125.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        192,
+        128,
+        64,
+        32
+      ],
+      "native_file": "sprites/orilla-borde-so.png",
+      "native_sha256": "2cde2cf5601e75cf8e548e4f2b0b66f6ce45a96c29314a90e43e4dff54190f07"
+    },
+    "orilla-esquina-arriba": {
+      "source": "shore",
+      "family": "orilla",
+      "region_px": [
+        10,
+        579,
+        370,
+        272
+      ],
+      "anchor_px": [
+        185.0,
+        136.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        0,
+        160,
+        64,
+        32
+      ],
+      "native_file": "sprites/orilla-esquina-arriba.png",
+      "native_sha256": "d659321ff6b684ba27f0814f448041338c3213ebba11e88b9f3bf838c8caeb44"
+    },
+    "orilla-esquina-derecha": {
+      "source": "shore",
+      "family": "orilla",
+      "region_px": [
+        394,
+        579,
+        374,
+        272
+      ],
+      "anchor_px": [
+        187.0,
+        136.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        64,
+        160,
+        64,
+        32
+      ],
+      "native_file": "sprites/orilla-esquina-derecha.png",
+      "native_sha256": "382d86271db772dad2efd267f824a365e71c8a7562ea76ccd7e50715400fd68d"
+    },
+    "orilla-esquina-abajo": {
+      "source": "shore",
+      "family": "orilla",
+      "region_px": [
+        778,
+        579,
+        374,
+        272
+      ],
+      "anchor_px": [
+        187.0,
+        136.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        128,
+        160,
+        64,
+        32
+      ],
+      "native_file": "sprites/orilla-esquina-abajo.png",
+      "native_sha256": "0aa3a88b9c4384eef23b89446889552c6e6a7327c621757477c6bd7d3b1fdc76"
+    },
+    "orilla-esquina-izquierda": {
+      "source": "shore",
+      "family": "orilla",
+      "region_px": [
+        1158,
+        579,
+        370,
+        272
+      ],
+      "anchor_px": [
+        185.0,
+        136.0
+      ],
+      "target_size_px": [
+        64,
+        32
+      ],
+      "native_region_px": [
+        192,
+        160,
+        64,
+        32
+      ],
+      "native_file": "sprites/orilla-esquina-izquierda.png",
+      "native_sha256": "deb3e03ea55a8f981eedfea382b22177d8329dfda73d9624fa0fa7a49c052dd7"
+    }
+  },
+  "reference_character": {
+    "file": "../../../assets/personajes/dragon-avatar/dragon-reposo.png",
+    "region_px": [
+      73,
+      18,
+      285,
+      479
+    ],
+    "anchor_px": [
+      142.5,
+      467.02
+    ],
+    "scale": 0.188,
+    "use": "Referencia existente de escala en el visor, sin cambios al personaje."
+  },
+  "water": {
+    "native_atlas_px": [
+      256,
+      192
+    ],
+    "static_variants": 16,
+    "shore_overlays": 8,
+    "animated": false,
+    "geometry": "Rombo 64x32, recorte geométrico y composición sobre fondo por familia.",
+    "normalization": "Solo el plano de terreno se normaliza a 2:1; la casa conserva escala uniforme.",
+    "coverage": "Cuatro bordes y cuatro esquinas exteriores. No incluye todavía esquinas interiores ni un autotile completo."
+  },
+  "native_sources": {
+    "house": {
+      "file": "sprites/casa.png",
+      "dimensions_px": [
+        640,
+        512
+      ],
+      "anchor_px": [
+        368,
+        496
+      ],
+      "sha256": "ceb1bd364eda52c2d398717d0feae0125880ddab608a72b8dc73d2bf1743192c"
+    },
+    "water": {
+      "file": "agua-atlas.png",
+      "dimensions_px": [
+        256,
+        192
+      ],
+      "tile_px": [
+        64,
+        32
+      ],
+      "sha256": "6d7f713992d2f35b41d1d38f6d8290d1fdf4056808eeff709268fccbd21bf646"
+    }
+  }
+}

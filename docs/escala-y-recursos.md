@@ -47,7 +47,7 @@ Rangos orientativos, en píxeles del recurso antes del zoom. Los cultivos citado
 | Criatura grande | Cuerpo de 128–192 de alto. | Espacio de maniobra y fotogramas mayores cuando hagan falta. |
 | Criatura colosal | Cuerpo de 192–384 o más. | Sin límite arbitrario de lienzo; prever rutas, arena y visibilidad. |
 | Árbol | 160–224 de alto como referencia. | Tronco de base pequeña, copa extendida; otras especies pueden variar. |
-| Casa de referencia | Suelo de 8 × 6 casillas. | 448 × 224 de proyección de suelo; paredes y tejado añaden altura. |
+| Casa, sprite preparado | Reserva técnica de 10 × 7 casillas. | 544 × 272 de proyección de suelo; silueta de unos 544 × 414 dentro de PNG de 640 × 512 y puerta ~90. Escala uniforme, sin integración ni colisión definitiva; [lote de sprites](../assets/entorno/agua-casa/README.md). |
 | Taller, museo o astillero | Según instalaciones y accesos. | Combinar superficies; un astillero debe relacionar tierra y agua. |
 | Barco | Según clase y tamaño del casco. | Colisión de casco, giro, pasos navegables y atraque; no copiar la colisión del personaje. |
 

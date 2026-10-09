@@ -21,7 +21,7 @@ Suelo y humano son la base aceptada para planificar; los demás tamaños son ref
 | Icono de inventario | **Lienzo de 64 × 64 confirmado**, ajustando el objeto y sus destellos dentro del margen. No implica dibujarlo igual de grande en el mundo. |
 | Cultivo tipo tomatera | **32–48 píxeles de alto** sobre una casilla de parcela; proporciones por especie pendientes. |
 | Árbol de referencia | **160–224 píxeles de alto**; base pequeña y copa extendida, con variedades de tamaño. |
-| Casa inicial de referencia | Superficie de **8 × 6 casillas**, que ocupa un rombo de **448 × 224 píxeles** de suelo. Muros y tejado añaden altura visual; no representa su tamaño de imagen total. |
+| Casa, sprite preparado el 9 de octubre | Reserva técnica de **10 × 7 casillas**, proyección de **544 × 272 píxeles** de suelo. PNG de 640 × 512, silueta de unos 544 × 414 y puerta de unos 90 px. Incluye porche/acceso; todavía fuera del juego y sin colisión definitiva. |
 | Sector de mapa | **32 × 32 casillas** como candidato de carga, sujeto a pruebas de rendimiento; no es el tamaño de una isla. |
 
 Objetivo para la cámara normal: humano aproximadamente **8–12 % de la altura visible** de la escena, ajustado al tamaño de ventana y zoom. Permitir acercarse para apreciar detalles y alejarse para explorar; estudiar pasos de zoom que mantengan legible el pixel art. No se fija todavía una resolución de pantalla ni límites de zoom.
@@ -48,7 +48,7 @@ Ejemplos para estudiar proporciones, no tamaños confirmados:
 - Cultivo individual: **1 × 1 casilla**.
 - Mena pequeña: **1 × 1**; una veta grande podría ocupar varias.
 - Árbol: **1–2 casillas de base**, con copa dibujada sobre casillas vecinas.
-- Casa: por ejemplo **8 × 6**, incluyendo una superficie clara de apoyo y entrada.
+- Casa: el [sprite preparado](../assets/entorno/agua-casa/README.md) utiliza una reserva técnica de **10 × 7**, incluyendo apoyo, porche y acceso. La propuesta anterior de 8 × 6 se amplió para conservar una puerta proporcionada al dragón; la casa provisional del juego sigue sin cambiar.
 - Personaje o mob: posición continua, con colisión ajustada a su tamaño; no una parcela bloqueada permanentemente. La altura visible propuesta para un humano es 80 píxeles, independiente de su superficie de colisión.
 
 Al colocar una instalación, mostrar su superficie prevista y los puntos de acceso. Validar terreno compatible, espacio disponible y accesos. Tamaños, reglas de conexión y si habrá rotación de edificios están pendientes.
