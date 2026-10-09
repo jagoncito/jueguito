@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="SpriteFrames" path="comerciante-frames.tres" id="1_frames"]
+
+[node name="Comerciante" type="Node2D"]
+texture_filter = 1
+metadata/foot_anchor_px = Vector2i(64, 112)
+metadata/height_max_px = 84
+
+[node name="Dibujo" type="AnimatedSprite2D" parent="."]
+position = Vector2(-64, -112)
+sprite_frames = ExtResource("1_frames")
+animation = &"reposo_s"
+centered = false

@@ -1,0 +1,362 @@
+[gd_resource type="SpriteFrames" load_steps=37 format=3]
+
+[ext_resource type="Texture2D" path="enano-libre-atlas.png" id="atlas_libre"]
+[ext_resource type="Texture2D" path="enano-quebraveta-atlas.png" id="atlas_quebraveta"]
+[ext_resource type="Texture2D" path="enano-forja-atlas.png" id="atlas_forja"]
+[ext_resource type="Texture2D" path="enano-comida-atlas.png" id="atlas_comida"]
+
+[sub_resource type="AtlasTexture" id="libre_s"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_so"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_o"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_no"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_n"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_ne"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_e"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_se"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="quebraveta_s"]
+atlas = ExtResource("atlas_quebraveta")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="quebraveta_so"]
+atlas = ExtResource("atlas_quebraveta")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="quebraveta_o"]
+atlas = ExtResource("atlas_quebraveta")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="quebraveta_no"]
+atlas = ExtResource("atlas_quebraveta")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="quebraveta_n"]
+atlas = ExtResource("atlas_quebraveta")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="quebraveta_ne"]
+atlas = ExtResource("atlas_quebraveta")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="quebraveta_e"]
+atlas = ExtResource("atlas_quebraveta")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="quebraveta_se"]
+atlas = ExtResource("atlas_quebraveta")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="forja_s"]
+atlas = ExtResource("atlas_forja")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="forja_so"]
+atlas = ExtResource("atlas_forja")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="forja_o"]
+atlas = ExtResource("atlas_forja")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="forja_no"]
+atlas = ExtResource("atlas_forja")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="forja_n"]
+atlas = ExtResource("atlas_forja")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="forja_ne"]
+atlas = ExtResource("atlas_forja")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="forja_e"]
+atlas = ExtResource("atlas_forja")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="forja_se"]
+atlas = ExtResource("atlas_forja")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_s"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_so"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_o"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_no"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_n"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_ne"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_e"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_se"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[resource]
+animations = [
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_s")}],
+"loop": true,
+"name": &"libre_s",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_so")}],
+"loop": true,
+"name": &"libre_so",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_o")}],
+"loop": true,
+"name": &"libre_o",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_no")}],
+"loop": true,
+"name": &"libre_no",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_n")}],
+"loop": true,
+"name": &"libre_n",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_ne")}],
+"loop": true,
+"name": &"libre_ne",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_e")}],
+"loop": true,
+"name": &"libre_e",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_se")}],
+"loop": true,
+"name": &"libre_se",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("quebraveta_s")}],
+"loop": true,
+"name": &"quebraveta_s",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("quebraveta_so")}],
+"loop": true,
+"name": &"quebraveta_so",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("quebraveta_o")}],
+"loop": true,
+"name": &"quebraveta_o",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("quebraveta_no")}],
+"loop": true,
+"name": &"quebraveta_no",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("quebraveta_n")}],
+"loop": true,
+"name": &"quebraveta_n",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("quebraveta_ne")}],
+"loop": true,
+"name": &"quebraveta_ne",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("quebraveta_e")}],
+"loop": true,
+"name": &"quebraveta_e",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("quebraveta_se")}],
+"loop": true,
+"name": &"quebraveta_se",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("forja_s")}],
+"loop": true,
+"name": &"forja_s",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("forja_so")}],
+"loop": true,
+"name": &"forja_so",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("forja_o")}],
+"loop": true,
+"name": &"forja_o",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("forja_no")}],
+"loop": true,
+"name": &"forja_no",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("forja_n")}],
+"loop": true,
+"name": &"forja_n",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("forja_ne")}],
+"loop": true,
+"name": &"forja_ne",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("forja_e")}],
+"loop": true,
+"name": &"forja_e",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("forja_se")}],
+"loop": true,
+"name": &"forja_se",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_s")}],
+"loop": true,
+"name": &"comida_s",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_so")}],
+"loop": true,
+"name": &"comida_so",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_o")}],
+"loop": true,
+"name": &"comida_o",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_no")}],
+"loop": true,
+"name": &"comida_no",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_n")}],
+"loop": true,
+"name": &"comida_n",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_ne")}],
+"loop": true,
+"name": &"comida_ne",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_e")}],
+"loop": true,
+"name": &"comida_e",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_se")}],
+"loop": true,
+"name": &"comida_se",
+"speed": 1.0
+}
+]

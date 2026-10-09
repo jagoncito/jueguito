@@ -1,4 +1,6 @@
-# Maestro minero y herrero enano
+# Maestro minero y herrero enano — primer concepto
+
+**Revisión vigente:** [maestros de Bītu](../maestros-bitu/README.md), con pelo negro azulado, atuendo índigo/ocre y ocho vistas por variante. El usuario solicita esa revisión al considerar este primer diseño demasiado parecido a Gimli. Esta carpeta conserva la fuente histórica sin modificar.
 
 Propuesta visual generada por petición explícita del usuario: maestro y arma especial diseñada para él. Fuente original conservada en `maestro-y-quebraveta-fuente.png`, con transparencia y tres presentaciones: personaje sin arma, equipado y arma aislada. Medidas y SHA-256 en `diseno.json`.
 
