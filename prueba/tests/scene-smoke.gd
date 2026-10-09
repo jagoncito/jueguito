@@ -27,7 +27,7 @@ func run() -> void:
 	assert(scene.task == resource, "El clic elige la mena señalada, no la flor más cercana")
 	flower.position = flower_position
 	assert(scene.player.busy, "Extracción bloquea movimiento")
-	assert(scene.player.tool.visible and scene.player.tool.working, "Herramienta equipada realmente animada")
+	assert(scene.player.dragon.has_baked_tool() and not scene.player.tool.visible and scene.player.tool.working, "Herramienta dibujada con las manos, con un único reloj de impactos")
 	assert(scene.player.work_kind == &"minar", "Extremo de minería seleccionado")
 	await create_timer(0.4).timeout
 	assert(resource.active and scene.inventory.count("mineral") == 0, "Primer golpe no entrega antes de acabar")

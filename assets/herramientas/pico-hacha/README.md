@@ -37,6 +37,8 @@ Para mejorar una pieza, sustituir solo su textura mediante `set_part_texture("pi
 
 ## Animación y efectos
 
+**Integración actual del dragón:** el pico–hacha está dibujado en sus atlas equipados de 80 px de altura. Punta arriba y filo abajo en reposo/marcha, acompañando el brazo. Preparación y golpe de tala tienen un atlas propio. El rig descrito a continuación se conserva como recurso independiente; en el jugador sus sprites se ocultan y solo conserva el reloj/señales. La revisión de `scenes/herramienta.tscn` utiliza las mismas poses completas que el juego. `pose_contact` devuelve el contacto del metal visible registrado en el atlas del cuerpo. Materiales mejorables todavía pendientes de su representación en estos sprites.
+
 - `play_work("minar")`: preparación, golpe con la punta del pico y recuperación.
 - `play_work("talar")`: preparación, golpe con el lado del hacha y recuperación.
 - Giro alrededor del agarre; duración provisional de **0,62 s**, señal `impact` a los **0,33 s** y señal `work_finished` al terminar.
@@ -51,7 +53,7 @@ Es un **rig 2D de una pose**, no una hoja de fotogramas ni las animaciones defin
 
 **Ocho vistas para el dragón (corrección del 9 de octubre):** `pico-hacha-vistas.png` es un atlas transparente de 1774 × 887, orden S, SW, W, NW / N, NE, E, SE. Son proyecciones con ancho y volumen propios; en la espalda se invierte visualmente el orden de los extremos, conservando su función. `pico-hacha-vistas.json` registra agarres, contactos y tres regiones por vista. `set_direction()` selecciona la perspectiva y `contact_offset()` proporciona su contacto local. Los tres componentes siguen separados; mejoras jugables y sus atlas por material pendientes. Las texturas originales y la revisión independiente se conservan.
 
-La copia preparada para el proyecto está en `prueba/assets/herramientas/pico-hacha/`. Abre `prueba/project.godot`, selecciona **`scenes/herramienta.tscn`** y pulsa **F6**. La revisión muestra la herramienta junto al humano de referencia, ampliados ×4, y poses de agarre, minería y tala. **1** reproduce minería, **2** tala y **R** restaura las poses. Con **F5**, el jugador de la granja lleva la herramienta: **un clic izquierdo sobre una mena o árbol cercano** completa la extracción, con brazos y ambas manos coordinados de forma provisional. La integración del dragón añade las ocho proyecciones descritas abajo; las mejoras de materiales siguen pendientes.
+La copia preparada para el proyecto está en `prueba/assets/herramientas/pico-hacha/`. Abre `prueba/project.godot`, selecciona **`scenes/herramienta.tscn`** y pulsa **F6**. La revisión muestra el dragón con sus poses equipadas, ampliado ×4, y poses de agarre, minería y tala. **1** reproduce minería, **2** tala y **R** restaura las poses. Con **F5**, el jugador de la granja lleva la herramienta: **un clic izquierdo sobre una mena o árbol cercano** completa la extracción, con brazos y ambas manos coordinados de forma provisional. La integración del dragón añade las ocho proyecciones descritas abajo; las mejoras de materiales siguen pendientes.
 
 ![Dragón equipado con la herramienta](../../../prueba/capturas/dragon-en-juego.png)
 

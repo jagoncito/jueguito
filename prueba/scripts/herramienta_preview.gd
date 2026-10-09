@@ -6,7 +6,7 @@ func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("18251e"))
 	_label("PICO–HACHA · HIERRO",Vector2(36,24),28,Color("e6cc83"))
 	_label("Un mango · dos funciones · mejoras visuales independientes",Vector2(36,64),17)
-	_label("Escala ampliada ×4 · dragón bípedo: unos 90 px · herramienta equipada: 35 × 44 px",Vector2(36,96),16)
+	_label("Escala ampliada ×4 · dragón bípedo de 80 px · herramienta dibujada con las manos",Vector2(36,96),16)
 	var titles := ["AGARRE", "MINAR · lado del pico", "TALAR · lado del hacha"]
 	for index in range(3):
 		var actor := BituPlayer.new()
@@ -29,9 +29,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo:
 		return
 	if event.physical_keycode == KEY_1:
-		actors[1].begin_work("minar",actors[1].to_global(Vector2(31,-8)))
+		actors[1].begin_work("minar",actors[1].to_global(Vector2(35,-22)),actors[1].to_global(Vector2(35,0)))
 	elif event.physical_keycode == KEY_2:
-		actors[2].begin_work("talar",actors[2].to_global(Vector2(31,-8)))
+		actors[2].begin_work("talar",actors[2].to_global(Vector2(35,-22)),actors[2].to_global(Vector2(35,0)))
 	elif event.physical_keycode == KEY_R:
 		for actor in actors:
 			actor.end_work()

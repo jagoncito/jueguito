@@ -26,6 +26,8 @@ Dragón bípedo: ocho direcciones, cola conectada, caminar, minar, talar y palí
 Marcha de cuatro fases distintas; pico-hacha y palín con ocho perspectivas y agarres registrados.
 Para ver ocho direcciones ampliadas, añade ?vista=dragon a la URL del juego.
 Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín.
+Protagonista de 80 px; pico arriba y filo de hacha abajo al llevarlo.
+Espacio alterna la cámara lenta en la revisión del dragón.
 Primera revisión de movimiento, escala y agarres pendiente de aprobación visual.
 Árboles con tres variantes y tocones; mena de cobre entera/picada; flor de Yde.
 Madera, fragmento de cobre y flor recogida tienen su propio botín e icono.

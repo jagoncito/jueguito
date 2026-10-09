@@ -32,6 +32,10 @@ def regions(path):
 def main():
     dragon_dir = ROOT/'assets/personajes/dragon-avatar'
     catalog = json.loads((dragon_dir/'dragon-jugable.json').read_text())
+    if catalog.get('version', 0) >= 4:
+        from register_dragon_80 import build_catalog
+        print(json.dumps({'assets/personajes/dragon-avatar/dragon-jugable.json': build_catalog()}, ensure_ascii=False))
+        return
     catalog['version'] = 3
     catalog['notes'] = [
         'Ocho vistas completas, cuatro fases distintas de marcha por dirección.',

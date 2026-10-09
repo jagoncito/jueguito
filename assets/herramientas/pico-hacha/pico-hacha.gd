@@ -11,6 +11,7 @@ const MOTIONS := {
 var motion: Tween
 var working := false
 var externally_posed := false
+var pose_contact: Node2D
 const SOURCE_GRIP := Vector2(630,900)
 const SOURCE_SCALE := 0.0625
 const CONTACTS := {"minar":Vector2(250,414),"talar":Vector2(1000,350)}
@@ -85,6 +86,10 @@ func play_work(function: StringName) -> void:
 	)
 
 func contact_point(function: StringName) -> Vector2:
+	if pose_contact != null and pose_contact.has_baked_tool():
+		var registered: Vector2 = pose_contact.contact_local(function)
+		if registered.is_finite():
+			return pose_contact.contact_global(function)
 	# Para colocar efectos visuales al impactar; no determina el alcance jugable.
 	if not CONTACTS.has(String(function)):
 		return global_position

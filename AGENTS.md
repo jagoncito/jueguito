@@ -1,5 +1,7 @@
 # Continuidad del proyecto
 
+- Revisión vigente del protagonista: el usuario pide hacerlo algo menor, modificar sus PNG, mejorar minería/tala y subirlo. Reducción propuesta integrada de 90 a 80 px; herramienta dibujada junto a cuerpo/manos. Aclaración expresa: **punta del pico arriba y filo del hacha abajo** al llevarlo, también de perfil; acompaña el brazo, sin giro independiente. Marcha con altura constante sobre el suelo y apoyos alternados en ocho direcciones, incluidas diagonales. Catálogo v4 de 104 poses, diez atlas; original `dragon-idle.png` intacto. `register_dragon_80.py` reproduce el registro sin editar PNG. Cinco golpes y tiempos conservados. Autorizada esta integración/publicación concreta; acabado visual pendiente de revisión y sin nuevos sistemas.
+
 - El usuario solicita publicar esta propuesta concreta del maestro y Quebraveta en GitHub. Autorizada la subida de la fuente, metadatos y notas de diseño; no integración ni futuras subidas automáticas.
 
 - Petición posterior del maestro enano: el usuario autoriza expresamente generar al personaje y delega el diseño de su arma especial. Fuente en `assets/personajes/maestro-enano/maestro-y-quebraveta-fuente.png`, maestro sin arma/equipado y arma aislada. Quebraveta es la propuesta de martillo de guerra con punta rompe-roca, sin hacha; inserto ámbar decorativo, sin efectos fijados. Esto sustituye la restricción anterior de no generar estas imágenes y dejar el arma pendiente. Aprobación visual, escala nativa, capas registradas y animaciones pendientes. Sin integración ni nueva subida autorizadas.

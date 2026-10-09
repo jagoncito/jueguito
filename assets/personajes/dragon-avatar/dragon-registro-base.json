@@ -1,0 +1,1685 @@
+{
+  "description": "Coordenadas de referencia anteriores, usadas solo para registrar la anatomía del nuevo atlas. No es un catálogo de juego.",
+  "frames": {
+    "reposo-S": {
+      "file": "dragon-reposo.png",
+      "region": [
+        73,
+        18,
+        285,
+        479
+      ],
+      "anchor": [
+        215.5,
+        485.02
+      ],
+      "hand": [
+        114,
+        357
+      ],
+      "other_hand": [
+        281,
+        386
+      ]
+    },
+    "reposo-SW": {
+      "file": "dragon-reposo.png",
+      "region": [
+        464,
+        18,
+        307,
+        484
+      ],
+      "anchor": [
+        574.52,
+        489.9
+      ],
+      "hand": [
+        494,
+        359
+      ],
+      "other_hand": [
+        630,
+        397
+      ]
+    },
+    "reposo-W": {
+      "file": "dragon-reposo.png",
+      "region": [
+        792,
+        15,
+        360,
+        487
+      ],
+      "anchor": [
+        928.8,
+        489.82
+      ],
+      "hand": [
+        900,
+        403
+      ],
+      "other_hand": [
+        846,
+        360
+      ]
+    },
+    "reposo-NW": {
+      "file": "dragon-reposo.png",
+      "region": [
+        1209,
+        38,
+        311,
+        462
+      ],
+      "anchor": [
+        1333.4,
+        488.45
+      ],
+      "hand": [
+        1235,
+        375
+      ],
+      "other_hand": [
+        1434,
+        354
+      ]
+    },
+    "reposo-N": {
+      "file": "dragon-reposo.png",
+      "region": [
+        70,
+        519,
+        262,
+        465
+      ],
+      "anchor": [
+        201,
+        956.1
+      ],
+      "hand": [
+        295,
+        833
+      ],
+      "other_hand": [
+        101,
+        839
+      ]
+    },
+    "reposo-NE": {
+      "file": "dragon-reposo.png",
+      "region": [
+        420,
+        517,
+        316,
+        448
+      ],
+      "anchor": [
+        631.72,
+        953.8
+      ],
+      "hand": [
+        712,
+        821
+      ],
+      "other_hand": [
+        581,
+        825
+      ]
+    },
+    "reposo-E": {
+      "file": "dragon-reposo.png",
+      "region": [
+        760,
+        517,
+        321,
+        472
+      ],
+      "anchor": [
+        991.12,
+        977.2
+      ],
+      "hand": [
+        966,
+        855
+      ],
+      "other_hand": [
+        1070,
+        818
+      ]
+    },
+    "reposo-SE": {
+      "file": "dragon-reposo.png",
+      "region": [
+        1182,
+        517,
+        318,
+        470
+      ],
+      "anchor": [
+        1401.42,
+        975.25
+      ],
+      "hand": [
+        1310,
+        848
+      ],
+      "other_hand": [
+        1465,
+        838
+      ]
+    },
+    "cargar-S": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        100,
+        47,
+        219,
+        261
+      ],
+      "anchor": [
+        209.5,
+        301.48
+      ],
+      "hand": [
+        114,
+        170
+      ],
+      "other_hand": [
+        121,
+        148
+      ]
+    },
+    "cargar-SW": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        371,
+        46,
+        239,
+        262
+      ],
+      "anchor": [
+        457.04,
+        301.45
+      ],
+      "hand": [
+        387,
+        179
+      ],
+      "other_hand": [
+        396,
+        147
+      ]
+    },
+    "cargar-W": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        652,
+        51,
+        270,
+        265
+      ],
+      "anchor": [
+        754.6,
+        309.38
+      ],
+      "hand": [
+        669,
+        149
+      ],
+      "other_hand": [
+        684,
+        118
+      ]
+    },
+    "cargar-NW": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        1002,
+        58,
+        225,
+        251
+      ],
+      "anchor": [
+        1092,
+        302.73
+      ],
+      "hand": [
+        1143,
+        165
+      ],
+      "other_hand": [
+        1133,
+        145
+      ]
+    },
+    "cargar-N": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        67,
+        337,
+        216,
+        249
+      ],
+      "anchor": [
+        175,
+        571.06
+      ],
+      "hand": [
+        270,
+        421
+      ],
+      "other_hand": [
+        270,
+        410
+      ]
+    },
+    "cargar-NE": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        368,
+        345,
+        228,
+        243
+      ],
+      "anchor": [
+        520.76,
+        581.92
+      ],
+      "hand": [
+        582,
+        437
+      ],
+      "other_hand": [
+        565,
+        415
+      ]
+    },
+    "cargar-E": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        657,
+        343,
+        244,
+        254
+      ],
+      "anchor": [
+        832.68,
+        590.65
+      ],
+      "hand": [
+        889,
+        438
+      ],
+      "other_hand": [
+        871,
+        416
+      ]
+    },
+    "cargar-SE": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        979,
+        349,
+        234,
+        248
+      ],
+      "anchor": [
+        1140.46,
+        590.8
+      ],
+      "hand": [
+        1204,
+        449
+      ],
+      "other_hand": [
+        1188,
+        429
+      ]
+    },
+    "golpe-S": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        99,
+        634,
+        194,
+        246
+      ],
+      "anchor": [
+        196,
+        873.85
+      ],
+      "hand": [
+        175,
+        831
+      ],
+      "other_hand": [
+        200,
+        824
+      ]
+    },
+    "golpe-SW": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        400,
+        639,
+        241,
+        243
+      ],
+      "anchor": [
+        486.76,
+        875.92
+      ],
+      "hand": [
+        449,
+        833
+      ],
+      "other_hand": [
+        427,
+        820
+      ]
+    },
+    "golpe-W": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        676,
+        644,
+        258,
+        246
+      ],
+      "anchor": [
+        774.04,
+        883.85
+      ],
+      "hand": [
+        698,
+        834
+      ],
+      "other_hand": [
+        719,
+        838
+      ]
+    },
+    "golpe-NW": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        994,
+        648,
+        242,
+        237
+      ],
+      "anchor": [
+        1090.8,
+        879.08
+      ],
+      "hand": [
+        1010,
+        827
+      ],
+      "other_hand": [
+        1025,
+        822
+      ]
+    },
+    "golpe-N": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        106,
+        912,
+        181,
+        256
+      ],
+      "anchor": [
+        196.5,
+        1152.64
+      ],
+      "hand": [
+        251,
+        1080
+      ],
+      "other_hand": [
+        247,
+        1070
+      ]
+    },
+    "golpe-NE": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        364,
+        924,
+        223,
+        238
+      ],
+      "anchor": [
+        513.41,
+        1156.05
+      ],
+      "hand": [
+        569,
+        1100
+      ],
+      "other_hand": [
+        566,
+        1093
+      ]
+    },
+    "golpe-E": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        666,
+        914,
+        241,
+        260
+      ],
+      "anchor": [
+        839.52,
+        1167.5
+      ],
+      "hand": [
+        877,
+        1103
+      ],
+      "other_hand": [
+        896,
+        1085
+      ]
+    },
+    "golpe-SE": {
+      "file": "dragon-trabajo.png",
+      "region": [
+        988,
+        917,
+        224,
+        250
+      ],
+      "anchor": [
+        1142.56,
+        1160.75
+      ],
+      "hand": [
+        1189,
+        1105
+      ],
+      "other_hand": [
+        1170,
+        1115
+      ]
+    },
+    "arrodillado-S": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        84,
+        13,
+        281,
+        240
+      ],
+      "anchor": [
+        196.4,
+        248.2
+      ],
+      "hand": [
+        112,
+        237
+      ],
+      "other_hand": [
+        198,
+        236
+      ]
+    },
+    "arrodillado-SW": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        435,
+        9,
+        303,
+        239
+      ],
+      "anchor": [
+        556.2,
+        243.22
+      ],
+      "hand": [
+        455,
+        232
+      ],
+      "other_hand": [
+        552,
+        236
+      ]
+    },
+    "arrodillado-W": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        798,
+        9,
+        331,
+        239
+      ],
+      "anchor": [
+        930.4,
+        243.22
+      ],
+      "hand": [
+        813,
+        231
+      ],
+      "other_hand": [
+        887,
+        233
+      ]
+    },
+    "arrodillado-NW": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        1200,
+        8,
+        308,
+        245
+      ],
+      "anchor": [
+        1320.12,
+        248.1
+      ],
+      "hand": [
+        1226,
+        230
+      ],
+      "other_hand": [
+        1233,
+        216
+      ]
+    },
+    "arrodillado-N": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        55,
+        256,
+        239,
+        244
+      ],
+      "anchor": [
+        203.18,
+        490.24
+      ],
+      "hand": [
+        280,
+        436
+      ],
+      "other_hand": [
+        270,
+        425
+      ]
+    },
+    "arrodillado-NE": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        426,
+        256,
+        271,
+        244
+      ],
+      "anchor": [
+        599.44,
+        495.12
+      ],
+      "hand": [
+        678,
+        458
+      ],
+      "other_hand": [
+        666,
+        448
+      ]
+    },
+    "arrodillado-E": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        767,
+        258,
+        298,
+        237
+      ],
+      "anchor": [
+        963.68,
+        490.26
+      ],
+      "hand": [
+        1048,
+        466
+      ],
+      "other_hand": [
+        1036,
+        453
+      ]
+    },
+    "arrodillado-SE": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        1171,
+        257,
+        289,
+        238
+      ],
+      "anchor": [
+        1361.74,
+        490.24
+      ],
+      "hand": [
+        1449,
+        464
+      ],
+      "other_hand": [
+        1438,
+        454
+      ]
+    },
+    "levantar-S": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        97,
+        501,
+        202,
+        254
+      ],
+      "anchor": [
+        177.8,
+        749.92
+      ],
+      "hand": [
+        113,
+        664
+      ],
+      "other_hand": [
+        172,
+        694
+      ]
+    },
+    "levantar-SW": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        450,
+        500,
+        286,
+        257
+      ],
+      "anchor": [
+        564.4,
+        751.86
+      ],
+      "hand": [
+        468,
+        672
+      ],
+      "other_hand": [
+        513,
+        707
+      ]
+    },
+    "levantar-W": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        799,
+        500,
+        300,
+        261
+      ],
+      "anchor": [
+        919,
+        755.78
+      ],
+      "hand": [
+        815,
+        673
+      ],
+      "other_hand": [
+        829,
+        654
+      ]
+    },
+    "levantar-NW": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        1205,
+        504,
+        290,
+        258
+      ],
+      "anchor": [
+        1318.1,
+        756.84
+      ],
+      "hand": [
+        1223,
+        669
+      ],
+      "other_hand": [
+        1236,
+        658
+      ]
+    },
+    "levantar-N": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        50,
+        756,
+        251,
+        258
+      ],
+      "anchor": [
+        205.62,
+        1003.68
+      ],
+      "hand": [
+        277,
+        893
+      ],
+      "other_hand": [
+        279,
+        912
+      ]
+    },
+    "levantar-NE": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        426,
+        757,
+        271,
+        255
+      ],
+      "anchor": [
+        599.44,
+        1006.9
+      ],
+      "hand": [
+        677,
+        890
+      ],
+      "other_hand": [
+        663,
+        885
+      ]
+    },
+    "levantar-E": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        767,
+        258,
+        298,
+        237
+      ],
+      "anchor": [
+        963.68,
+        490.26
+      ],
+      "hand": [
+        1048,
+        466
+      ],
+      "other_hand": [
+        1036,
+        453
+      ]
+    },
+    "levantar-SE": {
+      "file": "dragon-herboristeria.png",
+      "region": [
+        1181,
+        759,
+        260,
+        256
+      ],
+      "anchor": [
+        1352.6,
+        1009.88
+      ],
+      "hand": [
+        1430,
+        929
+      ],
+      "other_hand": [
+        1419,
+        912
+      ]
+    },
+    "medio-S": {
+      "file": "dragon-transiciones.png",
+      "region": [
+        80,
+        595,
+        200,
+        283
+      ],
+      "anchor": [
+        180,
+        870.92
+      ],
+      "hand": [
+        155,
+        794
+      ],
+      "other_hand": [
+        157,
+        754
+      ]
+    },
+    "medio-SW": {
+      "file": "dragon-transiciones.png",
+      "region": [
+        396,
+        594,
+        248,
+        280
+      ],
+      "anchor": [
+        485.28,
+        867
+      ],
+      "hand": [
+        425,
+        794
+      ],
+      "other_hand": [
+        430,
+        750
+      ]
+    },
+    "medio-W": {
+      "file": "dragon-transiciones.png",
+      "region": [
+        675,
+        600,
+        275,
+        278
+      ],
+      "anchor": [
+        779.5,
+        871.05
+      ],
+      "hand": [
+        709,
+        792
+      ],
+      "other_hand": [
+        710,
+        756
+      ]
+    },
+    "medio-NW": {
+      "file": "dragon-transiciones.png",
+      "region": [
+        1047,
+        595,
+        240,
+        285
+      ],
+      "anchor": [
+        1143,
+        872.88
+      ],
+      "hand": [
+        1061,
+        757
+      ],
+      "other_hand": [
+        1065,
+        744
+      ]
+    },
+    "medio-N": {
+      "file": "dragon-transiciones.png",
+      "region": [
+        90,
+        874,
+        194,
+        291
+      ],
+      "anchor": [
+        187,
+        1147.54
+      ],
+      "hand": [
+        226,
+        1087
+      ],
+      "other_hand": [
+        225,
+        1060
+      ]
+    },
+    "medio-NE": {
+      "file": "dragon-transiciones.png",
+      "region": [
+        358,
+        874,
+        243,
+        291
+      ],
+      "anchor": [
+        520.81,
+        1157.72
+      ],
+      "hand": [
+        581,
+        1059
+      ],
+      "other_hand": [
+        569,
+        1036
+      ]
+    },
+    "medio-E": {
+      "file": "dragon-transiciones.png",
+      "region": [
+        654,
+        880,
+        258,
+        292
+      ],
+      "anchor": [
+        839.76,
+        1164.7
+      ],
+      "hand": [
+        887,
+        1071
+      ],
+      "other_hand": [
+        879,
+        1052
+      ]
+    },
+    "medio-SE": {
+      "file": "dragon-transiciones.png",
+      "region": [
+        1010,
+        876,
+        238,
+        300
+      ],
+      "anchor": [
+        1174.22,
+        1168.5
+      ],
+      "hand": [
+        1220,
+        1066
+      ],
+      "other_hand": [
+        1225,
+        1047
+      ]
+    },
+    "andar-a-S": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        116,
+        4,
+        211,
+        286
+      ],
+      "anchor": [
+        208,
+        288
+      ],
+      "hand": [
+        151,
+        206
+      ],
+      "other_hand": [
+        151,
+        186
+      ]
+    },
+    "paso-a-S": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        399,
+        4,
+        225,
+        286
+      ],
+      "anchor": [
+        494,
+        288
+      ],
+      "hand": [
+        441,
+        202
+      ],
+      "other_hand": [
+        441,
+        182
+      ]
+    },
+    "andar-b-S": {
+      "file": "dragon-marcha-apoyos.png",
+      "region": [
+        244,
+        36,
+        398,
+        533
+      ],
+      "anchor": [
+        413,
+        567
+      ],
+      "hand": [
+        318,
+        380
+      ],
+      "other_hand": [
+        318,
+        345
+      ]
+    },
+    "paso-b-S": {
+      "file": "dragon-marcha-apoyos.png",
+      "region": [
+        734,
+        36,
+        400,
+        533
+      ],
+      "anchor": [
+        909,
+        567
+      ],
+      "hand": [
+        813,
+        376
+      ],
+      "other_hand": [
+        813,
+        341
+      ]
+    },
+    "andar-a-SW": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        107,
+        295,
+        247,
+        284
+      ],
+      "anchor": [
+        202,
+        577
+      ],
+      "hand": [
+        129,
+        485
+      ],
+      "other_hand": [
+        129,
+        465
+      ]
+    },
+    "paso-a-SW": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        397,
+        294,
+        257,
+        289
+      ],
+      "anchor": [
+        494,
+        581
+      ],
+      "hand": [
+        428,
+        491
+      ],
+      "other_hand": [
+        428,
+        471
+      ]
+    },
+    "andar-b-SW": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        710,
+        294,
+        253,
+        291
+      ],
+      "anchor": [
+        808,
+        583
+      ],
+      "hand": [
+        750,
+        496
+      ],
+      "other_hand": [
+        750,
+        476
+      ]
+    },
+    "paso-b-SW": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        1009,
+        294,
+        255,
+        291
+      ],
+      "anchor": [
+        1115,
+        583
+      ],
+      "hand": [
+        1051,
+        496
+      ],
+      "other_hand": [
+        1051,
+        476
+      ]
+    },
+    "andar-a-E": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        64,
+        591,
+        241,
+        272
+      ],
+      "anchor": [
+        207,
+        861
+      ],
+      "hand": [
+        218,
+        783
+      ],
+      "other_hand": [
+        218,
+        763
+      ]
+    },
+    "paso-a-E": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        374,
+        586,
+        239,
+        280
+      ],
+      "anchor": [
+        519,
+        864
+      ],
+      "hand": [
+        535,
+        782
+      ],
+      "other_hand": [
+        535,
+        762
+      ]
+    },
+    "andar-b-E": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        685,
+        588,
+        248,
+        282
+      ],
+      "anchor": [
+        831,
+        868
+      ],
+      "hand": [
+        850,
+        786
+      ],
+      "other_hand": [
+        850,
+        766
+      ]
+    },
+    "paso-b-E": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        1005,
+        584,
+        237,
+        277
+      ],
+      "anchor": [
+        1145,
+        859
+      ],
+      "hand": [
+        1167,
+        782
+      ],
+      "other_hand": [
+        1167,
+        762
+      ]
+    },
+    "andar-a-SE": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        66,
+        865,
+        238,
+        297
+      ],
+      "anchor": [
+        220,
+        1160
+      ],
+      "hand": [
+        205,
+        1073
+      ],
+      "other_hand": [
+        205,
+        1053
+      ]
+    },
+    "paso-a-SE": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        373,
+        867,
+        241,
+        295
+      ],
+      "anchor": [
+        535,
+        1160
+      ],
+      "hand": [
+        518,
+        1078
+      ],
+      "other_hand": [
+        518,
+        1058
+      ]
+    },
+    "andar-b-SE": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        678,
+        867,
+        239,
+        298
+      ],
+      "anchor": [
+        850,
+        1163
+      ],
+      "hand": [
+        833,
+        1077
+      ],
+      "other_hand": [
+        833,
+        1057
+      ]
+    },
+    "paso-b-SE": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        1001,
+        866,
+        230,
+        293
+      ],
+      "anchor": [
+        1165,
+        1157
+      ],
+      "hand": [
+        1147,
+        1071
+      ],
+      "other_hand": [
+        1147,
+        1051
+      ]
+    },
+    "andar-a-W": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        65,
+        6,
+        264,
+        288
+      ],
+      "anchor": [
+        168,
+        292
+      ],
+      "hand": [
+        180,
+        216
+      ],
+      "other_hand": [
+        180,
+        196
+      ]
+    },
+    "paso-a-W": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        399,
+        5,
+        251,
+        290
+      ],
+      "anchor": [
+        492,
+        293
+      ],
+      "hand": [
+        498,
+        216
+      ],
+      "other_hand": [
+        498,
+        196
+      ]
+    },
+    "andar-b-W": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        708,
+        5,
+        260,
+        290
+      ],
+      "anchor": [
+        803,
+        293
+      ],
+      "hand": [
+        805,
+        217
+      ],
+      "other_hand": [
+        805,
+        197
+      ]
+    },
+    "paso-b-W": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        1050,
+        5,
+        245,
+        290
+      ],
+      "anchor": [
+        1140,
+        293
+      ],
+      "hand": [
+        1141,
+        215
+      ],
+      "other_hand": [
+        1141,
+        195
+      ]
+    },
+    "andar-a-NE": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        54,
+        304,
+        229,
+        283
+      ],
+      "anchor": [
+        215,
+        585
+      ],
+      "hand": [
+        267,
+        479
+      ],
+      "other_hand": [
+        267,
+        459
+      ]
+    },
+    "paso-a-NE": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        373,
+        303,
+        239,
+        279
+      ],
+      "anchor": [
+        539,
+        580
+      ],
+      "hand": [
+        596,
+        479
+      ],
+      "other_hand": [
+        596,
+        459
+      ]
+    },
+    "andar-b-NE": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        679,
+        304,
+        243,
+        283
+      ],
+      "anchor": [
+        847,
+        585
+      ],
+      "hand": [
+        905,
+        480
+      ],
+      "other_hand": [
+        905,
+        460
+      ]
+    },
+    "paso-b-NE": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        1026,
+        303,
+        224,
+        281
+      ],
+      "anchor": [
+        1179,
+        582
+      ],
+      "hand": [
+        1235,
+        476
+      ],
+      "other_hand": [
+        1235,
+        456
+      ]
+    },
+    "andar-a-N": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        88,
+        589,
+        176,
+        281
+      ],
+      "anchor": [
+        176,
+        868
+      ],
+      "hand": [
+        231,
+        764
+      ],
+      "other_hand": [
+        231,
+        744
+      ]
+    },
+    "paso-a-N": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        415,
+        589,
+        173,
+        281
+      ],
+      "anchor": [
+        500,
+        868
+      ],
+      "hand": [
+        558,
+        771
+      ],
+      "other_hand": [
+        558,
+        751
+      ]
+    },
+    "andar-b-N": {
+      "file": "dragon-marcha-apoyos.png",
+      "region": [
+        240,
+        597,
+        407,
+        526
+      ],
+      "anchor": [
+        410,
+        1121
+      ],
+      "hand": [
+        529,
+        934
+      ],
+      "other_hand": [
+        529,
+        899
+      ]
+    },
+    "paso-b-N": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        1057,
+        589,
+        176,
+        284
+      ],
+      "anchor": [
+        1140,
+        871
+      ],
+      "hand": [
+        1201,
+        776
+      ],
+      "other_hand": [
+        1201,
+        756
+      ]
+    },
+    "andar-a-NW": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        62,
+        879,
+        257,
+        282
+      ],
+      "anchor": [
+        167,
+        1159
+      ],
+      "hand": [
+        83,
+        1051
+      ],
+      "other_hand": [
+        83,
+        1031
+      ]
+    },
+    "paso-a-NW": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        404,
+        881,
+        246,
+        285
+      ],
+      "anchor": [
+        489,
+        1164
+      ],
+      "hand": [
+        419,
+        1057
+      ],
+      "other_hand": [
+        419,
+        1037
+      ]
+    },
+    "andar-b-NW": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        715,
+        879,
+        252,
+        282
+      ],
+      "anchor": [
+        813,
+        1159
+      ],
+      "hand": [
+        739,
+        1055
+      ],
+      "other_hand": [
+        739,
+        1035
+      ]
+    },
+    "paso-b-NW": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        1049,
+        881,
+        243,
+        285
+      ],
+      "anchor": [
+        1135,
+        1164
+      ],
+      "hand": [
+        1072,
+        1057
+      ],
+      "other_hand": [
+        1072,
+        1037
+      ]
+    }
+  }
+}

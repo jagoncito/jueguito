@@ -66,7 +66,7 @@ async def main():
                           for _,text in messages[capture_messages:]
                           if 'BITU_DRAGON_CAPTURE_READY:' in text]
                 expected_pose = {'reposo':'reposo','marcha':'andar-a',
-                                 'minar':'golpe','talar':'golpe','palin':'arrodillado'}[name]
+                                 'minar':'golpe','talar':'golpe-talar','palin':'arrodillado'}[name]
                 expected_frames = [f'{expected_pose}-{direction}'
                                    for direction in ['S','SW','W','NW','N','NE','E','SE']]
                 assert states and states[-1] == {'mode':name,'frames':expected_frames}, states

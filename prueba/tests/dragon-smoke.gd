@@ -10,16 +10,22 @@ func run() -> void:
 	actor.set_physics_process(false)
 	actor.work_finished.connect(actor.end_work)
 	var visual := actor.dragon
-	assert(visual.catalog.frames.size() == 80,"Ocho direcciones y cuatro fases de marcha distintas")
+	assert(visual.catalog.frames.size() == 104,"Ocho direcciones, marcha, minería y tala propias y reposo sin equipo")
 	assert(visual.body.scale.x == visual.body.scale.y,"Sin estirar anatomía en un eje")
 	assert(actor.tool_mount.get_index()>visual.get_index(),"Herramienta frontal delante del cuerpo")
-	assert(visual.hand_cover.get_index()>actor.tool_mount.get_index(),"Dedos sobre el mango")
+	assert(visual.has_baked_tool() and not actor.tool.visible and not visual.hand_cover.visible,"Cuerpo y herramienta en un dibujo; sin duplicar dedos ni arma")
 	var source_images: Dictionary = {}
 	for key in visual.catalog.frames:
 		var frame: Dictionary = visual.catalog.frames[key]
 		if not source_images.has(frame.file):
 			source_images[frame.file] = load(visual.DIRECTORY+frame.file).get_image()
 		assert(source_images[frame.file].get_pixel(frame.hand[0],frame.hand[1]).a>0.5,"Palma sobre píxeles dibujados: "+key)
+		assert(frame.region[0]>=0 and frame.region[1]>=0 and frame.region[0]+frame.region[2]<=source_images[frame.file].get_width() and frame.region[1]+frame.region[3]<=source_images[frame.file].get_height(),"Atlas sin recortes fuera de la fuente: "+key)
+		if key.begins_with("golpe-"):
+			var action := "talar" if key.begins_with("golpe-talar-") else "minar"
+			var point: Array = frame.contacts[action]
+			var metal: Color = source_images[frame.file].get_pixel(point[0],point[1])
+			assert(metal.a>0.5 and maxf(metal.r,maxf(metal.g,metal.b))-minf(metal.r,minf(metal.g,metal.b))<0.26,"Contacto sobre metal visible en el PNG: "+key)
 	var seen: Dictionary = {}
 	var hits := [0]
 	var work_hits := [0]
@@ -39,11 +45,18 @@ func run() -> void:
 			actor.walk_time = 0.1+phase*1.15
 			actor.animate_pose(0)
 			var texture := visual.body.texture as AtlasTexture
-			phases[str(texture.atlas.resource_path,texture.region)] = true
+			phases[hash(texture.atlas.get_image().get_data())] = true
 			assert(actor.primary_hand.position.distance_to(actor.tool_mount.position)<0.01,"Agarre registrado en cada fase")
 			assert(actor.tool.direction_index == index,"Perspectiva de herramienta acompaña al cuerpo")
 			assert((actor.tool_mount.get_index()<visual.get_index()) == visual.tool_behind,"Profundidad del agarre según vista")
-			assert(visual.hand_cover.position.is_equal_approx(actor.primary_hand.position+visual.cover_offset),"Dedos registrados sobre la palma")
+			assert(visual.has_baked_tool() and not actor.tool.visible and not visual.hand_cover.visible,"Agarre completo dibujado, sin una segunda herramienta")
+			var frame: Dictionary = visual.catalog.frames[visual.current_frame]
+			var head_top := (float(frame.body_bounds_px[1])-float(frame.anchor[1]))*visual.body.scale.y
+			assert(absf(head_top+80.0)<0.01,"La cabeza conserva la altura sobre el suelo al caminar: "+visual.current_frame)
+			var metrics: Dictionary = visual._metrics_for_frame(visual.current_frame,frame)
+			var rendered_top: float = visual.body.position.y+float(metrics.alpha_top)*visual.body.scale.y
+			assert(absf(rendered_top+80.0)<2.0,"Altura real de los píxeles de la cresta, no solo de los metadatos: "+visual.current_frame)
+			assert(frame.carry_orientation == "punta-arriba-filo-abajo","Orientación de reposo conservada en la marcha")
 		assert(phases.size()==4,"Cuatro dibujos distintos por dirección, sin paso intermedio repetido")
 		assert(actor.direction_index == index,"Ocho direcciones sin reflejar la cara original")
 		seen[visual.current_frame] = true
@@ -94,7 +107,7 @@ func run() -> void:
 		if not InputMap.has_action(action):
 			InputMap.add_action(action)
 	actor.set_physics_process(true)
-	for index in [2,3,4,5,7]:
+	for index in range(8):
 		var direction: Vector2 = BituPlayer.DIRECTIONS[index]
 		var actions: Array[String] = []
 		if direction.x < 0: actions.append("move_left")
@@ -166,12 +179,10 @@ func run() -> void:
 	quit(0)
 
 func check_work_grip(actor: BituPlayer) -> void:
-	var shaft := Vector2.UP.rotated(actor.tool_mount.rotation)
-	var palms := actor.secondary_hand.position-actor.primary_hand.position
-	assert(absf(shaft.cross(palms))<0.001 and shaft.dot(palms)>0,"Mango alineado con las dos palmas del cuerpo dibujado")
+	assert(actor.dragon.has_baked_tool() and not actor.tool.visible,"Golpe con herramienta incorporada al dibujo de las manos")
 	assert(actor.tool_mount.position.is_equal_approx(actor.primary_hand.position),"Mano inferior registrada en mango")
-	assert(is_zero_approx(actor.tool.rotation),"Sin rotación adicional de la herramienta")
-	assert(actor.dragon.hand_cover.position.is_equal_approx(actor.dragon.position+actor.dragon.primary_hand.position+actor.dragon.cover_offset),"Los dedos conservan su palma fuente al cambiar el agarre")
+	assert(is_zero_approx(actor.tool.rotation) and is_zero_approx(actor.tool_mount.rotation),"Sin rotación adicional de la herramienta")
+	assert(not actor.dragon.hand_cover.visible and not actor.dragon.other_hand_cover.visible,"Dedos del propio PNG sin parches duplicados")
 
 func check_return_to_idle(actor: BituPlayer) -> void:
 	actor.animate_pose(0,0.56)

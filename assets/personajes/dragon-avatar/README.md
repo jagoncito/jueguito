@@ -1,36 +1,42 @@
 # Dragón — protagonista bípedo
 
-Tras revisar la primera integración, el usuario pide rehacer proporciones, cola y animaciones, con **ocho vistas como mínimo**. Esta versión conserva la identidad de la cara: ojos ámbar, hocico beige redondeado, sonrisa, piel azul grisácea y aletas naranjas. Las perspectivas nuevas están redibujadas; **no son un recorte idéntico de la cara original**. El PNG original sigue intacto como referencia. Nombre, especie concreta, historia y personalización pendientes.
+Tras revisar la primera integración, el usuario pide rehacer proporciones, cola y animaciones, con **ocho vistas como mínimo**. La revisión posterior reduce la altura de 90 a **80 px** (aproximadamente un 11 %) y dibuja el pico–hacha con el cuerpo. Esta versión conserva la identidad de la cara: ojos ámbar, hocico beige redondeado, sonrisa, piel azul grisácea y aletas naranjas. Las perspectivas nuevas están redibujadas; **no son un recorte idéntico de la cara original**. El PNG original sigue intacto como referencia. Nombre, especie concreta, historia y personalización pendientes.
 
 ![Ocho vistas dentro de Godot](../../../prueba/capturas/dragon-animaciones.png)
 
 | Atlas transparente | Dimensiones fuente | Contenido |
 |---|---|---|
-| `dragon-reposo.png` | 1536 × 1024 | Ocho poses erguidas. |
+| `dragon-reposo.png` | 1536 × 1024 | Ocho poses erguidas equipadas. |
+| `dragon-sin-equipo.png` | 1536 × 1024 | Ocho reposos sin herramienta para recoger flores. |
 | `dragon-marcha-frontal.png` | 1312 × 1199 | Cuatro fases en S, SW, E y SE. |
 | `dragon-marcha-trasera.png` | 1312 × 1199 | Cuatro fases en W, NE, N y NW. |
+| `dragon-marcha-opuesta.png` | 1536 × 1024 | Segundo apoyo y paso de perfiles y diagonales frontales. |
 | `dragon-marcha-apoyos.png` | 1312 × 1199 | Apoyos opuestos adicionales de S y N. |
 | `dragon-transiciones.png` | 1312 × 1199 | Agarre preparado; su antiguo paso ya no se usa. |
-| `dragon-trabajo.png` | 1261 × 1247 | Carga y golpe en cada dirección. |
+| `dragon-trabajo.png` | 1261 × 1247 | Carga y golpe de minería en cada dirección. |
+| `dragon-tala.png` | 1261 × 1247 | Preparación lateral y golpe de tala en cada dirección. |
 | `dragon-herboristeria.png` | 1536 × 1024 | Recolección arrodillada y elevación. |
 | `dragon-jugable.json` | Coordenadas fuente | Regiones, anclas de suelo, palmas y escala uniforme. |
 | `dragon-idle.png` | 1254 × 1254 | Referencia cuadrúpeda original, sin cambios. |
 
 Direcciones: **S, SW, W, NW, N, NE, E, SE**. Son dibujos completos: cabeza, torso, brazos, piernas, alas y cola forman parte de cada pose. La cola nace de la pelvis, cambia de perspectiva con el cuerpo y acompaña los pasos; no se coloca como una pieza suelta ni se estira. Se retiran los dos atlas de piezas sustituidos.
 
-La presentación erguida queda normalizada a **90 px antes del zoom**; la pose arrodillada es más baja de forma intencionada. Los PNG grandes se mantienen y se muestran mediante texturas recortadas en memoria, vecino más cercano y una escala uniforme por silueta: no son sprites nativos de 128 × 128. El catálogo contiene **80 entradas**, incluidas 32 de marcha (cuatro por dirección); la elevación E reutiliza la pose baja correcta porque el dibujo generado de elevación no conservaba su perfil. Los pequeños componentes desconectados que invadían algunas celdas se descartan al preparar cada fotograma en memoria; los originales no se alteran. El atlas antiguo de marcha se retira, recuperable en Git. No se afirma que todas las poses sean animación final de producción.
+La altura erguida y de marcha queda fijada a **80 px antes del zoom**, medida desde el suelo hasta la cresta del cuerpo. Metal y madera no intervienen en esa medida: levantar la herramienta no encoge al personaje. Las poses de trabajo flexionan las rodillas: preparación de 76 px, impacto de 65; recolección de 59 y recuperación de 60. Escala uniforme en ambos ejes, filtro nearest. El catálogo versión 4 contiene **104 entradas**, incluidas 32 de marcha, ocho preparaciones y ocho impactos propios de tala y ocho reposos sin equipo. La elevación E usa ahora su dibujo propio.
 
-La punta del pico y el filo del hacha se alinean con el recurso al impactar; la postura ajusta el apoyo hasta 18 px sin cambiar la posición física. El cuerpo gira inmediatamente hacia **la base del recurso**, independientemente de la altura del punto de impacto. Los mangos se registran con las palmas dibujadas y se ocluyen por el cuerpo y los dedos; no se mueven brazos a través de la espalda para alcanzar herramientas. El palín hace paladas breves desde la muñeca y toca la tierra al extraer. Un cambio de apoyo al agacharse mantiene su escala entre 0,65 y 0,95, sin desplazar físicamente al jugador ni ampliar el alcance.
+**Al llevar la herramienta, la punta del pico mira arriba y el filo del hacha abajo**, también de perfil y en diagonal. El mango acompaña la mano; no se aplica un giro de herramienta independiente. Cuerpo, manos, dedos y pico–hacha forman un único dibujo equipado. El nodo de herramienta conserva el reloj y las señales de impacto, con sus sprites ocultos para evitar duplicarla. Los atlas de la herramienta separada siguen disponibles para su revisión y futuras mejoras, todavía sin integrar esos cambios de material en los dibujos equipados.
+
+Los contactos se registran sobre metal visible del PNG de impacto. El apoyo visual entra gradualmente, permanece entre los cinco golpes y se recupera al terminar; no altera la posición física, la colisión ni el alcance. El cuerpo se orienta hacia **la base del recurso**, independientemente de la altura del impacto. El palín sigue registrado como herramienta aparte sobre su palma, con cambio de apoyo al agacharse; no desplaza físicamente al jugador.
 
 - Marcha: contacto A → paso A → contacto B → paso B, con cuatro dibujos distintos y herramienta equipada. Los pies traseros avanzan alejándose de la cámara. El ciclo sigue la distancia realmente recorrida, no solo la tecla pulsada; se detiene al quedar bloqueado.
 - Minería/tala: preparación → carga → golpe → recuperación; señales y tiempos conservados.
 - Herboristería: agacharse → paladas → extracción → elevación → recuperar postura.
 - Pesca, regadera, combate, daño y esquive: pendientes de sus sistemas.
 
-[`dragon_visual.gd`](../../../prueba/scripts/dragon_visual.gd) presenta las poses; [`player.gd`](../../../prueba/scripts/player.gd) registra herramientas y orientación. Los siete atlas y el catálogo tienen copias idénticas dentro de `prueba/` para exportar el proyecto independiente.
+[`dragon_visual.gd`](../../../prueba/scripts/dragon_visual.gd) presenta las poses; [`player.gd`](../../../prueba/scripts/player.gd) registra herramientas y orientación. Los diez atlas y el catálogo tienen copias idénticas dentro de `prueba/` para exportar el proyecto independiente.
 
-**Agarre revisado:** coordenadas de palma medidas en cada dibujo, incluida la marcha. `hand_cover` presenta una región de los dedos del mismo atlas sobre el mango, sin modificar el PNG. El cuerpo ocluye las herramientas traseras; las frontales se presentan delante del torso y detrás de los dedos. Pico–hacha y palín usan ocho proyecciones espaciales propias, no solo giros de una única imagen. [`register_motion_assets.py`](../../../prueba/tools/register_motion_assets.py) reproduce los registros medidos y emite JSON para revisión; requiere Pillow, NumPy y SciPy, no edita imágenes.
+**Registro reproducible:** [`register_dragon_80.py`](../../../prueba/tools/register_dragon_80.py) mide componentes completos para no cortar crestas que crucen una celda, separa colores del cuerpo, registra anclas/contactos y copia los PNG a la prueba **sin modificar sus bytes**. Pillow, NumPy y SciPy se usan para leer medidas, no para editar imágenes. `dragon-registro-base.json` conserva referencias anatómicas de la versión anterior, sin ser un catálogo de juego. El registrador anterior deriva a este catálogo para evitar restaurar medidas de 90 px. Los pequeños componentes desconectados se limpian únicamente al presentar el fotograma en memoria.
 
+Esta es una revisión del prototipo, **pendiente de aprobación visual del usuario**. Cuatro fases no equivalen a una animación definitiva de producción; quedan por refinar fluidez y detalles de anatomía/perspectiva.
 Importa `prueba/project.godot` en **Godot 4.6.3** y pulsa **F5** para jugar. Cámara inicial de prueba a zoom **1,5**, ajustable con la rueda. Abre `prueba/scenes/dragon.tscn` y pulsa **F6** para ver simultáneamente ocho direcciones ampliadas ×2: **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín**. En el navegador añade `?vista=dragon` a la URL.
 
 [Marcha](../../../prueba/capturas/dragon-marcha.png) · [Minería](../../../prueba/capturas/dragon-minar.png) · [Tala](../../../prueba/capturas/dragon-talar.png) · [Palín](../../../prueba/capturas/dragon-palin.png)

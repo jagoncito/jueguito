@@ -25,8 +25,8 @@ var frame_metrics: Dictionary = {}
 ## few walking/work frames render one or two pixels taller or shorter.  Keep a
 ## single presentation height in the game and let the kneeling poses use their
 ## own, intentionally lower, silhouette.
-const UPRIGHT_HEIGHT_PX := 90.0
-const KNEEL_HEIGHT_PX := 66.0
+const UPRIGHT_HEIGHT_PX := 80.0
+const KNEEL_HEIGHT_PX := 59.0
 const ISOLATED_PIXEL_COMPONENT_LIMIT := 240
 
 func _ready() -> void:
@@ -127,7 +127,7 @@ func _presentation_height(pose: String) -> float:
 	if pose == "arrodillado":
 		return KNEEL_HEIGHT_PX
 	if pose == "levantar":
-		return 68.0
+		return 60.0
 	return UPRIGHT_HEIGHT_PX
 
 func show_pose(pose: String, direction: int) -> void:
@@ -147,10 +147,9 @@ func show_pose(pose: String, direction: int) -> void:
 	var anchor := Vector2(frame.anchor[0],frame.anchor[1])
 	var metrics := _metrics_for_frame(key,frame)
 	var pose_name := key.get_slice("-",0)
-	# Normalize the visible silhouette, not the transparent source rectangle.
-	# This removes the subtle scale pulse between the four walking phases while
-	# retaining the shorter, deliberate kneeling posture.
-	var factor := _presentation_height(pose_name)/float(metrics["alpha_height"])
+	# Medir el cuerpo desde el suelo, excluyendo metal/madera. Los golpes
+	# flexionan las rodillas y conservan una silueta más baja, sin agrandar la cara.
+	var factor := float(frame.get("presentation_height_px",_presentation_height(pose_name)))/float(frame.get("body_height_px",metrics["alpha_height"]))
 	body.texture = atlases[key]
 	body.scale = Vector2.ONE*factor
 	body.position = (Vector2(frame.region[0],frame.region[1])-anchor)*factor
@@ -158,7 +157,7 @@ func show_pose(pose: String, direction: int) -> void:
 	secondary_hand.position = (Vector2(frame.other_hand[0],frame.other_hand[1])-anchor)*factor
 	tool_behind = frame.get("tool_behind",direction_index in [3,4,5])
 	var region: Array = frame.get("hand_cover",[])
-	hand_cover.visible = not region.is_empty()
+	hand_cover.visible = not has_baked_tool() and not region.is_empty()
 	if not region.is_empty():
 		if not covers.has(key):
 			var cover := AtlasTexture.new()
@@ -191,3 +190,17 @@ func _draw() -> void:
 	draw_set_transform(Vector2(0,-2),0,Vector2(1,0.27))
 	draw_circle(Vector2.ZERO,18,Color(0.025,0.04,0.055,0.3))
 	draw_set_transform(Vector2.ZERO)
+
+func has_baked_tool() -> bool:
+	return catalog.frames[current_frame].get("baked_tool",false)
+
+func contact_local(action: StringName) -> Vector2:
+	var frame: Dictionary = catalog.frames[current_frame]
+	var contacts: Dictionary = frame.get("contacts",{})
+	if not contacts.has(String(action)):
+		return Vector2.INF
+	var point: Array = contacts[String(action)]
+	return (Vector2(point[0],point[1])-Vector2(frame.anchor[0],frame.anchor[1]))*body.scale.x
+
+func contact_global(action: StringName) -> Vector2:
+	return to_global(contact_local(action))
