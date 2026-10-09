@@ -1,5 +1,7 @@
 # Continuidad del proyecto
 
+- Revisión visual del 9 de octubre: agua turquesa pixel art y casa rural de paredes claras y entramado de madera con aspecto más granjero, basadas en las referencias aportadas. Tras ver la primera propuesta, el usuario pide cambiar algún detalle y subirla a GitHub, **sin aplicarla al juego**. Revisión en `docs/referencias/agua-casa-bitu.png`: tejado simplificado sin ventanas abuhardilladas y contraventanas más envejecidas. Autorizada la publicación de esta entrega concreta; no futuras subidas automáticas ni integración. Sigue siendo una referencia visual, no sprites registrados. Conservar la casa abandonada pero habitable y no convertir los accesorios del boceto en decisiones del juego.
+
 - Lee `DISENO.md` antes de trabajar: contiene el diseño vigente y las preferencias del usuario.
 - El diseño sigue en conversación. Tras expresar que quiere empezar a programar y pedir una prueba para ver el aspecto, el usuario dispone de un prototipo visual limitado. Mantén ese alcance: no convertirlo en autorización para desarrollar de golpe todo el juego. La aceptación de una idea individual no cierra todas las decisiones pendientes.
 - El usuario quiere avanzar con decisiones pequeñas, una por una. Evita cuestionarios extensos y preguntas prematuras sobre detalles de implementación.

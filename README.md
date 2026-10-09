@@ -24,6 +24,8 @@ Los mapas son conceptuales; ninguna distribución es definitiva. El bloc contien
 
 ## Recursos gráficos
 
+- [Propuesta visual de agua y casa](docs/referencias/README.md): referencia revisada de agua turquesa y casa rural de entramado de madera; publicada por petición del usuario, sin integrar en el juego.
+
 - [Unamahloni — pose quieta en pixel art](assets/personajes/unamahloni-idle.png): versión original, PNG transparente de 1143 × 1376 píxeles.
 - [Notas de uso del personaje](assets/personajes/README.md).
 - [Cuatro tomates en pixel art](assets/objetos/cultivos/README.md): común, prístino, Siru y Siru prístino; PNG independientes con fondo transparente.

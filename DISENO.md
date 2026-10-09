@@ -25,6 +25,14 @@ Se busca que las mejoras se noten y que encontrar algo especial dé ilusión. La
 - Tras comparar estilos, se conserva la versión pixel art de Unamahloni y se eliminan las dos variantes ilustradas del repositorio.
 - **Generación general de imágenes detenida por petición del usuario.** No crear más imágenes salvo una petición explícita posterior. El entorno de la prueba usa referencias dibujadas por el motor; la petición posterior del pico–hacha autoriza ese recurso concreto, no una producción gráfica general.
 
+### Agua y casa — referencias solicitadas el 9 de octubre
+
+El usuario solicita perfeccionar primero los assets de agua y casa y **ver los resultados antes de subirlos a GitHub**. Autoriza generar estas propuestas concretas; la pausa de generación general se mantiene para otros recursos.
+
+- **Agua:** referencia pixel art aportada por el usuario, con turquesas, zonas azul profundo, reflejos y espuma en los bordes. Adaptar ese lenguaje visual a la bahía costera de Bītu; el puente y las cascadas de la referencia no fijan nuevos elementos del mapa.
+- **Casa:** referencia aportada de vivienda rural con paredes claras y entramado de madera, adaptada a pixel art isométrico y con un aspecto más granjero. Mantener el estado inicial abandonado pero habitable ya acordado.
+- **Revisión y publicación solicitadas:** tras ver la primera propuesta conjunta, el usuario pide cambiar algún detalle y subirla a GitHub, **sin aplicarla al juego**. La [propuesta revisada](docs/referencias/agua-casa-bitu.png) simplifica el tejado, retirando las ventanas abuhardilladas, y envejece ligeramente las contraventanas. Es una referencia visual; todavía no son sprites registrados ni están integrados en Godot. Los accesorios y el paisaje no constituyen nuevas decisiones de distribución o sistemas. La petición autoriza publicar esta entrega concreta, no futuras subidas automáticas ni integración.
+
 ## 2. Premisa y misterio
 
 ### Decisiones
