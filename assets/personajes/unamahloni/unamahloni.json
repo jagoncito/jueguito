@@ -1,0 +1,240 @@
+{
+  "character": "Unamahloni",
+  "species": "Veyari",
+  "status": "provisional_directional_visual_study",
+  "base_reference": "../unamahloni-idle.png",
+  "base_sha256": "eca7b65f33d74ff1ff467e4e0c5d988f50890552e8d90f3e17589c0cd39768fc",
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "direction_convention": "Direcciones de pantalla: S hacia el observador, N de espaldas; no coordenadas del mundo.",
+  "frames_per_direction": 1,
+  "action": "idle",
+  "presentation": {
+    "frame_reference_px": [
+      128,
+      128
+    ],
+    "character_height_reference_px": 80,
+    "ground_tile_reference_px": [
+      64,
+      32
+    ],
+    "native_128px_frames": false,
+    "preview_foot_anchor_px": [
+      64,
+      112
+    ],
+    "filter": "nearest_neighbor"
+  },
+  "accessory_sides": {
+    "right_arm": "cuaderno",
+    "right_hip": "bolsa de hierbas",
+    "left_hip": "frasco verde"
+  },
+  "limitations": [
+    "PNG generado grande, no atlas de fotogramas nativos de 128 × 128 ni ampliación exacta de esa cuadrícula.",
+    "Ocho orientaciones quietas; sin ciclo de marcha ni animaciones de trabajo.",
+    "Las regiones y el anclaje son medidas para la vista previa, no un registro definitivo de animación.",
+    "Cámara, peinado, proporciones y bordados requieren revisión antes de la integración.",
+    "No integrado en Godot."
+  ],
+  "sheet": {
+    "file": "unamahloni-orientaciones.png",
+    "dimensions_px": [
+      1330,
+      1182
+    ],
+    "mode": "RGBA",
+    "sha256": "fb349e1b6dd256d5e21035060b37ab44e840890250edf92ff91cdc5df7879e9d",
+    "layout": [
+      4,
+      2
+    ],
+    "frames": [
+      {
+        "direction": "S",
+        "row": 0,
+        "column": 0,
+        "region_px": [
+          77,
+          14,
+          231,
+          547
+        ],
+        "figure_bounds_px": [
+          80,
+          17,
+          225,
+          541
+        ],
+        "preview_scale": 0.1478743068391867,
+        "preview_anchor_px": [
+          112.5,
+          541
+        ]
+      },
+      {
+        "direction": "SW",
+        "row": 0,
+        "column": 1,
+        "region_px": [
+          400,
+          16,
+          230,
+          556
+        ],
+        "figure_bounds_px": [
+          403,
+          19,
+          224,
+          550
+        ],
+        "preview_scale": 0.14545454545454545,
+        "preview_anchor_px": [
+          112.0,
+          550
+        ]
+      },
+      {
+        "direction": "W",
+        "row": 0,
+        "column": 2,
+        "region_px": [
+          743,
+          17,
+          179,
+          553
+        ],
+        "figure_bounds_px": [
+          746,
+          20,
+          173,
+          547
+        ],
+        "preview_scale": 0.14625228519195613,
+        "preview_anchor_px": [
+          86.5,
+          547
+        ]
+      },
+      {
+        "direction": "NW",
+        "row": 0,
+        "column": 3,
+        "region_px": [
+          1076,
+          19,
+          183,
+          544
+        ],
+        "figure_bounds_px": [
+          1079,
+          22,
+          177,
+          538
+        ],
+        "preview_scale": 0.14869888475836432,
+        "preview_anchor_px": [
+          88.5,
+          538
+        ]
+      },
+      {
+        "direction": "N",
+        "row": 1,
+        "column": 0,
+        "region_px": [
+          64,
+          605,
+          228,
+          530
+        ],
+        "figure_bounds_px": [
+          67,
+          608,
+          222,
+          524
+        ],
+        "preview_scale": 0.15267175572519084,
+        "preview_anchor_px": [
+          111.0,
+          524
+        ]
+      },
+      {
+        "direction": "NE",
+        "row": 1,
+        "column": 1,
+        "region_px": [
+          410,
+          608,
+          200,
+          529
+        ],
+        "figure_bounds_px": [
+          413,
+          611,
+          194,
+          523
+        ],
+        "preview_scale": 0.15296367112810708,
+        "preview_anchor_px": [
+          97.0,
+          523
+        ]
+      },
+      {
+        "direction": "E",
+        "row": 1,
+        "column": 2,
+        "region_px": [
+          737,
+          607,
+          179,
+          531
+        ],
+        "figure_bounds_px": [
+          740,
+          610,
+          173,
+          525
+        ],
+        "preview_scale": 0.1523809523809524,
+        "preview_anchor_px": [
+          86.5,
+          525
+        ]
+      },
+      {
+        "direction": "SE",
+        "row": 1,
+        "column": 3,
+        "region_px": [
+          1067,
+          600,
+          210,
+          531
+        ],
+        "figure_bounds_px": [
+          1070,
+          603,
+          204,
+          525
+        ],
+        "preview_scale": 0.1523809523809524,
+        "preview_anchor_px": [
+          102.0,
+          525
+        ]
+      }
+    ]
+  }
+}

@@ -6,6 +6,8 @@ Creado el **9 de octubre de 2026** por petición del usuario de realizar a Flavi
 
 ## Ver las poses y el movimiento
 
+**Actualización:** las nuevas poses de manos libres, agarres y objetos intercambiables están en [equipamiento/](equipamiento/README.md) y en el [visor compartido](../objetos-equipables/vista-previa.html). El visor de esta carpeta sigue siendo el estudio original, que se conserva sin sustituir.
+
 Abre [vista-previa.html](vista-previa.html) en un navegador. Funciona localmente, sin servidor, instalación ni conexión a Internet. Muestra las ocho direcciones, permite cambiar entre reposo y marcha, pausar, avanzar fotograma a fotograma y cambiar la ampliación.
 
 La referencia de presentación es una figura de **hasta 80 píxeles de alto en un fotograma de 128 × 128**, ampliable ×1, ×2 o ×4. Es una vista de revisión, no una integración en la granja ni una resolución nativa de las fuentes.

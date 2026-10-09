@@ -1,0 +1,238 @@
+{
+  "schema_version": 2,
+  "status": "independent_equippable_visuals",
+  "coordinate_convention": "Region absolute source [x,y,w,h]; grips relative to crop. Scale uniformly and align grip to palm.",
+  "sources": {
+    "props": {
+      "file": "objetos-equipables.png",
+      "repository_path": "assets/personajes/objetos-equipables/objetos-equipables.png",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "sha256": "0544e2be18bba153aabda3d18b10547a68e3f80377cfa10c51d52567dde78cd1"
+    },
+    "tomato": {
+      "file": "../../objetos/cultivos/tomate.png",
+      "repository_path": "assets/objetos/cultivos/tomate.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "sha256": "b2211e40f30a3c5a04db51b1c5e36c4def75059d395b4e67a1967ff8d0a4e655"
+    },
+    "pico": {
+      "file": "../../herramientas/pico-hacha/pico-hacha-hierro.png",
+      "repository_path": "assets/herramientas/pico-hacha/pico-hacha-hierro.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ]
+    },
+    "palin": {
+      "file": "../../herramientas/palin-herborista/palin-herborista-exotico.png",
+      "repository_path": "assets/herramientas/palin-herborista/palin-herborista-exotico.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ]
+    }
+  },
+  "objects": [
+    {
+      "id": "book",
+      "view": "front",
+      "source": "props",
+      "region_px": [
+        170,
+        72,
+        321,
+        411
+      ],
+      "grips_px": [
+        [
+          40.8,
+          314.85
+        ],
+        [
+          255,
+          339.15
+        ]
+      ],
+      "source_to_game_scale": 0.05679012,
+      "label": "Cuaderno",
+      "recommended_pose": "two_hands"
+    },
+    {
+      "id": "flask",
+      "view": "front",
+      "source": "props",
+      "region_px": [
+        679,
+        108,
+        178,
+        347
+      ],
+      "grips_px": [
+        [
+          89,
+          217.83
+        ]
+      ],
+      "source_to_game_scale": 0.03519062,
+      "label": "Frasco",
+      "recommended_pose": "one_hand"
+    },
+    {
+      "id": "mallet",
+      "view": "front",
+      "source": "props",
+      "region_px": [
+        1085,
+        46,
+        330,
+        444
+      ],
+      "grips_px": [
+        [
+          155.28,
+          349.02
+        ]
+      ],
+      "source_to_game_scale": 0.05479452,
+      "label": "Mazo",
+      "recommended_pose": "one_hand",
+      "notes": "Short one-handed mallet; no two-hand shaft grip."
+    },
+    {
+      "id": "book",
+      "view": "back",
+      "source": "props",
+      "region_px": [
+        155,
+        531,
+        325,
+        409
+      ],
+      "grips_px": [
+        [
+          41.28,
+          313.31
+        ],
+        [
+          258.2,
+          337.49
+        ]
+      ],
+      "source_to_game_scale": 0.05707196,
+      "label": "Cuaderno",
+      "recommended_pose": "two_hands"
+    },
+    {
+      "id": "flask",
+      "view": "back",
+      "source": "props",
+      "region_px": [
+        679,
+        568,
+        179,
+        342
+      ],
+      "grips_px": [
+        [
+          89.5,
+          214.68
+        ]
+      ],
+      "source_to_game_scale": 0.03571429,
+      "label": "Frasco",
+      "recommended_pose": "one_hand"
+    },
+    {
+      "id": "mallet",
+      "view": "back",
+      "source": "props",
+      "region_px": [
+        1085,
+        522,
+        332,
+        450
+      ],
+      "grips_px": [
+        [
+          156.22,
+          353.76
+        ]
+      ],
+      "source_to_game_scale": 0.05405405,
+      "label": "Mazo",
+      "recommended_pose": "one_hand",
+      "notes": "Short one-handed mallet; no two-hand shaft grip."
+    },
+    {
+      "id": "tomato",
+      "label": "Tomate",
+      "view": "any",
+      "source": "tomato",
+      "region_px": [
+        130,
+        125,
+        996,
+        1006
+      ],
+      "grips_px": [
+        [
+          498,
+          650
+        ]
+      ],
+      "source_to_game_scale": 0.0075,
+      "recommended_pose": "consume"
+    },
+    {
+      "id": "pico",
+      "label": "Pico–hacha",
+      "view": "any",
+      "source": "pico",
+      "region_px": [
+        240,
+        164,
+        776,
+        968
+      ],
+      "grips_px": [
+        [
+          390,
+          736
+        ],
+        [
+          390,
+          526
+        ]
+      ],
+      "source_to_game_scale": 0.04,
+      "recommended_pose": "two_hands",
+      "notes": "Existing single tool projection."
+    },
+    {
+      "id": "palin",
+      "label": "Palín",
+      "view": "any",
+      "source": "palin",
+      "region_px": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "grips_px": [
+        [
+          440,
+          820
+        ]
+      ],
+      "source_to_game_scale": 0.021,
+      "recommended_pose": "one_hand"
+    }
+  ]
+}
