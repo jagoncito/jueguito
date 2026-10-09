@@ -44,6 +44,18 @@ El pico–hacha está equipado y elige automáticamente el extremo correspondien
 
 ![Dragón usando el palín dentro del juego](capturas/dragon-recolectando.png)
 
+## Árboles, cobre y flor de Yde
+
+Los dos atlas que faltaban se han creado por petición del usuario, con perspectiva elevada, fondo transparente y filtro nearest. Los recortes y anclas se han medido sobre estas fuentes nuevas; la copia dentro de la prueba es idéntica a la de la raíz. Árboles de 192–208 px, cobre dentro de 56×52 px, Yde de 36 px y botín de hasta 28 px dentro del marco 32×32.
+
+La granja usa ahora tres variantes de árbol con sus tocones, mena de cobre entera y picada, y Yde violeta plantada. El botín tiene dibujos independientes: troncos cortados, un fragmento de mineral y una flor con tallo corto. Se mantienen los tiempos, cantidades y recogida por proximidad del prototipo.
+
+![Terreno, botín y mochila a escala](capturas/recursos-y-botin.png)
+
+Abre `scenes/recursos.tscn` y pulsa **F6**, o añade **`?vista=recursos`** a la URL del navegador. Los botones alternan las tres vistas de árbol, árbol/tocón y cobre entero/picado. El terreno y el dragón se muestran ampliados ×1,5; botín 32×32 y mochila 64×64. [Ficha y atlas originales](../assets/entorno/recursos/README.md).
+
+![Recursos integrados en la granja](capturas/recursos-en-juego.png)
+
 ## Revisar el dragón y sus animaciones
 
 Abre `scenes/dragon.tscn` en Godot y pulsa **F6** para ver las ocho direcciones ampliadas ×2. **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín**. Son las mismas poses y herramientas utilizadas en la granja. En el navegador añade **`?vista=dragon`** a la URL abierta por `JUGAR.py`. [Ficha del personaje](../assets/personajes/dragon-avatar/README.md) · [Vídeo real del canvas](capturas/dragon-animaciones.webm).

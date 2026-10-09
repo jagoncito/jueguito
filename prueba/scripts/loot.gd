@@ -6,13 +6,15 @@ var amount := 1
 var remaining_seconds := 600.0
 var texture: Texture2D
 var shimmer_time := 0.0
+var sprite: Sprite2D
 
 func _ready() -> void:
 	if texture != null:
-		var sprite := Sprite2D.new()
+		sprite = Sprite2D.new()
 		sprite.texture = texture
 		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-		var factor := 32.0 / float(maxi(texture.get_width(),texture.get_height()))
+		var footprint := 28.0 if texture is AtlasTexture else 32.0
+		var factor := footprint / float(maxi(texture.get_width(),texture.get_height()))
 		sprite.scale = Vector2(factor,factor)
 		sprite.position = Vector2(0,-16)
 		add_child(sprite)

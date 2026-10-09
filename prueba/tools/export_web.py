@@ -27,6 +27,9 @@ Marcha de cuatro fases distintas; pico-hacha y palín con ocho perspectivas y ag
 Para ver ocho direcciones ampliadas, añade ?vista=dragon a la URL del juego.
 Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín.
 Primera revisión de movimiento, escala y agarres pendiente de aprobación visual.
+Árboles con tres variantes y tocones; mena de cobre entera/picada; flor de Yde.
+Madera, fragmento de cobre y flor recogida tienen su propio botín e icono.
+Para comparar terreno, botín y mochila añade ?vista=recursos a la URL.
 No guarda progreso. Entorno y animaciones de prototipo.
 Sin Python, usa el repositorio y Godot 4.6.3: importar prueba/project.godot y F5.
 """

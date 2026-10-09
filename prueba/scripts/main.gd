@@ -1,7 +1,7 @@
 extends Node2D
 
 const TOMATO_IDS := ["tomate", "tomate-pristino", "tomate-siru", "tomate-siru-pristino"]
-const NAMES := {"tomate":"Tomate", "tomate-pristino":"Tomate prístino", "tomate-siru":"Tomate Siru", "tomate-siru-pristino":"Siru prístino", "mineral":"Mineral", "flor":"Flor", "madera":"Madera"}
+const NAMES := {"tomate":"Tomate", "tomate-pristino":"Tomate prístino", "tomate-siru":"Tomate Siru", "tomate-siru-pristino":"Siru prístino", "mineral":"Mena de cobre", "flor":"Flor de Yde", "madera":"Madera"}
 var terrain: BituTerrain
 var objects: Node2D
 var player: BituPlayer
@@ -38,9 +38,15 @@ func _ready() -> void:
 		set_process(false)
 		get_tree().call_deferred("change_scene_to_file","res://scenes/dragon.tscn")
 		return
+	if OS.has_feature("web") and bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('vista') === 'recursos'")):
+		set_process(false)
+		get_tree().call_deferred("change_scene_to_file","res://scenes/recursos.tscn")
+		return
 	_register_inputs()
 	for item_id in TOMATO_IDS:
 		textures[item_id] = load("res://assets/objetos/cultivos/%s.png" % item_id)
+	for item_id in ["madera","mineral","flor"]:
+		textures[item_id] = BituResourceArt.loot_texture(item_id)
 	terrain = BituTerrain.new()
 	add_child(terrain)
 	objects = Node2D.new()
@@ -52,6 +58,7 @@ func _ready() -> void:
 	objects.add_child(home)
 	for cell in [Vector2i(9,15), Vector2i(11,22), Vector2i(18,8), Vector2i(20,21), Vector2i(6,12), Vector2i(7,20), Vector2i(19,4), Vector2i(4,17)]:
 		var tree := BituTree.new()
+		tree.variant = trees.size() % 3
 		tree.cell = cell
 		tree.position = BituTerrain.cell_to_world(cell)
 		objects.add_child(tree)
@@ -120,6 +127,7 @@ func _process(delta: float) -> void:
 		if player.position.distance_to(drop.position) < 29:
 			var remainder := inventory.add_item(drop.item_id,drop.amount)
 			if remainder < drop.amount:
+				print("BITU_PICKUP:",drop.item_id,":",drop.amount-remainder)
 				_notify("+%d %s" % [drop.amount-remainder,NAMES[drop.item_id]])
 				_refresh_backpack()
 				drop.amount = remainder
@@ -165,13 +173,7 @@ func _click_resource(point: Vector2) -> void:
 		if not candidate.active:
 			continue
 		var local_point: Vector2 = candidate.to_local(point)
-		var contains := false
-		if candidate is BituTree:
-			contains = Rect2(-54,-160,111,91).has_point(local_point) or Rect2(-16,-69,32,73).has_point(local_point)
-		elif candidate.kind == "ore":
-			contains = Rect2(-26,-39,52,41).has_point(local_point)
-		else:
-			contains = Rect2(-14,-38,28,40).has_point(local_point)
+		var contains: bool = candidate.contains_visual_point(local_point)
 		# Elegir el recurso visible delante si sus dibujos se solapan.
 		if contains and (clicked == null or candidate.global_position.y >= clicked.global_position.y):
 			clicked = candidate
@@ -269,6 +271,8 @@ func _on_work_impact(action: StringName) -> void:
 	objects.add_child(effect)
 	if task is BituTree:
 		task.hit()
+	else:
+		task.show_damage()
 	progress.value = float(task_hits)/required_hits*100
 	if task_hits >= required_hits:
 		_deplete_task()
@@ -280,6 +284,7 @@ func _deplete_task() -> void:
 	var item_id := "madera" if task is BituTree else ("mineral" if task.kind == "ore" else "flor")
 	var point := task.position+(player.position-task.position).normalized()*20
 	_spawn_drop(item_id,point,3 if task is BituTree else 1)
+	print("BITU_RESOURCE_DEPLETED:",item_id)
 	if task is BituTree:
 		terrain.remove_obstacle(task.cell)
 	else:

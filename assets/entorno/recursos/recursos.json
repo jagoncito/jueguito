@@ -1,0 +1,263 @@
+{
+  "version": 2,
+  "description": "Atlas creados por petición del usuario para completar el parche recuperado: PNG fuente intactos, recortes y anclas medidos, escala uniforme y filtro nearest.",
+  "reference": {
+    "ground_tile_px": [
+      64,
+      32
+    ],
+    "humanoid_height_px": 80,
+    "dragon_height_px": 90,
+    "loot_canvas_px": [
+      32,
+      32
+    ],
+    "inventory_canvas_px": [
+      64,
+      64
+    ],
+    "filter": "nearest",
+    "native_pixel_atlas": false
+  },
+  "sources": {
+    "trees": {
+      "file": "arboles-y-tocones.png",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "sha256": "38010dc2881bb3303313c03faeaaa91939e5aef1a6cd2f84b672e94f47e02dca"
+    },
+    "resources": {
+      "file": "recursos-y-botin.png",
+      "size_px": [
+        1536,
+        1024
+      ],
+      "sha256": "5d086913ffb89cd0ed4e777b9d5a2a18ddc18b8f3a14f13f9f512c92be05698e"
+    }
+  },
+  "items": {
+    "madera": "loot-wood",
+    "mineral": "loot-copper",
+    "flor": "loot-yde"
+  },
+  "frames": {
+    "tree-0": {
+      "source": "trees",
+      "region_px": [
+        9,
+        76,
+        541,
+        597
+      ],
+      "anchor_px": [
+        271,
+        587
+      ],
+      "scale": 0.32160804020100503,
+      "world_size_px": [
+        173.98994974874373,
+        192.0
+      ]
+    },
+    "tree-1": {
+      "source": "trees",
+      "region_px": [
+        570,
+        46,
+        417,
+        619
+      ],
+      "anchor_px": [
+        201,
+        612
+      ],
+      "scale": 0.3360258481421648,
+      "world_size_px": [
+        140.12277867528272,
+        208.0
+      ]
+    },
+    "tree-2": {
+      "source": "trees",
+      "region_px": [
+        1004,
+        94,
+        522,
+        571
+      ],
+      "anchor_px": [
+        241,
+        564
+      ],
+      "scale": 0.3362521891418564,
+      "world_size_px": [
+        175.52364273204904,
+        192.0
+      ]
+    },
+    "stump-0": {
+      "source": "trees",
+      "region_px": [
+        91,
+        728,
+        419,
+        240
+      ],
+      "anchor_px": [
+        196,
+        233
+      ],
+      "scale": 0.15,
+      "world_size_px": [
+        62.849999999999994,
+        36.0
+      ]
+    },
+    "stump-1": {
+      "source": "trees",
+      "region_px": [
+        599,
+        744,
+        336,
+        218
+      ],
+      "anchor_px": [
+        167,
+        210
+      ],
+      "scale": 0.1651376146788991,
+      "world_size_px": [
+        55.48623853211009,
+        36.0
+      ]
+    },
+    "stump-2": {
+      "source": "trees",
+      "region_px": [
+        1059,
+        752,
+        403,
+        216
+      ],
+      "anchor_px": [
+        187,
+        209
+      ],
+      "scale": 0.17592592592592593,
+      "world_size_px": [
+        70.89814814814815,
+        38.0
+      ]
+    },
+    "ore": {
+      "source": "resources",
+      "region_px": [
+        29,
+        103,
+        467,
+        426
+      ],
+      "anchor_px": [
+        234,
+        400
+      ],
+      "scale": 0.11991434689507495,
+      "world_size_px": [
+        56.0,
+        51.08351177730193
+      ]
+    },
+    "ore-damaged": {
+      "source": "resources",
+      "region_px": [
+        541,
+        103,
+        467,
+        426
+      ],
+      "anchor_px": [
+        234,
+        400
+      ],
+      "scale": 0.11991434689507495,
+      "world_size_px": [
+        56.0,
+        51.08351177730193
+      ]
+    },
+    "yde": {
+      "source": "resources",
+      "region_px": [
+        1137,
+        108,
+        345,
+        418
+      ],
+      "anchor_px": [
+        173,
+        407
+      ],
+      "scale": 0.0861244019138756,
+      "world_size_px": [
+        29.712918660287084,
+        36.0
+      ]
+    },
+    "loot-wood": {
+      "source": "resources",
+      "region_px": [
+        97,
+        651,
+        304,
+        271
+      ],
+      "anchor_px": [
+        152,
+        265
+      ],
+      "scale": 0.09210526315789473,
+      "world_size_px": [
+        28.0,
+        24.960526315789473
+      ]
+    },
+    "loot-copper": {
+      "source": "resources",
+      "region_px": [
+        641,
+        662,
+        254,
+        260
+      ],
+      "anchor_px": [
+        127,
+        254
+      ],
+      "scale": 0.1076923076923077,
+      "world_size_px": [
+        27.353846153846156,
+        28.0
+      ]
+    },
+    "loot-yde": {
+      "source": "resources",
+      "region_px": [
+        1152,
+        656,
+        288,
+        266
+      ],
+      "anchor_px": [
+        182,
+        260
+      ],
+      "scale": 0.09722222222222222,
+      "world_size_px": [
+        28.0,
+        25.86111111111111
+      ]
+    }
+  }
+}

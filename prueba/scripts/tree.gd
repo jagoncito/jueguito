@@ -6,6 +6,23 @@ var cell := Vector2i.ZERO
 var active := true
 var hits := 0
 var feedback: Tween
+var variant := 0
+var sprite: Sprite2D
+
+func _ready() -> void:
+	sprite = Sprite2D.new()
+	add_child(sprite)
+	_update_art()
+
+func visual_id() -> String:
+	return ("tree-%d" if active else "stump-%d") % (variant % 3)
+
+func _update_art() -> void:
+	if sprite != null:
+		BituResourceArt.configure(sprite,visual_id())
+
+func contains_visual_point(point: Vector2) -> bool:
+	return active and BituResourceArt.contains(visual_id(),point)
 
 func hit() -> bool:
 	if not active:
@@ -16,6 +33,7 @@ func hit() -> bool:
 	if hits >= HITS_REQUIRED:
 		active = false
 		skew = 0
+		_update_art()
 		queue_redraw()
 		return true
 	feedback = create_tween()
@@ -24,11 +42,4 @@ func hit() -> bool:
 	return false
 
 func _draw() -> void:
-	if active:
-		super._draw()
-	else:
-		draw_rect(Rect2(-16,-3,32,7),Color(0.05,0.09,0.05,0.24))
-		draw_rect(Rect2(-12,-14,24,16),Color("6e5339"))
-		draw_rect(Rect2(-12,-14,24,5),Color("b08b55"))
-		draw_rect(Rect2(-7,-13,14,2),Color("d0aa6a"))
-		draw_rect(Rect2(-9,-6,4,8),Color("96724a"))
+	draw_colored_polygon(PackedVector2Array([Vector2(-32,0),Vector2(0,-9),Vector2(32,0),Vector2(0,9)]),Color(0.05,0.09,0.05,0.24))
