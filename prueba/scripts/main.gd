@@ -86,7 +86,7 @@ func _ready() -> void:
 	print("BITU_READY")
 
 func _register_inputs() -> void:
-	var bindings := {"move_left":KEY_A,"move_right":KEY_D,"move_up":KEY_W,"move_down":KEY_S,"interact":KEY_E,"backpack":KEY_TAB}
+	var bindings := {"move_left":KEY_A,"move_right":KEY_D,"move_up":KEY_W,"move_down":KEY_S,"interact":KEY_E,"backpack":KEY_TAB,"sprint":KEY_SHIFT}
 	for action in bindings:
 		if not InputMap.has_action(action):
 			InputMap.add_action(action)
@@ -353,7 +353,7 @@ func _build_ui() -> void:
 	header.add_child(headings)
 	headings.add_child(_label("BĪTU",30,Color("e6cc83")))
 	headings.add_child(_label("Primera prueba · tu rincón del archipiélago",15))
-	headings.add_child(_label("WASD · mover    Rueda · zoom    E · interactuar",14,Color("a7b797")))
+	headings.add_child(_label("WASD · mover    Shift · sprint    Rueda · zoom    E · interactuar",14,Color("a7b797")))
 	headings.add_child(_label("Clic izquierdo · minar, talar o recoger flores",14,Color("a7b797")))
 	backpack = _panel()
 	hud.add_child(backpack)

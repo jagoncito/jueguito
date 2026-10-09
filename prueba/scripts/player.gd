@@ -2,11 +2,14 @@ class_name BituPlayer
 extends CharacterBody2D
 
 const SPEED := 150.0
+const SPRINT_SPEED := 225.0
 const TOOL := preload("res://assets/herramientas/pico-hacha/pico-hacha-hierro.tscn")
 const HERBAL_TOOL := preload("res://assets/herramientas/palin-herborista/palin-herborista.tscn")
 const DRAGON_VISUAL := preload("res://scripts/dragon_visual.gd")
 const DIRECTIONS := [Vector2.DOWN,Vector2(-1,1),Vector2.LEFT,Vector2(-1,-1),Vector2.UP,Vector2(1,-1),Vector2.RIGHT,Vector2(1,1)]
-const CARRY_ANGLES := [-55.0,-55.0,-70.0,-65.0,55.0,65.0,70.0,55.0]
+# Profile views are deliberately kept diagonally downward.  The old ±70°
+# values made the vertical profile atlas look almost horizontal in the hands.
+const CARRY_ANGLES := [-48.0,-52.0,-38.0,-55.0,55.0,55.0,38.0,48.0]
 const WALK_POSES := ["andar-a","paso-a","andar-b","paso-b"]
 const TOOL_SCALE := 0.72
 signal work_impact(function: StringName)
@@ -32,9 +35,13 @@ var direction_index := 0
 var walk_time := 0.0
 var tool_side := 1.0
 var work_stance := Vector2.ZERO
-var work_scale := TOOL_SCALE
 
 func _ready() -> void:
+	if not InputMap.has_action("sprint"):
+		InputMap.add_action("sprint")
+		var sprint_key := InputEventKey.new()
+		sprint_key.physical_keycode = KEY_SHIFT
+		InputMap.action_add_event("sprint",sprint_key)
 	var collision := CollisionShape2D.new()
 	var shape := CircleShape2D.new()
 	shape.radius = 7.0
@@ -47,7 +54,10 @@ func _ready() -> void:
 		tool = TOOL.instantiate()
 		tool.externally_posed = true
 		tool_mount.add_child(tool)
-		tool.impact.connect(func(action: StringName): work_impact.emit(action))
+		tool.impact.connect(func(action: StringName):
+			_snap_tool_to_impact()
+			work_impact.emit(action)
+		)
 		tool.work_finished.connect(func(): work_finished.emit())
 		herbal_mount = Node2D.new()
 		add_child(herbal_mount)
@@ -91,8 +101,10 @@ func begin_work(action: StringName, contact: Vector2, ground_target := Vector2.I
 	var tip: Vector2 = tool.contact_offset(action)*TOOL_SCALE
 	tool_side = 1.0 if (hand+tip.rotated(angle)).distance_to(work_contact) <= (hand+Vector2(-tip.x,tip.y).rotated(angle)).distance_to(work_contact) else -1.0
 	var reach := work_contact-hand
+	# Move the stance a little towards the resource, but keep the tool at its
+	# authored size.  Scaling the whole pico–hacha to force a contact was the
+	# source of the visible floating/growing effect.
 	work_stance = (reach.normalized()*(reach.length()-tip.length())).limit_length(18)
-	work_scale = (work_contact-hand-work_stance).length()/(tip.length()/TOOL_SCALE)
 	tool.play_work(action)
 	animate_pose(0)
 
@@ -134,7 +146,9 @@ func begin_gathering(contact: Vector2, ground_target := Vector2.INF) -> void:
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left","move_right","move_up","move_down")
-	velocity = direction*SPEED if not busy else Vector2.ZERO
+	var sprinting := not busy and Input.is_action_pressed("sprint")
+	var speed := SPRINT_SPEED if sprinting else SPEED
+	velocity = direction*speed if not busy else Vector2.ZERO
 	var previous := position
 	move_and_slide()
 	var travel := position-previous
@@ -207,13 +221,37 @@ func animate_pose(_delta: float) -> void:
 			herbal_mount.rotation -= deg_to_rad(12)
 	else:
 		tool_mount.position = primary_hand.position
-		tool_mount.scale = Vector2(tool_side if busy else 1.0,1)*(work_scale if busy else TOOL_SCALE)
+		# The atlas is authored at one tool size.  Mirroring chooses the nearer
+		# end for the action; it never changes the scale of the tool.
+		tool_mount.scale = Vector2(tool_side if busy else 1.0,1)*TOOL_SCALE
 		if busy:
-			if pose == "golpe":
-				var tip: Vector2 = tool.contact_offset(work_kind)
-				tip.x *= tool_side
-				tool_mount.rotation = (work_contact-primary_hand.position).angle()-tip.angle()
-			else:
-				tool_mount.rotation = (secondary_hand.position-primary_hand.position).angle()+PI/2
+			tool_mount.rotation = _work_tool_rotation(elapsed)
 		else:
 			tool_mount.rotation = deg_to_rad(CARRY_ANGLES[direction_index])
+
+func _work_tool_rotation(elapsed: float) -> float:
+	var tip: Vector2 = tool.contact_offset(work_kind)
+	# A negative X scale mirrors the view; mirror the selected contact before
+	# deriving the mount angle so the actual pick/axe tip remains the target.
+	tip.x *= tool_side
+	var impact_angle := (work_contact-primary_hand.position).angle()-tip.angle()
+	var rest_angle := deg_to_rad(CARRY_ANGLES[direction_index])
+	var swing := -1.0 if work_kind == &"minar" else 1.0
+	var preparation := impact_angle + deg_to_rad(58.0*swing)
+	var approach := impact_angle - deg_to_rad(10.0*swing)
+	if elapsed < 0.16:
+		return lerp_angle(rest_angle,preparation,smoothstep(0.0,0.16,elapsed))
+	if elapsed < 0.30:
+		return lerp_angle(preparation,approach,smoothstep(0.16,0.30,elapsed))
+	if elapsed < 0.36:
+		return lerp_angle(approach,impact_angle,smoothstep(0.30,0.36,elapsed))
+	if elapsed < 0.53:
+		return lerp_angle(impact_angle,rest_angle+deg_to_rad(8.0*swing),smoothstep(0.36,0.53,elapsed))
+	return lerp_angle(rest_angle+deg_to_rad(8.0*swing),rest_angle,smoothstep(0.53,0.62,elapsed))
+
+func _snap_tool_to_impact() -> void:
+	if tool == null or tool_mount == null:
+		return
+	var tip: Vector2 = tool.contact_offset(work_kind)
+	tip.x *= tool_side
+	tool_mount.rotation = (work_contact-primary_hand.position).angle()-tip.angle()

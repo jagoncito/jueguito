@@ -2,13 +2,13 @@
 
 Una pequeña escena para revisar **el aspecto y la escala**. El terreno, casa, plantas y árboles son referencias temporales dibujadas por Godot. Los cuatro tomates son PNG originales. El dragón protagonista bípedo tiene ahora ocho vistas y anatomía reajustada por petición del usuario; conserva rasgos faciales y paleta. El PNG de referencia original sigue intacto. Presentación con vecino más cercano.
 
-La [ficha del dragón](../assets/personajes/dragon-avatar/README.md) registra siete atlas con poses completas y escala erguida aproximada de 90 px. Cola y extremidades están dibujadas en cada pose, sin piezas estiradas. Marcha, carga, golpe y palín se revisan en ocho direcciones con `prueba/scenes/dragon.tscn` (F6), o `?vista=dragon` en la exportación web. Teclas **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín**; vista ampliada ×2. Orientación hacia el suelo del recurso, separada de la altura del impacto. Riego con regadera, pesca y combate todavía sin animaciones propias.
+La [ficha del dragón](../assets/personajes/dragon-avatar/README.md) registra siete atlas con poses completas y una altura erguida normalizada de 90 px en el juego. Cola y extremidades están dibujadas en cada pose, sin piezas estiradas. Marcha, carga, golpe y palín se revisan en ocho direcciones con `prueba/scenes/dragon.tscn` (F6), o `?vista=dragon` en la exportación web. Teclas **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín**; vista ampliada ×2. Orientación hacia el suelo del recurso, separada de la altura del impacto. Las celdas de atlas se limpian en memoria de pequeños componentes desconectados para evitar rayas de otros fotogramas; los PNG fuente permanecen intactos. Riego con regadera, pesca y combate todavía sin animaciones propias.
 
 ## Qué se puede probar
 
 **Movimiento y agarre revisados:** cuatro dibujos de marcha por dirección, incluidos perfiles y diagonales; vistas traseras que avanzan alejándose de la cámara. La marcha sigue la distancia recorrida y se detiene al quedar bloqueado. Mangos sobre palmas medidas, dedos delante del mango y herramientas delante/detrás del torso según la vista. Pico–hacha y palín cuentan con ocho proyecciones propias. Las ruinas se definen en el bloc como refugio costero con patio de llegada; ese nivel todavía no está incluido.
 
-- Caminar con **WASD**, con colisiones en agua, casa, bases de árboles y límites.
+- Caminar con **WASD** y mantener **Shift** para el sprint provisional, con colisiones en agua, casa, bases de árboles y límites. La marcha sigue el desplazamiento real y las diagonales mantienen la velocidad normalizada.
 - Ajustar el zoom con la **rueda**.
 - Acercarse a las parcelas y pulsar **E** para plantar, regar o cosechar según su estado.
 - Acercarse a una mena, árbol o flor y hacer **un clic izquierdo sobre ese recurso** para completar toda la extracción, sin mantener pulsado ni repetir clics. Clic en suelo no usa el recurso más cercano; clic desde lejos pide acercarte. E se conserva para las parcelas.
@@ -40,6 +40,7 @@ Esta entrega incluye la petición explícita del usuario de integrar el palín y
 | Sector | 32 × 32 casillas |
 | Mochila | 12 huecos; pilas de hasta 50 |
 | Movimiento | 150 píxeles por segundo |
+| Sprint provisional | 225 píxeles por segundo; Shift |
 | Zoom | 0,75; 1; 1,5 inicial; 2 |
 | Recogida / interacción | 29 / 47 píxeles |
 | Minería / tala | 3 / 4 golpes; 0,62 segundos por golpe |
@@ -61,7 +62,9 @@ Estos valores permiten revisar rápido, no fijan dificultad, velocidad o econom�
 
 `tests/smoke.gd` comprueba capacidad y recogida parcial, separación de calidad y variante, conservación del crecimiento sin riego, reaparición dentro de la zona y conversión isométrica.
 
-`tests/tool-smoke.gd` comprueba el registro de piezas, la sustitución independiente de sus texturas y las señales del movimiento. `tests/scene-smoke.gd` ejecuta la granja y comprueba selección por clic frente a otro recurso más cercano, alcance, clic en suelo, impactos sin entregas anticipadas ni duplicadas, tala, madera, retirada de la colisión del árbol, recolección de flores y colisión real contra el agua. También verifica el palín visible, postura arrodillada, agarre, contacto con la tierra, ambas orientaciones laterales y recuperación de pie. `tests/dragon-smoke.gd` comprueba las ocho orientaciones, el giro hacia la base del recurso aunque el impacto elevado esté en otra dirección, las poses completas sin estirar el cuerpo, agarres, contactos de pico/hacha y palín en todas las vistas y registro independiente de la escala de revisión. Las cuatro pruebas han pasado. La prueba del dragón comprueba además las cuatro fases distintas por dirección, palmas sobre píxeles dibujados, registro de dedos, perspectiva y profundidad de herramientas, desplazamiento real hacia izquierda/diagonales/espalda y parada o deslizamiento al chocar. La exportación se ha abierto en Chromium con WebGL 2, sin errores de consola; se revisaron minería, tala y flores mediante clics reales y capturas del resultado renderizado. La flor llega a la mochila con un solo clic y otro clic durante el trabajo no reinicia su recolección.
+`tests/tool-smoke.gd` comprueba el registro de piezas, la sustitución independiente de sus texturas y las señales del movimiento. `tests/scene-smoke.gd` ejecuta la granja y comprueba selección por clic frente a otro recurso más cercano, alcance, clic en suelo, impactos sin entregas anticipadas ni duplicadas, tala, madera, retirada de la colisión del árbol, recolección de flores y colisión real contra el agua. También verifica el palín visible, postura arrodillada, agarre, contacto con la tierra, ambas orientaciones laterales y recuperación de pie. `tests/dragon-smoke.gd` comprueba las ocho orientaciones, el giro hacia la base del recurso aunque el impacto elevado esté en otra dirección, las poses completas sin estirar el cuerpo, agarres, contactos de pico/hacha y palín en todas las vistas y registro independiente de la escala de revisión. Las cuatro pruebas han pasado; también verifica el sprint provisional con Shift. La prueba del dragón comprueba además las cuatro fases distintas por dirección, palmas sobre píxeles dibujados, registro de dedos, perspectiva y profundidad de herramientas, desplazamiento real hacia izquierda/diagonales/espalda y parada o deslizamiento al chocar. La exportación se ha abierto en Chromium con WebGL 2, sin errores de consola; se revisaron minería, tala y flores mediante clics reales y capturas del resultado renderizado. La flor llega a la mochila con un solo clic y otro clic durante el trabajo no reinicia su recolección.
+
+**Verificación de la recuperación (9 de octubre de 2026):** inventario, herramientas y escena pasan con Godot 4.6.3. La prueba del dragón pasa con `--fixed-fps 60`; en tiempo real puede fallar al muestrear «Impacto completo del cuerpo», como ya ocurrió sobre la base anterior al parche. La descarga regenerada pasa las comprobaciones en Chromium de la granja y las ocho direcciones en cinco acciones, sin errores de consola. Se registra esta diferencia de ejecución sin dar por aprobado el acabado visual. La recuperación y subida de esta primera pasada han sido solicitadas expresamente por el usuario.
 
 ```sh
 cd prueba
@@ -69,7 +72,7 @@ godot --headless --editor --path . --import
 godot --headless --path . --script res://tests/smoke.gd
 godot --headless --path . --script res://tests/tool-smoke.gd
 godot --headless --path . --script res://tests/scene-smoke.gd
-godot --headless --path . --script res://tests/dragon-smoke.gd
+godot --headless --fixed-fps 60 --path . --script res://tests/dragon-smoke.gd
 godot --headless --path . --quit-after 120
 python tools/export_web.py
 ```

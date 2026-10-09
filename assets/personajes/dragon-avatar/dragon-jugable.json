@@ -11,6 +11,12 @@
     "SE"
   ],
   "presentation_height_px": 90,
+  "runtime_normalization": {
+    "upright_height_px": 90,
+    "kneeling_height_px": 66,
+    "filter": "nearest",
+    "remove_isolated_components_at_or_below": 240
+  },
   "reference": "dragon-idle.png",
   "notes": [
     "Ocho vistas completas, cuatro fases distintas de marcha por dirección.",

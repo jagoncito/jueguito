@@ -17,7 +17,7 @@ INSTRUCTIONS = """BĪTU — Primera prueba visual
 Requiere Python 3 y navegador con WebGL 2 (Chrome, Edge o Firefox actualizado).
 Descomprime todo el ZIP. Ejecuta python JUGAR.py desde la carpeta bitu-navegador.
 Se abrirá el navegador automáticamente. Mantén la ventana de Python abierta mientras juegas.
-WASD: mover; rueda: zoom; Tab: mochila.
+WASD: mover; Shift + WASD: sprint provisional; rueda: zoom; Tab: mochila.
 Clic izquierdo sobre una mena, árbol o flor cercana: completa toda la extracción.
 No hace falta mantener pulsado ni repetir clics por golpe.
 Para flores se equipa el palín y el personaje se arrodilla, extrae y se levanta.
@@ -26,6 +26,7 @@ Dragón bípedo: ocho direcciones, cola conectada, caminar, minar, talar y palí
 Marcha de cuatro fases distintas; pico-hacha y palín con ocho perspectivas y agarres registrados.
 Para ver ocho direcciones ampliadas, añade ?vista=dragon a la URL del juego.
 Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín.
+Primera revisión de movimiento, escala y agarres pendiente de aprobación visual.
 No guarda progreso. Entorno y animaciones de prototipo.
 Sin Python, usa el repositorio y Godot 4.6.3: importar prueba/project.godot y F5.
 """

@@ -31,6 +31,7 @@ Los cuatro PNG de tomates se incluyen en `assets/objetos/cultivos/` dentro de es
 | Acción | Control |
 |---|---|
 | Moverse | WASD |
+| Sprint provisional | Shift + WASD |
 | Zoom | Rueda del ratón |
 | Minar, talar o recolectar flores | Un clic izquierdo sobre el recurso cercano |
 | Plantar, regar o cosechar | E al acercarte |

@@ -97,6 +97,17 @@ func run() -> void:
 		for action in actions: Input.action_release(action)
 		await create_timer(.04).timeout
 		assert(actor.walk_time==0,"Reposo al dejar de desplazarse")
+	# Sprint provisional: conserva la dirección y aumenta la velocidad sin
+	# cambiar el tamaño ni el ciclo de las poses del personaje.
+	var sprint_start := actor.position
+	Input.action_press("move_right")
+	Input.action_press("sprint")
+	await create_timer(.3).timeout
+	assert(actor.position.distance_to(sprint_start)>45,"Shift activa el sprint")
+	assert(is_equal_approx(actor.velocity.length(),BituPlayer.SPRINT_SPEED),"Velocidad de sprint registrada")
+	Input.action_release("sprint")
+	Input.action_release("move_right")
+	await create_timer(.04).timeout
 	actor.set_physics_process(false)
 	actor.position = Vector2.ZERO
 	var wall := StaticBody2D.new()

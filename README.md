@@ -30,6 +30,6 @@ Los mapas son conceptuales; ninguna distribución es definitiva. El bloc contien
 - [Pico–hacha de hierro](assets/herramientas/pico-hacha/README.md): PNG transparente, medidas, agarre, componentes visuales independientes y escena de revisión animable en Godot.
 - [Palín de herborista](assets/herramientas/palin-herborista/README.md): diseño exótico con hoja vegetal, integrado en la recolección arrodillada de flores.
 
-Para ejecutar la prueba en tu ordenador: instala Godot **4.6.3**, importa `prueba/project.godot` y pulsa **F5** para jugar. También puedes usar la [descarga para navegador](prueba/descargas/bitu-navegador.zip), con Python 3; consulta las [instrucciones de la prueba](prueba/README.md). Movimiento WASD, rueda para zoom, un clic izquierdo sobre mena, árbol o flor cercana para extraer, E para las otras interacciones y Tab para mostrar la mochila. La prueba no guarda progreso.
+Para ejecutar la prueba en tu ordenador: instala Godot **4.6.3**, importa `prueba/project.godot` y pulsa **F5** para jugar. También puedes usar la [descarga para navegador](prueba/descargas/bitu-navegador.zip), con Python 3; consulta las [instrucciones de la prueba](prueba/README.md). Movimiento WASD, **Shift para sprint**, rueda para zoom, un clic izquierdo sobre mena, árbol o flor cercana para extraer, E para las otras interacciones y Tab para mostrar la mochila. La prueba no guarda progreso.
 
 Para retomar en otro chat, empezar por el bloc y continuar con una decisión cada vez.
