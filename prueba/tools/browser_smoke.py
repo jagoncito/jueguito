@@ -31,7 +31,7 @@ async def main():
             await page.mouse.click(668, camera_y(576-20, 528+24))
             await page.wait_for_timeout(180)
             await page.screenshot(path=str(PROJECT / "build/minando.png"))
-            await page.wait_for_timeout(2300)
+            await page.wait_for_timeout(3400)
             await page.screenshot(path=str(PROJECT / "build/mineral-recogido.png"))
             assert any("BITU_PICKUP:mineral:1" in entry["text"] for entry in messages), "Cobre no recogido"
             # Árbol cercano a la orilla, aproximación desde la derecha.
@@ -43,7 +43,7 @@ async def main():
                 await page.mouse.click(610, 410)
                 await page.wait_for_timeout(180)
                 await page.screenshot(path=str(PROJECT / "build/talando.png"))
-                await page.wait_for_timeout(2800)
+                await page.wait_for_timeout(3400)
                 if any("BITU_PICKUP:madera:3" in entry["text"] for entry in messages):
                     break
                 await move(page, "s", 120)
@@ -78,7 +78,12 @@ async def main():
             assert abs(flower_x-640) <= 64, f"No se logró entrar en alcance de la flor: {flower_x:.1f}, {flower_y:.1f}"
             # Seleccionar un pétalo opaco, no el hueco entre las dos flores.
             click_x, click_y = min(petals,key=lambda p:(p[0]-flower_x)**2+(p[1]-flower_y)**2)
-            await page.mouse.click(click_x, click_y)
+            # Dejar que Godot actualice el ratón antes del botón: con WebGL
+            # por software, mover y pulsar en el mismo frame puede conservar
+            # la posición anterior al consultar get_global_mouse_position().
+            await page.mouse.move(click_x, click_y)
+            await page.wait_for_timeout(180)
+            await page.mouse.click(click_x, click_y, delay=80)
             await page.wait_for_timeout(500)
             await page.screenshot(path=str(PROJECT / "build/recogiendo-flor.png"))
             await page.screenshot(path=str(PROJECT / "capturas/recursos-yde.png"))

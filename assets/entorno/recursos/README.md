@@ -20,7 +20,7 @@ Referencia: suelo 64×32 px, humanoides 80 px y dragón actual 90 px. Los objeto
 
 Los PNG originales generados se conservan sin recortes ni sobrescrituras. `recursos.json` registra sus huellas SHA-256, las regiones medidas y las anclas de apoyo. Ambos estados del cobre comparten escala y altura de ancla. Cada fuente mide 1536×1024: **no son hojas nativas de 32 px**. Godot utiliza `AtlasTexture`, recortes registrados y filtro nearest para representarlas a la escala indicada. Las copias en `prueba/assets/entorno/recursos/` son idénticas a estas fuentes y permiten exportar el proyecto independiente.
 
-Los árboles alternan las tres siluetas sin introducir rotación de cámara. El clic respeta los píxeles opacos del dibujo; la copa no amplía la colisión del tronco. Talar deja el tocón transitable. Se conservan las reglas provisionales: cuatro golpes/3 madera, tres golpes/1 cobre, una extracción/1 flor, reaparición de mena/flor en 14 s y botín durante 600 s. Los árboles no regeneran hasta reiniciar.
+Los árboles alternan las tres siluetas sin introducir rotación de cámara. El clic respeta los píxeles opacos del dibujo; la copa no amplía la colisión del tronco. Talar deja el tocón transitable. Se conservan las reglas provisionales: cinco golpes/3 madera, cinco golpes/1 cobre, una extracción/1 flor, reaparición de mena/flor en 14 s y botín durante 600 s. Los árboles no regeneran hasta reiniciar.
 
 No se asignan todavía efectos alquímicos, rarezas ni una especie arbórea definitiva.
 

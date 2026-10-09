@@ -14,6 +14,8 @@ var current_frame := ""
 var direction_index := 0
 var hand_cover: Sprite2D
 var cover_offset := Vector2.ZERO
+var other_hand_cover: Sprite2D
+var other_cover_offset := Vector2.ZERO
 var tool_behind := false
 var covers: Dictionary = {}
 var frame_metrics: Dictionary = {}
@@ -40,6 +42,9 @@ func _ready() -> void:
 	hand_cover = Sprite2D.new()
 	hand_cover.centered = false
 	add_child(hand_cover)
+	other_hand_cover = Sprite2D.new()
+	other_hand_cover.centered = false
+	add_child(other_hand_cover)
 	show_pose("reposo",0)
 
 func _frame_texture(key: String, frame: Dictionary) -> Texture2D:
@@ -165,6 +170,22 @@ func show_pose(pose: String, direction: int) -> void:
 		hand_cover.scale = Vector2.ONE*factor
 		cover_offset = (Vector2(region[0],region[1])-Vector2(frame.hand[0],frame.hand[1]))*factor
 		hand_cover.position = primary_hand.position+cover_offset
+	# Reponer únicamente los dedos de la segunda palma, desde el mismo
+	# dibujo intacto, para que el mango quede sujeto por las dos manos.
+	var other_key := key+"-other"
+	var radius := 1.8/factor
+	var other := Vector2(frame.other_hand[0],frame.other_hand[1])
+	if not covers.has(other_key):
+		var cover := AtlasTexture.new()
+		cover.atlas = frame_texture
+		cover.region = Rect2(other-Vector2(frame.region[0],frame.region[1])-Vector2.ONE*radius,Vector2.ONE*radius*2)
+		cover.filter_clip = true
+		covers[other_key] = cover
+	other_hand_cover.texture = covers[other_key]
+	other_hand_cover.scale = Vector2.ONE*factor
+	other_cover_offset = -Vector2.ONE*radius*factor
+	other_hand_cover.position = secondary_hand.position+other_cover_offset
+	other_hand_cover.visible = hand_cover.visible
 
 func _draw() -> void:
 	draw_set_transform(Vector2(0,-2),0,Vector2(1,0.27))

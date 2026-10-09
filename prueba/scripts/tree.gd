@@ -1,7 +1,7 @@
 class_name BituTree
 extends BituDecoration
 
-const HITS_REQUIRED := 4 # Parámetro de la prueba, no dificultad definitiva.
+const HITS_REQUIRED := 5 # Inicio acordado; las mejoras futuras podrán reducirlo hasta uno.
 var cell := Vector2i.ZERO
 var active := true
 var hits := 0

@@ -57,15 +57,29 @@ func run() -> void:
 		await create_timer(.18).timeout
 		assert(visual.current_frame.begins_with("cargar-"),"Carga completa del cuerpo")
 		assert(actor.direction_index == index,"Orientación fija durante el golpe")
+		var scale_before := actor.tool_mount.scale
+		actor.animate_pose(0,0.15)
+		var preparation_angle := actor.tool_mount.rotation
+		actor.animate_pose(0,0.24)
+		assert(is_equal_approx(preparation_angle,actor.tool_mount.rotation),"La herramienta no gira por su cuenta en una pose mantenida")
+		for sample in [0.06,0.18,0.30,0.36,0.44]:
+			actor.animate_pose(0,sample)
+			check_work_grip(actor)
+			assert(actor.tool_mount.scale.is_equal_approx(scale_before),"Sin invertir extremos ni agrandar la herramienta durante el golpe")
+		actor.animate_pose(0)
 		assert(actor.primary_hand.position.distance_to(actor.tool_mount.position)<0.01,"Agarre del golpe en palma dibujada")
 		await create_timer(.18).timeout
 		assert(visual.current_frame.begins_with("golpe-"),"Impacto completo del cuerpo")
 		assert(visual.body.scale.x == visual.body.scale.y,"Cabeza, brazos, piernas y cola no se deforman")
-		actor.end_work()
+		check_return_to_idle(actor)
 		actor.begin_work(&"talar",ground+Vector2(0,-24),ground)
+		actor.animate_pose(0,0.18)
+		assert(visual.current_frame.begins_with("medio-"),"Tala carga lateral; no reutiliza la elevación de minería")
+		check_work_grip(actor)
+		actor.animate_pose(0)
 		await create_timer(.36).timeout
 		assert(visual.current_frame.begins_with("golpe-"),"Tala completa y filo registrado en ocho vistas")
-		actor.end_work()
+		check_return_to_idle(actor)
 		actor.face_towards(-direction)
 		actor.begin_gathering(ground+Vector2(0,-5),ground)
 		assert(actor.direction_index == index,"Recolectar gira el cuerpo entero")
@@ -150,3 +164,18 @@ func run() -> void:
 	await process_frame
 	print("BITU_DRAGON_SMOKE_OK")
 	quit(0)
+
+func check_work_grip(actor: BituPlayer) -> void:
+	var shaft := Vector2.UP.rotated(actor.tool_mount.rotation)
+	var palms := actor.secondary_hand.position-actor.primary_hand.position
+	assert(absf(shaft.cross(palms))<0.001 and shaft.dot(palms)>0,"Mango alineado con las dos palmas del cuerpo dibujado")
+	assert(actor.tool_mount.position.is_equal_approx(actor.primary_hand.position),"Mano inferior registrada en mango")
+	assert(is_zero_approx(actor.tool.rotation),"Sin rotación adicional de la herramienta")
+	assert(actor.dragon.hand_cover.position.is_equal_approx(actor.dragon.position+actor.dragon.primary_hand.position+actor.dragon.cover_offset),"Los dedos conservan su palma fuente al cambiar el agarre")
+
+func check_return_to_idle(actor: BituPlayer) -> void:
+	actor.animate_pose(0,0.56)
+	var carried_angle := actor.tool_mount.rotation
+	var carried_scale := actor.tool_mount.scale
+	actor.end_work()
+	assert(is_equal_approx(actor.tool_mount.rotation,carried_angle) and actor.tool_mount.scale.is_equal_approx(carried_scale),"Sin giro ni inversión final con el cuerpo ya en reposo")

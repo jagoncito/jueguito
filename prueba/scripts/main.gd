@@ -242,7 +242,7 @@ func _begin_extraction(resource: Node2D) -> void:
 		required_hits = BituTree.HITS_REQUIRED-task.hits
 		player.begin_work(&"talar",task.position+Vector2(0,-24),task.global_position)
 	elif task.kind == "ore":
-		required_hits = 3
+		required_hits = 5
 		player.begin_work(&"minar",task.position+Vector2(0,-22),task.global_position)
 	else:
 		required_hits = 0

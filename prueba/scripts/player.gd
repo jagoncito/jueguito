@@ -35,6 +35,7 @@ var direction_index := 0
 var walk_time := 0.0
 var tool_side := 1.0
 var work_stance := Vector2.ZERO
+var impact_grip := 0
 
 func _ready() -> void:
 	if not InputMap.has_action("sprint"):
@@ -55,7 +56,7 @@ func _ready() -> void:
 		tool.externally_posed = true
 		tool_mount.add_child(tool)
 		tool.impact.connect(func(action: StringName):
-			_snap_tool_to_impact()
+			animate_pose(0,0.33)
 			work_impact.emit(action)
 		)
 		tool.work_finished.connect(func(): work_finished.emit())
@@ -74,6 +75,7 @@ func _ready() -> void:
 	add_child(primary_hand)
 	add_child(secondary_hand)
 	dragon.hand_cover.reparent(self)
+	dragon.other_hand_cover.reparent(self)
 	end_work()
 
 func face_towards(direction: Vector2) -> void:
@@ -96,15 +98,22 @@ func begin_work(action: StringName, contact: Vector2, ground_target := Vector2.I
 	# Elegir el extremo una vez por extracción, sin invertirlo entre poses.
 	dragon.show_pose("golpe",direction_index)
 	tool.set_direction(direction_index)
-	var hand := dragon.primary_hand.position
-	var angle := (dragon.secondary_hand.position-hand).angle()+PI/2
-	var tip: Vector2 = tool.contact_offset(action)*TOOL_SCALE
-	tool_side = 1.0 if (hand+tip.rotated(angle)).distance_to(work_contact) <= (hand+Vector2(-tip.x,tip.y).rotated(angle)).distance_to(work_contact) else -1.0
-	var reach := work_contact-hand
-	# Move the stance a little towards the resource, but keep the tool at its
-	# authored size.  Scaling the whole pico–hacha to force a contact was the
-	# source of the visible floating/growing effect.
-	work_stance = (reach.normalized()*(reach.length()-tip.length())).limit_length(18)
+	# Resolver el apoyo con las palmas del dibujo de impacto. El mango queda
+	# sobre ambas manos; nunca se corrige su ángulo para perseguir el recurso.
+	var best_distance := INF
+	for grip in range(2):
+		var hand := dragon.primary_hand.position if grip == 0 else dragon.secondary_hand.position
+		var upper := dragon.secondary_hand.position if grip == 0 else dragon.primary_hand.position
+		var angle := (upper-hand).angle()+PI/2
+		for side in [1.0,-1.0]:
+			var tip: Vector2 = tool.contact_offset(action)*TOOL_SCALE
+			tip.x *= side
+			var stance := work_contact-hand-tip.rotated(angle)
+			if stance.length_squared() < best_distance:
+				best_distance = stance.length_squared()
+				impact_grip = grip
+				tool_side = side
+				work_stance = stance
 	tool.play_work(action)
 	animate_pose(0)
 
@@ -163,7 +172,7 @@ func _physics_process(_delta: float) -> void:
 func _process(delta: float) -> void:
 	animate_pose(delta)
 
-func animate_pose(_delta: float) -> void:
+func animate_pose(_delta: float, work_time := -1.0) -> void:
 	if dragon == null:
 		return
 	var pose := "reposo"
@@ -173,17 +182,25 @@ func animate_pose(_delta: float) -> void:
 		if elapsed >= 0.20 and elapsed < 1.90:
 			pose = "arrodillado" if elapsed < 1.68 else "levantar"
 	elif busy and work_kind != &"":
-		elapsed = tool.motion.get_total_elapsed_time() if tool.motion != null else 0.0
+		elapsed = work_time if work_time >= 0 else (tool.motion.get_total_elapsed_time() if tool.motion != null else 0.0)
 		if elapsed < 0.12 or (elapsed >= 0.40 and elapsed < 0.53):
 			pose = "medio"
 		elif elapsed < 0.28:
-			pose = "cargar"
+			pose = "cargar" if work_kind == &"minar" else "medio"
 		elif elapsed < 0.40:
 			pose = "golpe"
 	elif walk_time > 0:
 		pose = WALK_POSES[int(walk_time/1.15)%4]
 	dragon.show_pose(pose,direction_index)
-	dragon.position = work_stance if busy and not gathering else Vector2.ZERO
+	dragon.position = Vector2.ZERO
+	if busy and not gathering:
+		# Entrar y salir del apoyo sin desplazar la colisión del personaje.
+		var support := smoothstep(0.0,0.12,elapsed)*(1.0-smoothstep(0.40,0.62,elapsed))
+		dragon.position = work_stance*support
+		# Tala: cargar el peso lateralmente, sin levantar el pico sobre la cabeza.
+		if work_kind == &"talar" and elapsed < 0.28:
+			var side := Vector2(DIRECTIONS[direction_index].y,-DIRECTIONS[direction_index].x).normalized()
+			dragon.position += side*sin(clampf(elapsed/0.28,0,1)*PI)*4.0
 	# Pequeño cambio de apoyo al agacharse: mantener el tamaño del palín.
 	# La posición física del jugador y el alcance de interacción no cambian.
 	if gathering and pose != "reposo":
@@ -194,9 +211,17 @@ func animate_pose(_delta: float) -> void:
 		dragon.position = reach.normalized()*(reach.length()-tip_length*held_scale)
 	primary_hand.position = dragon.position+dragon.primary_hand.position
 	secondary_hand.position = dragon.position+dragon.secondary_hand.position
-	dragon.hand_cover.position = primary_hand.position+dragon.cover_offset
+	# El recorte de dedos pertenece a la palma fuente aunque cambien los
+	# papeles de las manos (inferior/superior) durante el golpe.
+	dragon.hand_cover.position = dragon.position+dragon.primary_hand.position+dragon.cover_offset
+	dragon.other_hand_cover.position = dragon.position+dragon.secondary_hand.position+dragon.other_cover_offset
+	if busy and not gathering and pose == "golpe" and impact_grip == 1:
+		var swap := primary_hand.position
+		primary_hand.position = secondary_hand.position
+		secondary_hand.position = swap
 	if not equipment_enabled:
 		dragon.hand_cover.visible = false
+		dragon.other_hand_cover.visible = false
 		return
 	tool.set_direction(direction_index)
 	herbal_tool.set_direction(direction_index)
@@ -208,6 +233,8 @@ func animate_pose(_delta: float) -> void:
 		move_child(mount,layer)
 	if dragon.hand_cover.get_index() != get_child_count()-1:
 		move_child(dragon.hand_cover,get_child_count()-1)
+	dragon.other_hand_cover.visible = busy and not gathering and pose != "reposo" and dragon.hand_cover.visible
+	move_child(dragon.other_hand_cover,get_child_count()-1)
 	if gathering:
 		herbal_mount.position = primary_hand.position
 		var tip: Vector2 = herbal_tool.tip_offset()
@@ -223,35 +250,10 @@ func animate_pose(_delta: float) -> void:
 		tool_mount.position = primary_hand.position
 		# The atlas is authored at one tool size.  Mirroring chooses the nearer
 		# end for the action; it never changes the scale of the tool.
-		tool_mount.scale = Vector2(tool_side if busy else 1.0,1)*TOOL_SCALE
-		if busy:
-			tool_mount.rotation = _work_tool_rotation(elapsed)
+		tool_mount.scale = Vector2(tool_side if busy and pose != "reposo" else 1.0,1)*TOOL_SCALE
+		if busy and pose != "reposo":
+			# El eje del mango pasa por las dos palmas del fotograma completo.
+			# No hay tween de rotación ni giro independiente sobre la muñeca.
+			tool_mount.rotation = (secondary_hand.position-primary_hand.position).angle()+PI/2
 		else:
 			tool_mount.rotation = deg_to_rad(CARRY_ANGLES[direction_index])
-
-func _work_tool_rotation(elapsed: float) -> float:
-	var tip: Vector2 = tool.contact_offset(work_kind)
-	# A negative X scale mirrors the view; mirror the selected contact before
-	# deriving the mount angle so the actual pick/axe tip remains the target.
-	tip.x *= tool_side
-	var impact_angle := (work_contact-primary_hand.position).angle()-tip.angle()
-	var rest_angle := deg_to_rad(CARRY_ANGLES[direction_index])
-	var swing := -1.0 if work_kind == &"minar" else 1.0
-	var preparation := impact_angle + deg_to_rad(58.0*swing)
-	var approach := impact_angle - deg_to_rad(10.0*swing)
-	if elapsed < 0.16:
-		return lerp_angle(rest_angle,preparation,smoothstep(0.0,0.16,elapsed))
-	if elapsed < 0.30:
-		return lerp_angle(preparation,approach,smoothstep(0.16,0.30,elapsed))
-	if elapsed < 0.36:
-		return lerp_angle(approach,impact_angle,smoothstep(0.30,0.36,elapsed))
-	if elapsed < 0.53:
-		return lerp_angle(impact_angle,rest_angle+deg_to_rad(8.0*swing),smoothstep(0.36,0.53,elapsed))
-	return lerp_angle(rest_angle+deg_to_rad(8.0*swing),rest_angle,smoothstep(0.53,0.62,elapsed))
-
-func _snap_tool_to_impact() -> void:
-	if tool == null or tool_mount == null:
-		return
-	var tip: Vector2 = tool.contact_offset(work_kind)
-	tip.x *= tool_side
-	tool_mount.rotation = (work_contact-primary_hand.position).angle()-tip.angle()

@@ -1,0 +1,124 @@
+{
+  "format_version": 1,
+  "name": "Bītu — hierba y tierra",
+  "source": {
+    "file": "hierba-y-tierra.png",
+    "size_px": [
+      1774,
+      887
+    ],
+    "sha256": "6218ecd49b46db9b27ad1dc702355ac6d6afd23277c107bfceb44c6de02bebba",
+    "original_unmodified": true
+  },
+  "status": "Recursos para integración posterior; bordes y repetición pendientes de revisión dentro del juego.",
+  "reference_footprint_px": [
+    64,
+    32
+  ],
+  "frames": {
+    "hierba-a": {
+      "region_px": [
+        66,
+        59,
+        754,
+        353
+      ],
+      "anchor_px": [
+        377.0,
+        176.5
+      ],
+      "presentation_scale_xy": [
+        0.08488063660477453,
+        0.0906515580736544
+      ],
+      "presentation_px": [
+        64,
+        32
+      ],
+      "footprint_px": [
+        64,
+        32
+      ],
+      "filter": "nearest",
+      "material": "hierba"
+    },
+    "hierba-b": {
+      "region_px": [
+        953,
+        59,
+        754,
+        353
+      ],
+      "anchor_px": [
+        377.0,
+        176.5
+      ],
+      "presentation_scale_xy": [
+        0.08488063660477453,
+        0.0906515580736544
+      ],
+      "presentation_px": [
+        64,
+        32
+      ],
+      "footprint_px": [
+        64,
+        32
+      ],
+      "filter": "nearest",
+      "material": "hierba"
+    },
+    "tierra-a": {
+      "region_px": [
+        66,
+        487,
+        754,
+        357
+      ],
+      "anchor_px": [
+        377.0,
+        178.5
+      ],
+      "presentation_scale_xy": [
+        0.08488063660477453,
+        0.0896358543417367
+      ],
+      "presentation_px": [
+        64,
+        32
+      ],
+      "footprint_px": [
+        64,
+        32
+      ],
+      "filter": "nearest",
+      "material": "tierra"
+    },
+    "tierra-b": {
+      "region_px": [
+        953,
+        487,
+        754,
+        358
+      ],
+      "anchor_px": [
+        377.0,
+        179.0
+      ],
+      "presentation_scale_xy": [
+        0.08488063660477453,
+        0.0893854748603352
+      ],
+      "presentation_px": [
+        64,
+        32
+      ],
+      "footprint_px": [
+        64,
+        32
+      ],
+      "filter": "nearest",
+      "material": "tierra"
+    }
+  }
+}

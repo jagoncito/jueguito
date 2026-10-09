@@ -34,7 +34,10 @@ func run() -> void:
 	assert(scene.task_hits == 1, "Un impacto por movimiento")
 	scene._click_resource(resource.position+Vector2(15,-20))
 	assert(scene.task_hits == 1, "Interactuar otra vez no reinicia ni duplica el trabajo")
-	await create_timer(1.7).timeout
+	await create_timer(1.95).timeout
+	assert(resource.active and scene.task_hits == 4 and scene.inventory.count("mineral") == 0, "Cuatro golpes aún no completan la minería inicial")
+	await create_timer(0.95).timeout
+	assert(scene.task_hits == 5, "La minería inicial necesita exactamente cinco golpes")
 	assert(not resource.active and not scene.player.busy, "Extracción termina y consume recurso")
 	assert(scene.task == null and not scene.player.tool.working, "Recuperar control tras el golpe final")
 	assert(scene.inventory.count("mineral") == 1, "Botín físico entra por proximidad")
@@ -48,7 +51,10 @@ func run() -> void:
 	await create_timer(0.4).timeout
 	assert(tree.active and tree.hits == 1, "Tala da feedback sin eliminar tras el primer golpe")
 	assert(scene.inventory.count("madera") == 0, "No dar madera antes de talar")
-	await create_timer(2.4).timeout
+	await create_timer(1.95).timeout
+	assert(tree.active and tree.hits == 4 and scene.inventory.count("madera") == 0, "Cuatro golpes aún no completan la tala inicial")
+	await create_timer(0.95).timeout
+	assert(tree.hits == 5, "La tala inicial necesita exactamente cinco golpes")
 	assert(not tree.active and tree.hits == BituTree.HITS_REQUIRED, "Árbol pasa a tocón tras los golpes")
 	assert(scene.inventory.count("madera") == 3, "Madera recogida sin duplicación")
 	assert(scene.terrain.is_walkable(tree.cell), "Quitar la colisión al talar")

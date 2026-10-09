@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "name": "Miutu",
+  "status": "Primera propuesta visual; sin integración ni animaciones.",
+  "source": {
+    "file": "miutu.png",
+    "size_px": [
+      1312,
+      1199
+    ],
+    "sha256": "ce7a3d39622969985389c3e34981c0def1565f53b80065b43e30f5820d2cbcd8",
+    "original_unmodified": true
+  },
+  "frames": {
+    "reposo-se": {
+      "region_px": [
+        113,
+        147,
+        1180,
+        979
+      ],
+      "anchor_px": [
+        477,
+        898
+      ],
+      "anchor_status": "Apoyo orientativo entre las pezuñas; comprobar al integrar.",
+      "presentation_height_px": 48,
+      "scale_uniform": 0.049029622063329927,
+      "presentation_px": [
+        57.855,
+        48
+      ],
+      "filter": "nearest",
+      "direction": "SE"
+    }
+  }
+}

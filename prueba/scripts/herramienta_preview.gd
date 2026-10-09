@@ -20,7 +20,7 @@ func _ready() -> void:
 		actor.work_finished.connect(actor.end_work)
 		_label(titles[index],Vector2(40+index*400,527),19,Color("e6cc83"))
 	_label("1 · movimiento de minería     2 · movimiento de tala     R · restaurar poses",Vector2(36,573),16)
-	_label("Marco equipado 64 × 64 · icono 64 × 64 · botín 32 × 32 · giro alrededor de la mano",Vector2(36,604),16)
+	_label("Marco equipado 64 × 64 · icono 64 × 64 · botín 32 × 32 · mango sujeto por ambas manos",Vector2(36,604),16)
 	_label("Pico y hacha se sustituyen por separado; el mango conserva el mismo punto de agarre.",Vector2(36,635),16)
 	_label("Rasgos originales del dragón · poses completas coordinadas con las herramientas del juego.",Vector2(36,676),14,Color("a7b797"))
 	print("BITU_TOOL_READY")

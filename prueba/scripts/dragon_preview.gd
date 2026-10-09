@@ -12,7 +12,7 @@ const LABELS := ["SUR · frontal","SUROESTE","OESTE · perfil","NOROESTE","NORTE
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("15232a"))
 	_label("DRAGÓN · OCHO DIRECCIONES",Vector2(28,16),25)
-	_label("1 Reposo · 2 Marcha · 3 Minar · 4 Talar · 5 Palín    |    poses del juego ×2",Vector2(28,51),16)
+	_label("1 Reposo · 2 Marcha · 3 Minar · 4 Talar · 5 Palín    |    poses ×2 · Espacio: cámara lenta",Vector2(28,51),16)
 	mode_label = _label("REPOSO",Vector2(1030,20),20)
 	for index in range(8):
 		var actor := BituPlayer.new()
@@ -58,7 +58,8 @@ func _capture_pose(requested: String) -> void:
 				actor.posture.custom_step(0.5)
 			else:
 				actor.tool.motion.pause()
-				actor.tool.motion.custom_step(0.34)
+				var sample = JavaScriptBridge.eval("new URLSearchParams(location.search).get('tiempo')")
+				actor.tool.motion.custom_step(float(sample) if sample != null else 0.34)
 		elif mode == 1:
 			actor.walk_time = 0.1+walk_phase*1.15 if walk_phase >= 0 else 1.0
 		actor.animate_pose(0)
@@ -79,6 +80,9 @@ func _start_action(index: int) -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
+		if event.physical_keycode == KEY_SPACE:
+			Engine.time_scale = 0.25 if Engine.time_scale == 1.0 else 1.0
+			return
 		if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_5:
 			mode = event.physical_keycode-KEY_1
 			mode_label.text = MODES[mode]
