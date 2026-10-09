@@ -26,3 +26,7 @@ El recurso original se conserva intacto como primer boceto. Su cámara solo est�
 ## Elfa del museo y comerciante
 
 [Entrega con ocho vistas y sprites nativos por personaje](pareja-museo/README.md), preparada el 10 de octubre: elfa hasta 80 px, comerciante hasta 84 px, fotogramas de 128 × 128. Fuentes, atlas, visor y recursos Godot separados del juego. Publicación de esta entrega solicitada después por el usuario.
+
+## Maestros de pesca/cocina y minería/herrería
+
+[Anciano de Bītu y enano revisado](maestros-bitu/README.md): 64 poses estáticas, ocho direcciones con manos libres, comida y dos variantes de instrumentos por maestro. Sprites a escala, visor y recursos Godot; publicación solicitada al terminar, sin integración en el juego.

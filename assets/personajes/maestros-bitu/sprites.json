@@ -1,0 +1,2592 @@
+{
+  "schema_version": 1,
+  "status": "revisión visual, poses estáticas; sin integración",
+  "frame_px": [
+    128,
+    128
+  ],
+  "foot_anchor_px": [
+    64,
+    112
+  ],
+  "ground_tile_px": [
+    64,
+    32
+  ],
+  "directions": [
+    "s",
+    "so",
+    "o",
+    "no",
+    "n",
+    "ne",
+    "e",
+    "se"
+  ],
+  "filter": "nearest",
+  "alpha": "binaria, umbral 128",
+  "characters": {
+    "cocinero": {
+      "height_max_px": 80,
+      "states": {
+        "libre": {
+          "uniform_scale": 0.14388489208633093,
+          "source": "fuentes/cocinero-libre.png",
+          "source_sha256": "0458a0709ba1ec1b2bcf25ab71784c68fb98398004a994264eab9d52a1206ee2",
+          "source_size": [
+            1254,
+            1254
+          ],
+          "source_direction_order": [
+            "s",
+            "so",
+            "o",
+            "no",
+            "n",
+            "ne",
+            "e",
+            "se"
+          ],
+          "atlas": "cocinero-libre-atlas.png",
+          "frames": [
+            {
+              "source_index": 0,
+              "source": {
+                "cell": [
+                  0,
+                  0,
+                  337,
+                  619
+                ],
+                "bbox": [
+                  36,
+                  27,
+                  270,
+                  546
+                ],
+                "foot": [
+                  172.5,
+                  573
+                ]
+              },
+              "destination": [
+                44,
+                33,
+                39,
+                79
+              ],
+              "bbox_native": [
+                44,
+                33,
+                39,
+                79
+              ],
+              "opaque_pixels": 1911,
+              "direction": "s",
+              "file": "sprites/cocinero/libre/s.png",
+              "sha256": "7ae451e019c0123f266952e07186267e5d934124e67f93b2d69855a0c4e55bf3"
+            },
+            {
+              "source_index": 1,
+              "source": {
+                "cell": [
+                  337,
+                  0,
+                  306,
+                  619
+                ],
+                "bbox": [
+                  369,
+                  31,
+                  230,
+                  552
+                ],
+                "foot": [
+                  536.5,
+                  583
+                ]
+              },
+              "destination": [
+                40,
+                33,
+                33,
+                79
+              ],
+              "bbox_native": [
+                40,
+                33,
+                33,
+                79
+              ],
+              "opaque_pixels": 1738,
+              "direction": "so",
+              "file": "sprites/cocinero/libre/so.png",
+              "sha256": "d47b0042e408850b9cfa90dc4280997d5ac9324ab51dd467097dd56a9449a6a4"
+            },
+            {
+              "source_index": 2,
+              "source": {
+                "cell": [
+                  643,
+                  0,
+                  293,
+                  619
+                ],
+                "bbox": [
+                  687,
+                  37,
+                  186,
+                  540
+                ],
+                "foot": [
+                  770,
+                  577
+                ]
+              },
+              "destination": [
+                52,
+                34,
+                27,
+                78
+              ],
+              "bbox_native": [
+                52,
+                34,
+                27,
+                78
+              ],
+              "opaque_pixels": 1506,
+              "direction": "o",
+              "file": "sprites/cocinero/libre/o.png",
+              "sha256": "7866597148e9877be7e84d03827e5ea07dc23ba40cba3276931c3cadc11f0cea"
+            },
+            {
+              "source_index": 3,
+              "source": {
+                "cell": [
+                  936,
+                  0,
+                  318,
+                  619
+                ],
+                "bbox": [
+                  1000,
+                  34,
+                  235,
+                  541
+                ],
+                "foot": [
+                  1075,
+                  575
+                ]
+              },
+              "destination": [
+                53,
+                34,
+                34,
+                78
+              ],
+              "bbox_native": [
+                53,
+                34,
+                34,
+                78
+              ],
+              "opaque_pixels": 1746,
+              "direction": "no",
+              "file": "sprites/cocinero/libre/no.png",
+              "sha256": "2e24092c9f2d6c4feeade00dce7b0800048549343d8c66d21168b42b2a0967b3"
+            },
+            {
+              "source_index": 4,
+              "source": {
+                "cell": [
+                  0,
+                  619,
+                  333,
+                  635
+                ],
+                "bbox": [
+                  32,
+                  661,
+                  271,
+                  524
+                ],
+                "foot": [
+                  167,
+                  1185
+                ]
+              },
+              "destination": [
+                45,
+                37,
+                39,
+                75
+              ],
+              "bbox_native": [
+                45,
+                37,
+                39,
+                75
+              ],
+              "opaque_pixels": 1842,
+              "direction": "n",
+              "file": "sprites/cocinero/libre/n.png",
+              "sha256": "3eadd70a9365d15863b59b1e2fb148582a9c99619cf9f06c08e3c02177986f3c"
+            },
+            {
+              "source_index": 5,
+              "source": {
+                "cell": [
+                  333,
+                  619,
+                  311,
+                  635
+                ],
+                "bbox": [
+                  364,
+                  657,
+                  235,
+                  541
+                ],
+                "foot": [
+                  522.5,
+                  1198
+                ]
+              },
+              "destination": [
+                41,
+                34,
+                34,
+                78
+              ],
+              "bbox_native": [
+                41,
+                34,
+                34,
+                78
+              ],
+              "opaque_pixels": 1756,
+              "direction": "ne",
+              "file": "sprites/cocinero/libre/ne.png",
+              "sha256": "21a72ee2b9475ea3477124e0e6b1b97aac58a8672699de7eddb415e63a44c29b"
+            },
+            {
+              "source_index": 6,
+              "source": {
+                "cell": [
+                  644,
+                  619,
+                  285,
+                  635
+                ],
+                "bbox": [
+                  689,
+                  657,
+                  182,
+                  543
+                ],
+                "foot": [
+                  800,
+                  1200
+                ]
+              },
+              "destination": [
+                48,
+                34,
+                26,
+                78
+              ],
+              "bbox_native": [
+                48,
+                34,
+                26,
+                78
+              ],
+              "opaque_pixels": 1434,
+              "direction": "e",
+              "file": "sprites/cocinero/libre/e.png",
+              "sha256": "5a51b3bdf0c8c7c64664fe8135a9dd4133836fbccc37718bd994857fa219a5d0"
+            },
+            {
+              "source_index": 7,
+              "source": {
+                "cell": [
+                  929,
+                  619,
+                  325,
+                  635
+                ],
+                "bbox": [
+                  987,
+                  655,
+                  238,
+                  556
+                ],
+                "foot": [
+                  1165.5,
+                  1211
+                ]
+              },
+              "destination": [
+                38,
+                32,
+                34,
+                80
+              ],
+              "bbox_native": [
+                38,
+                32,
+                34,
+                80
+              ],
+              "opaque_pixels": 1772,
+              "direction": "se",
+              "file": "sprites/cocinero/libre/se.png",
+              "sha256": "101e52ae034af4959f56229d982d62e9e66e3433c933fa5392927b1d9a1652f6"
+            }
+          ],
+          "atlas_sha256": "195e0ab61ab8a1af0518075470d745617f05123a7a7a905b82dddc0fef40472e"
+        },
+        "pesca": {
+          "uniform_scale": 0.14336917562724014,
+          "source": "fuentes/cocinero-pesca.png",
+          "source_sha256": "ad9ff78602488e8062f81030442414e552156d00fbaed30ad6adbc8ec0661636",
+          "source_size": [
+            1254,
+            1254
+          ],
+          "source_direction_order": [
+            "s",
+            "so",
+            "o",
+            "no",
+            "n",
+            "ne",
+            "e",
+            "se"
+          ],
+          "atlas": "cocinero-pesca-atlas.png",
+          "frames": [
+            {
+              "source_index": 0,
+              "source": {
+                "cell": [
+                  0,
+                  0,
+                  321,
+                  619
+                ],
+                "bbox": [
+                  34,
+                  27,
+                  259,
+                  549
+                ],
+                "foot": [
+                  173.5,
+                  576
+                ]
+              },
+              "destination": [
+                44,
+                33,
+                37,
+                79
+              ],
+              "bbox_native": [
+                44,
+                33,
+                37,
+                79
+              ],
+              "opaque_pixels": 1887,
+              "direction": "s",
+              "file": "sprites/cocinero/pesca/s.png",
+              "sha256": "e9f458db31924ad41d2c680e84a4e7c8b54906bc424478cf6b1783b5b41866b4"
+            },
+            {
+              "source_index": 1,
+              "source": {
+                "cell": [
+                  321,
+                  0,
+                  296,
+                  619
+                ],
+                "bbox": [
+                  349,
+                  32,
+                  243,
+                  553
+                ],
+                "foot": [
+                  537,
+                  585
+                ]
+              },
+              "destination": [
+                37,
+                33,
+                35,
+                79
+              ],
+              "bbox_native": [
+                37,
+                33,
+                35,
+                79
+              ],
+              "opaque_pixels": 1753,
+              "direction": "so",
+              "file": "sprites/cocinero/pesca/so.png",
+              "sha256": "15ec6efdbc3d3d5a60662867f7cb74c044164aca1b86fe30bf8c647e5b7d826a"
+            },
+            {
+              "source_index": 2,
+              "source": {
+                "cell": [
+                  617,
+                  0,
+                  295,
+                  619
+                ],
+                "bbox": [
+                  643,
+                  36,
+                  234,
+                  543
+                ],
+                "foot": [
+                  770.5,
+                  579
+                ]
+              },
+              "destination": [
+                46,
+                34,
+                34,
+                78
+              ],
+              "bbox_native": [
+                46,
+                34,
+                34,
+                78
+              ],
+              "opaque_pixels": 1665,
+              "direction": "o",
+              "file": "sprites/cocinero/pesca/o.png",
+              "sha256": "356f78ce801fa6cb90ac51143e24a39360d13ae0260d56cbde8ee92c955778b9"
+            },
+            {
+              "source_index": 3,
+              "source": {
+                "cell": [
+                  912,
+                  0,
+                  342,
+                  619
+                ],
+                "bbox": [
+                  948,
+                  34,
+                  285,
+                  542
+                ],
+                "foot": [
+                  1076,
+                  576
+                ]
+              },
+              "destination": [
+                46,
+                34,
+                41,
+                78
+              ],
+              "bbox_native": [
+                46,
+                34,
+                41,
+                78
+              ],
+              "opaque_pixels": 1816,
+              "direction": "no",
+              "file": "sprites/cocinero/pesca/no.png",
+              "sha256": "6ce368ab39d0f31bbf50dd05545e7828bb2517f14fade8edcd2a4533da2f399f"
+            },
+            {
+              "source_index": 4,
+              "source": {
+                "cell": [
+                  0,
+                  619,
+                  345,
+                  635
+                ],
+                "bbox": [
+                  44,
+                  661,
+                  272,
+                  526
+                ],
+                "foot": [
+                  168.5,
+                  1187
+                ]
+              },
+              "destination": [
+                46,
+                37,
+                39,
+                75
+              ],
+              "bbox_native": [
+                46,
+                37,
+                39,
+                75
+              ],
+              "opaque_pixels": 1831,
+              "direction": "n",
+              "file": "sprites/cocinero/pesca/n.png",
+              "sha256": "b764144d7f5124a0ee05e4d1fbe3fb25739d647e2dc71b57b7cc9355017445f4"
+            },
+            {
+              "source_index": 5,
+              "source": {
+                "cell": [
+                  345,
+                  619,
+                  316,
+                  635
+                ],
+                "bbox": [
+                  374,
+                  657,
+                  261,
+                  543
+                ],
+                "foot": [
+                  523.5,
+                  1200
+                ]
+              },
+              "destination": [
+                43,
+                34,
+                37,
+                78
+              ],
+              "bbox_native": [
+                43,
+                34,
+                37,
+                78
+              ],
+              "opaque_pixels": 1745,
+              "direction": "ne",
+              "file": "sprites/cocinero/pesca/ne.png",
+              "sha256": "888ab17cde934cbab64206c46761db2f2f83e73ec922cef484a8562b867c2e6e"
+            },
+            {
+              "source_index": 6,
+              "source": {
+                "cell": [
+                  661,
+                  619,
+                  301,
+                  635
+                ],
+                "bbox": [
+                  688,
+                  656,
+                  248,
+                  546
+                ],
+                "foot": [
+                  800.5,
+                  1202
+                ]
+              },
+              "destination": [
+                48,
+                34,
+                36,
+                78
+              ],
+              "bbox_native": [
+                48,
+                34,
+                36,
+                78
+              ],
+              "opaque_pixels": 1608,
+              "direction": "e",
+              "file": "sprites/cocinero/pesca/e.png",
+              "sha256": "6f38334020eb9e1a20e48a3550a33676a791cc57e132d0e48b4b0f07e95e1f79"
+            },
+            {
+              "source_index": 7,
+              "source": {
+                "cell": [
+                  962,
+                  619,
+                  292,
+                  635
+                ],
+                "bbox": [
+                  988,
+                  654,
+                  245,
+                  558
+                ],
+                "foot": [
+                  1166,
+                  1212
+                ]
+              },
+              "destination": [
+                38,
+                32,
+                35,
+                80
+              ],
+              "bbox_native": [
+                38,
+                32,
+                35,
+                80
+              ],
+              "opaque_pixels": 1796,
+              "direction": "se",
+              "file": "sprites/cocinero/pesca/se.png",
+              "sha256": "eddfff12c2a59e3767a2a7424c57d53765c7540bfb8f5817fb26789fa8c0dd1e"
+            }
+          ],
+          "atlas_sha256": "ad1fcfafd55a37ae7d24f63bc918011e6663dd8a6fe9ab5790a6d6bb405123cc"
+        },
+        "cocina": {
+          "uniform_scale": 0.1436265709156194,
+          "source": "fuentes/cocinero-cocina.png",
+          "source_sha256": "72ea99d0f20ff18e01345b158ce16f7a4a3c98103b66f2214c0a73cbbefa1565",
+          "source_size": [
+            1254,
+            1254
+          ],
+          "source_direction_order": [
+            "s",
+            "so",
+            "o",
+            "no",
+            "n",
+            "ne",
+            "e",
+            "se"
+          ],
+          "atlas": "cocinero-cocina-atlas.png",
+          "frames": [
+            {
+              "source_index": 0,
+              "source": {
+                "cell": [
+                  0,
+                  0,
+                  329,
+                  619
+                ],
+                "bbox": [
+                  42,
+                  30,
+                  265,
+                  545
+                ],
+                "foot": [
+                  173,
+                  575
+                ]
+              },
+              "destination": [
+                45,
+                34,
+                38,
+                78
+              ],
+              "bbox_native": [
+                45,
+                34,
+                38,
+                78
+              ],
+              "opaque_pixels": 1876,
+              "direction": "s",
+              "file": "sprites/cocinero/cocina/s.png",
+              "sha256": "38a09ca4a34ae1147bcfed2c6fa0758d4286bc328e4e93b8b888ae11e18a3b1e"
+            },
+            {
+              "source_index": 1,
+              "source": {
+                "cell": [
+                  329,
+                  0,
+                  303,
+                  619
+                ],
+                "bbox": [
+                  352,
+                  32,
+                  255,
+                  553
+                ],
+                "foot": [
+                  538,
+                  585
+                ]
+              },
+              "destination": [
+                37,
+                33,
+                37,
+                79
+              ],
+              "bbox_native": [
+                37,
+                33,
+                37,
+                79
+              ],
+              "opaque_pixels": 1790,
+              "direction": "so",
+              "file": "sprites/cocinero/cocina/so.png",
+              "sha256": "5dc780279f2c60835888c266a4f614473b5a03dbdd01ac718d43051da312c068"
+            },
+            {
+              "source_index": 2,
+              "source": {
+                "cell": [
+                  632,
+                  0,
+                  294,
+                  619
+                ],
+                "bbox": [
+                  657,
+                  36,
+                  215,
+                  543
+                ],
+                "foot": [
+                  770.5,
+                  579
+                ]
+              },
+              "destination": [
+                48,
+                34,
+                31,
+                78
+              ],
+              "bbox_native": [
+                48,
+                34,
+                31,
+                78
+              ],
+              "opaque_pixels": 1661,
+              "direction": "o",
+              "file": "sprites/cocinero/cocina/o.png",
+              "sha256": "f4f6222e9d2068279502b976178c0cbd9c8de9f6a4127bdc78d1604f3731e51a"
+            },
+            {
+              "source_index": 3,
+              "source": {
+                "cell": [
+                  926,
+                  0,
+                  328,
+                  619
+                ],
+                "bbox": [
+                  981,
+                  34,
+                  256,
+                  544
+                ],
+                "foot": [
+                  1074.5,
+                  578
+                ]
+              },
+              "destination": [
+                51,
+                34,
+                37,
+                78
+              ],
+              "bbox_native": [
+                51,
+                34,
+                37,
+                78
+              ],
+              "opaque_pixels": 1815,
+              "direction": "no",
+              "file": "sprites/cocinero/cocina/no.png",
+              "sha256": "8384c4bf4fc3d19567a7710db55951f81695a044fee4932d0f73663cb57c4b6e"
+            },
+            {
+              "source_index": 4,
+              "source": {
+                "cell": [
+                  0,
+                  619,
+                  328,
+                  635
+                ],
+                "bbox": [
+                  35,
+                  661,
+                  263,
+                  526
+                ],
+                "foot": [
+                  166.5,
+                  1187
+                ]
+              },
+              "destination": [
+                45,
+                36,
+                38,
+                76
+              ],
+              "bbox_native": [
+                45,
+                36,
+                38,
+                76
+              ],
+              "opaque_pixels": 1920,
+              "direction": "n",
+              "file": "sprites/cocinero/cocina/n.png",
+              "sha256": "a31bd6d21052117332fabd3bd273d25e05096e9721ae6480a9a4c2fc42510007"
+            },
+            {
+              "source_index": 5,
+              "source": {
+                "cell": [
+                  328,
+                  619,
+                  328,
+                  635
+                ],
+                "bbox": [
+                  359,
+                  657,
+                  265,
+                  543
+                ],
+                "foot": [
+                  526,
+                  1200
+                ]
+              },
+              "destination": [
+                40,
+                34,
+                38,
+                78
+              ],
+              "bbox_native": [
+                40,
+                34,
+                38,
+                78
+              ],
+              "opaque_pixels": 1842,
+              "direction": "ne",
+              "file": "sprites/cocinero/cocina/ne.png",
+              "sha256": "d5510e5fb323e9081bf48714676c2ebaae47d22f7fa1a85fd049761f5b317bf8"
+            },
+            {
+              "source_index": 6,
+              "source": {
+                "cell": [
+                  656,
+                  619,
+                  281,
+                  635
+                ],
+                "bbox": [
+                  688,
+                  656,
+                  222,
+                  546
+                ],
+                "foot": [
+                  800.5,
+                  1202
+                ]
+              },
+              "destination": [
+                48,
+                34,
+                32,
+                78
+              ],
+              "bbox_native": [
+                48,
+                34,
+                32,
+                78
+              ],
+              "opaque_pixels": 1643,
+              "direction": "e",
+              "file": "sprites/cocinero/cocina/e.png",
+              "sha256": "8d0a9349ace783be65beb354eb70c580dbd602fb40d65d3a4474a02aa7724fcb"
+            },
+            {
+              "source_index": 7,
+              "source": {
+                "cell": [
+                  937,
+                  619,
+                  317,
+                  635
+                ],
+                "bbox": [
+                  965,
+                  654,
+                  262,
+                  557
+                ],
+                "foot": [
+                  1166,
+                  1211
+                ]
+              },
+              "destination": [
+                35,
+                32,
+                38,
+                80
+              ],
+              "bbox_native": [
+                35,
+                32,
+                38,
+                80
+              ],
+              "opaque_pixels": 1821,
+              "direction": "se",
+              "file": "sprites/cocinero/cocina/se.png",
+              "sha256": "e3582d2f8b90366dedb8a632de5c63b099b4d5696fd1b576f5c692ed32d15ae7"
+            }
+          ],
+          "atlas_sha256": "f3a573fd0ce9ef8777164f9e6cb756575cdd21c7b47a44a6fe5086a7e26e7375"
+        },
+        "comida": {
+          "uniform_scale": 0.14209591474245115,
+          "source": "fuentes/cocinero-comida.png",
+          "source_sha256": "71a779994cd935bbe8bf13dc34d32ed9fe8ee8485da10f6321883cac794dc319",
+          "source_size": [
+            1254,
+            1254
+          ],
+          "source_direction_order": [
+            "s",
+            "so",
+            "o",
+            "no",
+            "n",
+            "ne",
+            "e",
+            "se"
+          ],
+          "atlas": "cocinero-comida-atlas.png",
+          "frames": [
+            {
+              "source_index": 0,
+              "source": {
+                "cell": [
+                  0,
+                  0,
+                  324,
+                  617
+                ],
+                "bbox": [
+                  42,
+                  36,
+                  247,
+                  544
+                ],
+                "foot": [
+                  169.5,
+                  580
+                ]
+              },
+              "destination": [
+                46,
+                35,
+                35,
+                77
+              ],
+              "bbox_native": [
+                46,
+                35,
+                35,
+                77
+              ],
+              "opaque_pixels": 1823,
+              "direction": "s",
+              "file": "sprites/cocinero/comida/s.png",
+              "sha256": "fe2f8473943d03bee7797c2807b21ab76199a40e11389692c08917a636225f90"
+            },
+            {
+              "source_index": 1,
+              "source": {
+                "cell": [
+                  324,
+                  0,
+                  300,
+                  617
+                ],
+                "bbox": [
+                  359,
+                  36,
+                  227,
+                  553
+                ],
+                "foot": [
+                  534,
+                  589
+                ]
+              },
+              "destination": [
+                39,
+                33,
+                32,
+                79
+              ],
+              "bbox_native": [
+                39,
+                33,
+                32,
+                79
+              ],
+              "opaque_pixels": 1755,
+              "direction": "so",
+              "file": "sprites/cocinero/comida/so.png",
+              "sha256": "53388383483d2f845a607da0d922ac58cba17d80bc08e1ed1d00d2aa0d75eae0"
+            },
+            {
+              "source_index": 2,
+              "source": {
+                "cell": [
+                  624,
+                  0,
+                  305,
+                  617
+                ],
+                "bbox": [
+                  662,
+                  42,
+                  221,
+                  545
+                ],
+                "foot": [
+                  773.5,
+                  587
+                ]
+              },
+              "destination": [
+                48,
+                35,
+                31,
+                77
+              ],
+              "bbox_native": [
+                48,
+                35,
+                31,
+                77
+              ],
+              "opaque_pixels": 1589,
+              "direction": "o",
+              "file": "sprites/cocinero/comida/o.png",
+              "sha256": "8ef759910cd5618e326e4e1c10126b205c176e0b447040ff35c931c1d974c3b0"
+            },
+            {
+              "source_index": 3,
+              "source": {
+                "cell": [
+                  929,
+                  0,
+                  325,
+                  617
+                ],
+                "bbox": [
+                  976,
+                  41,
+                  245,
+                  544
+                ],
+                "foot": [
+                  1075.5,
+                  585
+                ]
+              },
+              "destination": [
+                50,
+                35,
+                35,
+                77
+              ],
+              "bbox_native": [
+                50,
+                35,
+                35,
+                77
+              ],
+              "opaque_pixels": 1765,
+              "direction": "no",
+              "file": "sprites/cocinero/comida/no.png",
+              "sha256": "6c8f8a6824155ce410663e7d954c8a14d08ecb42a28651f55ac067051173afd5"
+            },
+            {
+              "source_index": 4,
+              "source": {
+                "cell": [
+                  0,
+                  617,
+                  331,
+                  637
+                ],
+                "bbox": [
+                  39,
+                  650,
+                  257,
+                  537
+                ],
+                "foot": [
+                  169.5,
+                  1187
+                ]
+              },
+              "destination": [
+                45,
+                36,
+                37,
+                76
+              ],
+              "bbox_native": [
+                45,
+                36,
+                37,
+                76
+              ],
+              "opaque_pixels": 1889,
+              "direction": "n",
+              "file": "sprites/cocinero/comida/n.png",
+              "sha256": "0cfda1c552e735f3e54906615140a69df05e838ae035d794c490d866ed72ed77"
+            },
+            {
+              "source_index": 5,
+              "source": {
+                "cell": [
+                  331,
+                  617,
+                  318,
+                  637
+                ],
+                "bbox": [
+                  366,
+                  645,
+                  252,
+                  548
+                ],
+                "foot": [
+                  525.5,
+                  1193
+                ]
+              },
+              "destination": [
+                41,
+                34,
+                36,
+                78
+              ],
+              "bbox_native": [
+                41,
+                34,
+                36,
+                78
+              ],
+              "opaque_pixels": 1846,
+              "direction": "ne",
+              "file": "sprites/cocinero/comida/ne.png",
+              "sha256": "61560f4a57a0c9165735b92066b2d8e60acb628467da1c8178f6a163615764e4"
+            },
+            {
+              "source_index": 6,
+              "source": {
+                "cell": [
+                  649,
+                  617,
+                  301,
+                  637
+                ],
+                "bbox": [
+                  681,
+                  649,
+                  235,
+                  550
+                ],
+                "foot": [
+                  808.5,
+                  1199
+                ]
+              },
+              "destination": [
+                46,
+                34,
+                33,
+                78
+              ],
+              "bbox_native": [
+                46,
+                34,
+                33,
+                78
+              ],
+              "opaque_pixels": 1633,
+              "direction": "e",
+              "file": "sprites/cocinero/comida/e.png",
+              "sha256": "3557f918f07f73004c25e1cb623f30aeb95d5a51ccce85e60a946618ecd8fa29"
+            },
+            {
+              "source_index": 7,
+              "source": {
+                "cell": [
+                  950,
+                  617,
+                  304,
+                  637
+                ],
+                "bbox": [
+                  984,
+                  645,
+                  235,
+                  563
+                ],
+                "foot": [
+                  1160.5,
+                  1208
+                ]
+              },
+              "destination": [
+                39,
+                32,
+                33,
+                80
+              ],
+              "bbox_native": [
+                39,
+                32,
+                33,
+                80
+              ],
+              "opaque_pixels": 1798,
+              "direction": "se",
+              "file": "sprites/cocinero/comida/se.png",
+              "sha256": "2ab8b1681f4c4076d3ecb28598d2db8f29d25f63221f8ca9659a382a644eb584"
+            }
+          ],
+          "atlas_sha256": "2d2a95393d5bd041a68e7b131529874d7cf7bb50607791c3a3059d60b2189c72"
+        }
+      }
+    },
+    "enano": {
+      "height_max_px": 64,
+      "states": {
+        "libre": {
+          "uniform_scale": 0.11940298507462686,
+          "source": "fuentes/enano-libre.png",
+          "source_sha256": "6db1a53d2018f31acec26b56a834b37af0c02f0b4ecef542a682e52f00135aa8",
+          "source_size": [
+            1254,
+            1254
+          ],
+          "source_direction_order": [
+            "s",
+            "se",
+            "e",
+            "ne",
+            "n",
+            "no",
+            "o",
+            "so"
+          ],
+          "atlas": "enano-libre-atlas.png",
+          "frames": [
+            {
+              "source_index": 0,
+              "source": {
+                "cell": [
+                  0,
+                  0,
+                  341,
+                  636
+                ],
+                "bbox": [
+                  10,
+                  87,
+                  320,
+                  525
+                ],
+                "foot": [
+                  171,
+                  612
+                ]
+              },
+              "destination": [
+                45,
+                49,
+                38,
+                63
+              ],
+              "bbox_native": [
+                45,
+                49,
+                38,
+                63
+              ],
+              "opaque_pixels": 1581,
+              "direction": "s",
+              "file": "sprites/enano/libre/s.png",
+              "sha256": "9629a718821d3c9e6c0d87881a4f5be33912866208d29b5622baaa358fb10592"
+            },
+            {
+              "source_index": 7,
+              "source": {
+                "cell": [
+                  906,
+                  636,
+                  348,
+                  618
+                ],
+                "bbox": [
+                  923,
+                  656,
+                  299,
+                  536
+                ],
+                "foot": [
+                  1149.5,
+                  1192
+                ]
+              },
+              "destination": [
+                37,
+                48,
+                36,
+                64
+              ],
+              "bbox_native": [
+                37,
+                48,
+                36,
+                64
+              ],
+              "opaque_pixels": 1527,
+              "direction": "so",
+              "file": "sprites/enano/libre/so.png",
+              "sha256": "dbe4d66b3961b0e9acb188f45bf7fbca8ac607e5a81188454ff14dadc768506a"
+            },
+            {
+              "source_index": 6,
+              "source": {
+                "cell": [
+                  655,
+                  636,
+                  251,
+                  618
+                ],
+                "bbox": [
+                  674,
+                  654,
+                  216,
+                  533
+                ],
+                "foot": [
+                  772.5,
+                  1187
+                ]
+              },
+              "destination": [
+                52,
+                48,
+                26,
+                64
+              ],
+              "bbox_native": [
+                52,
+                48,
+                26,
+                64
+              ],
+              "opaque_pixels": 1155,
+              "direction": "o",
+              "file": "sprites/enano/libre/o.png",
+              "sha256": "d055482790624cf4793a21b2f332be10bfcdbde359df2a40b2047adcdb804c63"
+            },
+            {
+              "source_index": 5,
+              "source": {
+                "cell": [
+                  342,
+                  636,
+                  313,
+                  618
+                ],
+                "bbox": [
+                  354,
+                  654,
+                  283,
+                  523
+                ],
+                "foot": [
+                  547,
+                  1177
+                ]
+              },
+              "destination": [
+                41,
+                50,
+                34,
+                62
+              ],
+              "bbox_native": [
+                41,
+                50,
+                34,
+                62
+              ],
+              "opaque_pixels": 1395,
+              "direction": "no",
+              "file": "sprites/enano/libre/no.png",
+              "sha256": "caafe045fa61d34575f503b6923990dba3be617e92a15e55d3557e7c6729204e"
+            },
+            {
+              "source_index": 4,
+              "source": {
+                "cell": [
+                  0,
+                  636,
+                  342,
+                  618
+                ],
+                "bbox": [
+                  16,
+                  654,
+                  314,
+                  510
+                ],
+                "foot": [
+                  180,
+                  1164
+                ]
+              },
+              "destination": [
+                44,
+                51,
+                37,
+                61
+              ],
+              "bbox_native": [
+                44,
+                51,
+                37,
+                61
+              ],
+              "opaque_pixels": 1466,
+              "direction": "n",
+              "file": "sprites/enano/libre/n.png",
+              "sha256": "7a5915467f8d397a307cd648510c31796c6fbc15dc749a13601fa361c83d6029"
+            },
+            {
+              "source_index": 3,
+              "source": {
+                "cell": [
+                  923,
+                  0,
+                  331,
+                  636
+                ],
+                "bbox": [
+                  962,
+                  90,
+                  284,
+                  522
+                ],
+                "foot": [
+                  1169,
+                  612
+                ]
+              },
+              "destination": [
+                39,
+                50,
+                34,
+                62
+              ],
+              "bbox_native": [
+                39,
+                50,
+                34,
+                62
+              ],
+              "opaque_pixels": 1408,
+              "direction": "ne",
+              "file": "sprites/enano/libre/ne.png",
+              "sha256": "5768c7e09eb74a0e0c4484c673fc40612e138e2d64ead8455c6a7aea21c1b698"
+            },
+            {
+              "source_index": 2,
+              "source": {
+                "cell": [
+                  654,
+                  0,
+                  269,
+                  636
+                ],
+                "bbox": [
+                  667,
+                  87,
+                  218,
+                  529
+                ],
+                "foot": [
+                  769.5,
+                  616
+                ]
+              },
+              "destination": [
+                52,
+                49,
+                26,
+                63
+              ],
+              "bbox_native": [
+                52,
+                49,
+                26,
+                63
+              ],
+              "opaque_pixels": 1158,
+              "direction": "e",
+              "file": "sprites/enano/libre/e.png",
+              "sha256": "7951ac60c8c670995684d30729f0166b7bbd2db48bb9e572e08c2b9e71901703"
+            },
+            {
+              "source_index": 1,
+              "source": {
+                "cell": [
+                  341,
+                  0,
+                  313,
+                  636
+                ],
+                "bbox": [
+                  353,
+                  90,
+                  289,
+                  528
+                ],
+                "foot": [
+                  420.5,
+                  618
+                ]
+              },
+              "destination": [
+                56,
+                49,
+                35,
+                63
+              ],
+              "bbox_native": [
+                56,
+                49,
+                35,
+                63
+              ],
+              "opaque_pixels": 1478,
+              "direction": "se",
+              "file": "sprites/enano/libre/se.png",
+              "sha256": "f56902c42f001d01e02da892c49415ddc8b786c556c8820572ed99d5168c4666"
+            }
+          ],
+          "atlas_sha256": "b23c9bd07849b2f063217b8354aba55da6a9dfcc78c893121705b85a5f8231e5"
+        },
+        "quebraveta": {
+          "uniform_scale": 0.16452442159383032,
+          "source": "fuentes/enano-quebraveta.png",
+          "source_sha256": "36d5099c31d1edf17395bf298451d0fa2cf3e9b58566f6ea2c1775e4f62739c7",
+          "source_size": [
+            1774,
+            887
+          ],
+          "source_direction_order": [
+            "s",
+            "se",
+            "e",
+            "ne",
+            "n",
+            "no",
+            "o",
+            "so"
+          ],
+          "atlas": "enano-quebraveta-atlas.png",
+          "frames": [
+            {
+              "source_index": 0,
+              "source": {
+                "cell": [
+                  0,
+                  0,
+                  458,
+                  448
+                ],
+                "bbox": [
+                  79,
+                  36,
+                  302,
+                  385
+                ],
+                "foot": [
+                  197.5,
+                  421
+                ]
+              },
+              "destination": [
+                45,
+                49,
+                50,
+                63
+              ],
+              "bbox_native": [
+                45,
+                49,
+                50,
+                63
+              ],
+              "opaque_pixels": 1836,
+              "direction": "s",
+              "file": "sprites/enano/quebraveta/s.png",
+              "sha256": "4f5dca6d5fea0b42cfa219f1f7b759e5eb4e695675141b54645511f4049108ea"
+            },
+            {
+              "source_index": 7,
+              "source": {
+                "cell": [
+                  1310,
+                  448,
+                  464,
+                  439
+                ],
+                "bbox": [
+                  1400,
+                  476,
+                  301,
+                  377
+                ],
+                "foot": [
+                  1654,
+                  853
+                ]
+              },
+              "destination": [
+                22,
+                50,
+                50,
+                62
+              ],
+              "bbox_native": [
+                22,
+                50,
+                50,
+                62
+              ],
+              "opaque_pixels": 1780,
+              "direction": "so",
+              "file": "sprites/enano/quebraveta/so.png",
+              "sha256": "3c984fa24bd2ff9ac7d46ee606892cea3f7b4480505a7c1dd5b0ad75e5b409ee"
+            },
+            {
+              "source_index": 6,
+              "source": {
+                "cell": [
+                  892,
+                  448,
+                  418,
+                  439
+                ],
+                "bbox": [
+                  980,
+                  472,
+                  241,
+                  381
+                ],
+                "foot": [
+                  1124.5,
+                  853
+                ]
+              },
+              "destination": [
+                40,
+                49,
+                40,
+                63
+              ],
+              "bbox_native": [
+                40,
+                49,
+                40,
+                63
+              ],
+              "opaque_pixels": 1522,
+              "direction": "o",
+              "file": "sprites/enano/quebraveta/o.png",
+              "sha256": "5bf2b1e9002a7dccf10885a903f49f447c358bdd4940ffae908f1ae1f28a7557"
+            },
+            {
+              "source_index": 5,
+              "source": {
+                "cell": [
+                  425,
+                  448,
+                  467,
+                  439
+                ],
+                "bbox": [
+                  512,
+                  473,
+                  292,
+                  378
+                ],
+                "foot": [
+                  720,
+                  851
+                ]
+              },
+              "destination": [
+                30,
+                50,
+                48,
+                62
+              ],
+              "bbox_native": [
+                30,
+                50,
+                48,
+                62
+              ],
+              "opaque_pixels": 1667,
+              "direction": "no",
+              "file": "sprites/enano/quebraveta/no.png",
+              "sha256": "631a72d21a3dd927690f6be4750cf251ff484f0fb3ad4ec83e554f60feb45474"
+            },
+            {
+              "source_index": 4,
+              "source": {
+                "cell": [
+                  0,
+                  448,
+                  425,
+                  439
+                ],
+                "bbox": [
+                  49,
+                  475,
+                  289,
+                  368
+                ],
+                "foot": [
+                  207.5,
+                  843
+                ]
+              },
+              "destination": [
+                38,
+                51,
+                48,
+                61
+              ],
+              "bbox_native": [
+                38,
+                51,
+                48,
+                61
+              ],
+              "opaque_pixels": 1717,
+              "direction": "n",
+              "file": "sprites/enano/quebraveta/n.png",
+              "sha256": "d28aae639deaa4ab51d8dd89f25c7b131ad4bd2e36241df8f6f61ee702d039dd"
+            },
+            {
+              "source_index": 3,
+              "source": {
+                "cell": [
+                  1362,
+                  0,
+                  412,
+                  448
+                ],
+                "bbox": [
+                  1444,
+                  36,
+                  281,
+                  385
+                ],
+                "foot": [
+                  1572.5,
+                  421
+                ]
+              },
+              "destination": [
+                43,
+                49,
+                46,
+                63
+              ],
+              "bbox_native": [
+                43,
+                49,
+                46,
+                63
+              ],
+              "opaque_pixels": 1744,
+              "direction": "ne",
+              "file": "sprites/enano/quebraveta/ne.png",
+              "sha256": "b1343534b60aaeee4b707c98d8b39ea65102a92a07a57e0d0f3a15558d5935d3"
+            },
+            {
+              "source_index": 2,
+              "source": {
+                "cell": [
+                  920,
+                  0,
+                  442,
+                  448
+                ],
+                "bbox": [
+                  1010,
+                  36,
+                  270,
+                  389
+                ],
+                "foot": [
+                  1083.5,
+                  425
+                ]
+              },
+              "destination": [
+                52,
+                48,
+                44,
+                64
+              ],
+              "bbox_native": [
+                52,
+                48,
+                44,
+                64
+              ],
+              "opaque_pixels": 1578,
+              "direction": "e",
+              "file": "sprites/enano/quebraveta/e.png",
+              "sha256": "d444aac901a7b6aa5fab75eddab7a81a523a4c0924b01d0ee9fa2a29c345934f"
+            },
+            {
+              "source_index": 1,
+              "source": {
+                "cell": [
+                  458,
+                  0,
+                  462,
+                  448
+                ],
+                "bbox": [
+                  535,
+                  36,
+                  295,
+                  385
+                ],
+                "foot": [
+                  651.5,
+                  421
+                ]
+              },
+              "destination": [
+                45,
+                49,
+                49,
+                63
+              ],
+              "bbox_native": [
+                45,
+                49,
+                49,
+                63
+              ],
+              "opaque_pixels": 1778,
+              "direction": "se",
+              "file": "sprites/enano/quebraveta/se.png",
+              "sha256": "50ba0e3df31b872c132bf1742c7777a627668caacdba411cd74ecd58fa3592b0"
+            }
+          ],
+          "atlas_sha256": "0f452e65237d29554be97f0a5b4d1944a70ba828dab6848ec28c73b84b8cdb6d"
+        },
+        "forja": {
+          "uniform_scale": 0.15724815724815724,
+          "source": "fuentes/enano-forja.png",
+          "source_sha256": "f51795f2fc33a970933d6b330e045707cf03d5684e872d884d43e91e5bd7557b",
+          "source_size": [
+            1536,
+            1024
+          ],
+          "source_direction_order": [
+            "s",
+            "se",
+            "e",
+            "ne",
+            "n",
+            "no",
+            "o",
+            "so"
+          ],
+          "atlas": "enano-forja-atlas.png",
+          "frames": [
+            {
+              "source_index": 0,
+              "source": {
+                "cell": [
+                  0,
+                  0,
+                  428,
+                  518
+                ],
+                "bbox": [
+                  94,
+                  85,
+                  273,
+                  401
+                ],
+                "foot": [
+                  229,
+                  486
+                ]
+              },
+              "destination": [
+                43,
+                49,
+                43,
+                63
+              ],
+              "bbox_native": [
+                43,
+                49,
+                43,
+                63
+              ],
+              "opaque_pixels": 1742,
+              "direction": "s",
+              "file": "sprites/enano/forja/s.png",
+              "sha256": "f36213b7df2ab190070daddd2ac8db876576ce476a7fb64b272ee561d55bbda0"
+            },
+            {
+              "source_index": 7,
+              "source": {
+                "cell": [
+                  1106,
+                  518,
+                  430,
+                  506
+                ],
+                "bbox": [
+                  1161,
+                  548,
+                  287,
+                  407
+                ],
+                "foot": [
+                  1309.5,
+                  955
+                ]
+              },
+              "destination": [
+                41,
+                48,
+                45,
+                64
+              ],
+              "bbox_native": [
+                41,
+                48,
+                45,
+                64
+              ],
+              "opaque_pixels": 1787,
+              "direction": "so",
+              "file": "sprites/enano/forja/so.png",
+              "sha256": "ed8270838c754f257bf907177d1cb5751f9cc3b88e66a283d7d01653849e16b5"
+            },
+            {
+              "source_index": 6,
+              "source": {
+                "cell": [
+                  782,
+                  518,
+                  324,
+                  506
+                ],
+                "bbox": [
+                  826,
+                  550,
+                  226,
+                  403
+                ],
+                "foot": [
+                  957,
+                  953
+                ]
+              },
+              "destination": [
+                43,
+                49,
+                36,
+                63
+              ],
+              "bbox_native": [
+                43,
+                49,
+                36,
+                63
+              ],
+              "opaque_pixels": 1391,
+              "direction": "o",
+              "file": "sprites/enano/forja/o.png",
+              "sha256": "9dc6f265f5590d8038f9c6ac0a0892170bfea6b261164140a8161aeb01515f62"
+            },
+            {
+              "source_index": 5,
+              "source": {
+                "cell": [
+                  422,
+                  518,
+                  360,
+                  506
+                ],
+                "bbox": [
+                  474,
+                  549,
+                  264,
+                  397
+                ],
+                "foot": [
+                  616,
+                  946
+                ]
+              },
+              "destination": [
+                42,
+                50,
+                42,
+                62
+              ],
+              "bbox_native": [
+                42,
+                50,
+                42,
+                62
+              ],
+              "opaque_pixels": 1631,
+              "direction": "no",
+              "file": "sprites/enano/forja/no.png",
+              "sha256": "ee231406509255af7603d1788a0046d0867127b00cedcb4431c6d8569b2f62dd"
+            },
+            {
+              "source_index": 4,
+              "source": {
+                "cell": [
+                  0,
+                  518,
+                  422,
+                  506
+                ],
+                "bbox": [
+                  88,
+                  549,
+                  283,
+                  392
+                ],
+                "foot": [
+                  227,
+                  941
+                ]
+              },
+              "destination": [
+                42,
+                50,
+                45,
+                62
+              ],
+              "bbox_native": [
+                42,
+                50,
+                45,
+                62
+              ],
+              "opaque_pixels": 1767,
+              "direction": "n",
+              "file": "sprites/enano/forja/n.png",
+              "sha256": "47e74cf06632188e9e6df1110eb17dc35e3acce7569b4a0188a661a15c44cd7b"
+            },
+            {
+              "source_index": 3,
+              "source": {
+                "cell": [
+                  1155,
+                  0,
+                  381,
+                  518
+                ],
+                "bbox": [
+                  1202,
+                  85,
+                  254,
+                  403
+                ],
+                "foot": [
+                  1338.5,
+                  488
+                ]
+              },
+              "destination": [
+                43,
+                49,
+                40,
+                63
+              ],
+              "bbox_native": [
+                43,
+                49,
+                40,
+                63
+              ],
+              "opaque_pixels": 1594,
+              "direction": "ne",
+              "file": "sprites/enano/forja/ne.png",
+              "sha256": "3957d11cc179cb78a20d9c4ddecf904af71c85f2172dd8cdf27f6492732c0b24"
+            },
+            {
+              "source_index": 2,
+              "source": {
+                "cell": [
+                  815,
+                  0,
+                  340,
+                  518
+                ],
+                "bbox": [
+                  853,
+                  84,
+                  255,
+                  405
+                ],
+                "foot": [
+                  932.5,
+                  489
+                ]
+              },
+              "destination": [
+                51,
+                48,
+                40,
+                64
+              ],
+              "bbox_native": [
+                51,
+                48,
+                40,
+                64
+              ],
+              "opaque_pixels": 1400,
+              "direction": "e",
+              "file": "sprites/enano/forja/e.png",
+              "sha256": "4a262ca9e7664d800b8e2f3dabe6616b8020d4c73675010fa5c36ab88874d802"
+            },
+            {
+              "source_index": 1,
+              "source": {
+                "cell": [
+                  428,
+                  0,
+                  387,
+                  518
+                ],
+                "bbox": [
+                  489,
+                  85,
+                  289,
+                  402
+                ],
+                "foot": [
+                  613.5,
+                  487
+                ]
+              },
+              "destination": [
+                44,
+                49,
+                45,
+                63
+              ],
+              "bbox_native": [
+                44,
+                49,
+                45,
+                63
+              ],
+              "opaque_pixels": 1630,
+              "direction": "se",
+              "file": "sprites/enano/forja/se.png",
+              "sha256": "f4c5d81be2259dc4ee36e9ec7f26a9e37e4587027a39f82f7e359ed54bb8bf7d"
+            }
+          ],
+          "atlas_sha256": "cf631599c1d150bcbaaa27141c5c4651b956cef47a5539365dca86fa83f36115"
+        },
+        "comida": {
+          "uniform_scale": 0.11851851851851852,
+          "source": "fuentes/enano-comida.png",
+          "source_sha256": "abeda8edf5d6b8abed892850b0295ddceb426b28fd5bbffb70350b8741f7383a",
+          "source_size": [
+            1254,
+            1254
+          ],
+          "source_direction_order": [
+            "s",
+            "se",
+            "e",
+            "ne",
+            "n",
+            "no",
+            "o",
+            "so"
+          ],
+          "atlas": "enano-comida-atlas.png",
+          "frames": [
+            {
+              "source_index": 0,
+              "source": {
+                "cell": [
+                  0,
+                  0,
+                  337,
+                  636
+                ],
+                "bbox": [
+                  18,
+                  86,
+                  303,
+                  528
+                ],
+                "foot": [
+                  171.5,
+                  614
+                ]
+              },
+              "destination": [
+                46,
+                49,
+                36,
+                63
+              ],
+              "bbox_native": [
+                46,
+                49,
+                36,
+                63
+              ],
+              "opaque_pixels": 1514,
+              "direction": "s",
+              "file": "sprites/enano/comida/s.png",
+              "sha256": "2c6a122e552aae555417c8379b7e1e72daebe804aeb45799b6dd222f1ce95700"
+            },
+            {
+              "source_index": 7,
+              "source": {
+                "cell": [
+                  909,
+                  636,
+                  345,
+                  618
+                ],
+                "bbox": [
+                  926,
+                  655,
+                  297,
+                  540
+                ],
+                "foot": [
+                  1150.5,
+                  1195
+                ]
+              },
+              "destination": [
+                37,
+                48,
+                35,
+                64
+              ],
+              "bbox_native": [
+                37,
+                48,
+                35,
+                64
+              ],
+              "opaque_pixels": 1457,
+              "direction": "so",
+              "file": "sprites/enano/comida/so.png",
+              "sha256": "e8a283ff425c51db84d6243dce03fcf84deb8dc82b242ade9fdec0e9e2ebc399"
+            },
+            {
+              "source_index": 6,
+              "source": {
+                "cell": [
+                  649,
+                  636,
+                  260,
+                  618
+                ],
+                "bbox": [
+                  656,
+                  653,
+                  236,
+                  535
+                ],
+                "foot": [
+                  773,
+                  1188
+                ]
+              },
+              "destination": [
+                50,
+                49,
+                28,
+                63
+              ],
+              "bbox_native": [
+                50,
+                49,
+                28,
+                63
+              ],
+              "opaque_pixels": 1185,
+              "direction": "o",
+              "file": "sprites/enano/comida/o.png",
+              "sha256": "c76be4bf163c0dbfb441eb10c73567983a5166d91af7affb21454e785cac4de8"
+            },
+            {
+              "source_index": 5,
+              "source": {
+                "cell": [
+                  335,
+                  636,
+                  314,
+                  618
+                ],
+                "bbox": [
+                  353,
+                  653,
+                  289,
+                  526
+                ],
+                "foot": [
+                  548,
+                  1179
+                ]
+              },
+              "destination": [
+                41,
+                50,
+                34,
+                62
+              ],
+              "bbox_native": [
+                41,
+                50,
+                34,
+                62
+              ],
+              "opaque_pixels": 1331,
+              "direction": "no",
+              "file": "sprites/enano/comida/no.png",
+              "sha256": "7e6d7d42fc1191a8c5c89d834abb77ede503083284384f53dfc7057cd34d6f4e"
+            },
+            {
+              "source_index": 4,
+              "source": {
+                "cell": [
+                  0,
+                  636,
+                  335,
+                  618
+                ],
+                "bbox": [
+                  25,
+                  653,
+                  293,
+                  512
+                ],
+                "foot": [
+                  180,
+                  1165
+                ]
+              },
+              "destination": [
+                46,
+                51,
+                35,
+                61
+              ],
+              "bbox_native": [
+                46,
+                51,
+                35,
+                61
+              ],
+              "opaque_pixels": 1388,
+              "direction": "n",
+              "file": "sprites/enano/comida/n.png",
+              "sha256": "893c19feb754f8cafe9a72b729d75e2d1689c3def1938048dd51e5e56fd075e7"
+            },
+            {
+              "source_index": 3,
+              "source": {
+                "cell": [
+                  953,
+                  0,
+                  301,
+                  636
+                ],
+                "bbox": [
+                  965,
+                  88,
+                  282,
+                  526
+                ],
+                "foot": [
+                  1169,
+                  614
+                ]
+              },
+              "destination": [
+                40,
+                50,
+                33,
+                62
+              ],
+              "bbox_native": [
+                40,
+                50,
+                33,
+                62
+              ],
+              "opaque_pixels": 1335,
+              "direction": "ne",
+              "file": "sprites/enano/comida/ne.png",
+              "sha256": "a194b22552a5f5d7b8698198df9a03c2d237f0a2c03cd301b2fa1ccf23d823c9"
+            },
+            {
+              "source_index": 2,
+              "source": {
+                "cell": [
+                  654,
+                  0,
+                  299,
+                  636
+                ],
+                "bbox": [
+                  665,
+                  87,
+                  276,
+                  530
+                ],
+                "foot": [
+                  770,
+                  617
+                ]
+              },
+              "destination": [
+                52,
+                49,
+                33,
+                63
+              ],
+              "bbox_native": [
+                52,
+                49,
+                33,
+                63
+              ],
+              "opaque_pixels": 1262,
+              "direction": "e",
+              "file": "sprites/enano/comida/e.png",
+              "sha256": "d1dc8b12a397b5db497984d655e601a83a276f6595297a2d60b263cc0c616147"
+            },
+            {
+              "source_index": 1,
+              "source": {
+                "cell": [
+                  337,
+                  0,
+                  317,
+                  636
+                ],
+                "bbox": [
+                  354,
+                  88,
+                  289,
+                  532
+                ],
+                "foot": [
+                  421,
+                  620
+                ]
+              },
+              "destination": [
+                56,
+                49,
+                34,
+                63
+              ],
+              "bbox_native": [
+                56,
+                49,
+                34,
+                63
+              ],
+              "opaque_pixels": 1402,
+              "direction": "se",
+              "file": "sprites/enano/comida/se.png",
+              "sha256": "54d5c39b6395f3e10e88f99a37bf2df6a07d5223aa5bb89d1231af78414b89b6"
+            }
+          ],
+          "atlas_sha256": "ba3afa07088319c31dd7c89943fe43d0237aa33ae27376078a89f742e76c2791"
+        }
+      }
+    }
+  }
+}

@@ -204,6 +204,8 @@ Referencias visuales dentro de la dirección aceptada: trenzas sencillas, ropa p
 
 **Generación posterior solicitada:** el usuario delega diseñar un arma especial digna de un maestro minero/herrero enano y generar también al personaje. Propuesta creada en `assets/personajes/maestro-enano/maestro-y-quebraveta-fuente.png`: maestro sin arma, equipado y arma aislada. **Quebraveta** es el nombre propuesto de un martillo de guerra con punta rompe-roca opuesta, hierro oscuro, detalles de cobre y mango de madera/cuero. El inserto ámbar es decorativo; no establece magia ni efectos. Personaje y arma pendientes de aprobación visual; la fuente no es un atlas de animación ni fija la escala nativa. El usuario solicita después publicar esta entrega concreta en GitHub, sin integración ni futuras subidas automáticas.
 
+**Revisión visual posterior del enano:** el usuario considera el primer diseño demasiado parecido a Gimli y solicita hacerlo más propio de Bītu, incluyendo cambios de pelo y atuendo. Nueva propuesta en `assets/personajes/maestros-bitu/`: pelo negro azulado, casco de hierro azul/latón, camisa índigo, delantal ocre y correas cruzadas. Se conserva el primer concepto como historial. Ocho vistas libres y ocho por variante con Quebraveta, herramientas de forja y comida; 32 poses estáticas a escala de hasta 64 px. Detalles visuales pendientes de revisión; no animaciones ni integración.
+
 **Primera aparición confirmada:** en el astillero de Flavia al comenzar. Conecta con el protagonista, le entrega herramientas suyas y lo invita a visitarlo para minería y herrería. El regalo abre la extracción básica antes de recorrer el resto de Bītu. El pico–hacha combinado conserva la mejora independiente de sus extremos; no se vuelve a separar por la mención coloquial de pico y hacha. Equipamiento adicional por concretar.
 
 Trato y hábitos confirmados:
@@ -216,13 +218,15 @@ Propuesta adicional: su terquedad puede expresarse en el cuidado del oficio y en
 
 Ejemplo provisional de voz: «La piedra avisa antes de romperse. Aprende a escucharla». No es un diálogo definitivo ni confirma capacidades sobrenaturales.
 
-**Maestro de pesca/cocina — carácter confirmado:** tranquilo y buen conversador, con historias del mar y gusto por cocinar para los demás. Es fan de lo raro y legendario; ante una captura excepcional se entusiasma como un niño. Nombre, especie, edad, aspecto e historia concreta pendientes.
+**Maestro de pesca/cocina — carácter confirmado:** **anciano y excéntrico, «loco como Radagast»**, además de tranquilo y buen conversador, con historias del mar y gusto por cocinar para los demás. Es fan de lo raro y legendario; ante una captura excepcional se entusiasma como un niño. Nombre, especie, edad exacta e historia concreta pendientes; anciano confirmado.
 
 **Primer encuentro, caña confirmada:** regala una caña básica directamente al hablar con él por primera vez. No exige materiales, fabricación, encargo previo ni completar una captura para obtenerla. Puede ofrecer consejos y una práctica opcional junto a su casa; el jugador puede empezar a pescar cuando quiera. Entrega narrativa todavía sin implementar.
 
 Es apasionado de toda la naturaleza, incluidos animales además de peces. Se interesa por la granja, la ganadería y la agricultura. **Su oficio principal sigue siendo maestro de pesca/cocina**; de forma secundaria dará consejos, a veces mágicos, para ayudar con la granja y la experiencia del juego. No sustituye la futura maestría granjera del protagonista.
 
 Referencia indicada por el usuario: **Radagast el Pardo, de Tolkien**, como orientación para su aspecto y presencia. Hay un componente mágico en algunos consejos, pero origen, efectos y funcionamiento pendientes. No se ha establecido una clase de mago, especie concreta o historia equivalente a la de Radagast.
+
+**Creación solicitada del anciano y equipo de ambos maestros:** el usuario encarga representarlo con identidad propia de Bītu y generar vistas de ambos maestros con y sin instrumentos, incluyendo comida y herramientas; solicita después subir la entrega al terminar. Propuesta del anciano: pelo/barba blancos revueltos, sombrero verde mar con concha y remiendos coral, camisa terracota, chaleco azul verdoso y delantal crema. En `assets/personajes/maestros-bitu/`: ocho vistas libres y ocho con cada variante (caña; olla/cucharón; comida), 32 poses de hasta 80 px. Junto al enano: **64 sprites 128 × 128**, ocho atlas, fuentes intactas, JSON, visor y recursos Godot comprobados. Los objetos están incluidos en las poses equipadas; manos libres separadas para futuras capas. Comida ilustrativa, sin recetas o efectos fijados. No son ciclos animados ni NPCs integrados. Autorizada esta publicación concreta en GitHub, no futuras subidas automáticas.
 
 **Unamahloni, maestro alquimista/herboristero — rasgos confirmados:** hombre de una especie humanoide distinta de la humana. Tiene unos **50 años** y es todavía joven para su especie, cuya expectativa de vida ronda los **200 años**. Ya es maestro por su experiencia y conocimientos.
 
@@ -832,3 +836,5 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **10 de octubre de 2026:** elfa del museo concretada como estudiosa, muy inteligente, probablemente la más inteligente; recuerda toda su vida desde el nacimiento y no es distraída. Personaje secundario que recibe objetos. Arthas indicado como referencia física de su pareja comerciante. Solicitados y preparados ambos en pixel art con ocho vistas en reposo, sprites a escala, visor y recursos Godot para una publicación posterior. Fuentes intactas; sin integración ni subida en este paso.
 
 - **10 de octubre de 2026:** el usuario solicita subir a GitHub las vistas y sprites preparados de la elfa y el comerciante, con visor, fuentes, atlas, recursos Godot y ZIP. Publicación de esta entrega concreta, sin integrar los personajes en el juego.
+
+- **10 de octubre de 2026:** anciano y excentricidad de inspiración Radagast confirmados para pesca/cocina. Solicitada su creación con detalles propios de Bītu y revisión del enano para separarlo de Gimli. Preparadas 64 poses en ocho direcciones con manos libres, comida y dos variantes de instrumentos por maestro; usuario pide subir al terminar. Sin integración ni sistemas nuevos.

@@ -1,0 +1,362 @@
+[gd_resource type="SpriteFrames" load_steps=37 format=3]
+
+[ext_resource type="Texture2D" path="cocinero-libre-atlas.png" id="atlas_libre"]
+[ext_resource type="Texture2D" path="cocinero-pesca-atlas.png" id="atlas_pesca"]
+[ext_resource type="Texture2D" path="cocinero-cocina-atlas.png" id="atlas_cocina"]
+[ext_resource type="Texture2D" path="cocinero-comida-atlas.png" id="atlas_comida"]
+
+[sub_resource type="AtlasTexture" id="libre_s"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_so"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_o"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_no"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_n"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_ne"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_e"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="libre_se"]
+atlas = ExtResource("atlas_libre")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="pesca_s"]
+atlas = ExtResource("atlas_pesca")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="pesca_so"]
+atlas = ExtResource("atlas_pesca")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="pesca_o"]
+atlas = ExtResource("atlas_pesca")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="pesca_no"]
+atlas = ExtResource("atlas_pesca")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="pesca_n"]
+atlas = ExtResource("atlas_pesca")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="pesca_ne"]
+atlas = ExtResource("atlas_pesca")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="pesca_e"]
+atlas = ExtResource("atlas_pesca")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="pesca_se"]
+atlas = ExtResource("atlas_pesca")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="cocina_s"]
+atlas = ExtResource("atlas_cocina")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="cocina_so"]
+atlas = ExtResource("atlas_cocina")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="cocina_o"]
+atlas = ExtResource("atlas_cocina")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="cocina_no"]
+atlas = ExtResource("atlas_cocina")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="cocina_n"]
+atlas = ExtResource("atlas_cocina")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="cocina_ne"]
+atlas = ExtResource("atlas_cocina")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="cocina_e"]
+atlas = ExtResource("atlas_cocina")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="cocina_se"]
+atlas = ExtResource("atlas_cocina")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_s"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(0, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_so"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(128, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_o"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(256, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_no"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(384, 0, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_n"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(0, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_ne"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(128, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_e"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(256, 128, 128, 128)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="comida_se"]
+atlas = ExtResource("atlas_comida")
+region = Rect2(384, 128, 128, 128)
+filter_clip = true
+
+[resource]
+animations = [
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_s")}],
+"loop": true,
+"name": &"libre_s",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_so")}],
+"loop": true,
+"name": &"libre_so",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_o")}],
+"loop": true,
+"name": &"libre_o",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_no")}],
+"loop": true,
+"name": &"libre_no",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_n")}],
+"loop": true,
+"name": &"libre_n",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_ne")}],
+"loop": true,
+"name": &"libre_ne",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_e")}],
+"loop": true,
+"name": &"libre_e",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("libre_se")}],
+"loop": true,
+"name": &"libre_se",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pesca_s")}],
+"loop": true,
+"name": &"pesca_s",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pesca_so")}],
+"loop": true,
+"name": &"pesca_so",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pesca_o")}],
+"loop": true,
+"name": &"pesca_o",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pesca_no")}],
+"loop": true,
+"name": &"pesca_no",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pesca_n")}],
+"loop": true,
+"name": &"pesca_n",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pesca_ne")}],
+"loop": true,
+"name": &"pesca_ne",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pesca_e")}],
+"loop": true,
+"name": &"pesca_e",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("pesca_se")}],
+"loop": true,
+"name": &"pesca_se",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("cocina_s")}],
+"loop": true,
+"name": &"cocina_s",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("cocina_so")}],
+"loop": true,
+"name": &"cocina_so",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("cocina_o")}],
+"loop": true,
+"name": &"cocina_o",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("cocina_no")}],
+"loop": true,
+"name": &"cocina_no",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("cocina_n")}],
+"loop": true,
+"name": &"cocina_n",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("cocina_ne")}],
+"loop": true,
+"name": &"cocina_ne",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("cocina_e")}],
+"loop": true,
+"name": &"cocina_e",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("cocina_se")}],
+"loop": true,
+"name": &"cocina_se",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_s")}],
+"loop": true,
+"name": &"comida_s",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_so")}],
+"loop": true,
+"name": &"comida_so",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_o")}],
+"loop": true,
+"name": &"comida_o",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_no")}],
+"loop": true,
+"name": &"comida_no",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_n")}],
+"loop": true,
+"name": &"comida_n",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_ne")}],
+"loop": true,
+"name": &"comida_ne",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_e")}],
+"loop": true,
+"name": &"comida_e",
+"speed": 1.0
+},
+{
+"frames": [{"duration": 1.0, "texture": SubResource("comida_se")}],
+"loop": true,
+"name": &"comida_se",
+"speed": 1.0
+}
+]
