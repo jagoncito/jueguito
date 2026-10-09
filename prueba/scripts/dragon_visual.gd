@@ -11,6 +11,10 @@ var primary_hand: Node2D
 var secondary_hand: Node2D
 var current_frame := ""
 var direction_index := 0
+var hand_cover: Sprite2D
+var cover_offset := Vector2.ZERO
+var tool_behind := false
+var covers: Dictionary = {}
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -22,6 +26,9 @@ func _ready() -> void:
 	secondary_hand = Node2D.new()
 	add_child(primary_hand)
 	add_child(secondary_hand)
+	hand_cover = Sprite2D.new()
+	hand_cover.centered = false
+	add_child(hand_cover)
 	show_pose("reposo",0)
 
 func show_pose(pose: String, direction: int) -> void:
@@ -46,6 +53,20 @@ func show_pose(pose: String, direction: int) -> void:
 	body.position = (Vector2(frame.region[0],frame.region[1])-anchor)*factor
 	primary_hand.position = (Vector2(frame.hand[0],frame.hand[1])-anchor)*factor
 	secondary_hand.position = (Vector2(frame.other_hand[0],frame.other_hand[1])-anchor)*factor
+	tool_behind = frame.get("tool_behind",direction_index in [3,4,5])
+	var region: Array = frame.get("hand_cover",[])
+	hand_cover.visible = not region.is_empty()
+	if not region.is_empty():
+		if not covers.has(key):
+			var cover := AtlasTexture.new()
+			cover.atlas = textures[frame.file]
+			cover.region = Rect2(region[0],region[1],region[2],region[3])
+			cover.filter_clip = true
+			covers[key] = cover
+		hand_cover.texture = covers[key]
+		hand_cover.scale = Vector2.ONE*factor
+		cover_offset = (Vector2(region[0],region[1])-Vector2(frame.hand[0],frame.hand[1]))*factor
+		hand_cover.position = primary_hand.position+cover_offset
 
 func _draw() -> void:
 	draw_set_transform(Vector2(0,-2),0,Vector2(1,0.27))

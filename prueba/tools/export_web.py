@@ -23,6 +23,7 @@ No hace falta mantener pulsado ni repetir clics por golpe.
 Para flores se equipa el palín y el personaje se arrodilla, extrae y se levanta.
 E: plantar, regar o cosechar.
 Dragón bípedo: ocho direcciones, cola conectada, caminar, minar, talar y palín.
+Marcha de cuatro fases distintas; pico-hacha y palín con ocho perspectivas y agarres registrados.
 Para ver ocho direcciones ampliadas, añade ?vista=dragon a la URL del juego.
 Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín.
 No guarda progreso. Entorno y animaciones de prototipo.

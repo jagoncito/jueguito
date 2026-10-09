@@ -40,9 +40,12 @@ func _ready() -> void:
 
 func _capture_pose(requested: String) -> void:
 	var names := ["reposo","marcha","minar","talar","palin"]
-	if not names.has(requested):
+	var walk_phase := -1
+	if requested.begins_with("marcha-"):
+		walk_phase = ["a","paso-a","b","paso-b"].find(requested.trim_prefix("marcha-"))
+	if not names.has(requested) and walk_phase < 0:
 		return
-	mode = names.find(requested)
+	mode = 1 if walk_phase >= 0 else names.find(requested)
 	mode_label.text = MODES[mode]
 	for index in range(actors.size()):
 		var actor := actors[index]
@@ -57,7 +60,7 @@ func _capture_pose(requested: String) -> void:
 				actor.tool.motion.pause()
 				actor.tool.motion.custom_step(0.34)
 		elif mode == 1:
-			actor.walk_time = 1.0
+			actor.walk_time = 0.1+walk_phase*1.15 if walk_phase >= 0 else 1.0
 		actor.animate_pose(0)
 	set_process(false)
 	var frames: Array[String] = []
@@ -79,6 +82,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_5:
 			mode = event.physical_keycode-KEY_1
 			mode_label.text = MODES[mode]
+			print("BITU_DRAGON_MODE:",MODES[mode])
 			set_process(true)
 			queue_redraw()
 			for index in range(8):

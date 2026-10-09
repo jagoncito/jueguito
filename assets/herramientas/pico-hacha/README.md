@@ -49,7 +49,9 @@ Es un **rig 2D de una pose**, no una hoja de fotogramas ni las animaciones defin
 
 ## Revisar en Godot
 
-La copia preparada para el proyecto está en `prueba/assets/herramientas/pico-hacha/`. Abre `prueba/project.godot`, selecciona **`scenes/herramienta.tscn`** y pulsa **F6**. La revisión muestra la herramienta junto al humano de referencia, ampliados ×4, y poses de agarre, minería y tala. **1** reproduce minería, **2** tala y **R** restaura las poses. Con **F5**, el jugador de la granja lleva la herramienta: **un clic izquierdo sobre una mena o árbol cercano** completa la extracción, con brazos y ambas manos coordinados de forma provisional. No incluye todavía todas las proyecciones ni mejoras de materiales jugables.
+**Ocho vistas para el dragón (corrección del 9 de octubre):** `pico-hacha-vistas.png` es un atlas transparente de 1774 × 887, orden S, SW, W, NW / N, NE, E, SE. Son proyecciones con ancho y volumen propios; en la espalda se invierte visualmente el orden de los extremos, conservando su función. `pico-hacha-vistas.json` registra agarres, contactos y tres regiones por vista. `set_direction()` selecciona la perspectiva y `contact_offset()` proporciona su contacto local. Los tres componentes siguen separados; mejoras jugables y sus atlas por material pendientes. Las texturas originales y la revisión independiente se conservan.
+
+La copia preparada para el proyecto está en `prueba/assets/herramientas/pico-hacha/`. Abre `prueba/project.godot`, selecciona **`scenes/herramienta.tscn`** y pulsa **F6**. La revisión muestra la herramienta junto al humano de referencia, ampliados ×4, y poses de agarre, minería y tala. **1** reproduce minería, **2** tala y **R** restaura las poses. Con **F5**, el jugador de la granja lleva la herramienta: **un clic izquierdo sobre una mena o árbol cercano** completa la extracción, con brazos y ambas manos coordinados de forma provisional. La integración del dragón añade las ocho proyecciones descritas abajo; las mejoras de materiales siguen pendientes.
 
 ![Dragón equipado con la herramienta](../../../prueba/capturas/dragon-en-juego.png)
 

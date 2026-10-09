@@ -10,9 +10,16 @@ func run() -> void:
 	actor.set_physics_process(false)
 	actor.work_finished.connect(actor.end_work)
 	var visual := actor.dragon
-	assert(visual.catalog.frames.size() == 72,"Catálogo de ocho direcciones y nueve poses")
+	assert(visual.catalog.frames.size() == 80,"Ocho direcciones y cuatro fases de marcha distintas")
 	assert(visual.body.scale.x == visual.body.scale.y,"Sin estirar anatomía en un eje")
-	assert(actor.tool_mount.get_index()<visual.get_index(),"Cuerpo y dedos ocluyen herramienta")
+	assert(actor.tool_mount.get_index()>visual.get_index(),"Herramienta frontal delante del cuerpo")
+	assert(visual.hand_cover.get_index()>actor.tool_mount.get_index(),"Dedos sobre el mango")
+	var source_images: Dictionary = {}
+	for key in visual.catalog.frames:
+		var frame: Dictionary = visual.catalog.frames[key]
+		if not source_images.has(frame.file):
+			source_images[frame.file] = load(visual.DIRECTORY+frame.file).get_image()
+		assert(source_images[frame.file].get_pixel(frame.hand[0],frame.hand[1]).a>0.5,"Palma sobre píxeles dibujados: "+key)
 	var seen: Dictionary = {}
 	var hits := [0]
 	var work_hits := [0]
@@ -27,8 +34,17 @@ func run() -> void:
 	for index in range(8):
 		var direction: Vector2 = BituPlayer.DIRECTIONS[index].normalized()
 		actor.face_towards(direction)
-		actor.walk_time = 1.0
-		actor.animate_pose(0)
+		var phases: Dictionary = {}
+		for phase in range(4):
+			actor.walk_time = 0.1+phase*1.15
+			actor.animate_pose(0)
+			var texture := visual.body.texture as AtlasTexture
+			phases[str(texture.atlas.resource_path,texture.region)] = true
+			assert(actor.primary_hand.position.distance_to(actor.tool_mount.position)<0.01,"Agarre registrado en cada fase")
+			assert(actor.tool.direction_index == index,"Perspectiva de herramienta acompaña al cuerpo")
+			assert((actor.tool_mount.get_index()<visual.get_index()) == visual.tool_behind,"Profundidad del agarre según vista")
+			assert(visual.hand_cover.position.is_equal_approx(actor.primary_hand.position+visual.cover_offset),"Dedos registrados sobre la palma")
+		assert(phases.size()==4,"Cuatro dibujos distintos por dirección, sin paso intermedio repetido")
 		assert(actor.direction_index == index,"Ocho direcciones sin reflejar la cara original")
 		seen[visual.current_frame] = true
 		assert(actor.primary_hand.position.distance_to(actor.tool_mount.position)<0.01,"Agarre de marcha")
@@ -59,6 +75,50 @@ func run() -> void:
 		await create_timer(1.6).timeout
 		assert(not actor.busy and actor.kneel_amount == 0,"Recuperar postura y control")
 	assert(seen.size() == 8 and hits[0] == 8 and work_hits[0] == 16,"Ocho vistas distintas, contactos de pico/hacha y ocho extracciones")
+	# La marcha sigue el desplazamiento real y las diagonales no son más rápidas.
+	for action in ["move_left","move_right","move_up","move_down"]:
+		if not InputMap.has_action(action):
+			InputMap.add_action(action)
+	actor.set_physics_process(true)
+	for index in [2,3,4,5,7]:
+		var direction: Vector2 = BituPlayer.DIRECTIONS[index]
+		var actions: Array[String] = []
+		if direction.x < 0: actions.append("move_left")
+		if direction.x > 0: actions.append("move_right")
+		if direction.y < 0: actions.append("move_up")
+		if direction.y > 0: actions.append("move_down")
+		var start := actor.position
+		for action in actions: Input.action_press(action)
+		await create_timer(.3).timeout
+		assert(actor.direction_index == index,"Vista según movimiento real, incluida izquierda y espalda")
+		assert(actor.position.distance_to(start)>30,"Desplazamiento efectivo")
+		assert(is_equal_approx(actor.velocity.length(),BituPlayer.SPEED),"Velocidad diagonal normalizada")
+		assert(actor.walk_time>0,"Marcha activa al avanzar")
+		for action in actions: Input.action_release(action)
+		await create_timer(.04).timeout
+		assert(actor.walk_time==0,"Reposo al dejar de desplazarse")
+	actor.set_physics_process(false)
+	actor.position = Vector2.ZERO
+	var wall := StaticBody2D.new()
+	var wall_collision := CollisionShape2D.new()
+	var wall_shape := RectangleShape2D.new()
+	wall_shape.size = Vector2(10,300)
+	wall_collision.shape = wall_shape
+	wall.add_child(wall_collision)
+	wall.position = Vector2(16,-3)
+	root.add_child(wall)
+	actor.set_physics_process(true)
+	Input.action_press("move_right")
+	await create_timer(.3).timeout
+	assert(actor.position.x<6 and actor.walk_time==0,"No caminar en el sitio contra un obstáculo")
+	Input.action_press("move_up")
+	await create_timer(.2).timeout
+	assert(actor.direction_index==4,"Al deslizarse, orientar hacia el desplazamiento real")
+	Input.action_release("move_right")
+	Input.action_release("move_up")
+	actor.set_physics_process(false)
+	actor.position = Vector2.ZERO
+	wall.queue_free()
 	# Regresión: la base está al sur y el impacto elevado queda al norte.
 	actor.face_towards(Vector2.UP)
 	actor.begin_work(&"minar",Vector2(0,-12),Vector2(0,10))

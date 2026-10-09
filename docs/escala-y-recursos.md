@@ -26,6 +26,8 @@ Para nuevos elementos, aplicar la referencia de su familia y discutir excepcione
 
 ## 2. Familias y proporciones
 
+**Registro direccional del protagonista:** cuatro fases distintas de marcha por vista, todas escaladas uniformemente y apoyadas en un ancla de suelo. La palma y el recorte de dedos se registran en cada fotograma; las ocho perspectivas del equipo conservan su propio agarre y contactos. No igualar la caja de una herramienta de perfil con su vista frontal ni estirar brazos para alcanzar un mango. La marcha se sincroniza con la distancia recorrida, también en diagonales y al deslizarse contra obstáculos.
+
 Rangos orientativos, en píxeles del recurso antes del zoom. Los cultivos citados además de patata y tomate son ejemplos de formas posibles, no nuevas especies confirmadas.
 
 | Familia | Tamaño visible orientativo | Apoyo y reglas espaciales |

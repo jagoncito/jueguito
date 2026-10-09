@@ -6,7 +6,8 @@ const TOOL := preload("res://assets/herramientas/pico-hacha/pico-hacha-hierro.ts
 const HERBAL_TOOL := preload("res://assets/herramientas/palin-herborista/palin-herborista.tscn")
 const DRAGON_VISUAL := preload("res://scripts/dragon_visual.gd")
 const DIRECTIONS := [Vector2.DOWN,Vector2(-1,1),Vector2.LEFT,Vector2(-1,-1),Vector2.UP,Vector2(1,-1),Vector2.RIGHT,Vector2(1,1)]
-const CARRY_ANGLES := [-35.0,-40.0,-55.0,-40.0,35.0,40.0,55.0,40.0]
+const CARRY_ANGLES := [-55.0,-55.0,-70.0,-65.0,55.0,65.0,70.0,55.0]
+const WALK_POSES := ["andar-a","paso-a","andar-b","paso-b"]
 const TOOL_SCALE := 0.72
 signal work_impact(function: StringName)
 signal work_finished
@@ -55,13 +56,14 @@ func _ready() -> void:
 		herbal_mount.add_child(herbal_tool)
 		herbal_tool.impact.connect(func(action: StringName): work_impact.emit(action))
 		herbal_tool.work_finished.connect(func(): work_finished.emit())
-	# Los dedos y el cuerpo ocluyen los mangos. Todo con z=0 para el y-sort.
+	# Capas locales, sin alterar el y-sort del personaje frente al mundo.
 	dragon = DRAGON_VISUAL.new()
 	add_child(dragon)
 	primary_hand = Node2D.new()
 	secondary_hand = Node2D.new()
 	add_child(primary_hand)
 	add_child(secondary_hand)
+	dragon.hand_cover.reparent(self)
 	end_work()
 
 func face_towards(direction: Vector2) -> void:
@@ -83,9 +85,10 @@ func begin_work(action: StringName, contact: Vector2, ground_target := Vector2.I
 	herbal_mount.visible = false
 	# Elegir el extremo una vez por extracción, sin invertirlo entre poses.
 	dragon.show_pose("golpe",direction_index)
+	tool.set_direction(direction_index)
 	var hand := dragon.primary_hand.position
 	var angle := (dragon.secondary_hand.position-hand).angle()+PI/2
-	var tip: Vector2 = (tool.CONTACTS[String(action)]-tool.SOURCE_GRIP)*tool.SOURCE_SCALE*TOOL_SCALE
+	var tip: Vector2 = tool.contact_offset(action)*TOOL_SCALE
 	tool_side = 1.0 if (hand+tip.rotated(angle)).distance_to(work_contact) <= (hand+Vector2(-tip.x,tip.y).rotated(angle)).distance_to(work_contact) else -1.0
 	var reach := work_contact-hand
 	work_stance = (reach.normalized()*(reach.length()-tip.length())).limit_length(18)
@@ -129,13 +132,19 @@ func begin_gathering(contact: Vector2, ground_target := Vector2.INF) -> void:
 	herbal_tool.play_work()
 	animate_pose(0)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left","move_right","move_up","move_down")
 	velocity = direction*SPEED if not busy else Vector2.ZERO
-	if not busy and not direction.is_zero_approx():
-		face_towards(direction)
-	walk_time = walk_time+delta*9 if velocity.length()>0 else 0.0
+	var previous := position
 	move_and_slide()
+	var travel := position-previous
+	if not busy and travel.length() > 0.001:
+		face_towards(travel)
+		walk_time += travel.length()*0.06
+	else:
+		walk_time = 0.0
+		if not busy:
+			face_towards(direction)
 
 func _process(delta: float) -> void:
 	animate_pose(delta)
@@ -158,23 +167,36 @@ func animate_pose(_delta: float) -> void:
 		elif elapsed < 0.40:
 			pose = "golpe"
 	elif walk_time > 0:
-		pose = ["andar-a","paso","andar-b","paso"][int(walk_time/1.15)%4]
+		pose = WALK_POSES[int(walk_time/1.15)%4]
 	dragon.show_pose(pose,direction_index)
 	dragon.position = work_stance if busy and not gathering else Vector2.ZERO
 	# Pequeño cambio de apoyo al agacharse: mantener el tamaño del palín.
 	# La posición física del jugador y el alcance de interacción no cambian.
 	if gathering and pose != "reposo":
-		var tip_length: float = ((herbal_tool.SOURCE_TIP-herbal_tool.SOURCE_GRIP)*herbal_tool.SOURCE_SCALE).length()
+		herbal_tool.set_direction(direction_index)
+		var tip_length: float = herbal_tool.tip_offset().length()
 		var reach: Vector2 = plant_contact-dragon.primary_hand.position
 		var held_scale := clampf(reach.length()/tip_length,0.65,0.95)
 		dragon.position = reach.normalized()*(reach.length()-tip_length*held_scale)
 	primary_hand.position = dragon.position+dragon.primary_hand.position
 	secondary_hand.position = dragon.position+dragon.secondary_hand.position
+	dragon.hand_cover.position = primary_hand.position+dragon.cover_offset
 	if not equipment_enabled:
+		dragon.hand_cover.visible = false
 		return
+	tool.set_direction(direction_index)
+	herbal_tool.set_direction(direction_index)
+	var mount := herbal_mount if gathering else tool_mount
+	var layer := dragon.get_index()+(0 if dragon.tool_behind else 1)
+	if mount.get_index() < dragon.get_index():
+		layer -= 1
+	if mount.get_index() != layer:
+		move_child(mount,layer)
+	if dragon.hand_cover.get_index() != get_child_count()-1:
+		move_child(dragon.hand_cover,get_child_count()-1)
 	if gathering:
 		herbal_mount.position = primary_hand.position
-		var tip: Vector2 = (herbal_tool.SOURCE_TIP-herbal_tool.SOURCE_GRIP)*herbal_tool.SOURCE_SCALE
+		var tip: Vector2 = herbal_tool.tip_offset()
 		var reach := plant_contact-primary_hand.position
 		herbal_mount.scale = Vector2.ONE*reach.length()/tip.length()
 		herbal_mount.rotation = reach.angle()-tip.angle()
@@ -188,7 +210,7 @@ func animate_pose(_delta: float) -> void:
 		tool_mount.scale = Vector2(tool_side if busy else 1.0,1)*(work_scale if busy else TOOL_SCALE)
 		if busy:
 			if pose == "golpe":
-				var tip: Vector2 = (tool.CONTACTS[String(work_kind)]-tool.SOURCE_GRIP)*tool.SOURCE_SCALE
+				var tip: Vector2 = tool.contact_offset(work_kind)
 				tip.x *= tool_side
 				tool_mount.rotation = (work_contact-primary_hand.position).angle()-tip.angle()
 			else:

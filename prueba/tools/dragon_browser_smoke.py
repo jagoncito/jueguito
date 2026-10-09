@@ -19,6 +19,7 @@ async def main():
             await page.goto('http://127.0.0.1:8765/index.html?vista=dragon',wait_until='networkidle')
             await page.wait_for_function("document.getElementById('status') === null",timeout=60000)
             await page.wait_for_timeout(400)
+            await page.locator('canvas').click(position={'x':640,'y':80})
             await page.evaluate('''() => {
                 const chunks=[];
                 const recorder=new MediaRecorder(document.querySelector('canvas').captureStream(25),{mimeType:'video/webm'});
@@ -29,7 +30,15 @@ async def main():
                 });recorder.start();
             }''')
             for key,name in [('1','reposo'),('2','marcha'),('3','minar'),('4','talar'),('5','palin')]:
-                await page.keyboard.press(key)
+                expected_mode={'1':'REPOSO','2':'MARCHA','3':'MINAR','4':'TALAR','5':'PALÍN'}[key]
+                async with page.expect_console_message(
+                    predicate=lambda m: f'BITU_DRAGON_MODE:{expected_mode}' in m.text,
+                    timeout=15000):
+                    # Mantener una tecla varios frames evita perder down/up
+                    # entre frames de WebGL por software durante la carga.
+                    await page.keyboard.down(key)
+                    await page.wait_for_timeout(200)
+                    await page.keyboard.up(key)
                 await page.wait_for_timeout(400 if key=='5' else 150)
                 capture_name = 'dragon-animaciones.png' if key=='1' else f'dragon-{name}.png'
                 before=Image.open(io.BytesIO(await page.screenshot(path=str(PROJECT/'capturas'/capture_name)))).convert('RGB')
@@ -63,6 +72,24 @@ async def main():
                 assert states and states[-1] == {'mode':name,'frames':expected_frames}, states
                 capture_name='dragon-animaciones.png' if name=='reposo' else f'dragon-{name}.png'
                 await page.screenshot(path=str(PROJECT/'capturas'/capture_name))
+            # Regresión de piernas: las cuatro fases deben cambiar el dibujo
+            # en su zona, no aprobar solo porque se mueve la herramienta.
+            walk_images=[]
+            for phase,pose in [('a','andar-a'),('paso-a','paso-a'),('b','andar-b'),('paso-b','paso-b')]:
+                first_message=len(messages)
+                await page.goto(f'http://127.0.0.1:8765/index.html?vista=dragon&captura=marcha-{phase}',wait_until='networkidle')
+                await page.wait_for_function("document.getElementById('status') === null",timeout=60000)
+                states=[json.loads(text.split('BITU_DRAGON_CAPTURE_READY:',1)[1])
+                        for _,text in messages[first_message:] if 'BITU_DRAGON_CAPTURE_READY:' in text]
+                assert states and states[-1]['frames']==[f'{pose}-{d}' for d in ['S','SW','W','NW','N','NE','E','SE']],states
+                walk_images.append(Image.open(io.BytesIO(await page.screenshot(
+                    path=str(PROJECT/'build'/f'dragon-fase-{phase}.png')))).convert('RGB'))
+            for i in range(8):
+                x=320*(i%4);y=320*(i//4)
+                # Parte baja del cuerpo: pies y rodillas, excluyendo el mango.
+                bounds=(x+95,y+247,x+220,y+293)
+                assert all(ImageChops.difference(walk_images[phase].crop(bounds),walk_images[(phase+1)%4].crop(bounds)).getbbox()
+                           for phase in range(4)),f'Piernas congeladas en dirección {i}'
             assert any('BITU_DRAGON_PREVIEW_READY' in text for _,text in messages),messages
             assert not any(kind in {'error','pageerror'} for kind,_ in messages),messages
             print('BITU_DRAGON_BROWSER_SMOKE_OK: 8 direcciones × 5 acciones')

@@ -7,8 +7,10 @@ Tras revisar la primera integración, el usuario pide rehacer proporciones, cola
 | Atlas transparente | Dimensiones fuente | Contenido |
 |---|---|---|
 | `dragon-reposo.png` | 1536 × 1024 | Ocho poses erguidas. |
-| `dragon-marcha.png` | 1312 × 1199 | Dos pasos alternos en cada dirección. |
-| `dragon-transiciones.png` | 1312 × 1199 | Paso intermedio y agarre preparado. |
+| `dragon-marcha-frontal.png` | 1312 × 1199 | Cuatro fases en S, SW, E y SE. |
+| `dragon-marcha-trasera.png` | 1312 × 1199 | Cuatro fases en W, NE, N y NW. |
+| `dragon-marcha-apoyos.png` | 1312 × 1199 | Apoyos opuestos adicionales de S y N. |
+| `dragon-transiciones.png` | 1312 × 1199 | Agarre preparado; su antiguo paso ya no se usa. |
 | `dragon-trabajo.png` | 1261 × 1247 | Carga y golpe en cada dirección. |
 | `dragon-herboristeria.png` | 1536 × 1024 | Recolección arrodillada y elevación. |
 | `dragon-jugable.json` | Coordenadas fuente | Regiones, anclas de suelo, palmas y escala uniforme. |
@@ -16,16 +18,18 @@ Tras revisar la primera integración, el usuario pide rehacer proporciones, cola
 
 Direcciones: **S, SW, W, NW, N, NE, E, SE**. Son dibujos completos: cabeza, torso, brazos, piernas, alas y cola forman parte de cada pose. La cola nace de la pelvis, cambia de perspectiva con el cuerpo y acompaña los pasos; no se coloca como una pieza suelta ni se estira. Se retiran los dos atlas de piezas sustituidos.
 
-La presentación erguida mide aproximadamente **90 px antes del zoom**; la pose arrodillada es más baja. Los PNG grandes se mantienen y se muestran mediante `AtlasTexture` y vecino más cercano: no son sprites nativos de 128 × 128. El catálogo contiene 72 entradas de pose/dirección; la elevación E reutiliza la pose baja correcta porque el dibujo generado de elevación no conservaba su perfil. No se afirma que todas las poses sean animación final de producción.
+La presentación erguida mide aproximadamente **90 px antes del zoom**; la pose arrodillada es más baja. Los PNG grandes se mantienen y se muestran mediante `AtlasTexture` y vecino más cercano: no son sprites nativos de 128 × 128. El catálogo contiene **80 entradas**, incluidas 32 de marcha (cuatro por dirección); la elevación E reutiliza la pose baja correcta porque el dibujo generado de elevación no conservaba su perfil. El atlas antiguo de marcha se retira, recuperable en Git. No se afirma que todas las poses sean animación final de producción.
 
 La punta del pico y el filo del hacha se alinean con el recurso al impactar; la postura ajusta el apoyo hasta 18 px sin cambiar la posición física. El cuerpo gira inmediatamente hacia **la base del recurso**, independientemente de la altura del punto de impacto. Los mangos se registran con las palmas dibujadas y se ocluyen por el cuerpo y los dedos; no se mueven brazos a través de la espalda para alcanzar herramientas. El palín hace paladas breves desde la muñeca y toca la tierra al extraer. Un cambio de apoyo al agacharse mantiene su escala entre 0,65 y 0,95, sin desplazar físicamente al jugador ni ampliar el alcance.
 
-- Marcha: paso A → paso intermedio → paso B → paso intermedio, con herramienta equipada.
+- Marcha: contacto A → paso A → contacto B → paso B, con cuatro dibujos distintos y herramienta equipada. Los pies traseros avanzan alejándose de la cámara. El ciclo sigue la distancia realmente recorrida, no solo la tecla pulsada; se detiene al quedar bloqueado.
 - Minería/tala: preparación → carga → golpe → recuperación; señales y tiempos conservados.
 - Herboristería: agacharse → paladas → extracción → elevación → recuperar postura.
 - Pesca, regadera, combate, daño y esquive: pendientes de sus sistemas.
 
-[`dragon_visual.gd`](../../../prueba/scripts/dragon_visual.gd) presenta las poses; [`player.gd`](../../../prueba/scripts/player.gd) registra herramientas y orientación. Los cinco atlas y el catálogo tienen copias idénticas dentro de `prueba/` para exportar el proyecto independiente.
+[`dragon_visual.gd`](../../../prueba/scripts/dragon_visual.gd) presenta las poses; [`player.gd`](../../../prueba/scripts/player.gd) registra herramientas y orientación. Los siete atlas y el catálogo tienen copias idénticas dentro de `prueba/` para exportar el proyecto independiente.
+
+**Agarre revisado:** coordenadas de palma medidas en cada dibujo, incluida la marcha. `hand_cover` presenta una región de los dedos del mismo atlas sobre el mango, sin modificar el PNG. El cuerpo ocluye las herramientas traseras; las frontales se presentan delante del torso y detrás de los dedos. Pico–hacha y palín usan ocho proyecciones espaciales propias, no solo giros de una única imagen. [`register_motion_assets.py`](../../../prueba/tools/register_motion_assets.py) reproduce los registros medidos y emite JSON para revisión; requiere Pillow, NumPy y SciPy, no edita imágenes.
 
 Importa `prueba/project.godot` en **Godot 4.6.3** y pulsa **F5** para jugar. Cámara inicial de prueba a zoom **1,5**, ajustable con la rueda. Abre `prueba/scenes/dragon.tscn` y pulsa **F6** para ver simultáneamente ocho direcciones ampliadas ×2: **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín**. En el navegador añade `?vista=dragon` a la URL.
 

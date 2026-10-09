@@ -14,6 +14,40 @@ var externally_posed := false
 const SOURCE_GRIP := Vector2(630,900)
 const SOURCE_SCALE := 0.0625
 const CONTACTS := {"minar":Vector2(250,414),"talar":Vector2(1000,350)}
+var direction_index := -1
+var view_catalog: Dictionary = {}
+var current_view: Dictionary = {}
+var view_texture: Texture2D
+var view_atlases: Dictionary = {}
+
+func set_direction(index: int) -> void:
+	index = posmod(index,8)
+	if direction_index == index:
+		return
+	if view_catalog.is_empty():
+		view_catalog = JSON.parse_string(FileAccess.get_file_as_string("res://assets/herramientas/pico-hacha/pico-hacha-vistas.json"))
+		view_texture = load("res://assets/herramientas/pico-hacha/pico-hacha-vistas.png")
+	direction_index = index
+	current_view = view_catalog.views[view_catalog.directions[index]]
+	for part in {"pick":"Pico","handle":"Mango","axe":"Hacha"}:
+		var key := "%s-%s" % [index,part]
+		var region: Array = current_view.pieces[part]
+		if not view_atlases.has(key):
+			var atlas := AtlasTexture.new()
+			atlas.atlas = view_texture
+			atlas.region = Rect2(region[0],region[1],region[2],region[3])
+			atlas.filter_clip = true
+			view_atlases[key] = atlas
+		var sprite := get_node({"pick":"Pico","handle":"Mango","axe":"Hacha"}[part]) as Sprite2D
+		sprite.texture = view_atlases[key]
+		sprite.scale = Vector2.ONE*float(current_view.scale)
+		sprite.position = (Vector2(region[0]+region[2]*.5,region[1]+region[3]*.5)-Vector2(current_view.grip[0],current_view.grip[1]))*float(current_view.scale)
+
+func contact_offset(function: StringName) -> Vector2:
+	if current_view.is_empty():
+		return (CONTACTS[String(function)]-SOURCE_GRIP)*SOURCE_SCALE
+	var point: Array = current_view.contacts[String(function)]
+	return (Vector2(point[0],point[1])-Vector2(current_view.grip[0],current_view.grip[1]))*float(current_view.scale)
 
 func _ready() -> void:
 	reset_pose()
@@ -54,12 +88,12 @@ func contact_point(function: StringName) -> Vector2:
 	# Para colocar efectos visuales al impactar; no determina el alcance jugable.
 	if not CONTACTS.has(String(function)):
 		return global_position
-	return to_global((CONTACTS[String(function)]-SOURCE_GRIP)*SOURCE_SCALE)
+	return to_global(contact_offset(function))
 
 func impact_vector(function: StringName) -> Vector2:
 	if not MOTIONS.has(String(function)):
 		return Vector2.ZERO
-	var local_point: Vector2 = (CONTACTS[String(function)]-SOURCE_GRIP)*SOURCE_SCALE
+	var local_point := contact_offset(function)
 	return local_point.rotated(deg_to_rad(float(MOTIONS[String(function)][1][0])))
 
 func set_part_texture(part: StringName, replacement: Texture2D) -> bool:
