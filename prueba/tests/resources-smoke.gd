@@ -27,7 +27,7 @@ func run() -> void:
 	await physics_frame
 	assert(scene.trees[0].variant == 0 and scene.trees[1].variant == 1 and scene.trees[2].variant == 2)
 	var tree: BituTree = scene.trees[0]
-	for hit in range(4):
+	for hit in range(BituTree.HITS_REQUIRED):
 		tree.hit()
 	assert(tree.visual_id() == "stump-0" and not tree.contains_visual_point(Vector2.ZERO))
 	var ore: BituResource = scene.resources[0]
