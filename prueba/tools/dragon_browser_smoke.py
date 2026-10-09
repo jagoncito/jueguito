@@ -1,6 +1,7 @@
 """Revisa ocho direcciones y cinco acciones en el canvas real de Godot."""
 import asyncio
 import io
+import json
 from pathlib import Path
 from PIL import Image, ImageChops
 from playwright.async_api import async_playwright
@@ -48,9 +49,18 @@ async def main():
             # Guardar cada modo en una pose fija del mismo controlador. Los
             # screenshots pueden tardar más que un golpe en WebGL por software.
             for name in ['reposo','marcha','minar','talar','palin']:
+                capture_messages = len(messages)
                 await page.goto(f'http://127.0.0.1:8765/index.html?vista=dragon&captura={name}',wait_until='networkidle')
                 await page.wait_for_function("document.getElementById('status') === null",timeout=60000)
                 await page.wait_for_timeout(300)
+                states = [json.loads(text.split('BITU_DRAGON_CAPTURE_READY:',1)[1])
+                          for _,text in messages[capture_messages:]
+                          if 'BITU_DRAGON_CAPTURE_READY:' in text]
+                expected_pose = {'reposo':'reposo','marcha':'andar-a',
+                                 'minar':'golpe','talar':'golpe','palin':'arrodillado'}[name]
+                expected_frames = [f'{expected_pose}-{direction}'
+                                   for direction in ['S','SW','W','NW','N','NE','E','SE']]
+                assert states and states[-1] == {'mode':name,'frames':expected_frames}, states
                 capture_name='dragon-animaciones.png' if name=='reposo' else f'dragon-{name}.png'
                 await page.screenshot(path=str(PROJECT/'capturas'/capture_name))
             assert any('BITU_DRAGON_PREVIEW_READY' in text for _,text in messages),messages

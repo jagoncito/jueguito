@@ -23,6 +23,7 @@ async def main():
             await page.wait_for_function("document.getElementById('status') === null", timeout=60000)
             await page.wait_for_timeout(500)
             await page.screenshot(path=str(PROJECT / "build/entrada.png"))
+            await page.screenshot(path=str(PROJECT / "capturas/dragon-en-juego.png"))
             await page.mouse.wheel(0,120)
             await page.wait_for_timeout(100)
             # Entrar en el alcance desde el norte, sin bajar hasta el árbol.
@@ -68,6 +69,7 @@ async def main():
             await page.mouse.click(flower_x, flower_y)
             await page.wait_for_timeout(500)
             await page.screenshot(path=str(PROJECT / "build/recogiendo-flor.png"))
+            await page.screenshot(path=str(PROJECT / "capturas/dragon-recolectando.png"))
             await page.wait_for_timeout(600)
             await page.screenshot(path=str(PROJECT / "build/palin-en-tierra.png"))
             await page.wait_for_timeout(1800)

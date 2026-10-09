@@ -17,7 +17,7 @@ func _ready() -> void:
 	for index in range(8):
 		var actor := BituPlayer.new()
 		actor.equipment_enabled = true
-		actor.position = Vector2(160+(index%4)*320,300+(index/4)*320)
+		actor.position = Vector2(160+(index%4)*320,290+(index/4)*320)
 		actor.scale = Vector2(2,2)
 		add_child(actor)
 		actor.set_physics_process(false)
@@ -30,7 +30,7 @@ func _ready() -> void:
 			actor.end_work()
 			cooldowns[index] = 0.35
 		)
-		_label(LABELS[index],Vector2(28+(index%4)*320,380+(index/4)*320),16)
+		_label(LABELS[index],Vector2(28+(index%4)*320,370+(index/4)*320),16)
 	# Capturas reproducibles de las poses reales, sin depender del rendimiento WebGL.
 	if OS.has_feature("web"):
 		var requested = JavaScriptBridge.eval("new URLSearchParams(location.search).get('captura')")
@@ -60,6 +60,10 @@ func _capture_pose(requested: String) -> void:
 			actor.walk_time = 1.0
 		actor.animate_pose(0)
 	set_process(false)
+	var frames: Array[String] = []
+	for actor in actors:
+		frames.append(actor.dragon.current_frame)
+	print("BITU_DRAGON_CAPTURE_READY:",JSON.stringify({"mode":requested,"frames":frames}))
 
 func _start_action(index: int) -> void:
 	var actor := actors[index]
@@ -75,6 +79,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_5:
 			mode = event.physical_keycode-KEY_1
 			mode_label.text = MODES[mode]
+			set_process(true)
 			queue_redraw()
 			for index in range(8):
 				actors[index].end_work()
