@@ -25,6 +25,15 @@ Se busca que las mejoras se noten y que encontrar algo especial dé ilusión. La
 - Tras comparar estilos, se conserva la versión pixel art de Unamahloni y se eliminan las dos variantes ilustradas del repositorio.
 - **Generación general de imágenes detenida por petición del usuario.** No crear más imágenes salvo una petición explícita posterior. El entorno de la prueba usa referencias dibujadas por el motor; la petición posterior del pico–hacha autoriza ese recurso concreto, no una producción gráfica general.
 
+### Agua y casa — referencias solicitadas el 9 de octubre
+
+El usuario solicita perfeccionar primero los assets de agua y casa y **ver los resultados antes de subirlos a GitHub**. Autoriza generar estas propuestas concretas; la pausa de generación general se mantiene para otros recursos.
+
+- **Agua:** referencia pixel art aportada por el usuario, con turquesas, zonas azul profundo, reflejos y espuma en los bordes. Adaptar ese lenguaje visual a la bahía costera de Bītu; el puente y las cascadas de la referencia no fijan nuevos elementos del mapa.
+- **Casa:** referencia aportada de vivienda rural con paredes claras y entramado de madera, adaptada a pixel art isométrico y con un aspecto más granjero. Mantener el estado inicial abandonado pero habitable ya acordado.
+- **Revisión y publicación solicitadas:** tras ver la primera propuesta conjunta, el usuario pide cambiar algún detalle y subirla a GitHub, **sin aplicarla al juego**. La [propuesta revisada](docs/referencias/agua-casa-bitu.png) simplifica el tejado, retirando las ventanas abuhardilladas, y envejece ligeramente las contraventanas. Es una referencia visual; todavía no son sprites registrados ni están integrados en Godot. Los accesorios y el paisaje no constituyen nuevas decisiones de distribución o sistemas. La petición autoriza publicar esta entrega concreta, no futuras subidas automáticas ni integración.
+- **Sprites solicitados después:** el usuario aprueba la propuesta revisada y pide crear sprites de agua y casa para continuar el desarrollo, ajustando el tamaño de la casa. Preparado un [lote separado de sprites](assets/entorno/agua-casa/README.md): casa transparente en lienzo 640 × 512, silueta de unos 544 × 414 y puerta de unos 90 px; referencia técnica de suelo de 10 × 7 casillas (544 × 272), tras comprobar que la escala inicial de 8 × 6 dejaba la entrada pequeña junto al dragón. La casa se escala uniformemente. Agua: 16 variantes estáticas de 64 × 32 y ocho bordes/esquinas exteriores, con atlas, anclas y recursos Godot reutilizables. Las fuentes se conservan intactas. La medida de suelo no fija ubicación, colisión definitiva ni ampliaciones de la casa. **El usuario solicita después publicar este lote en GitHub, manteniéndolo fuera del juego.** Esta petición autoriza la subida concreta de los sprites, visor, registro y recursos; no su integración ni futuras subidas automáticas. Animación del agua, esquinas interiores e interiores del edificio pendientes.
+
 ## 2. Premisa y misterio
 
 ### Decisiones

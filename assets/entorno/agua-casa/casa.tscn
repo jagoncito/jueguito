@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/entorno/agua-casa/sprites/casa.png" id="1_casa"]
+
+[node name="CasaBitu" type="Node2D"]
+texture_filter = 1
+metadata/footprint_tiles = Vector2i(10, 7)
+metadata/footprint_projection_px = Vector2i(544, 272)
+
+[node name="Dibujo" type="Sprite2D" parent="."]
+position = Vector2(-368, -496)
+texture = ExtResource("1_casa")
+centered = false
+
+[node name="Entrada" type="Marker2D" parent="."]
+position = Vector2(60.3717, -123.3638)
