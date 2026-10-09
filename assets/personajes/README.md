@@ -22,3 +22,7 @@ Todo el juego será **pixel art**, con **vista desde arriba isométrica cenital*
 El recurso original se conserva intacto como primer boceto. Su cámara solo está ligeramente elevada y el cabello no se ha ajustado al peinado liso acordado; esas adaptaciones quedan pendientes. Las dos variantes ilustradas se eliminaron tras comparar estilos.
 
 **Generación de imágenes en pausa por petición del usuario.** No se ha creado una nueva imagen ni iniciado programación para adaptar este recurso. Las decisiones vigentes están en [DISENO.md](../../DISENO.md).
+
+## Elfa del museo y comerciante
+
+[Entrega con ocho vistas y sprites nativos por personaje](pareja-museo/README.md), preparada el 10 de octubre: elfa hasta 80 px, comerciante hasta 84 px, fotogramas de 128 × 128. Fuentes, atlas, visor y recursos Godot separados del juego. Publicación de esta entrega solicitada después por el usuario.

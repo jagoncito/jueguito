@@ -1,6 +1,6 @@
 # Bloc de diseño — Bītu y el archipiélago
 
-Última revisión: **9 de octubre de 2026**.
+Última revisión: **10 de octubre de 2026**.
 
 **Estado: diseño en conversación y primera prueba visual limitada.** Después de expresar que quiere empezar a programar y preguntar cuándo se podría probar el aspecto, se prepara una pequeña escena provisional de Bītu. No representa el juego completo ni cierra las decisiones pendientes. [Alcance y ejecución](docs/prueba-visual.md).
 
@@ -188,9 +188,11 @@ Referencias visuales dentro de la dirección aceptada: trenzas sencillas, ropa p
 
 ### Otros personajes
 
-**Comerciante — rasgos confirmados:** humano, sociable y algo pícaro; disfruta negociando, rebuscando entre objetos curiosos y haciendo buenas compraventas. Cercano y expresivo, recibe bien al jugador. Esto no establece que engañe al jugador ni que sea enemigo. Su nombre, resto del aspecto e historia siguen pendientes.
+**Comerciante — rasgos confirmados:** humano, sociable y algo pícaro; disfruta negociando, rebuscando entre objetos curiosos y haciendo buenas compraventas. Cercano y expresivo, recibe bien al jugador. El usuario indica a **Arthas, el caballero de la muerte**, como referencia física. Esto orienta su presencia y aspecto; no lo convierte en no muerto ni fija poderes, armadura, armas o una historia equivalente. Tampoco establece que engañe al jugador ni que sea enemigo. Nombre y resto de la historia pendientes.
 
-**Pareja del comerciante — rasgos confirmados:** de origen élfico, curiosa y observadora; se entusiasma al descubrir detalles de piezas antiguas, coherente con su interés por el museo. Nombre, género, apariencia y pasado pendientes.
+**Pareja del comerciante — rasgos confirmados:** **elfa, dueña del museo**, personaje secundario que **recibe los objetos del jugador**. Estudiosa, muy inteligente, probablemente la más inteligente del reparto; **recuerda todo desde que nació**. Curiosa y observadora, atenta y precisa; el usuario descarta expresamente que sea distraída. Se entusiasma al descubrir detalles de piezas antiguas. Nombre, edad, explicación de su memoria y pasado pendientes; la memoria no fija por sí sola poderes mágicos.
+
+**Vistas y sprites solicitados para ambos:** el 10 de octubre el usuario pide generarlos en pixel art, con sus respectivas vistas y tamaño para una subida posterior. Entrega en `assets/personajes/pareja-museo/`: dos fuentes RGBA intactas de 1536 × 1024, ocho vistas en reposo por personaje, 16 sprites nativos de 128 × 128, dos atlas de 512 × 256, apoyo (64,112), elfa hasta 80 px y comerciante hasta 84 px. Visor autónomo con suelo de 64 × 32, JSON y recursos Godot comprobados. Gafas, pelo trenzado, ropa de estudiosa y abrigo del comerciante son la ejecución propuesta; pendientes de revisión visual. Sin marcha, integración ni subida en esta entrega. La petición inicial preparaba la publicación para el siguiente paso. El usuario solicita después subir esta entrega concreta a GitHub, sin integración ni futuras subidas automáticas.
 
 **Relación confirmada:** cotidiana y cariñosa, con gustos distintos y bromas entre ellos. No se han establecido conflictos o dramas de pareja.
 
@@ -826,3 +828,7 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **9 de octubre de 2026:** el usuario corrige la interpretación de dejar el arma pendiente y solicita generar al maestro enano y un arma especial diseñada por delegación. Creada propuesta visual del maestro y Quebraveta, martillo de guerra con punta rompe-roca; fuente conservada. Sin estadísticas, animaciones, integración ni publicación nuevas.
 
 - **9 de octubre de 2026:** solicitada la publicación en GitHub de la propuesta del maestro enano y Quebraveta, con fuente y documentación. La integración local de agua/casa queda fuera de esta entrega.
+
+- **10 de octubre de 2026:** elfa del museo concretada como estudiosa, muy inteligente, probablemente la más inteligente; recuerda toda su vida desde el nacimiento y no es distraída. Personaje secundario que recibe objetos. Arthas indicado como referencia física de su pareja comerciante. Solicitados y preparados ambos en pixel art con ocho vistas en reposo, sprites a escala, visor y recursos Godot para una publicación posterior. Fuentes intactas; sin integración ni subida en este paso.
+
+- **10 de octubre de 2026:** el usuario solicita subir a GitHub las vistas y sprites preparados de la elfa y el comerciante, con visor, fuentes, atlas, recursos Godot y ZIP. Publicación de esta entrega concreta, sin integrar los personajes en el juego.

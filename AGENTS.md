@@ -1,5 +1,10 @@
 # Continuidad del proyecto
 
+- El usuario solicita ahora subir a GitHub la entrega de la elfa del museo y el comerciante: fuentes, 16 sprites, atlas, visor, recursos Godot y paquete ZIP. Autorizada esta publicación concreta; sin integración ni futuras subidas automáticas.
+
+- Elfa del museo y comerciante, 10 de octubre: elfa femenina, estudiosa, muy inteligente (probablemente la más inteligente), recuerda todo desde que nació; descartar distraída. Secundaria que recibe objetos del museo. Pareja humano sociable y pícaro, referencia física Arthas caballero de la muerte, sin fijar no muerto, poderes ni armadura. Usuario solicita generar ambos con vistas y sprites a escala para subir en el siguiente paso. Entrega local en `assets/personajes/pareja-museo/`: dos fuentes intactas, ocho vistas en reposo cada uno, 16 PNG 128 × 128, atlas 512 × 256, altura elfa80/comerciante84, apoyo(64,112), visor, JSON y prefabs Godot comprobados. Vestuario, gafas y demás detalles son propuesta visual. No incluye marcha ni integración. Esta petición prepara la publicación posterior; no autoriza subir ahora.
+
+
 - El usuario solicita publicar esta propuesta concreta del maestro y Quebraveta en GitHub. Autorizada la subida de la fuente, metadatos y notas de diseño; no integración ni futuras subidas automáticas.
 
 - Petición posterior del maestro enano: el usuario autoriza expresamente generar al personaje y delega el diseño de su arma especial. Fuente en `assets/personajes/maestro-enano/maestro-y-quebraveta-fuente.png`, maestro sin arma/equipado y arma aislada. Quebraveta es la propuesta de martillo de guerra con punta rompe-roca, sin hacha; inserto ámbar decorativo, sin efectos fijados. Esto sustituye la restricción anterior de no generar estas imágenes y dejar el arma pendiente. Aprobación visual, escala nativa, capas registradas y animaciones pendientes. Sin integración ni nueva subida autorizadas.
