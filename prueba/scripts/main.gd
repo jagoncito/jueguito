@@ -267,7 +267,7 @@ func _on_work_impact(action: StringName) -> void:
 	task_hits += 1
 	var effect := BituHitEffect.new()
 	effect.wood = task is BituTree
-	effect.position = task.position+Vector2(0,-24)
+	effect.position = objects.to_local(player.tool.contact_point(action))
 	objects.add_child(effect)
 	if task is BituTree:
 		task.hit()

@@ -1,5 +1,7 @@
 # Dragón — protagonista bípedo
 
+**Corrección de impactos (10 de octubre de 2026):** el usuario precisa que el árbol se golpea con el filo del hacha y la mena con la punta del pico, y solicita integrar/publicar. Actualizados los dos atlas de trabajo y sus contactos en las ocho vistas, sobre el extremo activo del metal; no sobre el collar ni el mango. Tala usa también su preparación lateral en entrada/recuperación. Las partículas nacen del contacto registrado, incluida la altura propia de la mena. Conservados 80 px, cinco golpes, tiempos, controles y colisión. Esta corrección está autorizada para subir; el acabado visual sigue pendiente de revisión.
+
 Tras revisar la primera integración, el usuario pide rehacer proporciones, cola y animaciones, con **ocho vistas como mínimo**. La revisión posterior reduce la altura de 90 a **80 px** (aproximadamente un 11 %) y dibuja el pico–hacha con el cuerpo. Esta versión conserva la identidad de la cara: ojos ámbar, hocico beige redondeado, sonrisa, piel azul grisácea y aletas naranjas. Las perspectivas nuevas están redibujadas; **no son un recorte idéntico de la cara original**. El PNG original sigue intacto como referencia. Nombre, especie concreta, historia y personalización pendientes.
 
 ![Ocho vistas dentro de Godot](../../../prueba/capturas/dragon-animaciones.png)

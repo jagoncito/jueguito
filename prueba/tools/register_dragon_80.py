@@ -34,10 +34,10 @@ BOXES = {}
 # Extremos visibles revisados en las fuentes de impacto; no contactos ficticios
 # colocados en el recurso. Se ajustan al píxel de metal más próximo (máx. 12 px).
 CONTACT_REFERENCES = {
-    'golpe': [(175,876),(410,872),(695,844),(1060,642),
-              (175,906),(548,912),(881,1103),(1169,1142)],
-    'golpe-talar': [(166,881),(414,872),(657,809),(990,672),
-                    (175,909),(522,932),(899,1080),(1193,1133)],
+    'golpe': [(170,883),(377,862),(668,866),(1009,772),
+              (170,912),(586,1149),(892,1120),(1207,1166)],
+    'golpe-talar': [(155,872),(362,869),(602,777),(956,731),
+                    (284,1018),(589,1007),(941,1060),(1232,1146)],
 }
 
 
@@ -114,6 +114,14 @@ def build_catalog():
         head_band = data[by+round(bh*.20):by+round(bh*.40), bx:bx+bw, :3].astype(int)
         hr, hg, hb = [head_band[:, :, i] for i in range(3)]
         _, head_x = np.nonzero((hb > hr+35) & (hg > hr+20))
+        if not len(head_x):
+            # Some newly shaded faces have no saturated blue in the narrow
+            # head band. Measure the middle of the blue torso instead of
+            # emitting a NaN anchor into the playable JSON.
+            torso = data[by+round(bh*.40):by+round(bh*.75), bx:bx+bw, :3].astype(int)
+            tr, tg, tb = [torso[:, :, i] for i in range(3)]
+            _, head_x = np.nonzero((tb > tr+20) & (tg > tr+10))
+        assert len(head_x), ('Ancla sin cuerpo azul', key)
         anchor = [float(bx + np.median(head_x)), by + bh - 2]
         height = anchor[1] - by
         desired = {'arrodillado': 59, 'levantar': 60, 'medio': 76,
@@ -143,6 +151,8 @@ def build_catalog():
             nearest = np.argmin((xs-12)**2+(ys-12)**2)
             action = 'minar' if pose == 'golpe' else 'talar'
             frame['contacts'] = {action:[int(px-12+xs[nearest]), int(py-12+ys[nearest])]}
+            frame['working_end'] = 'pick_tip' if action == 'minar' else 'axe_edge'
+            frame['contact_reference'] = [px, py]
         frames[key] = frame
 
     for key, reference in old.items():
@@ -178,13 +188,14 @@ def build_catalog():
                        'Cuatro fases de marcha por dirección; apoyos alternados.',
                        'Altura del cuerpo medida sin metal; ancla de suelo por fotograma.',
                        'Tala lateral y minería sobre cabeza con atlas distintos.',
+                       'Contactos de impacto sobre punta del pico / filo del hacha; nunca sobre el mango.',
                        'Fuentes PNG intactas. Revisión visual del usuario pendiente.'],
                 frames=frames)
 
 
 def main():
     catalog = build_catalog()
-    (SOURCE / 'dragon-jugable.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2)+'\n')
+    (SOURCE / 'dragon-jugable.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2, allow_nan=False)+'\n')
     TARGET.mkdir(parents=True, exist_ok=True)
     for name in [*GRIDS, 'dragon-jugable.json']:
         shutil.copyfile(SOURCE/name, TARGET/name)

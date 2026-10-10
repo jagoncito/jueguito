@@ -20,10 +20,13 @@ func run() -> void:
 		if not source_images.has(frame.file):
 			source_images[frame.file] = load(visual.DIRECTORY+frame.file).get_image()
 		assert(source_images[frame.file].get_pixel(frame.hand[0],frame.hand[1]).a>0.5,"Palma sobre píxeles dibujados: "+key)
+		assert(is_finite(float(frame.anchor[0])) and is_finite(float(frame.anchor[1])),"Anclas de suelo finitas: "+key)
 		assert(frame.region[0]>=0 and frame.region[1]>=0 and frame.region[0]+frame.region[2]<=source_images[frame.file].get_width() and frame.region[1]+frame.region[3]<=source_images[frame.file].get_height(),"Atlas sin recortes fuera de la fuente: "+key)
 		if key.begins_with("golpe-"):
 			var action := "talar" if key.begins_with("golpe-talar-") else "minar"
 			var point: Array = frame.contacts[action]
+			assert(frame.working_end == ("axe_edge" if action == "talar" else "pick_tip"),"Cada acción usa su extremo de trabajo: "+key)
+			assert(Vector2(point[0],point[1]).distance_to(Vector2(frame.contact_reference[0],frame.contact_reference[1]))<6,"Contacto junto al extremo revisado, sin saltar al collar o mango: "+key)
 			var metal: Color = source_images[frame.file].get_pixel(point[0],point[1])
 			assert(metal.a>0.5 and maxf(metal.r,maxf(metal.g,metal.b))-minf(metal.r,minf(metal.g,metal.b))<0.26,"Contacto sobre metal visible en el PNG: "+key)
 	var seen: Dictionary = {}

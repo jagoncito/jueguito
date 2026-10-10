@@ -8,6 +8,14 @@ func run() -> void:
 	root.add_child(scene)
 	await physics_frame
 	await physics_frame
+	scene.player.work_impact.connect(func(action: StringName):
+		if action not in [&"minar", &"talar"]:
+			return
+		var expected: Vector2 = scene.task.global_position+Vector2(0,-24 if action == &"talar" else -22)
+		assert(scene.player.tool.contact_point(action).distance_to(expected)<1,"El extremo activo golpea la mena o el tronco real")
+		var frame: Dictionary = scene.player.dragon.catalog.frames[scene.player.dragon.current_frame]
+		assert(frame.working_end == ("axe_edge" if action == &"talar" else "pick_tip"),"Pico para mena y filo de hacha para árbol")
+	)
 	var resource: BituResource = scene.resources[0]
 	scene._click_resource(resource.position+Vector2(15,-20))
 	assert(scene.task == null, "Clic lejano no extrae ni mueve al personaje")

@@ -1,5 +1,7 @@
 # Prueba visual de Bītu
 
+**Corrección de impactos (10 de octubre de 2026):** el usuario precisa que el árbol se golpea con el filo del hacha y la mena con la punta del pico, y solicita integrar/publicar. Actualizados los dos atlas de trabajo y sus contactos en las ocho vistas, sobre el extremo activo del metal; no sobre el collar ni el mango. Tala usa también su preparación lateral en entrada/recuperación. Las partículas nacen del contacto registrado, incluida la altura propia de la mena. Conservados 80 px, cinco golpes, tiempos, controles y colisión. Esta corrección está autorizada para subir; el acabado visual sigue pendiente de revisión.
+
 ![Dragón protagonista dentro del juego](capturas/dragon-en-juego.png)
 
 Una zona provisional para revisar el aspecto, la escala y el farmeo básico.
