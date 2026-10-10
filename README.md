@@ -1,5 +1,10 @@
 # Bītu y el archipiélago
 
+
+**Agua y casa integradas:** vivienda rural a escala nativa, colisión ajustada a los cimientos y profundidad respecto al personaje; costa con agua turquesa, zonas profundas y orillas. Agua estática y casa exterior. Descarga local actualizada en `prueba/descargas/bitu-navegador.zip`.
+
+![Casa y agua dentro del prototipo](prueba/capturas/casa-agua-en-juego.png)
+
 Proyecto de juego individual de fantasía, **íntegramente en pixel art**, con **vista desde arriba isométrica cenital**, centrado en explorar, farmear, mejorar y coleccionar.
 
 **Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo y sus rasgos faciales originales y ocho direcciones**. Camina con el pico–hacha, mina, tala y usa el palín al arrodillarse. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon-avatar/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).

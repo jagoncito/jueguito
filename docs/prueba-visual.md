@@ -1,5 +1,9 @@
 # Primera prueba visual de Bītu
 
+
+**Agua y casa integradas:** vivienda rural a escala nativa, colisión ajustada a los cimientos y profundidad respecto al personaje; costa con agua turquesa, zonas profundas y orillas. Agua estática y casa exterior. Descarga local actualizada en `prueba/descargas/bitu-navegador.zip`.
+
+![Casa y agua dentro del prototipo](../prueba/capturas/casa-agua-en-juego.png)
 **Corrección de impactos (10 de octubre de 2026):** el usuario precisa que el árbol se golpea con el filo del hacha y la mena con la punta del pico, y solicita integrar/publicar. Actualizados los dos atlas de trabajo y sus contactos en las ocho vistas, sobre el extremo activo del metal; no sobre el collar ni el mango. Tala usa también su preparación lateral en entrada/recuperación. Las partículas nacen del contacto registrado, incluida la altura propia de la mena. Conservados 80 px, cinco golpes, tiempos, controles y colisión. Esta corrección está autorizada para subir; el acabado visual sigue pendiente de revisión.
 
 **Verificación de impactos:** cinco pruebas Godot superadas, con regresiones de extremo activo, píxel de metal, anclas finitas y contacto con la mena/tronco reales. Tres pruebas Chromium/WebGL superadas: ocho direcciones × cinco acciones, extracción por clic y revisión de recursos. Capturas de minería/tala y vídeo actualizados; ZIP íntegro y PCK idéntico al exportado. Solo cambian las 32 poses de los dos atlas de trabajo; reposo, marcha y original conservados.
@@ -112,4 +116,7 @@ Las carpetas deben existir. Aplicar también estas variables al comando Python d
 
 `python prueba/tools/dragon_browser_smoke.py` comprueba las ocho direcciones en los cinco modos de la revisión ampliada y graba el vídeo WebM real del canvas. Después guarda las capturas con una pose fija del mismo controlador y comprueba sus ocho fotogramas: reposo, paso, impacto del pico, impacto del hacha y recolección arrodillada. Comprueba también cuatro poses fijas de marcha y cambios en la zona de pies/rodillas de las ocho vistas, no solo en la herramienta. Esto evita publicar una imagen de reposo etiquetada como minería o tala. La revisión deja visibles los nombres inferiores y permite volver a animar con las teclas 1–5 desde una captura fija. Las capturas y el vídeo se guardan en `prueba/capturas`; no requiere descargar un grabador externo. La configuración de entorno guardada es un borrador; su publicación es independiente de esta prueba.
 
+### Comprobación de agua y casa
+
+Integración revisada en Godot 4.6.3 y Chromium/WebGL: arranque, movimiento, límite del agua, minería, tala, Yde, botín y mochila. `tests/environment-smoke.gd` comprueba la fachada física y el paso libre por el patio; también pasan smoke, scene-smoke, resources-smoke y tool-smoke. La prueba de navegador completó el recorrido tras repetir el primer intento de Yde. PNG originales idénticos a las copias de ejecución; ZIP actualizado con CRC y paquete comprobados.
 Ajuste de cinco golpes: la prueba de escena confirma que cuatro impactos conservan mena y árbol sin botín, y que el quinto completa la extracción. Descarga de navegador regenerada con este ajuste y ZIP comprobado. Las mejoras hasta un golpe quedan como dirección de diseño, todavía sin implementar.

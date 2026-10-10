@@ -26,6 +26,9 @@ Dragón bípedo: ocho direcciones, cola conectada, caminar, minar, talar y palí
 Marcha de cuatro fases distintas; pico-hacha y palín con ocho perspectivas y agarres registrados.
 Para ver ocho direcciones ampliadas, añade ?vista=dragon a la URL del juego.
 Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín.
+Para comparar los siete personajes a escala de juego: ?vista=personajes.
+Flechas: vista; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común 1×/2×.
+Seis NPC con ocho vistas de reposo cada uno; protagonista actualizado con 104 fotogramas.
 Protagonista de 80 px; pico arriba y filo de hacha abajo al llevarlo.
 Minería: golpea la mena con la punta del pico. Tala: el filo del hacha golpea el tronco.
 Espacio alterna la cámara lenta en la revisión del dragón.
@@ -33,6 +36,8 @@ Primera revisión de movimiento, escala y agarres pendiente de aprobación visua
 Árboles con tres variantes y tocones; mena de cobre entera/picada; flor de Yde.
 Madera, fragmento de cobre y flor recogida tienen su propio botín e icono.
 Para comparar terreno, botín y mochila añade ?vista=recursos a la URL.
+Casa rural a escala nativa, cimientos transitables por fuera y agua turquesa con orillas.
+Agua estática; solo exterior de la casa.
 No guarda progreso. Entorno y animaciones de prototipo.
 Sin Python, usa el repositorio y Godot 4.6.3: importar prueba/project.godot y F5.
 """

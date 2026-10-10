@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="SpriteFrames" path="res://assets/personajes/escala-juego/elfa-museo/animaciones.tres" id="1"]
+
+[node name="Personaje" type="Node2D"]
+texture_filter = 1
+metadata/height_px = 80
+
+[node name="Cuerpo" type="AnimatedSprite2D" parent="."]
+position = Vector2(-64, -112)
+centered = false
+sprite_frames = ExtResource("1")
+animation = &"reposo-S"

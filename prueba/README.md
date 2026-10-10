@@ -1,5 +1,9 @@
 # Prueba visual de Bītu
 
+
+**Agua y casa integradas:** vivienda rural a escala nativa, colisión ajustada a los cimientos y profundidad respecto al personaje; costa con agua turquesa, zonas profundas y orillas. Agua estática y casa exterior. Descarga local actualizada en `prueba/descargas/bitu-navegador.zip`.
+
+![Casa y agua dentro del prototipo](capturas/casa-agua-en-juego.png)
 **Corrección de impactos (10 de octubre de 2026):** el usuario precisa que el árbol se golpea con el filo del hacha y la mena con la punta del pico, y solicita integrar/publicar. Actualizados los dos atlas de trabajo y sus contactos en las ocho vistas, sobre el extremo activo del metal; no sobre el collar ni el mango. Tala usa también su preparación lateral en entrada/recuperación. Las partículas nacen del contacto registrado, incluida la altura propia de la mena. Conservados 80 px, cinco golpes, tiempos, controles y colisión. Esta corrección está autorizada para subir; el acabado visual sigue pendiente de revisión.
 
 ![Dragón protagonista dentro del juego](capturas/dragon-en-juego.png)
@@ -71,3 +75,9 @@ Consulta [alcance y comprobaciones](../docs/prueba-visual.md). Para regenerar la
 Abre `scenes/herramienta.tscn` en Godot y pulsa **F6**. Muestra el dragón y el [pico–hacha de hierro](../assets/herramientas/pico-hacha/README.md), con proporciones reales ampliadas ×4. **1** reproduce minería, **2** tala y **R** restaura las poses. Esta revisión independiente se conserva; **F5** abre la granja con la herramienta integrada. Las mejoras de materiales todavía no son jugables.
 
 La captura anterior con humano se ha retirado al sustituirla por el dragón.
+
+## Escala común dentro del juego
+
+Los seis NPC tienen sprites nativos a escala de mundo y el protagonista conserva su renderizador actualizado, conservando las estaturas. Revisión: `prueba/scenes/personajes.tscn` (F6), o `?vista=personajes` en la descarga web. Flechas: vistas; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común. Recursos y medidas: `assets/personajes/escala-juego/README.md`. El dragón está actualizado en la prueba principal; los otros seis solo en esta revisión.
+
+Conjunto simplificado: seis NPC con ocho vistas de reposo cada uno y protagonista actualizado con 104 fotogramas (152 en total).

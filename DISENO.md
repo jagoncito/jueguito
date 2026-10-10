@@ -25,6 +25,30 @@ Se busca que las mejoras se noten y que encontrar algo especial dé ilusión. La
 - Tras comparar estilos, se conserva la versión pixel art de Unamahloni y se eliminan las dos variantes ilustradas del repositorio.
 - **Generación general de imágenes detenida por petición del usuario.** No crear más imágenes salvo una petición explícita posterior. El entorno de la prueba usa referencias dibujadas por el motor; la petición posterior del pico–hacha autoriza ese recurso concreto, no una producción gráfica general.
 
+### Escala de personajes dentro del juego — 10 de octubre
+
+El usuario confirma **mismo formato y escala, conservando las estaturas**, y aclara que se refiere a las medidas **in-game**. Las ilustraciones grandes para conocer detalles de los personajes pueden mantenerse aparte. El tamaño de las imágenes fuente no debe trasladarse al mundo del juego.
+
+Preparados [sprites nativos comunes](assets/personajes/escala-juego/README.md): 288 fotogramas de los siete personajes, lienzos128×128, apoyo(64,112), filtro nearest y escala corporal1:1 respecto al suelo64×32. Referencias: humanos/elfa/cocinero80px, comerciante84px, maestro enano64px y dragón90px. Las posturas bajas del dragón conservan sus alturas66/68px. Diferencia máxima de muestreo de1px en Unamahloni.
+
+El dragón jugable usa estos atlas y mantiene los agarres; la escena `prueba/scenes/personajes.tscn` compara a los siete con ampliación común. Los demás disponen de prefabs, sin colocarlos todavía en el mapa principal ni desarrollar sus sistemas. Esta petición autoriza ajustar la representación gráfica; no una nueva publicación en GitHub.
+
+### Alcance de sprites por personaje — corrección del usuario
+
+**Solo el protagonista necesita el conjunto más completo**, por ser controlable y estar siempre en pantalla. Los otros seis personajes conversan cuando el jugador los visita: **todos los NPC tendrán el mismo número de sprites y un conjunto reducido común**. No necesitan por defecto ciclos completos de marcha ni animaciones de cada oficio. Esto sustituye la prioridad sugerida de completar la marcha y el trabajo de todos.
+
+Se mantiene el mismo tamaño técnico de fotograma y escala para todos los personajes, conservando las estaturas. La cantidad de sprites del protagonista puede ser mayor. **El número y las poses comunes de los NPC están pendientes de concretar.** Actualmente sus paquetes contienen 64, 32 u 8 fotogramas; esta aclaración fija el objetivo y todavía no iguala esas cantidades. Las fuentes, variantes equipadas y estudios existentes se conservan. Sin generación, borrado ni nueva subida autorizados por esta decisión.
+
+### Conjunto mínimo de NPC aplicado
+
+El usuario autoriza después **generar lo que falte y eliminar lo sobrante**. Para personajes que solo conversan al visitarlos se adopta el conjunto mínimo común: **ocho vistas de reposo sin instrumentos por cada uno de los seis NPC**, ya disponibles. No se necesitan nuevas imágenes. El protagonista conserva 80 fotogramas y todas sus acciones. Quedan **128 sprites activos**, fotogramas128×128, escala y estaturas conservadas.
+
+Se retiran los sprites, atlas, prefabs, visores y paquetes antiguos de NPC con marcha, equipo o comida. Se conservan aparte las fuentes necesarias para reproducir el conjunto actual y las referencias de creación; estas no cuentan como sprites activos. La escena de revisión y sus controles animan solo al protagonista. Conversación e integración de NPC en el mapa pendientes; sin nueva subida autorizada. Este apartado sustituye el número pendiente y el inventario anterior de 64/32/8 sprites por NPC.
+
+### Reconciliación para publicar esta entrega
+
+El usuario solicita subir la simplificación de personajes a GitHub. La versión remota más reciente (`5cb4094`) ya tiene protagonista de80px y104 fotogramas, con herramientas integradas y golpes revisados. Se conserva íntegra: este acuerdo no revierte esa mejora a los80 fotogramas/90px anteriores. Los seis NPC mantienen8 vistas de reposo cada uno:48 sprites nativos, **152 fotogramas en total** con el protagonista. La escena conjunta usa el renderizador real del protagonista actualizado. La descarga conserva también agua/casa ya aplicada y las mejoras remotas. Las cantidades anteriores describen entregas históricas.
+
 ### Agua y casa — referencias solicitadas el 9 de octubre
 
 El usuario solicita perfeccionar primero los assets de agua y casa y **ver los resultados antes de subirlos a GitHub**. Autoriza generar estas propuestas concretas; la pausa de generación general se mantiene para otros recursos.
@@ -33,6 +57,8 @@ El usuario solicita perfeccionar primero los assets de agua y casa y **ver los r
 - **Casa:** referencia aportada de vivienda rural con paredes claras y entramado de madera, adaptada a pixel art isométrico y con un aspecto más granjero. Mantener el estado inicial abandonado pero habitable ya acordado.
 - **Revisión y publicación solicitadas:** tras ver la primera propuesta conjunta, el usuario pide cambiar algún detalle y subirla a GitHub, **sin aplicarla al juego**. La [propuesta revisada](docs/referencias/agua-casa-bitu.png) simplifica el tejado, retirando las ventanas abuhardilladas, y envejece ligeramente las contraventanas. Es una referencia visual; todavía no son sprites registrados ni están integrados en Godot. Los accesorios y el paisaje no constituyen nuevas decisiones de distribución o sistemas. La petición autoriza publicar esta entrega concreta, no futuras subidas automáticas ni integración.
 - **Sprites solicitados después:** el usuario aprueba la propuesta revisada y pide crear sprites de agua y casa para continuar el desarrollo, ajustando el tamaño de la casa. Preparado un [lote separado de sprites](assets/entorno/agua-casa/README.md): casa transparente en lienzo 640 × 512, silueta de unos 544 × 414 y puerta de unos 90 px; referencia técnica de suelo de 10 × 7 casillas (544 × 272), tras comprobar que la escala inicial de 8 × 6 dejaba la entrada pequeña junto al dragón. La casa se escala uniformemente. Agua: 16 variantes estáticas de 64 × 32 y ocho bordes/esquinas exteriores, con atlas, anclas y recursos Godot reutilizables. Las fuentes se conservan intactas. La medida de suelo no fija ubicación, colisión definitiva ni ampliaciones de la casa. **El usuario solicita después publicar este lote en GitHub, manteniéndolo fuera del juego.** Esta petición autoriza la subida concreta de los sprites, visor, registro y recursos; no su integración ni futuras subidas automáticas. Animación del agua, esquinas interiores e interiores del edificio pendientes.
+
+**Integración posterior solicitada:** El usuario autoriza después aplicar los sprites de agua y casa al juego. Integrados localmente en `prueba/`: casa nativa sin reescalar, cimientos continuos y profundidad por columnas; agua y orillas de 64 × 32. Posición y colisión provisionales; agua estática, sin interiores. Esta petición no autoriza una nueva subida a GitHub.
 
 ## 2. Premisa y misterio
 
@@ -833,10 +859,17 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 
 - **9 de octubre de 2026:** solicitada la publicación en GitHub de la propuesta del maestro enano y Quebraveta, con fuente y documentación. La integración local de agua/casa queda fuera de esta entrega.
 
+- **9 de octubre de 2026:** publicada la propuesta del maestro y Quebraveta en GitHub (`301e960`), preservando las actualizaciones remotas de Miutu, terreno y pruebas. La integración local de agua/casa continúa fuera de esta publicación.
+
 - **10 de octubre de 2026:** elfa del museo concretada como estudiosa, muy inteligente, probablemente la más inteligente; recuerda toda su vida desde el nacimiento y no es distraída. Personaje secundario que recibe objetos. Arthas indicado como referencia física de su pareja comerciante. Solicitados y preparados ambos en pixel art con ocho vistas en reposo, sprites a escala, visor y recursos Godot para una publicación posterior. Fuentes intactas; sin integración ni subida en este paso.
 
 - **10 de octubre de 2026:** el usuario solicita subir a GitHub las vistas y sprites preparados de la elfa y el comerciante, con visor, fuentes, atlas, recursos Godot y ZIP. Publicación de esta entrega concreta, sin integrar los personajes en el juego.
 
+- **10 de octubre de 2026:** publicada la entrega de la elfa y el comerciante en GitHub, commit `ee98f5f`: fuentes originales, ocho vistas en reposo por personaje, sprites nativos, atlas, visor, recursos Godot y ZIP. Sin integración en el juego.
+
+- **10 de octubre de 2026:** anciano y excentricidad de inspiración Radagast confirmados para pesca/cocina. Solicitada su creación con detalles propios de Bītu y revisión del enano para separarlo de Gimli. Preparadas 64 poses en ocho direcciones con manos libres, comida y dos variantes de instrumentos por maestro; usuario pide subir al terminar. Sin integración ni sistemas nuevos.
+
+- **10 de octubre de 2026:** publicada en GitHub la entrega de ambos maestros (`7958f8e`): anciano costero propio de Bītu y enano con pelo/atuendo revisados, 64 poses con y sin instrumentos y comida, ocho atlas, visor, recursos Godot y ZIP. Comprobaciones de sprites, navegador, Godot, CRC y tamaños completadas. Sin integración en el juego.
 - **10 de octubre de 2026:** anciano y excentricidad de inspiración Radagast confirmados para pesca/cocina. Solicitada su creación con detalles propios de Bītu y revisión del enano para separarlo de Gimli. Preparadas 64 poses en ocho direcciones con manos libres, comida y dos variantes de instrumentos por maestro; usuario pide subir al terminar. Sin integración ni sistemas nuevos.
 
 - **9 de octubre de 2026, revisión posterior del dragón:** el usuario solicita un protagonista algo menor, actualizar los PNG y mejorar la animación y las vistas del pico–hacha, con sprites equipados, e integrarlo/subirlo. Se aplica una reducción propuesta de 90 a **80 px**. Aclara que al llevar la herramienta quiere **punta del pico arriba y filo del hacha abajo** en todas las vistas; debe acompañar al brazo. Marcha con altura estable y alternancia de piernas, incluidos perfiles/diagonales. Minería/tala usan dibujos completos con herramienta, conservando cinco golpes, 0,62 s e impacto a 0,33 s. Sin nuevos sistemas; no supone aprobación visual definitiva.

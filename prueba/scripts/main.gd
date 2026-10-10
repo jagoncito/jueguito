@@ -42,6 +42,10 @@ func _ready() -> void:
 		set_process(false)
 		get_tree().call_deferred("change_scene_to_file","res://scenes/recursos.tscn")
 		return
+	if OS.has_feature("web") and bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('vista') === 'personajes'")):
+		set_process(false)
+		get_tree().call_deferred("change_scene_to_file","res://scenes/personajes.tscn")
+		return
 	_register_inputs()
 	for item_id in TOMATO_IDS:
 		textures[item_id] = load("res://assets/objetos/cultivos/%s.png" % item_id)
@@ -52,9 +56,8 @@ func _ready() -> void:
 	objects = Node2D.new()
 	objects.y_sort_enabled = true
 	add_child(objects)
-	var home := BituDecoration.new()
-	home.kind = "house"
-	home.position = BituTerrain.cell_to_world(Vector2(15,9))
+	var home := BituHouse.new()
+	home.position = BituTerrain.cell_to_world(BituTerrain.HOUSE_ANCHOR)
 	objects.add_child(home)
 	for cell in [Vector2i(9,15), Vector2i(11,22), Vector2i(18,8), Vector2i(20,21), Vector2i(6,12), Vector2i(7,20), Vector2i(19,4), Vector2i(4,17)]:
 		var tree := BituTree.new()
