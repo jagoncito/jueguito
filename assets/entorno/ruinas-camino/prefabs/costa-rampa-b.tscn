@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="../texturas/costa-rampa-b.tres" id="1"]
+
+[node name="Pieza" type="Node2D"]
+texture_filter = 1
+
+[node name="Dibujo" type="Sprite2D" parent="."]
+position = Vector2(-64.00000000, -114.02816901)
+scale = Vector2(0.45070423, 0.45070423)
+texture = ExtResource("1")
+centered = false

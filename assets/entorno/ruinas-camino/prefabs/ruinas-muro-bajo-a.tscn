@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="../texturas/ruinas-muro-bajo-a.tres" id="1"]
+
+[node name="Pieza" type="Node2D"]
+texture_filter = 1
+
+[node name="Dibujo" type="Sprite2D" parent="."]
+position = Vector2(-64.00000000, -91.01298701)
+scale = Vector2(0.41558442, 0.41558442)
+texture = ExtResource("1")
+centered = false

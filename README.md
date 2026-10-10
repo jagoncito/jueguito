@@ -17,6 +17,8 @@ La generación general de imágenes está en pausa; solo se crean recursos cuand
 
 ## Mapa y astillero
 
+[Ruinas y camino costero: 48 piezas](assets/entorno/ruinas-camino/README.md), tres atlas con catálogo, recursos de Godot y galería. Preparación final e integración pendientes.
+
 [Mapa de Bītu para el jugador](mapas/README.md) y [exterior/interior del astillero de Flavia](assets/entorno/astillero/README.md), con módulos visuales para su preparación posterior. Fuentes revisadas; todavía no integradas en el juego.
 
 ## Documentos
