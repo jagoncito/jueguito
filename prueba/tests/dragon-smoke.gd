@@ -10,6 +10,11 @@ func run() -> void:
 	actor.set_physics_process(false)
 	actor.work_finished.connect(actor.end_work)
 	var visual := actor.dragon
+	var equipped_tool_id := actor.tool.get_instance_id()
+	var resting_frame := visual.current_frame
+	actor.begin_work(&"pescar",Vector2(30,-20),Vector2(30,0))
+	assert(not actor.busy and not actor.tool.working and actor.work_kind == &"", "Una acción ajena no bloquea al jugador")
+	assert(visual.current_frame == resting_frame and actor.work_stance.is_finite(), "Una acción ajena conserva la pose y el apoyo finito")
 	assert(visual.catalog.frames.size() == 160,"Dragón nuevo: ocho vistas, marcha, sprint, minería, tala, recuperación y palín")
 	assert(visual.body.scale.x == visual.body.scale.y,"Sin estirar anatomía en un eje")
 	assert(actor.tool_mount.get_index()>visual.get_index(),"Herramienta frontal delante del cuerpo")
@@ -32,8 +37,14 @@ func run() -> void:
 	var seen: Dictionary = {}
 	var hits := [0]
 	var work_hits := [0]
+	var work_actions: Array[StringName] = []
 	actor.tool.impact.connect(func(action: StringName):
+		assert(actor.tool.get_instance_id() == equipped_tool_id,"El mismo pico–hacha realiza minería y tala sin sustituir el equipo")
+		assert(action == actor.work_kind,"El impacto corresponde a la acción que está realizando el jugador")
 		assert(actor.tool.contact_point(action).distance_to(actor.to_global(actor.work_contact))<1,"Punta del pico o filo del hacha sobre el recurso al impactar")
+		var opposite := &"minar" if action == &"talar" else &"talar"
+		assert(not visual.contact_local(opposite).is_finite(),"El fotograma de impacto no ofrece el extremo de la otra acción")
+		work_actions.append(action)
 		work_hits[0] += 1
 	)
 	actor.herbal_tool.impact.connect(func(_action: StringName):
@@ -103,6 +114,7 @@ func run() -> void:
 		actor.animate_pose(0)
 		await create_timer(.36).timeout
 		assert(visual.current_frame.begins_with("golpe-"),"Tala completa y filo registrado en ocho vistas")
+		assert(work_actions[-2] == &"minar" and work_actions[-1] == &"talar","Cada dirección completa un impacto de pico y otro de hacha con el mismo equipo")
 		check_return_to_idle(actor)
 		actor.face_towards(-direction)
 		actor.begin_gathering(ground+Vector2(0,-5),ground)

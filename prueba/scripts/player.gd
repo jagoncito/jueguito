@@ -88,7 +88,7 @@ func face_towards(direction: Vector2) -> void:
 	facing_back = direction_index >= 3 and direction_index <= 5
 
 func begin_work(action: StringName, contact: Vector2, ground_target := Vector2.INF) -> void:
-	if tool == null or busy:
+	if tool == null or busy or not tool.supports_action(action):
 		return
 	face_towards(to_local(contact if ground_target == Vector2.INF else ground_target))
 	busy = true

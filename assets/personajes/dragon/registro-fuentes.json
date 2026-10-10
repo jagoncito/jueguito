@@ -77,36 +77,36 @@
   "impact_points": {
     "minar": [
       [
+        342,
+        304
+      ],
+      [
+        820,
+        299
+      ],
+      [
+        199,
+        589
+      ],
+      [
+        801,
+        428
+      ],
+      [
         310,
-        323
+        615
       ],
       [
-        827,
-        315
+        1082,
+        742
       ],
       [
-        211,
-        609
+        445,
+        1205
       ],
       [
-        813,
-        443
-      ],
-      [
-        216,
-        721
-      ],
-      [
-        1085,
-        747
-      ],
-      [
-        451,
-        1202
-      ],
-      [
-        1050,
-        1211
+        1034,
+        1223
       ]
     ],
     "talar": [
@@ -147,36 +147,36 @@
   "impact_feet": {
     "minar": [
       [
-        312,
-        296
+        315,
+        289
       ],
       [
         951,
-        310
+        294
+      ],
+      [
+        316,
+        590
+      ],
+      [
+        986,
+        600
       ],
       [
         319,
-        611
+        921
       ],
       [
-        991,
-        608
+        980,
+        914
       ],
       [
-        323,
-        913
+        327,
+        1218
       ],
       [
-        991,
-        908
-      ],
-      [
-        328,
-        1215
-      ],
-      [
-        955,
-        1214
+        943,
+        1222
       ]
     ],
     "talar": [
@@ -288,6 +288,8 @@
     "PNG generados nuevos e intactos. Sin fuentes del dragón descartado.",
     "Impactos con ocho vistas independientes y márgenes amplios.",
     "El atlas arrodillado aporta solo las ocho primeras poses; sus elevaciones de ensayo no se usan.",
-    "Los atlas de minería/tala aportan preparación, carga y recuperación; impacto procede de sus hojas dedicadas."
-  ]
+    "Los atlas de minería/tala aportan preparación, carga y recuperación; impacto procede de sus hojas dedicadas.",
+    "Pico–hacha multiuso: minería conserva la hoja ancha opuesta; ocho impactos nuevos con una sola cabeza y punta activa. Tala, preparación/carga/recuperación y locomoción conservadas."
+  ],
+  "art_revision": "pico-hacha-multiuso-2026-10-10"
 }

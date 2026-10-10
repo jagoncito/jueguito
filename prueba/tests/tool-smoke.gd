@@ -29,6 +29,9 @@ func run() -> void:
 		assert(sprite.scale == Vector2(0.0625,0.0625), "Escala uniforme")
 	tool.impact.connect(func(action: StringName): impacts.append(action))
 	tool.work_finished.connect(func(): completed += 1)
+	assert(tool.supports_action(&"minar") and tool.supports_action(&"talar"), "El mismo pico–hacha sirve para ambas acciones")
+	tool.play_work(&"pescar")
+	assert(not tool.working and tool.motion == null and impacts.is_empty(), "Una acción ajena no inicia animación ni emite impactos")
 	tool.play_work("minar")
 	tool.play_work("talar")
 	await create_timer(0.75).timeout

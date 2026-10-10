@@ -130,7 +130,7 @@ def build_catalog():
     sources = {name: {"size_px": list(Image.open(SOURCE/name).size),
                       "sha256": hashlib.sha256((SOURCE/name).read_bytes()).hexdigest()}
                for name in images}
-    return {"version": 1, "art_revision": "reinicio-pixel-npc-2026-10-10", "height_px": 80,
+    return {"version": 1, "art_revision": registration.get("art_revision", "reinicio-pixel-npc-2026-10-10"), "height_px": 80,
             "directions": DIRS, "sources": sources, "frames": frames,
             "notes": registration["notes"]}
 

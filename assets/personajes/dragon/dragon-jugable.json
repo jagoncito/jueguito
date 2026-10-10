@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "art_revision": "reinicio-pixel-npc-2026-10-10",
+  "art_revision": "pico-hacha-multiuso-2026-10-10",
   "height_px": 80,
   "directions": [
     "S",
@@ -74,7 +74,7 @@
         1254,
         1254
       ],
-      "sha256": "e8da427800c581739f51d6bab87aa007ca3e389d8de0b61a58bb10b5fcd67769"
+      "sha256": "a7bb79c7958fc712ed10ccf400e99dd01664720a3b698030754a7f3aa6ecd3b8"
     },
     "impacto-talar.png": {
       "size_px": [
@@ -610,43 +610,43 @@
       "file": "impacto-minar.png",
       "region": [
         221,
-        37,
-        184,
-        289
+        32,
+        190,
+        275
       ],
       "anchor": [
-        312,
-        296
+        315,
+        289
       ],
       "scale": 0.26,
       "hand": [
-        313,
-        162
+        305,
+        151
       ],
       "other_hand": [
-        313,
-        162
+        305,
+        151
       ],
       "body_bounds_px": [
         221,
-        53,
-        184,
-        243
+        32,
+        190,
+        257
       ],
-      "body_height_px": 243,
-      "presentation_height_px": 63.18,
+      "body_height_px": 257,
+      "presentation_height_px": 66.82000000000001,
       "tool_behind": false,
       "baked_tool": true,
       "contacts": {
         "minar": [
-          310,
-          321
+          339,
+          301
         ]
       },
       "working_end": "pick_tip",
       "contact_reference": [
-        310,
-        323
+        342,
+        304
       ]
     },
     "golpe-talar-S": {
@@ -1292,44 +1292,44 @@
     "golpe-SW": {
       "file": "impacto-minar.png",
       "region": [
-        762,
-        57,
-        353,
-        264
+        769,
+        27,
+        326,
+        275
       ],
       "anchor": [
         951,
-        310
+        294
       ],
       "scale": 0.26,
       "hand": [
-        882,
-        171
+        895,
+        146
       ],
       "other_hand": [
-        882,
-        171
+        895,
+        146
       ],
       "body_bounds_px": [
-        762,
-        74,
-        353,
-        236
+        769,
+        48,
+        326,
+        246
       ],
-      "body_height_px": 236,
-      "presentation_height_px": 61.36,
+      "body_height_px": 246,
+      "presentation_height_px": 63.96,
       "tool_behind": false,
       "baked_tool": true,
       "contacts": {
         "minar": [
-          827,
-          315
+          823,
+          295
         ]
       },
       "working_end": "pick_tip",
       "contact_reference": [
-        827,
-        315
+        820,
+        299
       ]
     },
     "golpe-talar-SW": {
@@ -1975,28 +1975,28 @@
     "golpe-W": {
       "file": "impacto-minar.png",
       "region": [
-        144,
-        356,
-        396,
-        258
+        154,
+        339,
+        393,
+        262
       ],
       "anchor": [
-        319,
-        611
+        316,
+        590
       ],
       "scale": 0.26,
       "hand": [
-        281,
-        467
+        318,
+        461
       ],
       "other_hand": [
-        281,
-        467
+        318,
+        461
       ],
       "body_bounds_px": [
-        144,
-        374,
-        396,
+        154,
+        353,
+        393,
         237
       ],
       "body_height_px": 237,
@@ -2005,14 +2005,14 @@
       "baked_tool": true,
       "contacts": {
         "minar": [
-          210,
-          609
+          199,
+          588
         ]
       },
       "working_end": "pick_tip",
       "contact_reference": [
-        211,
-        609
+        199,
+        589
       ]
     },
     "golpe-talar-W": {
@@ -2658,44 +2658,44 @@
     "golpe-NW": {
       "file": "impacto-minar.png",
       "region": [
-        810,
-        352,
-        327,
-        259
+        798,
+        326,
+        337,
+        281
       ],
       "anchor": [
-        991,
-        608
+        986,
+        600
       ],
       "scale": 0.26,
       "hand": [
-        938,
-        474
+        943,
+        455
       ],
       "other_hand": [
-        938,
-        474
+        943,
+        455
       ],
       "body_bounds_px": [
-        810,
-        352,
-        327,
-        256
+        798,
+        326,
+        337,
+        274
       ],
-      "body_height_px": 256,
-      "presentation_height_px": 66.56,
+      "body_height_px": 274,
+      "presentation_height_px": 71.24000000000001,
       "tool_behind": true,
       "baked_tool": true,
       "contacts": {
         "minar": [
-          816,
-          440
+          803,
+          424
         ]
       },
       "working_end": "pick_tip",
       "contact_reference": [
-        813,
-        443
+        801,
+        428
       ]
     },
     "golpe-talar-NW": {
@@ -3341,44 +3341,44 @@
     "golpe-N": {
       "file": "impacto-minar.png",
       "region": [
-        213,
-        643,
         221,
-        296
+        613,
+        192,
+        336
       ],
       "anchor": [
-        323,
-        913
+        319,
+        921
       ],
       "scale": 0.26,
       "hand": [
-        306,
-        829
+        293,
+        858
       ],
       "other_hand": [
-        306,
-        829
+        293,
+        858
       ],
       "body_bounds_px": [
-        213,
-        643,
         221,
-        270
+        613,
+        192,
+        308
       ],
-      "body_height_px": 270,
-      "presentation_height_px": 70.2,
+      "body_height_px": 308,
+      "presentation_height_px": 80.08,
       "tool_behind": true,
       "baked_tool": true,
       "contacts": {
         "minar": [
-          219,
-          716
+          311,
+          619
         ]
       },
       "working_end": "pick_tip",
       "contact_reference": [
-        216,
-        721
+        310,
+        615
       ]
     },
     "golpe-talar-N": {
@@ -4024,44 +4024,44 @@
     "golpe-NE": {
       "file": "impacto-minar.png",
       "region": [
-        733,
-        659,
-        356,
-        252
+        758,
+        629,
+        336,
+        293
       ],
       "anchor": [
-        991,
-        908
+        980,
+        914
       ],
       "scale": 0.26,
       "hand": [
-        968,
-        779
+        963,
+        763
       ],
       "other_hand": [
-        968,
-        779
+        963,
+        763
       ],
       "body_bounds_px": [
-        733,
-        659,
-        356,
-        249
+        758,
+        629,
+        336,
+        285
       ],
-      "body_height_px": 249,
-      "presentation_height_px": 64.74000000000001,
+      "body_height_px": 285,
+      "presentation_height_px": 74.10000000000001,
       "tool_behind": true,
       "baked_tool": true,
       "contacts": {
         "minar": [
-          1082,
-          747
+          1086,
+          735
         ]
       },
       "working_end": "pick_tip",
       "contact_reference": [
-        1085,
-        747
+        1082,
+        742
       ]
     },
     "golpe-talar-NE": {
@@ -4707,44 +4707,44 @@
     "golpe-E": {
       "file": "impacto-minar.png",
       "region": [
-        129,
-        964,
-        382,
+        134,
+        969,
+        372,
         253
       ],
       "anchor": [
-        328,
-        1215
+        327,
+        1218
       ],
       "scale": 0.26,
       "hand": [
-        368,
-        1073
+        342,
+        1083
       ],
       "other_hand": [
-        368,
-        1073
+        342,
+        1083
       ],
       "body_bounds_px": [
-        129,
-        982,
-        382,
-        233
+        134,
+        979,
+        372,
+        239
       ],
-      "body_height_px": 233,
-      "presentation_height_px": 60.580000000000005,
+      "body_height_px": 239,
+      "presentation_height_px": 62.14,
       "tool_behind": false,
       "baked_tool": true,
       "contacts": {
         "minar": [
-          451,
+          449,
           1202
         ]
       },
       "working_end": "pick_tip",
       "contact_reference": [
-        451,
-        1202
+        445,
+        1205
       ]
     },
     "golpe-talar-E": {
@@ -5390,44 +5390,44 @@
     "golpe-SE": {
       "file": "impacto-minar.png",
       "region": [
-        777,
-        958,
-        341,
-        259
+        801,
+        959,
+        298,
+        271
       ],
       "anchor": [
-        955,
-        1214
+        943,
+        1222
       ],
       "scale": 0.26,
       "hand": [
-        970,
-        1070
+        965,
+        1076
       ],
       "other_hand": [
-        970,
-        1070
+        965,
+        1076
       ],
       "body_bounds_px": [
-        777,
-        976,
-        341,
-        238
+        801,
+        974,
+        298,
+        248
       ],
-      "body_height_px": 238,
-      "presentation_height_px": 61.88,
+      "body_height_px": 248,
+      "presentation_height_px": 64.48,
       "tool_behind": false,
       "baked_tool": true,
       "contacts": {
         "minar": [
-          1050,
-          1211
+          1034,
+          1223
         ]
       },
       "working_end": "pick_tip",
       "contact_reference": [
-        1050,
-        1211
+        1034,
+        1223
       ]
     },
     "golpe-talar-SE": {
@@ -5554,6 +5554,7 @@
     "PNG generados nuevos e intactos. Sin fuentes del dragón descartado.",
     "Impactos con ocho vistas independientes y márgenes amplios.",
     "El atlas arrodillado aporta solo las ocho primeras poses; sus elevaciones de ensayo no se usan.",
-    "Los atlas de minería/tala aportan preparación, carga y recuperación; impacto procede de sus hojas dedicadas."
+    "Los atlas de minería/tala aportan preparación, carga y recuperación; impacto procede de sus hojas dedicadas.",
+    "Pico–hacha multiuso: minería conserva la hoja ancha opuesta; ocho impactos nuevos con una sola cabeza y punta activa. Tala, preparación/carga/recuperación y locomoción conservadas."
   ]
 }

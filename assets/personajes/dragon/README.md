@@ -31,6 +31,11 @@ del zoom. Una escala uniforme por ciclo de cuatro fases, sin reescalar al levant
 un pie. Las posturas de trabajo/recolección bajan mediante dibujos flexionados.
 F7/F8 conservan la comparación reversible80/72px; colisión y velocidades intactas.
 
+Revisión multiuso del 10 de octubre: las ocho poses de impacto de minería conservan
+la hoja ancha opuesta del hacha. Se reconoce una única cabeza con ambos extremos,
+sin sustituir el equipo al pasar de mena a árbol. Nuevos contactos de punta medidos;
+la tala y las demás poses se conservan. Integración local, revisión visual pendiente.
+
 Pico arriba/filo abajo al llevarlo, incluido el perfil. El pico–hacha, brazos y
 dedos están en el mismo dibujo. Minería registra la punta afilada; tala, el borde
 ancho de la hoja opuesta. Partículas en el extremo registrado, cinco golpes y

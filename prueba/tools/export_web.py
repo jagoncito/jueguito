@@ -32,7 +32,8 @@ Para comparar los siete personajes a escala de juego: ?vista=personajes.
 Flechas: vista; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común 1×/2×.
 Seis NPC con ocho vistas de reposo cada uno; protagonista actualizado con 160 fotogramas nuevos.
 Protagonista de 80 px; pico arriba y filo de hacha abajo al llevarlo.
-Minería: golpea la mena con la punta del pico. Tala: el filo del hacha golpea el tronco.
+Una misma herramienta pico-hacha sirve para las dos acciones; no se cambia el equipo.
+Minería: la punta del pico golpea la mena; tala: el filo ancho del hacha golpea el tronco.
 Espacio alterna la cámara lenta en la revisión del dragón.
 En la granja aparecen Flavia, Unamahloni, cocinero/pescador, minero/herrero,
 elfa del museo y comerciante para comparar con el protagonista.

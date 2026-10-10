@@ -1,8 +1,6 @@
 # Pico–hacha de hierro
 
-**Revisión pendiente de publicación (10 de octubre de 2026):** el usuario rechaza la tala anterior y el crecimiento aparente al caminar. Reposo comparte ahora el dibujo de contacto A de cada dirección; los cuatro pasos usan una única escala anatómica por ciclo. Retirados los atlas separados de reposo/apoyos/marcha opuesta que mezclaban proporciones. Marcha frontal y norte corregidas manteniendo la anatomía de sus hojas; 112 registros en catálogo v5, ocho atlas jugables. Tala usa el mismo gesto de preparación/carga/golpe que la minería, con el filo ancho como extremo activo; añadida carga propia de tala. PNG y registros de minería conservados exactamente. Esta petición autoriza corregir e integrar y crear los sprites necesarios; no solicita otra publicación. Acabado pendiente de la revisión del usuario.
-
-**Corrección de impactos (10 de octubre de 2026):** el usuario precisa que el árbol se golpea con el filo del hacha y la mena con la punta del pico, y solicita integrar/publicar. Actualizados los dos atlas de trabajo y sus contactos en las ocho vistas, sobre el extremo activo del metal; no sobre el collar ni el mango. Tala usa también su preparación lateral en entrada/recuperación. Las partículas nacen del contacto registrado, incluida la altura propia de la mena. Conservados 80 px, cinco golpes, tiempos, controles y colisión. Esta corrección está autorizada para subir; el acabado visual sigue pendiente de revisión.
+**Pico–hacha multiuso, 10 de octubre de 2026:** una sola herramienta equipada sirve para minería y tala. La mena selecciona la animación de picar con la punta estrecha; el árbol, la animación de talar con el filo ancho. Se han corregido las ocho poses de impacto minero para conservar la hoja ancha del hacha opuesta, evitando que parezca un pico de dos puntas. La misma cabeza tiene ambos extremos y acompaña a brazos/cuerpo; no se sustituye el equipo al cambiar de recurso. Cinco golpes y tiempos conservados. Integración local; acabado pendiente de revisión visual.
 
 ![Pico–hacha básico de hierro](pico-hacha-hierro.png)
 
@@ -41,17 +39,17 @@ Para mejorar una pieza, sustituir solo su textura mediante `set_part_texture("pi
 
 ## Animación y efectos
 
-**Integración actual del dragón:** el pico–hacha está dibujado en sus atlas equipados de 80 px de altura. Punta arriba y filo abajo en reposo/marcha, acompañando el brazo. Preparación y golpe de tala tienen un atlas propio. El rig descrito a continuación se conserva como recurso independiente; en el jugador sus sprites se ocultan y solo conserva el reloj/señales. La revisión de `scenes/herramienta.tscn` utiliza las mismas poses completas que el juego. `pose_contact` devuelve el contacto del metal visible registrado en el atlas del cuerpo. Materiales mejorables todavía pendientes de su representación en estos sprites.
+**Integración actual del dragón:** el pico–hacha está dibujado junto al cuerpo en el [conjunto vigente de 160 poses](../../personajes/dragon/README.md), con referencia de altura de 80 px. Punta arriba y filo abajo en reposo/marcha, acompañando el brazo. Preparación y golpe de tala tienen un atlas propio. El rig descrito a continuación se conserva como recurso independiente; en el jugador sus sprites se ocultan y solo conserva el reloj/señales. La revisión de `scenes/herramienta.tscn` utiliza las mismas poses completas que el juego. `pose_contact` devuelve el contacto del metal visible registrado en el atlas del cuerpo. Materiales mejorables todavía pendientes de su representación en estos sprites.
 
 - `play_work("minar")`: preparación, golpe con la punta del pico y recuperación.
 - `play_work("talar")`: preparación, golpe con el lado del hacha y recuperación.
-- Giro alrededor del agarre; duración provisional de **0,62 s**, señal `impact` a los **0,33 s** y señal `work_finished` al terminar.
-- Una acción en curso impide iniciar otra; `reset_pose()` cancela y restaura el reposo.
+- El jugador usa poses completas propias para cada acción, con preparación, carga, impacto y recuperación. La herramienta acompaña a brazos/cuerpo. Duración provisional de **0,62 s**, señal `impact` a los **0,33 s** y señal `work_finished` al terminar. El rig independiente conserva su giro de demostración, oculto en el jugador.
+- `supports_action()` reconoce minería y tala en la misma herramienta. Una acción ajena se rechaza antes de bloquear al jugador; una acción en curso impide iniciar otra. `reset_pose()` cancela y restaura el reposo.
 - `contact_point("minar")` y `contact_point("talar")` devuelven la posición global de cada extremo para colocar partículas visuales. No fijan daño, alcance ni tiempo final de extracción.
-- `impact_vector(acción)` devuelve el desplazamiento del extremo respecto al agarre en la pose de impacto; el personaje lo usa para orientar el movimiento hacia el recurso.
+- `impact_vector(acción)` devuelve el desplazamiento del extremo respecto al agarre en la pose de impacto; pertenece al rig independiente. En el jugador, el contacto procede del dibujo completo de la acción.
 - Sin colisión propia del PNG: alcance, selección de recurso y reglas de trabajo corresponden al juego.
 
-Es un **rig 2D de una pose**, no una hoja de fotogramas ni las animaciones definitivas del personaje. Al producirlas habrá que coordinar hombros, brazos y ambas manos, comprobar oclusión del torso y recursos, y adaptar o generar las proyecciones necesarias por dirección. Las piezas son asimétricas: al cambiar orientación se debe mantener qué extremo trabaja y qué material pertenece a cada función.
+El recurso independiente es un **rig 2D de una pose**. El jugador ya usa las animaciones completas del dragón, en ocho direcciones; hombros, brazos, manos y herramienta se dibujan juntos. El acabado y las oclusiones siguen sujetos a revisión visual. Las piezas son asimétricas: al cambiar orientación se debe mantener qué extremo trabaja y qué material pertenece a cada función.
 
 ## Revisar en Godot
 

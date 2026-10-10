@@ -59,8 +59,11 @@ func reset_pose() -> void:
 	working = false
 	rotation = 0.0 if externally_posed else deg_to_rad(REST_ANGLE)
 
+func supports_action(function: StringName) -> bool:
+	return MOTIONS.has(String(function))
+
 func play_work(function: StringName) -> void:
-	if working or not MOTIONS.has(String(function)):
+	if working or not supports_action(function):
 		return
 	working = true
 	motion = create_tween()
