@@ -1,6 +1,6 @@
 # Pico–hacha de hierro
 
-**Pico–hacha multiuso, 10 de octubre de 2026:** una sola herramienta equipada sirve para minería y tala. La mena selecciona la animación de picar con la punta estrecha; el árbol, la animación de talar con el filo ancho. Se han corregido las ocho poses de impacto minero para conservar la hoja ancha del hacha opuesta, evitando que parezca un pico de dos puntas. La misma cabeza tiene ambos extremos y acompaña a brazos/cuerpo; no se sustituye el equipo al cambiar de recurso. Cinco golpes y tiempos conservados. Integración local; acabado pendiente de revisión visual.
+**Pico–hacha multiuso, 10 de octubre de 2026:** una sola herramienta equipada sirve para minería y tala. La mena selecciona la animación de picar con la punta estrecha; el árbol, la animación de talar con el filo ancho. Se han corregido las ocho poses de impacto minero para conservar la hoja ancha del hacha opuesta, evitando que parezca un pico de dos puntas. La misma cabeza tiene ambos extremos y acompaña a brazos/cuerpo; no se sustituye el equipo al cambiar de recurso. Cinco golpes y tiempos conservados. Entrega autorizada para GitHub; acabado pendiente de revisión visual.
 
 ![Pico–hacha básico de hierro](pico-hacha-hierro.png)
 

@@ -18,3 +18,7 @@ Para Godot: crear una AtlasTexture por `region_px`, utilizar filtro nearest y ap
 Verificados transparencia, cuatro regiones dentro del atlas, dimensiones, calibración y huella SHA-256; sin píxeles rojos saturados de opacidad superior a 0,5 en la versión conservada. Las dos primeras pruebas de generación se descartaron como candidatas por su borde rojizo; siguen conservadas en el directorio de imágenes generadas de la sesión. La fuente seleccionada también permanece allí intacta.
 
 Pendientes de la integración: revisión de bordes y repetición en una cuadrícula real de 64 × 32, transiciones entre hierba y tierra y aprobación visual. Estas cuatro bases no constituyen un TileSet de transiciones completo. La petición posterior de generar el Miutu y subir todo lo pendiente autoriza publicar este lote; no autoriza su integración ni reabre la generación general de imágenes.
+
+## Integración posterior — 10 de octubre
+
+El usuario solicita implementar césped, tierra y arena existentes y publicarlos. Las dos variantes de hierba y dos de tierra se usan en la prueba; la arena procede de `../arena/`. Fuentes intactas, seis regiones y dos texturas compartidas. `prueba/scripts/terrain.gd` mapea cada región al rombo exacto 64 × 32 con coordenadas UV; las parcelas conservan su tinte y contorno. Sin nuevas imágenes ni cambio de colisiones. Las transiciones entre materiales siguen siendo bordes de casilla; no se implementa un autotile completo.

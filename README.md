@@ -15,6 +15,10 @@ La generación general de imágenes está en pausa; solo se crean recursos cuand
 
 [![Captura real de la prueba](prueba/capturas/recursos-en-juego.png)](prueba/README.md)
 
+## Suelos en la prueba
+
+Césped, tierra y arena existentes integrados en la cuadrícula de 64 × 32, con seis variantes y fuentes compartidas. [Captura dentro del juego](prueba/capturas/cesped-tierra-arena-en-juego.png). Descarga de navegador actualizada.
+
 ## Mapa y astillero
 
 [Ruinas y camino costero: 48 piezas](assets/entorno/ruinas-camino/README.md), tres atlas con catálogo, recursos de Godot y galería. Preparación final e integración pendientes.

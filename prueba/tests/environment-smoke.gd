@@ -8,6 +8,13 @@ func run() -> void:
 	root.add_child(scene)
 	await physics_frame
 	await physics_frame
+	assert(scene.terrain.surface_frames.size() == 6, "Dos variantes por cada suelo")
+	assert(scene.terrain.surface_sources.size() == 2, "Fuentes compartidas, sin texturas por casilla")
+	assert(scene.terrain.surface_material(Vector2i(7,7)) == "hierba")
+	assert(scene.terrain.surface_material(Vector2i(17,20)) == "tierra")
+	assert(scene.terrain.surface_material(Vector2i(22,10)) == "arena")
+	assert(scene.terrain.surface_material(Vector2i(24,10)) == "agua")
+	assert(scene.terrain.surface_material(Vector2i(12,16)) == "tierra", "Parcelas conservadas")
 	var home: BituHouse
 	for object in scene.objects.get_children():
 		if object is BituHouse:

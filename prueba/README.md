@@ -86,3 +86,9 @@ Conjunto simplificado: seis NPC con ocho vistas de reposo cada uno y protagonist
 ## Habitantes integrados y comparación de escala
 
 Los seis NPC están en posiciones provisionales del mapa y giran brevemente sobre el sitio; F6 pausa/reanuda los giros. Al acercarte miran al protagonista y **E** muestra una conversación de prueba. No incluye servicios ni diálogos definitivos. **F7**: dragón80px actual. **F8**: alternativa72px; se restablece al recargar. NPC y zoom sin cambios. [Capturas, mediciones y explicación](../docs/revision-personajes-en-juego.md).
+
+## Suelos gráficos integrados
+
+La prueba usa los sprites existentes de césped/hierba, tierra y arena: dos variantes por material, seis regiones en dos fuentes compartidas. Caminos y parcelas de tierra, franja costera de arena y resto de terreno de hierba. Geometría 64 × 32, controles y colisiones conservados.
+
+![Césped, tierra y arena dentro del juego](capturas/cesped-tierra-arena-en-juego.png)

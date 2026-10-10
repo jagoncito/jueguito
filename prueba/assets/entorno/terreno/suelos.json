@@ -1,0 +1,62 @@
+{
+  "reference_footprint": [
+    64,
+    32
+  ],
+  "frames": {
+    "hierba-a": {
+      "file": "hierba-y-tierra.png",
+      "region": [
+        66,
+        59,
+        754,
+        353
+      ]
+    },
+    "hierba-b": {
+      "file": "hierba-y-tierra.png",
+      "region": [
+        953,
+        59,
+        754,
+        353
+      ]
+    },
+    "tierra-a": {
+      "file": "hierba-y-tierra.png",
+      "region": [
+        66,
+        487,
+        754,
+        357
+      ]
+    },
+    "tierra-b": {
+      "file": "hierba-y-tierra.png",
+      "region": [
+        953,
+        487,
+        754,
+        358
+      ]
+    },
+    "arena-a": {
+      "file": "arena-fuente.png",
+      "region": [
+        48,
+        240,
+        791,
+        412
+      ]
+    },
+    "arena-b": {
+      "file": "arena-fuente.png",
+      "region": [
+        935,
+        240,
+        791,
+        412
+      ]
+    }
+  }
+}
