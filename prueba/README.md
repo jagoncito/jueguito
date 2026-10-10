@@ -78,6 +78,10 @@ La captura anterior con humano se ha retirado al sustituirla por el dragón.
 
 ## Escala común dentro del juego
 
-Los seis NPC tienen sprites nativos a escala de mundo y el protagonista conserva su renderizador actualizado, conservando las estaturas. Revisión: `prueba/scenes/personajes.tscn` (F6), o `?vista=personajes` en la descarga web. Flechas: vistas; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común. Recursos y medidas: `assets/personajes/escala-juego/README.md`. El dragón está actualizado en la prueba principal; los otros seis solo en esta revisión.
+Los seis NPC tienen sprites nativos a escala de mundo y el protagonista conserva su renderizador actualizado, conservando las estaturas. Revisión: `prueba/scenes/personajes.tscn` (F6), o `?vista=personajes` en la descarga web. Flechas: vistas; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común. Recursos y medidas: `assets/personajes/escala-juego/README.md`. El dragón y los seis NPC aparecen también en la partida principal; su distribución es provisional.
 
 Conjunto simplificado: seis NPC con ocho vistas de reposo cada uno y protagonista actualizado con 104 fotogramas (152 en total).
+
+## Habitantes integrados y comparación de escala
+
+Los seis NPC están en posiciones provisionales del mapa; al acercarte miran al protagonista y **E** muestra una conversación de prueba. No incluye servicios ni diálogos definitivos. **F7**: dragón80px actual. **F8**: alternativa72px; se restablece al recargar. NPC y zoom sin cambios. [Capturas, mediciones y explicación](../docs/revision-personajes-en-juego.md).

@@ -3,6 +3,7 @@ extends Node2D
 ## Poses completas: ninguna extremidad ni la cola se estira en tiempo de ejecución.
 
 const DIRECTORY := "res://assets/personajes/dragon-avatar/"
+var presentation_height_px := 80.0
 var catalog: Dictionary
 var textures: Dictionary = {}
 var frame_textures: Dictionary = {}
@@ -150,6 +151,7 @@ func show_pose(pose: String, direction: int) -> void:
 	# Medir el cuerpo desde el suelo, excluyendo metal/madera. Los golpes
 	# flexionan las rodillas y conservan una silueta más baja, sin agrandar la cara.
 	var factor := float(frame.get("presentation_height_px",_presentation_height(pose_name)))/float(frame.get("body_height_px",metrics["alpha_height"]))
+	factor *= presentation_height_px/UPRIGHT_HEIGHT_PX
 	body.texture = atlases[key]
 	body.scale = Vector2.ONE*factor
 	body.position = (Vector2(frame.region[0],frame.region[1])-anchor)*factor
@@ -190,6 +192,17 @@ func _draw() -> void:
 	draw_set_transform(Vector2(0,-2),0,Vector2(1,0.27))
 	draw_circle(Vector2.ZERO,18,Color(0.025,0.04,0.055,0.3))
 	draw_set_transform(Vector2.ZERO)
+
+func set_presentation_height(height: float) -> void:
+	var requested := clampf(height,64.0,96.0)
+	if is_equal_approx(requested,presentation_height_px):
+		return
+	presentation_height_px = requested
+	if current_frame.is_empty():
+		return
+	var pose := current_frame.substr(0,current_frame.rfind("-"))
+	current_frame = ""
+	show_pose(pose,direction_index)
 
 func has_baked_tool() -> bool:
 	return catalog.frames[current_frame].get("baked_tool",false)

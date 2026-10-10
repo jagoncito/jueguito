@@ -19,7 +19,7 @@ Cada carpeta contiene PNG individuales, atlas, `animaciones.tres` y `personaje.t
 
 Abrir `prueba/scenes/personajes.tscn` en Godot4.6.3 y F6, o añadir `?vista=personajes` a la descarga web. **La escena muestra los seis NPC nativos y el protagonista mediante su renderizador real actualizado.** Flechas: vistas de todos; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común1×/2×. La regla representa90px de puerta, sin imponer esa altura al protagonista.
 
-`visor.html` es una comparación autónoma de los seis NPC. El protagonista se revisa en el motor para mostrar exactamente la versión jugable. Los seis NPC todavía no están colocados en el mapa principal ni tienen conversaciones implementadas.
+`visor.html` es una comparación autónoma de los seis NPC. El protagonista se revisa en el motor para mostrar exactamente la versión jugable. Los seis NPC están integrados en posiciones provisionales de la partida, con colisión, giro hacia el jugador e interacción básica de prueba. Diálogos definitivos y servicios pendientes. [Capturas y explicación de escala](../../../docs/revision-personajes-en-juego.md).
 
 ## Fuentes y comprobación
 

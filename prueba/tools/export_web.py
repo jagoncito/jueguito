@@ -21,7 +21,9 @@ WASD: mover; Shift + WASD: sprint provisional; rueda: zoom; Tab: mochila.
 Clic izquierdo sobre una mena, árbol o flor cercana: completa toda la extracción.
 No hace falta mantener pulsado ni repetir clics por golpe.
 Para flores se equipa el palín y el personaje se arrodilla, extrae y se levanta.
-E: plantar, regar o cosechar.
+E: plantar, regar, cosechar o hablar con un habitante cercano.
+Seis habitantes quietos integrados en posiciones provisionales, con ocho vistas cada uno.
+F7: dragón actual80px. F8: comparación72px (ajuste gráfico reversible, sin cambiar NPC).
 Dragón bípedo: ocho direcciones, cola conectada, caminar, minar, talar y palín.
 Marcha de cuatro fases distintas; pico-hacha y palín con ocho perspectivas y agarres registrados.
 Para ver ocho direcciones ampliadas, añade ?vista=dragon a la URL del juego.

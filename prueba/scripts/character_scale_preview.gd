@@ -12,13 +12,14 @@ var walking := false
 var group: Node2D
 var info: Label
 var zoom := 2.0
+var dragon_height := 80.0
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	RenderingServer.set_default_clear_color(Color("162c2b"))
 	catalog = JSON.parse_string(FileAccess.get_file_as_string(DIRECTORY+"sprites.json"))
 	_label("BĪTU · ESCALA DE PERSONAJES EN EL MOTOR",Vector2(28,24),24)
-	_label("← → ocho vistas · Espacio marcha dragón · V poses dragón · Z zoom común 1× / 2×",Vector2(28,62),18)
+	_label("Flechas: ocho vistas · Espacio marcha dragón · V poses dragón · Z zoom común 1× / 2×",Vector2(28,62),18)
 	info = _label("",Vector2(28,100),18)
 	group = Node2D.new()
 	group.position = Vector2(50,400)
@@ -40,7 +41,7 @@ func _ready() -> void:
 		label.name = "Name%d" % index
 	_label("Suelo: 64 × 32 px · fotogramas: 128 × 128 px · apoyo común: (64, 112)",Vector2(28,535),18)
 	_label("Seis NPC: ocho vistas en reposo cada uno. Solo el protagonista tiene marcha.",Vector2(28,569),16)
-	_label("Puerta de referencia: 90 px de mundo. Z cambia la ampliación de todos a la vez.",Vector2(28,600),16)
+	_label("F7: dragón 80 px · F8: prueba 72 px · Z cambia el zoom común. Puerta: 90 px.",Vector2(28,600),16)
 	_refresh()
 	print("BITU_CHARACTER_SCALE_READY")
 
@@ -54,7 +55,9 @@ func _refresh() -> void:
 		var phase := 0
 		if name == "dragon":
 			action = ["andar-a","paso-a","andar-b","paso-b"][int(elapsed*7)%4] if walking else ["reposo","cargar","golpe","arrodillado"][variant%4]
+			(actors[index] as BituDragonVisual).set_presentation_height(dragon_height)
 			(actors[index] as BituDragonVisual).show_pose(action,direction)
+			get_node("Name6").text = "Dragón · %.0f px" % dragon_height
 			continue
 		var ch: Dictionary = catalog.characters[name]
 		for frame: Dictionary in ch.frames:
@@ -79,6 +82,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			KEY_RIGHT: direction = posmod(direction+1,8)
 			KEY_SPACE: walking = not walking
 			KEY_V: variant += 1
+			KEY_F7: dragon_height = 80.0
+			KEY_F8: dragon_height = 72.0
 			KEY_Z: zoom = 1.0 if zoom == 2.0 else 2.0
 		_refresh()
 

@@ -49,6 +49,10 @@ Se retiran los sprites, atlas, prefabs, visores y paquetes antiguos de NPC con m
 
 El usuario solicita subir la simplificación de personajes a GitHub. La versión remota más reciente (`5cb4094`) ya tiene protagonista de80px y104 fotogramas, con herramientas integradas y golpes revisados. Se conserva íntegra: este acuerdo no revierte esa mejora a los80 fotogramas/90px anteriores. Los seis NPC mantienen8 vistas de reposo cada uno:48 sprites nativos, **152 fotogramas en total** con el protagonista. La escena conjunta usa el renderizador real del protagonista actualizado. La descarga conserva también agua/casa ya aplicada y las mejoras remotas. Las cantidades anteriores describen entregas históricas.
 
+### Comparación y prueba de NPC integrada — 10 de octubre
+
+El usuario considera pequeños los NPC respecto al dragón y solicita analizar el repositorio, explicar la programación, intentar integrarlos in-game y subir capturas de tamaños. Se integran localmente los seis NPC en posiciones provisionales, con ocho vistas, colisión en los pies, orientación hacia el jugador e interacción de conversación de prueba; no diálogos definitivos ni servicios. La medición muestra adultos80/84px, enano64px y dragón sin equipo81,55–82,46px visibles frente a la referencia nominal80. La diferencia principal es de anchura y proporciones. Se conserva80px inicial y se prepara una alternativa reversible72px (F7/F8), sin redibujar fuentes ni cambiar los104 fotogramas. NPC y cámara mantienen sus medidas. Se solicitan capturas reales publicadas para revisar; no se considera aprobado el nuevo tamaño ni se fijan nuevas posiciones narrativas. [Auditoría y comparación](docs/revision-personajes-en-juego.md).
+
 ### Agua y casa — referencias solicitadas el 9 de octubre
 
 El usuario solicita perfeccionar primero los assets de agua y casa y **ver los resultados antes de subirlos a GitHub**. Autoriza generar estas propuestas concretas; la pausa de generación general se mantiene para otros recursos.
@@ -266,7 +270,7 @@ Las propuestas anteriores de cabello azul petróleo o negro violáceo y ojos de 
 
 **Personaje en pausa por petición del usuario:** dejarlo por ahora con estas decisiones y no seguir preguntando sobre él hasta que el usuario quiera retomarlo.
 
-El usuario ha solicitado después una imagen pixel art para la futura programación. Primer recurso generado: [Unamahloni — pose quieta](assets/personajes/unamahloni-idle.png), PNG transparente de 1143 × 1376 píxeles. [Notas de uso](assets/personajes/README.md). Es una sola pose, sin animaciones; ropa y accesorios de esta imagen pueden revisarse. Se mantiene la pausa del diseño detallado de Unamahloni; no se usa su imagen como protagonista de la prueba.
+El usuario ha solicitado después una imagen pixel art para la futura programación. Primer recurso generado: [Unamahloni — pose quieta](assets/personajes/referencias/unamahloni-idle.png), PNG transparente de 1143 × 1376 píxeles. [Notas de uso](assets/personajes/README.md). Es una sola pose, sin animaciones; ropa y accesorios de esta imagen pueden revisarse. Se mantiene la pausa del diseño detallado de Unamahloni; no se usa su imagen como protagonista de la prueba.
 
 Las dos variantes ilustradas se descartaron tras comparar estilos y se eliminaron. El recurso pixel art original permanece intacto como primer boceto; todavía no se ha adaptado a la cámara isométrica cenital definitiva ni al peinado liso. No se ha generado una nueva imagen para hacerlo, respetando la petición de detener la generación.
 

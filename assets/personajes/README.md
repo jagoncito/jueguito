@@ -20,4 +20,4 @@ El protagonista tiene el conjunto completo porque es controlable. Los seis NPC s
 
 Revisión en Godot: abrir `prueba/scenes/personajes.tscn` y F6. Web: `?vista=personajes`. Flechas cambian las vistas de todos; Espacio y V afectan a marcha/poses del protagonista; Z amplía a todos por igual.
 
-El dragón está integrado en la partida. Los seis NPC tienen recursos listos y aparecen en la revisión; colocación, conversación y recepción de objetos todavía pendientes. El usuario solicita publicar esta entrega en GitHub.
+El dragón está integrado en la partida. Los seis NPC están integrados en posiciones provisionales, con giro, colisión e interacción de conversación de prueba. Diálogos, servicios y recepción de objetos pendientes. El usuario solicita publicar esta entrega en GitHub.

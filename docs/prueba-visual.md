@@ -120,3 +120,7 @@ Las carpetas deben existir. Aplicar también estas variables al comando Python d
 
 Integración revisada en Godot 4.6.3 y Chromium/WebGL: arranque, movimiento, límite del agua, minería, tala, Yde, botín y mochila. `tests/environment-smoke.gd` comprueba la fachada física y el paso libre por el patio; también pasan smoke, scene-smoke, resources-smoke y tool-smoke. La prueba de navegador completó el recorrido tras repetir el primer intento de Yde. PNG originales idénticos a las copias de ejecución; ZIP actualizado con CRC y paquete comprobados.
 Ajuste de cinco golpes: la prueba de escena confirma que cuatro impactos conservan mena y árbol sin botín, y que el quinto completa la extracción. Descarga de navegador regenerada con este ajuste y ZIP comprobado. Las mejoras hasta un golpe quedan como dirección de diseño, todavía sin implementar.
+
+## NPC en partida y revisión de tamaños
+
+Seis NPC con ocho vistas cada uno, colisión en pies, giro al aproximarse e interacciónE de prueba. Protagonista104 poses. F7/F8 comparan su tamaño80/72px sin cambiar el zoom o los NPC. [Auditoría completa, funcionamiento y capturas del motor](revision-personajes-en-juego.md). Posiciones y diálogos provisionales; servicios pendientes.

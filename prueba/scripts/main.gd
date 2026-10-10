@@ -6,6 +6,10 @@ var terrain: BituTerrain
 var objects: Node2D
 var player: BituPlayer
 var camera: Camera2D
+var npcs: Array[BituNPC] = []
+var scale_capture := false
+const NPC_ORDER := ["flavia","unamahloni","elfa-museo","comerciante","cocinero","enano"]
+const NPC_POSITIONS := [Vector2(-250,550),Vector2(-210,620),Vector2(-135,680),Vector2(55,660),Vector2(175,605),Vector2(320,530)]
 var crops: Array[BituCrop] = []
 var resources: Array[BituResource] = []
 var trees: Array[BituTree] = []
@@ -83,6 +87,7 @@ func _ready() -> void:
 	player.equipment_enabled = true
 	player.position = BituTerrain.cell_to_world(Vector2(17,16))
 	objects.add_child(player)
+	_spawn_npcs()
 	player.work_impact.connect(_on_work_impact)
 	player.work_finished.connect(_on_work_finished)
 	camera = Camera2D.new()
@@ -93,7 +98,67 @@ func _ready() -> void:
 		_spawn_drop(TOMATO_IDS[index], BituTerrain.cell_to_world(Vector2(20+index*0.5,20-index*0.5)))
 	_build_ui()
 	_refresh_backpack()
+	_prepare_scale_capture()
 	print("BITU_READY")
+
+func _spawn_npcs() -> void:
+	for index in range(NPC_ORDER.size()):
+		var npc := BituNPC.new()
+		npc.character_id = NPC_ORDER[index]
+		npc.position = NPC_POSITIONS[index]
+		npc.observer = player
+		objects.add_child(npc)
+		npcs.append(npc)
+
+func _prepare_scale_capture() -> void:
+	if not OS.has_feature("web"):
+		return
+	var params = JavaScriptBridge.eval("JSON.stringify({capture:new URLSearchParams(location.search).get('captura'),height:new URLSearchParams(location.search).get('altura')})")
+	var settings: Dictionary = JSON.parse_string(String(params))
+	if settings.capture == "habitantes":
+		player.position = Vector2(130,620)
+		player.face_towards(Vector2.DOWN)
+		player.set_physics_process(false)
+		player.set_process(false)
+		player.animate_pose(0)
+		zoom_index = 1
+		backpack.visible = false
+		print("BITU_INGAME_OVERVIEW_READY")
+		return
+	if settings.capture not in ["escala-frente","escala-diagonal","escala-espalda"]:
+		return
+	scale_capture = true
+	backpack.visible = false
+	var direction := ["escala-frente","escala-diagonal","escala-espalda"].find(settings.capture)*2
+	if settings.capture == "escala-diagonal":
+		direction = 1
+	for index in range(npcs.size()):
+		var npc := npcs[index]
+		npc.position = Vector2(-500+index*75,720)
+		npc.observer = null
+		npc.set_direction(direction)
+		npc.show_name = true
+		npc.queue_redraw()
+	player.position = Vector2(-50,720)
+	player.face_towards(BituPlayer.DIRECTIONS[direction])
+	player.set_physics_process(false)
+	player.set_process(false)
+	player.animate_pose(0)
+	var height := 72.0 if settings.height == "72" else 80.0
+	player.dragon.set_presentation_height(height)
+	var name_label := Label.new()
+	name_label.text = "Dragón"
+	name_label.position = Vector2(-24,12)
+	name_label.add_theme_font_size_override("font_size",12)
+	name_label.add_theme_constant_override("outline_size",3)
+	name_label.add_theme_color_override("font_outline_color",Color("15232a"))
+	player.add_child(name_label)
+	zoom_index = 2
+	camera.position = Vector2(-275,630)
+	camera.zoom = Vector2.ONE*ZOOMS[zoom_index]
+	_notify("Comparativa: dragón %.0f px · adultos 80/84 px · enano 64 px · cámara común 1,5×" % height)
+	message_time = 3600
+	print("BITU_INGAME_SCALE_CAPTURE_READY:",settings.capture,":",height)
 
 func _register_inputs() -> void:
 	var bindings := {"move_left":KEY_A,"move_right":KEY_D,"move_up":KEY_W,"move_down":KEY_S,"interact":KEY_E,"backpack":KEY_TAB,"sprint":KEY_SHIFT}
@@ -114,7 +179,8 @@ func _create_resource(kind: String, zone: Array[Vector2i]) -> void:
 	resources.append(resource)
 
 func _process(delta: float) -> void:
-	camera.position = player.position + Vector2(0,-100)
+	if not scale_capture:
+		camera.position = player.position + Vector2(0,-100)
 	camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
 	for crop in crops:
 		crop.advance(delta)
@@ -155,6 +221,12 @@ func _process(delta: float) -> void:
 		backpack.visible = not backpack.visible
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.physical_keycode in [KEY_F7,KEY_F8] and not player.busy:
+			var height := 80.0 if event.physical_keycode == KEY_F7 else 72.0
+			player.dragon.set_presentation_height(height)
+			_notify("Comparación: dragón de %.0f px; NPC sin cambios" % height)
+			return
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			_click_resource(get_global_mouse_position())
@@ -190,7 +262,7 @@ func _click_resource(point: Vector2) -> void:
 func _find_target() -> void:
 	target = null
 	var best_distance := INTERACTION_RANGE
-	for candidate in crops + resources + trees:
+	for candidate in crops + resources + trees + npcs:
 		if (candidate is BituResource or candidate is BituTree) and not candidate.active:
 			continue
 		var distance := player.position.distance_to(candidate.position)
@@ -202,6 +274,8 @@ func _find_target() -> void:
 			hint.text = "%s · %d/%d golpes" % ["Talando" if task is BituTree else "Minando",task_hits,required_hits]
 		else:
 			hint.text = "Recogiendo…"
+	elif target is BituNPC:
+		hint.text = "E · Hablar con "+target.display_name()
 	elif target is BituTree:
 		hint.text = "Clic izquierdo en el árbol · Talar"
 	elif target is BituResource:
@@ -221,7 +295,10 @@ func _find_target() -> void:
 func _interact() -> void:
 	if task != null or player.busy:
 		return
-	if target is BituCrop:
+	if target is BituNPC:
+		target.face_towards(player.global_position)
+		_notify(target.display_name()+" · Conversación de prueba; diálogos pendientes.")
+	elif target is BituCrop:
 		if not target.planted:
 			target.plant()
 			_notify("Tomate plantado. Ahora necesita agua.")
