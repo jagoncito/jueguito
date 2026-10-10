@@ -10,7 +10,7 @@ func run() -> void:
 	actor.set_physics_process(false)
 	actor.work_finished.connect(actor.end_work)
 	var visual := actor.dragon
-	assert(visual.catalog.frames.size() == 104,"Ocho direcciones, marcha, minería y tala propias y reposo sin equipo")
+	assert(visual.catalog.frames.size() == 112,"Ocho direcciones, marcha, minería y carga/impacto de tala con su extremo opuesto")
 	assert(visual.body.scale.x == visual.body.scale.y,"Sin estirar anatomía en un eje")
 	assert(actor.tool_mount.get_index()>visual.get_index(),"Herramienta frontal delante del cuerpo")
 	assert(visual.has_baked_tool() and not actor.tool.visible and not visual.hand_cover.visible,"Cuerpo y herramienta en un dibujo; sin duplicar dedos ni arma")
@@ -43,10 +43,20 @@ func run() -> void:
 	for index in range(8):
 		var direction: Vector2 = BituPlayer.DIRECTIONS[index].normalized()
 		actor.face_towards(direction)
+		actor.walk_time = 0
+		actor.animate_pose(0)
+		var resting_pixels := (visual.body.texture as AtlasTexture).atlas.get_image().get_data()
+		var resting_position := visual.body.position
+		var resting_scale := visual.body.scale
+		actor.walk_time = 0.1
+		actor.animate_pose(0)
+		assert((visual.body.texture as AtlasTexture).atlas.get_image().get_data() == resting_pixels,"Reposo y arranque comparten anatomía real, no solo una altura declarada")
+		assert(visual.body.position == resting_position and visual.body.scale == resting_scale,"Sin cambio de apoyo ni escala al arrancar")
 		var phases: Dictionary = {}
 		for phase in range(4):
 			actor.walk_time = 0.1+phase*1.15
 			actor.animate_pose(0)
+			assert(visual.body.scale == resting_scale,"La escala anatómica no cambia con el pie usado al medir")
 			var texture := visual.body.texture as AtlasTexture
 			phases[hash(texture.atlas.get_image().get_data())] = true
 			assert(actor.primary_hand.position.distance_to(actor.tool_mount.position)<0.01,"Agarre registrado en cada fase")
@@ -90,7 +100,7 @@ func run() -> void:
 		check_return_to_idle(actor)
 		actor.begin_work(&"talar",ground+Vector2(0,-24),ground)
 		actor.animate_pose(0,0.18)
-		assert(visual.current_frame.begins_with("medio-"),"Tala carga lateral; no reutiliza la elevación de minería")
+		assert(visual.current_frame.begins_with("cargar-talar-"),"Tala usa la misma carga natural y golpea con el extremo opuesto")
 		check_work_grip(actor)
 		actor.animate_pose(0)
 		await create_timer(.36).timeout

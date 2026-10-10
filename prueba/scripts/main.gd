@@ -10,6 +10,7 @@ var crops: Array[BituCrop] = []
 var resources: Array[BituResource] = []
 var trees: Array[BituTree] = []
 var drops: Array[BituLoot] = []
+var comparison_characters: Array[BituNpcPreview] = []
 var inventory := BituInventory.new()
 var textures: Dictionary = {}
 var slot_views: Array[VBoxContainer] = []
@@ -82,6 +83,7 @@ func _ready() -> void:
 	objects.add_child(player)
 	player.work_impact.connect(_on_work_impact)
 	player.work_finished.connect(_on_work_finished)
+	_create_comparison_characters()
 	camera = Camera2D.new()
 	camera.position = player.position + Vector2(0,-100)
 	camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
@@ -91,6 +93,17 @@ func _ready() -> void:
 	_build_ui()
 	_refresh_backpack()
 	print("BITU_READY")
+
+func _create_comparison_characters() -> void:
+	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/comparacion/personajes.json"))
+	for index in range(catalog.characters.size()):
+		var character := BituNpcPreview.new()
+		character.definition = catalog.characters[index]
+		character.name = String(character.definition.id)
+		character.position = Vector2(-190 + index * 85, 420)
+		objects.add_child(character)
+		comparison_characters.append(character)
+	print("BITU_NPCS_READY:6")
 
 func _register_inputs() -> void:
 	var bindings := {"move_left":KEY_A,"move_right":KEY_D,"move_up":KEY_W,"move_down":KEY_S,"interact":KEY_E,"backpack":KEY_TAB,"sprint":KEY_SHIFT}
@@ -152,6 +165,14 @@ func _process(delta: float) -> void:
 		backpack.visible = not backpack.visible
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_F6:
+		var paused := not comparison_characters[0].review_paused
+		for character in comparison_characters:
+			character.review_paused = paused
+		print("BITU_NPCS_PAUSED:",paused)
+		_notify("Personajes quietos para comparar" if paused else "Movimiento breve de personajes")
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			_click_resource(get_global_mouse_position())
@@ -276,6 +297,11 @@ func _on_work_impact(action: StringName) -> void:
 	progress.value = float(task_hits)/required_hits*100
 	if task_hits >= required_hits:
 		_deplete_task()
+	# Reproducible browser review of the real first impact against a resource.
+	# This optional capture parameter has no effect during ordinary play.
+	if OS.has_feature("web") and bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('captura-impacto') === '1'")):
+		get_tree().paused = true
+		print("BITU_IMPACT_CAPTURE_READY:",JSON.stringify({"action":String(action),"frame":player.dragon.current_frame,"contact":player.tool.contact_point(action)}))
 
 func _deplete_task() -> void:
 	if task_complete:
@@ -360,6 +386,7 @@ func _build_ui() -> void:
 	headings.add_child(_label("Primera prueba · tu rincón del archipiélago",15))
 	headings.add_child(_label("WASD · mover    Shift · sprint    Rueda · zoom    E · interactuar",14,Color("a7b797")))
 	headings.add_child(_label("Clic izquierdo · minar, talar o recoger flores",14,Color("a7b797")))
+	headings.add_child(_label("F6 · detener / reanudar los personajes de comparación",13,Color("a7b797")))
 	backpack = _panel()
 	hud.add_child(backpack)
 	backpack.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)

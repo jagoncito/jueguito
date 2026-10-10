@@ -1,5 +1,13 @@
 # Prueba visual de Bītu
 
+**Comparación de personajes (10 de octubre de 2026):** Flavia, Unamahloni, cocinero/pescador, minero/herrero, elfa del museo y comerciante aparecen en una fila cerca del protagonista. Flavia y Unamahloni dan pasos cortos de ida/vuelta; los demás giran sobre el sitio, porque sus recursos todavía no incluyen marcha. **F6** detiene/reanuda el grupo; **Tab** oculta la mochila y **WASD** permite acercar el protagonista para comparar. Posiciones provisionales, sin diálogos ni comercio. La descarga incluye esta comparación y la revisión de reposo/marcha y tala del protagonista.
+
+![Personajes y protagonista en la granja](capturas/personajes-comparacion.png)
+
+[Vídeo de sus movimientos dentro del juego](capturas/personajes-movimiento.webm)
+
+**Revisión de reposo/marcha y tala (10 de octubre de 2026):** el usuario rechaza la tala anterior y el crecimiento aparente al caminar. Reposo comparte ahora el dibujo de contacto A de cada dirección; los cuatro pasos usan una única escala anatómica por ciclo. Retirados los atlas separados de reposo/apoyos/marcha opuesta que mezclaban proporciones. Marcha frontal y norte corregidas manteniendo la anatomía de sus hojas; 112 registros en catálogo v5, ocho atlas jugables. Tala usa el mismo gesto de preparación/carga/golpe que la minería, con el filo ancho como extremo activo; añadida carga propia de tala. PNG y registros de minería conservados exactamente. La petición posterior del usuario autoriza publicar esta revisión junto a los personajes de comparación. Acabado pendiente de la revisión del usuario.
+
 **Corrección de impactos (10 de octubre de 2026):** el usuario precisa que el árbol se golpea con el filo del hacha y la mena con la punta del pico, y solicita integrar/publicar. Actualizados los dos atlas de trabajo y sus contactos en las ocho vistas, sobre el extremo activo del metal; no sobre el collar ni el mango. Tala usa también su preparación lateral en entrada/recuperación. Las partículas nacen del contacto registrado, incluida la altura propia de la mena. Conservados 80 px, cinco golpes, tiempos, controles y colisión. Esta corrección está autorizada para subir; el acabado visual sigue pendiente de revisión.
 
 ![Dragón protagonista dentro del juego](capturas/dragon-en-juego.png)
@@ -38,6 +46,7 @@ Los cuatro PNG de tomates se incluyen en `assets/objetos/cultivos/` dentro de es
 | Minar, talar o recolectar flores | Un clic izquierdo sobre el recurso cercano |
 | Plantar, regar o cosechar | E al acercarte |
 | Mostrar u ocultar la mochila | Tab |
+| Detener / reanudar los personajes de comparación | F6 |
 | Recoger botín del suelo | Acercarte |
 
 **No guarda progreso.** El protagonista es el dragón bípedo, con sus rasgos faciales originales, ocho vistas y animaciones mediante poses completas con cola conectada. La marcha tiene cuatro fases distintas por dirección, sigue el desplazamiento real y no se reproduce al quedar bloqueado. El dragón mide 80 px antes del zoom y conserva esa altura al caminar. Lleva el pico–hacha con punta arriba y filo abajo, dibujado junto a las manos; minería y tala tienen poses propias. El palín sigue registrado por separado. Edificios, terreno, tiempos y acabado de movimientos son provisionales. Los tomates junto a la orilla son muestras para comparar sus diseños; las cosechas normales de esta prueba dan tomate común. Todavía no incluye pesca, barco ni el inicio narrativo del juego.
@@ -60,7 +69,7 @@ Abre `scenes/recursos.tscn` y pulsa **F6**, o añade **`?vista=recursos`** a la 
 
 ## Revisar el dragón y sus animaciones
 
-Abre `scenes/dragon.tscn` en Godot y pulsa **F6** para ver las ocho direcciones ampliadas ×2. **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín**. Son las mismas poses y herramientas utilizadas en la granja. En el navegador añade **`?vista=dragon`** a la URL abierta por `JUGAR.py`. [Ficha del personaje](../assets/personajes/dragon-avatar/README.md) · [Vídeo real del canvas](capturas/dragon-animaciones.webm).
+Abre `scenes/dragon.tscn` en el editor de Godot y pulsa **F6** para ver las ocho direcciones ampliadas ×2. **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín, 6 parar/andar**. Son las mismas poses y herramientas utilizadas en la granja. El modo 6 compara el reposo con los cuatro pasos. En el navegador añade **`?vista=dragon`** a la URL abierta por `JUGAR.py`. [Ficha del personaje](../assets/personajes/dragon-avatar/README.md) · [Vídeo real del canvas](capturas/dragon-animaciones.webm) · [Transición reposo/marcha](capturas/dragon-parar-andar.webm).
 
 ![Revisión de las animaciones reales](capturas/dragon-animaciones.png)
 

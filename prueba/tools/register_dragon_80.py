@@ -19,7 +19,6 @@ SOURCE = ROOT / 'assets/personajes/dragon-avatar'
 TARGET = ROOT / 'prueba/assets/personajes/dragon-avatar'
 DIRS = ['S', 'SW', 'W', 'NW', 'N', 'NE', 'E', 'SE']
 GRIDS = {
-    'dragon-reposo.png': (4, 2),
     'dragon-sin-equipo.png': (4, 2),
     'dragon-herboristeria.png': (4, 4),
     'dragon-transiciones.png': (4, 4),
@@ -27,8 +26,7 @@ GRIDS = {
     'dragon-tala.png': (4, 4),
     'dragon-marcha-frontal.png': (4, 4),
     'dragon-marcha-trasera.png': (4, 4),
-    'dragon-marcha-apoyos.png': (2, 2),
-    'dragon-marcha-opuesta.png': (4, 2),
+    'dragon-marcha-norte.png': (4, 4),
 }
 BOXES = {}
 # Extremos visibles revisados en las fuentes de impacto; no contactos ficticios
@@ -36,8 +34,8 @@ BOXES = {}
 CONTACT_REFERENCES = {
     'golpe': [(170,883),(377,862),(668,866),(1009,772),
               (170,912),(586,1149),(892,1120),(1207,1166)],
-    'golpe-talar': [(155,872),(362,869),(602,777),(956,731),
-                    (284,1018),(589,1007),(941,1060),(1232,1146)],
+    'golpe-talar': [(167,879),(386,868),(680,870),(970,806),
+                    (166,913),(585,1125),(887,1140),(1178,1147)],
 }
 
 
@@ -156,6 +154,8 @@ def build_catalog():
         frames[key] = frame
 
     for key, reference in old.items():
+        if key.startswith(('reposo-', 'andar-', 'paso-')):
+            continue
         name = reference['file']
         cols, rows = GRIDS[name]
         data = images[name]
@@ -165,18 +165,41 @@ def build_catalog():
         if key == 'levantar-E':
             col, row = 2, 3
         add(key, name, col, row, reference)
-    # Complete the second half-cycle at the back: the opposite passing leg.
-    add('paso-b-N', 'dragon-marcha-apoyos.png', 1, 1, old['andar-b-N'])
-    for direction, row, col in [('W',0,0), ('E',0,2), ('SW',1,0), ('SE',1,2)]:
-        for index, pose in enumerate(['andar-b', 'paso-b']):
-            add(pose+'-'+direction, 'dragon-marcha-opuesta.png', col+index, row,
-                old[pose+'-'+direction])
+    walk_sources = {
+        'S': ('dragon-marcha-frontal.png', 0),
+        'SW': ('dragon-marcha-frontal.png', 1),
+        'E': ('dragon-marcha-frontal.png', 2),
+        'SE': ('dragon-marcha-frontal.png', 3),
+        'W': ('dragon-marcha-trasera.png', 0),
+        'NE': ('dragon-marcha-trasera.png', 1),
+        'NW': ('dragon-marcha-trasera.png', 3),
+        'N': ('dragon-marcha-norte.png', 2),
+    }
+    for direction, (filename, row) in walk_sources.items():
+        poses = ['andar-a', 'paso-a', 'andar-b', 'paso-b']
+        for col, pose in enumerate(poses):
+            add(pose+'-'+direction, filename, col, row, old[pose+'-'+direction])
+        # A single anatomical scale/ground reference for the whole cycle.
+        # Measuring to a different foot on every frame resized the head/torso.
+        height = frames['andar-a-'+direction]['body_height_px']
+        for pose in poses:
+            frame = frames[pose+'-'+direction]
+            frame['body_height_px'] = height
+            frame['anchor'][1] = frame['body_bounds_px'][1]+height
+            frame['scale'] = round(80/height, 8)
+            frame['anatomy_reference'] = 'andar-a-'+direction
+        # Both feet in a contact stance: stopping and starting share actual
+        # pixels, anatomy and ground registration, rather than another skin.
+        frames['reposo-'+direction] = dict(frames['andar-a-'+direction])
     for index, direction in enumerate(DIRS):
         add('sin-equipo-'+direction, 'dragon-sin-equipo.png', index%4, index//4, old['reposo-'+direction])
-        add('medio-talar-'+direction, 'dragon-tala.png', index%4, index//4, old['medio-'+direction])
+        # Same neutral preparation, overhead load and impact gesture as mining.
+        # The chopping load/impact drawings use the opposite metal end.
+        frames['medio-talar-'+direction] = dict(frames['medio-'+direction])
+        add('cargar-talar-'+direction, 'dragon-tala.png', index%4, index//4, old['cargar-'+direction])
         add('golpe-talar-'+direction, 'dragon-tala.png', index%4, 2+index//4, old['golpe-'+direction])
-    assert len(frames) == 104
-    return dict(version=4, directions=DIRS, presentation_height_px=80,
+    assert len(frames) == 112
+    return dict(version=5, directions=DIRS, presentation_height_px=80,
                 reference='dragon-idle.png',
                 runtime_normalization=dict(upright_height_px=80, kneeling_height_px=59,
                                            filter='nearest', remove_isolated_components_at_or_below=240),
@@ -187,7 +210,8 @@ def build_catalog():
                        'Punta del pico arriba y filo del hacha abajo al llevarla.',
                        'Cuatro fases de marcha por dirección; apoyos alternados.',
                        'Altura del cuerpo medida sin metal; ancla de suelo por fotograma.',
-                       'Tala lateral y minería sobre cabeza con atlas distintos.',
+                       'Reposo comparte el contacto A; una escala anatómica por dirección y ciclo.',
+                       'Tala y minería comparten gesto; filo del hacha / punta del pico como extremos activos.',
                        'Contactos de impacto sobre punta del pico / filo del hacha; nunca sobre el mango.',
                        'Fuentes PNG intactas. Revisión visual del usuario pendiente.'],
                 frames=frames)
@@ -199,7 +223,7 @@ def main():
     TARGET.mkdir(parents=True, exist_ok=True)
     for name in [*GRIDS, 'dragon-jugable.json']:
         shutil.copyfile(SOURCE/name, TARGET/name)
-    print('104 poses registradas; diez PNG copiados sin modificar sus bytes.')
+    print('112 poses registradas; ocho PNG copiados sin modificar sus bytes.')
 
 
 if __name__ == '__main__':

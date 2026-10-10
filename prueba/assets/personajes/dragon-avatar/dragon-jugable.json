@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "directions": [
     "S",
     "SW",
@@ -19,13 +19,6 @@
     "remove_isolated_components_at_or_below": 240
   },
   "sources": {
-    "dragon-reposo.png": {
-      "size": [
-        1536,
-        1024
-      ],
-      "sha256": "df8497674a2d4502ffad37c3e5e765f2ef726577d1f10eb3555f99159bb3081a"
-    },
     "dragon-sin-equipo.png": {
       "size": [
         1536,
@@ -59,14 +52,14 @@
         1261,
         1247
       ],
-      "sha256": "4b2dd57e011036341046284bd7d96efbb8569f65b6db83ec1628e627f2b6a146"
+      "sha256": "1ddabf371a1b0580858e7d617bb9eaf98db11ff6430c03bafb369b1eef5f36ca"
     },
     "dragon-marcha-frontal.png": {
       "size": [
         1312,
         1199
       ],
-      "sha256": "6d05bb97c1ca599f849b0d11205c2b325b0be7efebcf3ce2db4852d50d6589d9"
+      "sha256": "829a3d602dd5ad0e7c4e7db3b12090ee8462319958c8c42c6b847b3437adfd86"
     },
     "dragon-marcha-trasera.png": {
       "size": [
@@ -75,19 +68,12 @@
       ],
       "sha256": "704b9f72140ee377823e9041819c42cebb52d57f00b9d4e41e30fd63e1fff90c"
     },
-    "dragon-marcha-apoyos.png": {
+    "dragon-marcha-norte.png": {
       "size": [
         1312,
         1199
       ],
-      "sha256": "ec4a2cf39b25795ea2c1a6b7dd2f8a5d95452efc8387c10299f0aee18182e73a"
-    },
-    "dragon-marcha-opuesta.png": {
-      "size": [
-        1536,
-        1024
-      ],
-      "sha256": "cf817d80e577dda1b7e798d969c1cd2b2c3ef9026d2dba95bd3ee7046db732d6"
+      "sha256": "853bf11acd7205a1dec0f42e894145dcca5fc648f8182270cf93168fb6792184"
     }
   },
   "notes": [
@@ -95,275 +81,12 @@
     "Punta del pico arriba y filo del hacha abajo al llevarla.",
     "Cuatro fases de marcha por dirección; apoyos alternados.",
     "Altura del cuerpo medida sin metal; ancla de suelo por fotograma.",
-    "Tala lateral y minería sobre cabeza con atlas distintos.",
+    "Reposo comparte el contacto A; una escala anatómica por dirección y ciclo.",
+    "Tala y minería comparten gesto; filo del hacha / punta del pico como extremos activos.",
     "Contactos de impacto sobre punta del pico / filo del hacha; nunca sobre el mango.",
     "Fuentes PNG intactas. Revisión visual del usuario pendiente."
   ],
   "frames": {
-    "reposo-S": {
-      "file": "dragon-reposo.png",
-      "region": [
-        48,
-        55,
-        297,
-        404
-      ],
-      "anchor": [
-        227.0,
-        452
-      ],
-      "body_bounds_px": [
-        55,
-        55,
-        285,
-        399
-      ],
-      "body_height_px": 397,
-      "presentation_height_px": 80,
-      "scale": 0.20151134,
-      "baked_tool": true,
-      "tool_behind": false,
-      "hand": [
-        96,
-        337
-      ],
-      "other_hand": [
-        263,
-        362
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "reposo-SW": {
-      "file": "dragon-reposo.png",
-      "region": [
-        423,
-        55,
-        329,
-        407
-      ],
-      "anchor": [
-        587.0,
-        455
-      ],
-      "body_bounds_px": [
-        429,
-        55,
-        318,
-        402
-      ],
-      "body_height_px": 400,
-      "presentation_height_px": 80,
-      "scale": 0.2,
-      "baked_tool": true,
-      "tool_behind": false,
-      "hand": [
-        460,
-        338
-      ],
-      "other_hand": [
-        601,
-        370
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "reposo-W": {
-      "file": "dragon-reposo.png",
-      "region": [
-        801,
-        56,
-        335,
-        406
-      ],
-      "anchor": [
-        913.0,
-        455
-      ],
-      "body_bounds_px": [
-        807,
-        56,
-        325,
-        401
-      ],
-      "body_height_px": 399,
-      "presentation_height_px": 80,
-      "scale": 0.20050125,
-      "baked_tool": true,
-      "tool_behind": false,
-      "hand": [
-        904,
-        375
-      ],
-      "other_hand": [
-        850,
-        345
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "reposo-NW": {
-      "file": "dragon-reposo.png",
-      "region": [
-        1169,
-        66,
-        338,
-        397
-      ],
-      "anchor": [
-        1345.0,
-        454
-      ],
-      "body_bounds_px": [
-        1176,
-        66,
-        326,
-        390
-      ],
-      "body_height_px": 388,
-      "presentation_height_px": 80,
-      "scale": 0.20618557,
-      "baked_tool": true,
-      "tool_behind": true,
-      "hand": [
-        1203,
-        350
-      ],
-      "other_hand": [
-        1412,
-        333
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "reposo-N": {
-      "file": "dragon-reposo.png",
-      "region": [
-        75,
-        531,
-        295,
-        408
-      ],
-      "anchor": [
-        212.0,
-        926
-      ],
-      "body_bounds_px": [
-        79,
-        531,
-        285,
-        397
-      ],
-      "body_height_px": 395,
-      "presentation_height_px": 80,
-      "scale": 0.20253165,
-      "baked_tool": true,
-      "tool_behind": true,
-      "hand": [
-        324,
-        799
-      ],
-      "other_hand": [
-        113,
-        804
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "reposo-NE": {
-      "file": "dragon-reposo.png",
-      "region": [
-        440,
-        540,
-        333,
-        389
-      ],
-      "anchor": [
-        601.0,
-        920
-      ],
-      "body_bounds_px": [
-        444,
-        540,
-        324,
-        382
-      ],
-      "body_height_px": 380,
-      "presentation_height_px": 80,
-      "scale": 0.21052632,
-      "baked_tool": true,
-      "tool_behind": true,
-      "hand": [
-        743,
-        799
-      ],
-      "other_hand": [
-        609,
-        803
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "reposo-E": {
-      "file": "dragon-reposo.png",
-      "region": [
-        805,
-        540,
-        333,
-        406
-      ],
-      "anchor": [
-        998.0,
-        940
-      ],
-      "body_bounds_px": [
-        810,
-        540,
-        322,
-        402
-      ],
-      "body_height_px": 400,
-      "presentation_height_px": 80,
-      "scale": 0.2,
-      "baked_tool": true,
-      "tool_behind": false,
-      "hand": [
-        1017,
-        828
-      ],
-      "other_hand": [
-        1121,
-        796
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "reposo-SE": {
-      "file": "dragon-reposo.png",
-      "region": [
-        1214,
-        546,
-        301,
-        400
-      ],
-      "anchor": [
-        1373.0,
-        939
-      ],
-      "body_bounds_px": [
-        1219,
-        546,
-        290,
-        395
-      ],
-      "body_height_px": 393,
-      "presentation_height_px": 80,
-      "scale": 0.20356234,
-      "baked_tool": true,
-      "tool_behind": false,
-      "hand": [
-        1336,
-        824
-      ],
-      "other_hand": [
-        1477,
-        816
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
     "cargar-S": {
       "file": "dragon-trabajo.png",
       "region": [
@@ -1832,23 +1555,23 @@
       "file": "dragon-marcha-frontal.png",
       "region": [
         97,
-        15,
-        232,
-        272
+        14,
+        233,
+        273
       ],
       "anchor": [
-        208.5,
-        273
+        262.0,
+        274
       ],
       "body_bounds_px": [
         123,
-        15,
+        14,
         200,
-        260
+        262
       ],
-      "body_height_px": 258,
+      "body_height_px": 260,
       "presentation_height_px": 80,
-      "scale": 0.31007752,
+      "scale": 0.30769231,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
@@ -1857,504 +1580,656 @@
       ],
       "other_hand": [
         156,
-        180
+        181
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-S"
     },
     "paso-a-S": {
       "file": "dragon-marcha-frontal.png",
       "region": [
-        387,
+        385,
         14,
-        237,
-        273
+        239,
+        274
       ],
       "anchor": [
-        490.0,
-        273
+        442.5,
+        274
       ],
       "body_bounds_px": [
         409,
         14,
         209,
-        261
+        264
       ],
-      "body_height_px": 259,
+      "body_height_px": 260,
       "presentation_height_px": 80,
-      "scale": 0.30888031,
+      "scale": 0.30769231,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
         448,
-        195
+        197
       ],
       "other_hand": [
         448,
-        176
+        178
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-S"
     },
     "andar-b-S": {
-      "file": "dragon-marcha-apoyos.png",
+      "file": "dragon-marcha-frontal.png",
       "region": [
-        195,
-        65,
-        422,
-        464
+        705,
+        14,
+        231,
+        268
       ],
       "anchor": [
-        416.0,
-        519
+        869.0,
+        274
       ],
       "body_bounds_px": [
-        205,
-        65,
-        404,
-        456
+        732,
+        14,
+        197,
+        259
       ],
-      "body_height_px": 454,
+      "body_height_px": 260,
       "presentation_height_px": 80,
-      "scale": 0.17621145,
+      "scale": 0.30769231,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        280,
-        359
+        769,
+        181
       ],
       "other_hand": [
-        280,
-        329
+        769,
+        164
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-S"
     },
     "paso-b-S": {
-      "file": "dragon-marcha-apoyos.png",
+      "file": "dragon-marcha-frontal.png",
       "region": [
-        703,
-        65,
-        411,
-        464
+        998,
+        14,
+        240,
+        273
       ],
       "anchor": [
-        908.0,
-        519
+        1093.5,
+        274
       ],
       "body_bounds_px": [
-        715,
-        65,
-        391,
-        456
+        1022,
+        14,
+        209,
+        262
       ],
-      "body_height_px": 454,
+      "body_height_px": 260,
       "presentation_height_px": 80,
-      "scale": 0.17621145,
+      "scale": 0.30769231,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        792,
-        356
+        1063,
+        181
       ],
       "other_hand": [
-        792,
-        326
+        1063,
+        164
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-S"
+    },
+    "reposo-S": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        97,
+        14,
+        233,
+        273
+      ],
+      "anchor": [
+        262.0,
+        274
+      ],
+      "body_bounds_px": [
+        123,
+        14,
+        200,
+        262
+      ],
+      "body_height_px": 260,
+      "presentation_height_px": 80,
+      "scale": 0.30769231,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        156,
+        199
+      ],
+      "other_hand": [
+        156,
+        181
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-S"
     },
     "andar-a-SW": {
       "file": "dragon-marcha-frontal.png",
       "region": [
-        82,
-        300,
-        261,
+        81,
+        299,
+        264,
         275
       ],
       "anchor": [
-        188.0,
-        561
+        240.5,
+        562
       ],
       "body_bounds_px": [
-        122,
-        300,
-        216,
-        263
+        123,
+        299,
+        215,
+        265
       ],
-      "body_height_px": 261,
+      "body_height_px": 263,
       "presentation_height_px": 80,
-      "scale": 0.30651341,
+      "scale": 0.30418251,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        141,
+        142,
         476
       ],
       "other_hand": [
-        141,
-        457
+        142,
+        458
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SW"
     },
     "paso-a-SW": {
       "file": "dragon-marcha-frontal.png",
       "region": [
-        375,
-        300,
-        273,
-        265
+        374,
+        299,
+        274,
+        267
       ],
       "anchor": [
-        481.0,
-        554
+        531.5,
+        562
       ],
       "body_bounds_px": [
-        412,
-        300,
+        411,
+        299,
         230,
-        256
+        258
       ],
-      "body_height_px": 254,
+      "body_height_px": 263,
       "presentation_height_px": 80,
-      "scale": 0.31496063,
+      "scale": 0.30418251,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        440,
+        439,
         475
       ],
       "other_hand": [
-        440,
+        439,
         457
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SW"
     },
     "andar-b-SW": {
-      "file": "dragon-marcha-opuesta.png",
+      "file": "dragon-marcha-frontal.png",
       "region": [
-        40,
-        531,
-        358,
-        406
+        689,
+        300,
+        268,
+        274
       ],
       "anchor": [
-        237.0,
-        928
+        842.0,
+        563
       ],
       "body_bounds_px": [
-        45,
-        531,
-        348,
-        399
+        724,
+        300,
+        225,
+        264
       ],
-      "body_height_px": 397,
+      "body_height_px": 263,
       "presentation_height_px": 80,
-      "scale": 0.20151134,
+      "scale": 0.30418251,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        93,
-        812
+        760,
+        483
       ],
       "other_hand": [
-        100,
-        781
+        760,
+        465
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SW"
     },
     "paso-b-SW": {
-      "file": "dragon-marcha-opuesta.png",
+      "file": "dragon-marcha-frontal.png",
       "region": [
-        423,
-        531,
-        343,
-        399
+        992,
+        299,
+        267,
+        274
       ],
       "anchor": [
-        600.0,
-        921
+        1084.0,
+        562
       ],
       "body_bounds_px": [
-        428,
-        531,
-        333,
-        392
+        1025,
+        299,
+        227,
+        264
       ],
-      "body_height_px": 390,
+      "body_height_px": 263,
       "presentation_height_px": 80,
-      "scale": 0.20512821,
+      "scale": 0.30418251,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        488,
-        795
+        1062,
+        482
       ],
       "other_hand": [
-        483,
-        776
+        1062,
+        464
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SW"
+    },
+    "reposo-SW": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        81,
+        299,
+        264,
+        275
+      ],
+      "anchor": [
+        240.5,
+        562
+      ],
+      "body_bounds_px": [
+        123,
+        299,
+        215,
+        265
+      ],
+      "body_height_px": 263,
+      "presentation_height_px": 80,
+      "scale": 0.30418251,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        142,
+        476
+      ],
+      "other_hand": [
+        142,
+        458
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SW"
     },
     "andar-a-E": {
       "file": "dragon-marcha-frontal.png",
       "region": [
-        79,
-        592,
-        263,
-        257
+        78,
+        590,
+        264,
+        260
       ],
       "anchor": [
-        234.0,
-        836
+        282.0,
+        841
       ],
       "body_bounds_px": [
         84,
-        592,
+        590,
         212,
-        246
+        253
       ],
-      "body_height_px": 244,
+      "body_height_px": 251,
       "presentation_height_px": 80,
-      "scale": 0.32786885,
+      "scale": 0.3187251,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
         219,
-        766
+        769
       ],
       "other_hand": [
         219,
-        748
+        750
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-E"
     },
     "paso-a-E": {
       "file": "dragon-marcha-frontal.png",
       "region": [
         376,
-        591,
+        589,
         261,
-        259
+        261
       ],
       "anchor": [
-        529.0,
-        839
+        528.0,
+        840
       ],
       "body_bounds_px": [
-        382,
-        591,
-        212,
-        250
+        381,
+        589,
+        213,
+        252
       ],
-      "body_height_px": 248,
+      "body_height_px": 251,
       "presentation_height_px": 80,
-      "scale": 0.32258065,
+      "scale": 0.3187251,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        525,
-        766
+        524,
+        765
       ],
       "other_hand": [
-        525,
-        748
+        524,
+        747
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-E"
     },
     "andar-b-E": {
-      "file": "dragon-marcha-opuesta.png",
+      "file": "dragon-marcha-frontal.png",
       "region": [
-        788,
-        58,
-        370,
-        402
+        693,
+        590,
+        263,
+        260
       ],
       "anchor": [
-        1012.0,
-        450
+        908.0,
+        841
       ],
       "body_bounds_px": [
-        793,
-        58,
-        359,
-        394
+        699,
+        590,
+        214,
+        248
       ],
-      "body_height_px": 392,
+      "body_height_px": 251,
       "presentation_height_px": 80,
-      "scale": 0.20408163,
+      "scale": 0.3187251,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        1032,
-        335
+        841,
+        764
       ],
       "other_hand": [
-        1032,
-        307
+        841,
+        747
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-E"
     },
     "paso-b-E": {
-      "file": "dragon-marcha-opuesta.png",
+      "file": "dragon-marcha-frontal.png",
       "region": [
-        1180,
-        58,
-        342,
-        396
+        1000,
+        589,
+        262,
+        257
       ],
       "anchor": [
-        1380.0,
-        446
+        1144.5,
+        840
       ],
       "body_bounds_px": [
-        1185,
-        58,
-        333,
-        390
+        1006,
+        589,
+        207,
+        245
       ],
-      "body_height_px": 388,
+      "body_height_px": 251,
       "presentation_height_px": 80,
-      "scale": 0.20618557,
+      "scale": 0.3187251,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        1413,
-        337
+        1147,
+        764
       ],
       "other_hand": [
-        1413,
-        309
+        1147,
+        746
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-E"
+    },
+    "reposo-E": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        78,
+        590,
+        264,
+        260
+      ],
+      "anchor": [
+        282.0,
+        841
+      ],
+      "body_bounds_px": [
+        84,
+        590,
+        212,
+        253
+      ],
+      "body_height_px": 251,
+      "presentation_height_px": 80,
+      "scale": 0.3187251,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        219,
+        769
+      ],
+      "other_hand": [
+        219,
+        750
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-E"
     },
     "andar-a-SE": {
       "file": "dragon-marcha-frontal.png",
       "region": [
         65,
-        867,
-        271,
-        287
+        866,
+        272,
+        289
       ],
       "anchor": [
-        184.0,
+        181.5,
         1140
       ],
       "body_bounds_px": [
         71,
-        867,
+        866,
         232,
-        275
+        276
       ],
-      "body_height_px": 273,
+      "body_height_px": 274,
       "presentation_height_px": 80,
-      "scale": 0.29304029,
+      "scale": 0.2919708,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
         206,
-        1060
+        1059
       ],
       "other_hand": [
         206,
         1041
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SE"
     },
     "paso-a-SE": {
       "file": "dragon-marcha-frontal.png",
       "region": [
-        375,
-        867,
-        272,
-        278
+        374,
+        866,
+        274,
+        282
       ],
       "anchor": [
-        493.0,
-        1133
+        520.0,
+        1140
       ],
       "body_bounds_px": [
         381,
-        867,
+        866,
         230,
-        268
+        274
       ],
-      "body_height_px": 266,
+      "body_height_px": 274,
       "presentation_height_px": 80,
-      "scale": 0.30075188,
+      "scale": 0.2919708,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
         519,
+        1062
+      ],
+      "other_hand": [
+        519,
+        1043
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SE"
+    },
+    "andar-b-SE": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        691,
+        868,
+        265,
+        283
+      ],
+      "anchor": [
+        796.0,
+        1142
+      ],
+      "body_bounds_px": [
+        697,
+        868,
+        222,
+        271
+      ],
+      "body_height_px": 274,
+      "presentation_height_px": 80,
+      "scale": 0.2919708,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        841,
         1059
       ],
       "other_hand": [
-        519,
+        841,
         1041
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "andar-b-SE": {
-      "file": "dragon-marcha-opuesta.png",
-      "region": [
-        785,
-        531,
-        352,
-        409
-      ],
-      "anchor": [
-        953.0,
-        929
-      ],
-      "body_bounds_px": [
-        790,
-        531,
-        343,
-        400
-      ],
-      "body_height_px": 398,
-      "presentation_height_px": 80,
-      "scale": 0.20100503,
-      "baked_tool": true,
-      "tool_behind": false,
-      "hand": [
-        1012,
-        813
-      ],
-      "other_hand": [
-        1012,
-        786
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SE"
     },
     "paso-b-SE": {
-      "file": "dragon-marcha-opuesta.png",
+      "file": "dragon-marcha-frontal.png",
       "region": [
-        1180,
-        534,
-        324,
-        401
+        1001,
+        867,
+        262,
+        280
       ],
       "anchor": [
-        1315.5,
-        926
+        1105.0,
+        1141
       ],
       "body_bounds_px": [
-        1185,
-        534,
-        313,
-        394
+        1007,
+        867,
+        217,
+        268
       ],
-      "body_height_px": 392,
+      "body_height_px": 274,
       "presentation_height_px": 80,
-      "scale": 0.20408163,
+      "scale": 0.2919708,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        1384,
-        809
+        1145,
+        1055
       ],
       "other_hand": [
-        1384,
-        783
+        1145,
+        1036
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SE"
+    },
+    "reposo-SE": {
+      "file": "dragon-marcha-frontal.png",
+      "region": [
+        65,
+        866,
+        272,
+        289
+      ],
+      "anchor": [
+        181.5,
+        1140
+      ],
+      "body_bounds_px": [
+        71,
+        866,
+        232,
+        276
+      ],
+      "body_height_px": 274,
+      "presentation_height_px": 80,
+      "scale": 0.2919708,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        206,
+        1059
+      ],
+      "other_hand": [
+        206,
+        1041
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-SE"
     },
     "andar-a-W": {
       "file": "dragon-marcha-trasera.png",
@@ -2387,7 +2262,8 @@
         187,
         185
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-W"
     },
     "paso-a-W": {
       "file": "dragon-marcha-trasera.png",
@@ -2399,7 +2275,7 @@
       ],
       "anchor": [
         471.0,
-        271
+        272
       ],
       "body_bounds_px": [
         411,
@@ -2407,9 +2283,9 @@
         209,
         260
       ],
-      "body_height_px": 258,
+      "body_height_px": 259,
       "presentation_height_px": 80,
-      "scale": 0.31007752,
+      "scale": 0.30888031,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
@@ -2420,73 +2296,110 @@
         493,
         184
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-W"
     },
     "andar-b-W": {
-      "file": "dragon-marcha-opuesta.png",
+      "file": "dragon-marcha-trasera.png",
       "region": [
-        26,
-        60,
-        358,
-        406
+        694,
+        13,
+        264,
+        266
       ],
       "anchor": [
-        196.0,
-        456
+        808.0,
+        272
       ],
       "body_bounds_px": [
-        33,
-        60,
-        347,
-        398
+        735,
+        13,
+        218,
+        261
       ],
-      "body_height_px": 396,
+      "body_height_px": 259,
       "presentation_height_px": 80,
-      "scale": 0.2020202,
+      "scale": 0.30888031,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        162,
-        351
+        816,
+        204
       ],
       "other_hand": [
-        162,
-        324
+        816,
+        186
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-W"
     },
     "paso-b-W": {
-      "file": "dragon-marcha-opuesta.png",
+      "file": "dragon-marcha-trasera.png",
       "region": [
-        395,
-        58,
-        369,
-        396
+        1028,
+        13,
+        257,
+        266
       ],
       "anchor": [
-        540.0,
-        446
+        1136.0,
+        272
       ],
       "body_bounds_px": [
-        400,
-        58,
-        359,
-        390
+        1071,
+        13,
+        209,
+        261
       ],
-      "body_height_px": 388,
+      "body_height_px": 259,
       "presentation_height_px": 80,
-      "scale": 0.20618557,
+      "scale": 0.30888031,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        533,
-        340
+        1149,
+        202
       ],
       "other_hand": [
-        533,
-        314
+        1149,
+        184
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-W"
+    },
+    "reposo-W": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        47,
+        13,
+        266,
+        266
+      ],
+      "anchor": [
+        163.0,
+        272
+      ],
+      "body_bounds_px": [
+        94,
+        13,
+        213,
+        261
+      ],
+      "body_height_px": 259,
+      "presentation_height_px": 80,
+      "scale": 0.30888031,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        187,
+        203
+      ],
+      "other_hand": [
+        187,
+        185
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-W"
     },
     "andar-a-NE": {
       "file": "dragon-marcha-trasera.png",
@@ -2519,7 +2432,8 @@
         243,
         443
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NE"
     },
     "paso-a-NE": {
       "file": "dragon-marcha-trasera.png",
@@ -2531,7 +2445,7 @@
       ],
       "anchor": [
         512.0,
-        547
+        551
       ],
       "body_bounds_px": [
         386,
@@ -2539,9 +2453,9 @@
         192,
         240
       ],
-      "body_height_px": 238,
+      "body_height_px": 242,
       "presentation_height_px": 80,
-      "scale": 0.33613445,
+      "scale": 0.33057851,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
@@ -2552,7 +2466,8 @@
         565,
         443
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NE"
     },
     "andar-b-NE": {
       "file": "dragon-marcha-trasera.png",
@@ -2585,7 +2500,8 @@
         904,
         444
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NE"
     },
     "paso-b-NE": {
       "file": "dragon-marcha-trasera.png",
@@ -2597,7 +2513,7 @@
       ],
       "anchor": [
         1167.0,
-        546
+        551
       ],
       "body_bounds_px": [
         1042,
@@ -2605,9 +2521,9 @@
         203,
         239
       ],
-      "body_height_px": 237,
+      "body_height_px": 242,
       "presentation_height_px": 80,
-      "scale": 0.33755274,
+      "scale": 0.33057851,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
@@ -2618,139 +2534,42 @@
         1233,
         440
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NE"
     },
-    "andar-a-N": {
+    "reposo-NE": {
       "file": "dragon-marcha-trasera.png",
       "region": [
-        87,
-        583,
-        192,
-        262
+        52,
+        309,
+        235,
+        249
       ],
       "anchor": [
-        174.0,
-        838
+        189.0,
+        551
       ],
       "body_bounds_px": [
-        92,
-        583,
-        148,
-        257
+        57,
+        309,
+        200,
+        244
       ],
-      "body_height_px": 255,
+      "body_height_px": 242,
       "presentation_height_px": 80,
-      "scale": 0.31372549,
+      "scale": 0.33057851,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
-        212,
-        743
+        243,
+        460
       ],
       "other_hand": [
-        212,
-        725
+        243,
+        443
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "paso-a-N": {
-      "file": "dragon-marcha-trasera.png",
-      "region": [
-        418,
-        583,
-        195,
-        262
-      ],
-      "anchor": [
-        492.0,
-        838
-      ],
-      "body_bounds_px": [
-        423,
-        583,
-        150,
-        257
-      ],
-      "body_height_px": 255,
-      "presentation_height_px": 80,
-      "scale": 0.31372549,
-      "baked_tool": true,
-      "tool_behind": true,
-      "hand": [
-        547,
-        749
-      ],
-      "other_hand": [
-        547,
-        731
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "andar-b-N": {
-      "file": "dragon-marcha-apoyos.png",
-      "region": [
-        218,
-        618,
-        413,
-        470
-      ],
-      "anchor": [
-        395.0,
-        1078
-      ],
-      "body_bounds_px": [
-        226,
-        618,
-        393,
-        462
-      ],
-      "body_height_px": 460,
-      "presentation_height_px": 80,
-      "scale": 0.17391304,
-      "baked_tool": true,
-      "tool_behind": true,
-      "hand": [
-        505,
-        914
-      ],
-      "other_hand": [
-        505,
-        883
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
-    },
-    "paso-b-N": {
-      "file": "dragon-marcha-apoyos.png",
-      "region": [
-        715,
-        618,
-        416,
-        469
-      ],
-      "anchor": [
-        895.0,
-        1038
-      ],
-      "body_bounds_px": [
-        723,
-        618,
-        395,
-        422
-      ],
-      "body_height_px": 420,
-      "presentation_height_px": 80,
-      "scale": 0.19047619,
-      "baked_tool": true,
-      "tool_behind": true,
-      "hand": [
-        1003,
-        888
-      ],
-      "other_hand": [
-        1003,
-        860
-      ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NE"
     },
     "andar-a-NW": {
       "file": "dragon-marcha-trasera.png",
@@ -2783,7 +2602,8 @@
         92,
         1012
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NW"
     },
     "paso-a-NW": {
       "file": "dragon-marcha-trasera.png",
@@ -2795,7 +2615,7 @@
       ],
       "anchor": [
         476.0,
-        1129
+        1124
       ],
       "body_bounds_px": [
         408,
@@ -2803,9 +2623,9 @@
         216,
         260
       ],
-      "body_height_px": 258,
+      "body_height_px": 253,
       "presentation_height_px": 80,
-      "scale": 0.31007752,
+      "scale": 0.31620553,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
@@ -2816,7 +2636,8 @@
         421,
         1013
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NW"
     },
     "andar-b-NW": {
       "file": "dragon-marcha-trasera.png",
@@ -2828,7 +2649,7 @@
       ],
       "anchor": [
         799.0,
-        1129
+        1125
       ],
       "body_bounds_px": [
         737,
@@ -2836,9 +2657,9 @@
         209,
         259
       ],
-      "body_height_px": 257,
+      "body_height_px": 253,
       "presentation_height_px": 80,
-      "scale": 0.31128405,
+      "scale": 0.31620553,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
@@ -2849,7 +2670,8 @@
         757,
         1015
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NW"
     },
     "paso-b-NW": {
       "file": "dragon-marcha-trasera.png",
@@ -2861,7 +2683,7 @@
       ],
       "anchor": [
         1131.0,
-        1127
+        1124
       ],
       "body_bounds_px": [
         1072,
@@ -2869,9 +2691,9 @@
         207,
         258
       ],
-      "body_height_px": 256,
+      "body_height_px": 253,
       "presentation_height_px": 80,
-      "scale": 0.3125,
+      "scale": 0.31620553,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
@@ -2882,7 +2704,212 @@
         1092,
         1012
       ],
-      "carry_orientation": "punta-arriba-filo-abajo"
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NW"
+    },
+    "reposo-NW": {
+      "file": "dragon-marcha-trasera.png",
+      "region": [
+        37,
+        871,
+        259,
+        260
+      ],
+      "anchor": [
+        143.0,
+        1124
+      ],
+      "body_bounds_px": [
+        73,
+        871,
+        217,
+        255
+      ],
+      "body_height_px": 253,
+      "presentation_height_px": 80,
+      "scale": 0.31620553,
+      "baked_tool": true,
+      "tool_behind": true,
+      "hand": [
+        91,
+        1027
+      ],
+      "other_hand": [
+        92,
+        1012
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-NW"
+    },
+    "andar-a-N": {
+      "file": "dragon-marcha-norte.png",
+      "region": [
+        87,
+        582,
+        193,
+        263
+      ],
+      "anchor": [
+        172.0,
+        838
+      ],
+      "body_bounds_px": [
+        92,
+        582,
+        148,
+        258
+      ],
+      "body_height_px": 256,
+      "presentation_height_px": 80,
+      "scale": 0.3125,
+      "baked_tool": true,
+      "tool_behind": true,
+      "hand": [
+        212,
+        743
+      ],
+      "other_hand": [
+        212,
+        724
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-N"
+    },
+    "paso-a-N": {
+      "file": "dragon-marcha-norte.png",
+      "region": [
+        417,
+        582,
+        197,
+        263
+      ],
+      "anchor": [
+        493.0,
+        838
+      ],
+      "body_bounds_px": [
+        423,
+        582,
+        150,
+        258
+      ],
+      "body_height_px": 256,
+      "presentation_height_px": 80,
+      "scale": 0.3125,
+      "baked_tool": true,
+      "tool_behind": true,
+      "hand": [
+        547,
+        749
+      ],
+      "other_hand": [
+        547,
+        731
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-N"
+    },
+    "andar-b-N": {
+      "file": "dragon-marcha-norte.png",
+      "region": [
+        736,
+        582,
+        193,
+        263
+      ],
+      "anchor": [
+        822.0,
+        838
+      ],
+      "body_bounds_px": [
+        742,
+        582,
+        148,
+        256
+      ],
+      "body_height_px": 256,
+      "presentation_height_px": 80,
+      "scale": 0.3125,
+      "baked_tool": true,
+      "tool_behind": true,
+      "hand": [
+        847,
+        746
+      ],
+      "other_hand": [
+        847,
+        729
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-N"
+    },
+    "paso-b-N": {
+      "file": "dragon-marcha-norte.png",
+      "region": [
+        1072,
+        582,
+        197,
+        254
+      ],
+      "anchor": [
+        1148.0,
+        838
+      ],
+      "body_bounds_px": [
+        1077,
+        582,
+        149,
+        248
+      ],
+      "body_height_px": 256,
+      "presentation_height_px": 80,
+      "scale": 0.3125,
+      "baked_tool": true,
+      "tool_behind": true,
+      "hand": [
+        1199,
+        745
+      ],
+      "other_hand": [
+        1199,
+        728
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-N"
+    },
+    "reposo-N": {
+      "file": "dragon-marcha-norte.png",
+      "region": [
+        87,
+        582,
+        193,
+        263
+      ],
+      "anchor": [
+        172.0,
+        838
+      ],
+      "body_bounds_px": [
+        92,
+        582,
+        148,
+        258
+      ],
+      "body_height_px": 256,
+      "presentation_height_px": 80,
+      "scale": 0.3125,
+      "baked_tool": true,
+      "tool_behind": true,
+      "hand": [
+        212,
+        743
+      ],
+      "other_hand": [
+        212,
+        724
+      ],
+      "carry_orientation": "punta-arriba-filo-abajo",
+      "anatomy_reference": "andar-a-N"
     },
     "sin-equipo-S": {
       "file": "dragon-sin-equipo.png",
@@ -2917,78 +2944,110 @@
       ]
     },
     "medio-talar-S": {
-      "file": "dragon-tala.png",
+      "file": "dragon-transiciones.png",
       "region": [
-        47,
-        49,
-        275,
-        260
+        67,
+        591,
+        213,
+        285
       ],
       "anchor": [
-        188.0,
-        301
+        174.0,
+        867
       ],
       "body_bounds_px": [
-        88,
-        56,
-        228,
-        247
+        87,
+        596,
+        188,
+        273
       ],
-      "body_height_px": 245,
+      "body_height_px": 271,
       "presentation_height_px": 76,
-      "scale": 0.31020408,
+      "scale": 0.2804428,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        173,
-        230
+        157,
+        788
       ],
       "other_hand": [
-        176,
+        159,
+        749
+      ]
+    },
+    "cargar-talar-S": {
+      "file": "dragon-tala.png",
+      "region": [
+        74,
+        49,
+        231,
+        271
+      ],
+      "anchor": [
+        115.5,
+        311
+      ],
+      "body_bounds_px": [
+        95,
+        90,
+        204,
+        223
+      ],
+      "body_height_px": 221,
+      "presentation_height_px": 80,
+      "scale": 0.36199095,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        108,
         195
+      ],
+      "other_hand": [
+        115,
+        176
       ]
     },
     "golpe-talar-S": {
       "file": "dragon-tala.png",
       "region": [
-        68,
-        631,
-        198,
-        250
+        70,
+        641,
+        197,
+        246
       ],
       "anchor": [
-        165.0,
-        860
+        159.0,
+        846
       ],
       "body_bounds_px": [
-        74,
-        638,
-        186,
-        224
+        80,
+        647,
+        181,
+        201
       ],
-      "body_height_px": 222,
+      "body_height_px": 199,
       "presentation_height_px": 65,
-      "scale": 0.29279279,
+      "scale": 0.32663317,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        147,
-        817
+        151,
+        808
       ],
       "other_hand": [
-        171,
-        811
+        174,
+        802
       ],
       "contacts": {
         "talar": [
-          155,
-          872
+          167,
+          879
         ]
       },
       "working_end": "axe_edge",
       "contact_reference": [
-        155,
-        872
+        167,
+        879
       ]
     },
     "sin-equipo-SW": {
@@ -3024,78 +3083,110 @@
       ]
     },
     "medio-talar-SW": {
-      "file": "dragon-tala.png",
+      "file": "dragon-transiciones.png",
       "region": [
-        343,
-        48,
-        273,
-        267
+        363,
+        591,
+        277,
+        280
       ],
       "anchor": [
-        476.0,
-        306
+        517.0,
+        861
       ],
       "body_bounds_px": [
-        385,
-        55,
-        225,
-        253
+        395,
+        596,
+        240,
+        267
       ],
-      "body_height_px": 251,
+      "body_height_px": 265,
       "presentation_height_px": 76,
-      "scale": 0.30278884,
+      "scale": 0.28679245,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        415,
-        240
+        423,
+        779
       ],
       "other_hand": [
-        416,
-        196
+        428,
+        745
+      ]
+    },
+    "cargar-talar-SW": {
+      "file": "dragon-tala.png",
+      "region": [
+        368,
+        50,
+        229,
+        268
+      ],
+      "anchor": [
+        409.0,
+        309
+      ],
+      "body_bounds_px": [
+        386,
+        94,
+        206,
+        217
+      ],
+      "body_height_px": 215,
+      "presentation_height_px": 80,
+      "scale": 0.37209302,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        400,
+        204
+      ],
+      "other_hand": [
+        408,
+        178
       ]
     },
     "golpe-talar-SW": {
       "file": "dragon-tala.png",
       "region": [
-        330,
-        644,
-        264,
-        239
+        350,
+        637,
+        272,
+        237
       ],
       "anchor": [
-        459.0,
-        874
+        460.0,
+        849
       ],
       "body_bounds_px": [
-        339,
-        651,
-        249,
-        225
+        378,
+        644,
+        238,
+        207
       ],
-      "body_height_px": 223,
+      "body_height_px": 205,
       "presentation_height_px": 65,
-      "scale": 0.29147982,
+      "scale": 0.31707317,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        390,
-        831
+        426,
+        809
       ],
       "other_hand": [
-        369,
-        822
+        405,
+        798
       ],
       "contacts": {
         "talar": [
-          362,
-          869
+          388,
+          865
         ]
       },
       "working_end": "axe_edge",
       "contact_reference": [
-        362,
-        869
+        386,
+        868
       ]
     },
     "sin-equipo-W": {
@@ -3131,78 +3222,110 @@
       ]
     },
     "medio-talar-W": {
-      "file": "dragon-tala.png",
+      "file": "dragon-transiciones.png",
       "region": [
-        630,
-        60,
-        308,
-        256
+        644,
+        600,
+        298,
+        274
       ],
       "anchor": [
-        745.0,
-        308
+        805.0,
+        864
       ],
       "body_bounds_px": [
-        650,
-        65,
-        281,
-        245
+        673,
+        604,
+        265,
+        262
       ],
-      "body_height_px": 243,
+      "body_height_px": 260,
       "presentation_height_px": 76,
-      "scale": 0.3127572,
+      "scale": 0.29230769,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        694,
-        212
+        706,
+        785
       ],
       "other_hand": [
-        686,
-        202
+        707,
+        751
+      ]
+    },
+    "cargar-talar-W": {
+      "file": "dragon-tala.png",
+      "region": [
+        650,
+        50,
+        253,
+        273
+      ],
+      "anchor": [
+        701.0,
+        314
+      ],
+      "body_bounds_px": [
+        668,
+        101,
+        230,
+        215
+      ],
+      "body_height_px": 213,
+      "presentation_height_px": 80,
+      "scale": 0.37558685,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        682,
+        181
+      ],
+      "other_hand": [
+        695,
+        155
       ]
     },
     "golpe-talar-W": {
       "file": "dragon-tala.png",
       "region": [
-        596,
-        648,
-        333,
-        239
-      ],
-      "anchor": [
-        739.0,
-        878
-      ],
-      "body_bounds_px": [
-        602,
-        653,
-        321,
+        632,
+        650,
+        307,
         227
       ],
-      "body_height_px": 225,
+      "anchor": [
+        714.0,
+        855
+      ],
+      "body_bounds_px": [
+        678,
+        655,
+        255,
+        202
+      ],
+      "body_height_px": 200,
       "presentation_height_px": 65,
-      "scale": 0.28888889,
+      "scale": 0.325,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        632,
-        819
+        700,
+        811
       ],
       "other_hand": [
-        646,
-        818
+        720,
+        814
       ],
       "contacts": {
         "talar": [
-          606,
-          777
+          680,
+          870
         ]
       },
       "working_end": "axe_edge",
       "contact_reference": [
-        602,
-        777
+        680,
+        870
       ]
     },
     "sin-equipo-NW": {
@@ -3238,78 +3361,110 @@
       ]
     },
     "medio-talar-NW": {
-      "file": "dragon-tala.png",
+      "file": "dragon-transiciones.png",
       "region": [
-        1009,
-        58,
-        225,
-        256
+        1051,
+        598,
+        230,
+        280
       ],
       "anchor": [
-        1082.0,
-        306
+        1120.5,
+        867
       ],
       "body_bounds_px": [
-        1015,
-        65,
-        212,
-        243
+        1055,
+        602,
+        221,
+        267
       ],
-      "body_height_px": 241,
+      "body_height_px": 265,
       "presentation_height_px": 76,
-      "scale": 0.3153527,
+      "scale": 0.28679245,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
-        1027,
-        203
+        1068,
+        754
       ],
       "other_hand": [
-        1031,
-        193
+        1072,
+        742
+      ]
+    },
+    "cargar-talar-NW": {
+      "file": "dragon-tala.png",
+      "region": [
+        981,
+        49,
+        221,
+        269
+      ],
+      "anchor": [
+        1106.0,
+        308
+      ],
+      "body_bounds_px": [
+        991,
+        100,
+        205,
+        210
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 80,
+      "scale": 0.38461538,
+      "baked_tool": true,
+      "tool_behind": true,
+      "hand": [
+        1119,
+        190
+      ],
+      "other_hand": [
+        1110,
+        173
       ]
     },
     "golpe-talar-NW": {
       "file": "dragon-tala.png",
       "region": [
-        950,
-        647,
-        291,
-        236
+        959,
+        653,
+        273,
+        226
       ],
       "anchor": [
-        1091.0,
-        875
+        1124.0,
+        869
       ],
       "body_bounds_px": [
-        963,
-        654,
-        271,
-        223
+        1029,
+        659,
+        198,
+        212
       ],
-      "body_height_px": 221,
+      "body_height_px": 210,
       "presentation_height_px": 65,
-      "scale": 0.29411765,
+      "scale": 0.30952381,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
-        1020,
-        860
+        1042,
+        807
       ],
       "other_hand": [
-        1037,
-        810
+        1051,
+        806
       ],
       "contacts": {
         "talar": [
-          956,
-          731
+          970,
+          806
         ]
       },
       "working_end": "axe_edge",
       "contact_reference": [
-        956,
-        731
+        970,
+        806
       ]
     },
     "sin-equipo-N": {
@@ -3345,78 +3500,110 @@
       ]
     },
     "medio-talar-N": {
-      "file": "dragon-tala.png",
+      "file": "dragon-transiciones.png",
       "region": [
-        38,
-        345,
-        263,
-        242
+        54,
+        870,
+        227,
+        291
       ],
       "anchor": [
-        178.0,
-        579
+        197.0,
+        1150
       ],
       "body_bounds_px": [
-        44,
-        352,
-        219,
-        229
+        80,
+        875,
+        195,
+        277
       ],
-      "body_height_px": 227,
+      "body_height_px": 275,
       "presentation_height_px": 76,
-      "scale": 0.33480176,
+      "scale": 0.27636364,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
-        198,
-        520
+        217,
+        1078
       ],
       "other_hand": [
-        196,
-        498
+        216,
+        1052
+      ]
+    },
+    "cargar-talar-N": {
+      "file": "dragon-tala.png",
+      "region": [
+        77,
+        342,
+        204,
+        265
+      ],
+      "anchor": [
+        191.0,
+        596
+      ],
+      "body_bounds_px": [
+        82,
+        391,
+        193,
+        207
+      ],
+      "body_height_px": 205,
+      "presentation_height_px": 80,
+      "scale": 0.3902439,
+      "baked_tool": true,
+      "tool_behind": true,
+      "hand": [
+        263,
+        461
+      ],
+      "other_hand": [
+        263,
+        452
       ]
     },
     "golpe-talar-N": {
       "file": "dragon-tala.png",
       "region": [
-        57,
-        918,
-        233,
-        263
+        73,
+        905,
+        193,
+        259
       ],
       "anchor": [
-        171.0,
-        1173
+        183.0,
+        1153
       ],
       "body_bounds_px": [
-        64,
-        925,
-        194,
-        250
+        82,
+        938,
+        177,
+        217
       ],
-      "body_height_px": 248,
+      "body_height_px": 215,
       "presentation_height_px": 65,
-      "scale": 0.26209677,
+      "scale": 0.30232558,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
-        219,
-        1089
+        224,
+        1080
       ],
       "other_hand": [
-        214,
-        1084
+        220,
+        1072
       ],
       "contacts": {
         "talar": [
-          284,
-          1018
+          166,
+          913
         ]
       },
       "working_end": "axe_edge",
       "contact_reference": [
-        284,
-        1018
+        166,
+        913
       ]
     },
     "sin-equipo-NE": {
@@ -3452,78 +3639,110 @@
       ]
     },
     "medio-talar-NE": {
-      "file": "dragon-tala.png",
+      "file": "dragon-transiciones.png",
       "region": [
-        340,
-        347,
-        255,
-        248
+        363,
+        870,
+        261,
+        289
       ],
       "anchor": [
-        477.0,
-        587
+        493.0,
+        1151
       ],
       "body_bounds_px": [
-        347,
-        354,
-        211,
-        235
+        368,
+        874,
+        229,
+        279
       ],
-      "body_height_px": 233,
+      "body_height_px": 277,
       "presentation_height_px": 76,
-      "scale": 0.32618026,
+      "scale": 0.27436823,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
-        529,
-        503
+        578,
+        1051
       ],
       "other_hand": [
-        530,
-        485
+        567,
+        1029
+      ]
+    },
+    "cargar-talar-NE": {
+      "file": "dragon-tala.png",
+      "region": [
+        372,
+        340,
+        243,
+        272
+      ],
+      "anchor": [
+        563.0,
+        602
+      ],
+      "body_bounds_px": [
+        378,
+        389,
+        219,
+        215
+      ],
+      "body_height_px": 213,
+      "presentation_height_px": 80,
+      "scale": 0.37558685,
+      "baked_tool": true,
+      "tool_behind": true,
+      "hand": [
+        584,
+        470
+      ],
+      "other_hand": [
+        567,
+        451
       ]
     },
     "golpe-talar-NE": {
       "file": "dragon-tala.png",
       "region": [
         332,
-        919,
-        265,
-        248
+        941,
+        266,
+        219
       ],
       "anchor": [
-        486.0,
-        1159
+        461.0,
+        1139
       ],
       "body_bounds_px": [
         338,
-        926,
-        240,
-        235
+        947,
+        197,
+        194
       ],
-      "body_height_px": 233,
+      "body_height_px": 192,
       "presentation_height_px": 65,
-      "scale": 0.27896996,
+      "scale": 0.33854167,
       "baked_tool": true,
       "tool_behind": true,
       "hand": [
-        532,
-        1105
+        519,
+        1090
       ],
       "other_hand": [
-        533,
-        1084
+        516,
+        1085
       ],
       "contacts": {
         "talar": [
-          587,
-          1008
+          585,
+          1125
         ]
       },
       "working_end": "axe_edge",
       "contact_reference": [
-        589,
-        1007
+        585,
+        1125
       ]
     },
     "sin-equipo-E": {
@@ -3559,78 +3778,110 @@
       ]
     },
     "medio-talar-E": {
-      "file": "dragon-tala.png",
+      "file": "dragon-transiciones.png",
       "region": [
-        650,
-        355,
-        257,
-        245
+        657,
+        878,
+        301,
+        290
       ],
       "anchor": [
-        802.0,
-        592
+        795.0,
+        1159
       ],
       "body_bounds_px": [
-        657,
-        361,
-        227,
-        233
+        662,
+        883,
+        267,
+        278
       ],
-      "body_height_px": 231,
+      "body_height_px": 276,
       "presentation_height_px": 76,
-      "scale": 0.32900433,
+      "scale": 0.27536232,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        848,
-        528
+        896,
+        1065
       ],
       "other_hand": [
-        851,
-        492
+        895,
+        1047
+      ]
+    },
+    "cargar-talar-E": {
+      "file": "dragon-tala.png",
+      "region": [
+        662,
+        344,
+        251,
+        272
+      ],
+      "anchor": [
+        865.0,
+        608
+      ],
+      "body_bounds_px": [
+        668,
+        399,
+        228,
+        211
+      ],
+      "body_height_px": 209,
+      "presentation_height_px": 80,
+      "scale": 0.38277512,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        885,
+        478
+      ],
+      "other_hand": [
+        868,
+        460
       ]
     },
     "golpe-talar-E": {
       "file": "dragon-tala.png",
       "region": [
-        646,
-        922,
-        303,
-        257
+        618,
+        916,
+        304,
+        238
       ],
       "anchor": [
-        818.0,
-        1170
+        768.0,
+        1135
       ],
       "body_bounds_px": [
-        653,
-        928,
-        291,
-        244
+        624,
+        921,
+        246,
+        216
       ],
-      "body_height_px": 242,
+      "body_height_px": 214,
       "presentation_height_px": 65,
-      "scale": 0.26859504,
+      "scale": 0.30373832,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        908,
-        1101
+        839,
+        1078
       ],
       "other_hand": [
-        931,
-        1088
+        859,
+        1063
       ],
       "contacts": {
         "talar": [
-          937,
-          1060
+          887,
+          1138
         ]
       },
       "working_end": "axe_edge",
       "contact_reference": [
-        941,
-        1060
+        887,
+        1140
       ]
     },
     "sin-equipo-SE": {
@@ -3666,78 +3917,110 @@
       ]
     },
     "medio-talar-SE": {
-      "file": "dragon-tala.png",
+      "file": "dragon-transiciones.png",
       "region": [
-        970,
-        356,
-        248,
-        246
+        1010,
+        872,
+        271,
+        300
       ],
       "anchor": [
-        1087.0,
-        593
+        1136.0,
+        1162
       ],
       "body_bounds_px": [
-        976,
-        363,
-        219,
-        232
+        1015,
+        876,
+        238,
+        288
       ],
-      "body_height_px": 230,
+      "body_height_px": 286,
       "presentation_height_px": 76,
-      "scale": 0.33043478,
+      "scale": 0.26573427,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        1167,
-        506
+        1223,
+        1058
       ],
       "other_hand": [
-        1174,
-        495
+        1230,
+        1040
+      ]
+    },
+    "cargar-talar-SE": {
+      "file": "dragon-tala.png",
+      "region": [
+        975,
+        343,
+        227,
+        277
+      ],
+      "anchor": [
+        1172.0,
+        611
+      ],
+      "body_bounds_px": [
+        980,
+        386,
+        213,
+        227
+      ],
+      "body_height_px": 225,
+      "presentation_height_px": 80,
+      "scale": 0.35555556,
+      "baked_tool": true,
+      "tool_behind": false,
+      "hand": [
+        1185,
+        478
+      ],
+      "other_hand": [
+        1170,
+        459
       ]
     },
     "golpe-talar-SE": {
       "file": "dragon-tala.png",
       "region": [
-        973,
-        938,
-        269,
-        244
+        942,
+        925,
+        278,
+        245
       ],
       "anchor": [
-        1102.0,
-        1174
+        1063.0,
+        1132
       ],
       "body_bounds_px": [
-        980,
-        945,
-        255,
-        231
+        947,
+        931,
+        229,
+        203
       ],
-      "body_height_px": 229,
+      "body_height_px": 201,
       "presentation_height_px": 65,
-      "scale": 0.28384279,
+      "scale": 0.32338308,
       "baked_tool": true,
       "tool_behind": false,
       "hand": [
-        1209,
-        1119
+        1152,
+        1084
       ],
       "other_hand": [
-        1187,
-        1128
+        1133,
+        1092
       ],
       "contacts": {
         "talar": [
-          1229,
-          1146
+          1178,
+          1147
         ]
       },
       "working_end": "axe_edge",
       "contact_reference": [
-        1232,
-        1146
+        1178,
+        1147
       ]
     }
   }

@@ -186,7 +186,7 @@ func animate_pose(_delta: float, work_time := -1.0) -> void:
 		if elapsed < 0.12 or (elapsed >= 0.40 and elapsed < 0.53):
 			pose = "medio-talar" if work_kind == &"talar" else "medio"
 		elif elapsed < 0.28:
-			pose = "cargar" if work_kind == &"minar" else "medio-talar"
+			pose = "cargar" if work_kind == &"minar" else "cargar-talar"
 		elif elapsed < 0.40:
 			pose = "golpe-talar" if work_kind == &"talar" else "golpe"
 	elif walk_time > 0:

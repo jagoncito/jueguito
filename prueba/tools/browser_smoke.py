@@ -77,19 +77,30 @@ async def main():
                 await move(page, "d" if flower_x > 640 else "a", 100)
             assert abs(flower_x-640) <= 64, f"No se logró entrar en alcance de la flor: {flower_x:.1f}, {flower_y:.1f}"
             # Seleccionar un pétalo opaco, no el hueco entre las dos flores.
-            click_x, click_y = min(petals,key=lambda p:(p[0]-flower_x)**2+(p[1]-flower_y)**2)
+            interior = [(x,y) for x,y in petals if all(purple(shot.getpixel((x+dx,y+dy)))
+                        for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)])]
+            click_x, click_y = min(interior or petals,key=lambda p:(p[0]-flower_x)**2+(p[1]-flower_y)**2)
             # Dejar que Godot actualice el ratón antes del botón: con WebGL
             # por software, mover y pulsar en el mismo frame puede conservar
             # la posición anterior al consultar get_global_mouse_position().
             await page.mouse.move(click_x, click_y)
             await page.wait_for_timeout(180)
-            await page.mouse.click(click_x, click_y, delay=80)
+            await page.mouse.click(click_x, click_y, delay=180)
             await page.wait_for_timeout(500)
             await page.screenshot(path=str(PROJECT / "build/recogiendo-flor.png"))
             await page.screenshot(path=str(PROJECT / "capturas/recursos-yde.png"))
             await page.wait_for_timeout(600)
             await page.screenshot(path=str(PROJECT / "build/palin-en-tierra.png"))
             await page.wait_for_timeout(1800)
+            # Si WebGL por software pierde una pulsación corta, reintentar
+            # el mismo pétalo interior sin alterar alcance ni selección.
+            for _ in range(2):
+                if any("BITU_PICKUP:flor:1" in entry["text"] for entry in messages):
+                    break
+                await page.mouse.move(click_x,click_y)
+                await page.wait_for_timeout(250)
+                await page.mouse.click(click_x,click_y,delay=250)
+                await page.wait_for_timeout(2900)
             await page.screenshot(path=str(PROJECT / "build/flor-recogida.png"))
             assert any("BITU_PICKUP:flor:1" in entry["text"] for entry in messages), "Yde no llegó a la mochila"
             assert any("BITU_READY" in entry["text"] for entry in messages), "No arrancó Bītu"

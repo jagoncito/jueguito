@@ -6,13 +6,13 @@ var cooldowns: Array[float] = []
 var time := 0.0
 var mode := 0
 var mode_label: Label
-const MODES := ["REPOSO","MARCHA","MINAR","TALAR","PALÍN"]
+const MODES := ["REPOSO","MARCHA","MINAR","TALAR","PALÍN","PARAR / ANDAR"]
 const LABELS := ["SUR · frontal","SUROESTE","OESTE · perfil","NOROESTE","NORTE · espalda","NORESTE","ESTE · perfil","SURESTE"]
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("15232a"))
 	_label("DRAGÓN · OCHO DIRECCIONES",Vector2(28,16),25)
-	_label("1 Reposo · 2 Marcha · 3 Minar · 4 Talar · 5 Palín    |    poses ×2 · Espacio: cámara lenta",Vector2(28,51),16)
+	_label("1 Reposo · 2 Marcha · 3 Minar · 4 Talar · 5 Palín · 6 Parar/andar  |  Espacio: cámara lenta",Vector2(28,51),16)
 	mode_label = _label("REPOSO",Vector2(1030,20),20)
 	for index in range(8):
 		var actor := BituPlayer.new()
@@ -83,7 +83,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if event.physical_keycode == KEY_SPACE:
 			Engine.time_scale = 0.25 if Engine.time_scale == 1.0 else 1.0
 			return
-		if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_5:
+		if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_6:
 			mode = event.physical_keycode-KEY_1
 			mode_label.text = MODES[mode]
 			print("BITU_DRAGON_MODE:",MODES[mode])
@@ -98,13 +98,16 @@ func _process(delta: float) -> void:
 	for index in range(actors.size()):
 		var actor := actors[index]
 		actor.walk_time = time*9 if mode == 1 else 0.0
+		if mode == 5:
+			var phase := int(time/0.30)%6
+			actor.walk_time = 0.1+(phase-1)*1.15 if phase in [1,2,3,4] else 0.0
 		cooldowns[index] = maxf(0,cooldowns[index]-delta)
-		if mode >= 2 and not actor.busy and cooldowns[index] == 0:
+		if mode in [2,3,4] and not actor.busy and cooldowns[index] == 0:
 			_start_action(index)
 		actor.animate_pose(delta)
 
 func _draw() -> void:
-	if mode < 2:
+	if mode not in [2,3,4]:
 		return
 	for index in range(actors.size()):
 		var direction: Vector2 = BituPlayer.DIRECTIONS[index].normalized()

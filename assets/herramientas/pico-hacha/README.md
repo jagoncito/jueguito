@@ -1,5 +1,7 @@
 # Pico–hacha de hierro
 
+**Revisión pendiente de publicación (10 de octubre de 2026):** el usuario rechaza la tala anterior y el crecimiento aparente al caminar. Reposo comparte ahora el dibujo de contacto A de cada dirección; los cuatro pasos usan una única escala anatómica por ciclo. Retirados los atlas separados de reposo/apoyos/marcha opuesta que mezclaban proporciones. Marcha frontal y norte corregidas manteniendo la anatomía de sus hojas; 112 registros en catálogo v5, ocho atlas jugables. Tala usa el mismo gesto de preparación/carga/golpe que la minería, con el filo ancho como extremo activo; añadida carga propia de tala. PNG y registros de minería conservados exactamente. Esta petición autoriza corregir e integrar y crear los sprites necesarios; no solicita otra publicación. Acabado pendiente de la revisión del usuario.
+
 **Corrección de impactos (10 de octubre de 2026):** el usuario precisa que el árbol se golpea con el filo del hacha y la mena con la punta del pico, y solicita integrar/publicar. Actualizados los dos atlas de trabajo y sus contactos en las ocho vistas, sobre el extremo activo del metal; no sobre el collar ni el mango. Tala usa también su preparación lateral en entrada/recuperación. Las partículas nacen del contacto registrado, incluida la altura propia de la mena. Conservados 80 px, cinco golpes, tiempos, controles y colisión. Esta corrección está autorizada para subir; el acabado visual sigue pendiente de revisión.
 
 ![Pico–hacha básico de hierro](pico-hacha-hierro.png)
