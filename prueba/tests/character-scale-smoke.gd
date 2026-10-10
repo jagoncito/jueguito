@@ -10,7 +10,7 @@ func run() -> void:
 	assert(preview.actors.size() == 7)
 	for name in preview.ORDER:
 		if name == "dragon":
-			assert((preview.actors[6] as BituDragonVisual).catalog.frames.size() == 160)
+			assert((preview.actors[6] as BituDragonVisual).catalog.frames.size() == 216)
 		else:
 			var frames: Array = preview.catalog.characters[name].frames
 			assert(frames.size() == 8,"Todos los NPC tienen el mismo número de sprites")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dub0po02tqgse"
-path="res://.godot/imported/impacto-talar.png-3500871b10e991e451bacbbe86a982ff.ctex"
+uid="uid://bk8wqqhem00ah"
+path="res://.godot/imported/pez.png-bf427629a7c7400fa63e747c64fe7a13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personajes/dragon/impacto-talar.png"
-dest_files=["res://.godot/imported/impacto-talar.png-3500871b10e991e451bacbbe86a982ff.ctex"]
+source_file="res://assets/objetos/pesca/pez.png"
+dest_files=["res://.godot/imported/pez.png-bf427629a7c7400fa63e747c64fe7a13.ctex"]
 
 [params]
 

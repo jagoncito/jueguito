@@ -68,72 +68,79 @@ def hand(data, region, raised=False):
     return [int(px+x), int(py+y)]
 
 def build_catalog():
-    registration = json.loads((SOURCE / "registro-fuentes.json").read_text())
-    images = {name: np.array(Image.open(SOURCE/name).convert("RGBA")) for name in registration["sources"]}
-    regions = {name: boxes(images[name], spec["columns"]) for name, spec in registration["sources"].items()}
-    frames = {}
-    def add(pose, direction, filename, index, factor, anchor_y=None, anchor=None, point=None):
-        data = images[filename]
-        region = regions[filename][index]
-        x, y, w, h = region
-        hip, blue_top = anatomy(data, region)
-        head_top = y if pose in ["reposo", "sin-equipo", "arrodillado", "levantar"] or pose.startswith(("andar", "paso", "sprint")) else max(y, blue_top-round(h*.06))
-        support = anchor if anchor is not None else [hip, anchor_y if anchor_y is not None else y+h-(round(h*.07) if direction in [3, 4, 5] else 0)]
-        palm = hand(data, region, pose.startswith("cargar"))
-        herbal = pose in ["arrodillado", "levantar"]
-        if herbal:
-            palm = nearest(data, region, registration["herbal_hands"][pose][direction])
-        frame = {"file": filename, "region": region, "anchor": support,
-                 "scale": factor, "hand": palm, "other_hand": palm,
-                 "body_bounds_px": [x, head_top, w, support[1]-head_top],
-                 "body_height_px": support[1]-head_top,
-                 "presentation_height_px": (support[1]-head_top)*factor,
-                 "tool_behind": direction in [3, 4, 5],
-                 "baked_tool": pose != "sin-equipo" and not herbal}
-        if herbal:
-            frame["hand_cover"] = [palm[0]-5, palm[1]-5, 10, 10]
-        if pose in ["reposo", "andar-a", "paso-a", "andar-b", "paso-b"] or pose.startswith("sprint"):
-            frame["carry_orientation"] = "punta-arriba-filo-abajo"
-        if point is not None:
-            action = "talar" if pose == "golpe-talar" else "minar"
-            frame.update(contacts={action: nearest(data, region, point, metal=True)},
-                         working_end="axe_edge" if action == "talar" else "pick_tip", contact_reference=point)
-        frames[f"{pose}-{DIRS[direction]}"] = frame
+    registration = json.loads((SOURCE / 'registro-fuentes.json').read_text())
+    images = {name: np.array(Image.open(SOURCE/name).convert('RGBA')) for name in registration['sources']}
+    regions = {name: spec['regions'] if 'regions' in spec else boxes(images[name],spec['columns']) for name,spec in registration['sources'].items()}
+    for name,spec in registration['sources'].items():
+        if 'regions' not in spec: assert len(regions[name]) == spec.get('count',8 if spec['columns']==2 else 8*spec['columns']), (name,len(regions[name]))
+    frames = dict(registration['preserved_frames'])
+    def support(name,index,direction):
+        x,y,w,h = regions[name][index]
+        data = images[name]; p = data[y:y+h,x:x+w]; rgb = p[:,:,:3].astype(int)
+        hip,_ = anatomy(data,regions[name][index])
+        cream = (p[:,:,3]>128)&(rgb[:,:,0]>150)&(rgb[:,:,1]>120)&(rgb[:,:,0]-rgb[:,:,2]>25)&(rgb[:,:,1]-rgb[:,:,2]>12)
+        yy,xx = np.indices(cream.shape)
+        cream &= (yy>h*.65)&(abs(xx+x-hip)<w*.32)
+        if direction in [3,4,5]: cream &= abs(xx+x-hip)>w*.055
+        ys,xs = np.where(cream)
+        feet = int(ys.max())+y+1 if len(ys) else y+h
+        return [hip,feet]
+    def add(pose,direction,name,index,factor,anchor_y=None,mirror=False,action=None):
+        region = regions[name][index]; x,y,w,h = region
+        anchor = support(name,index,direction)
+        if anchor_y is not None: anchor[1] = anchor_y
+        palm = hand(images[name],region,pose.startswith('cargar') or pose=='pesca-cargar')
+        neutral = name in ['reposo.png','marcha.png','sprint.png','zarpazo.png']
+        frame = {'file':name,'region':region,'anchor':anchor,'scale':factor,'hand':palm,'other_hand':palm,
+                 'body_bounds_px':[x,y,w,anchor[1]-y],'body_height_px':anchor[1]-y,
+                 'presentation_height_px':(anchor[1]-y)*factor,'tool_behind':direction in [3,4,5],
+                 'baked_tool':not neutral,'mirror_x':mirror}
+        if action:
+            source_direction = index//4
+            point = registration['impact_points'][action][source_direction]
+            frame.update(contacts={action:nearest(images[name],region,point,metal=True)},working_end='axe_edge' if action=='talar' else 'pick_tip',contact_reference=point)
+        if name.startswith('pesca'):
+            reference=registration['fishing_north_tip'] if name=='pesca-norte.png' else registration['fishing_tips'][pose][index//3]
+            tip=nearest(images[name],region,reference)
+            assert sum((tip[i]-reference[i])**2 for i in range(2))<144, ('Punta de caña fuera de referencia',pose,direction,tip,reference)
+            frame['contacts']={'sedal':tip}
+            frame['rod_tip_reference']=reference
+        frames[pose+'-'+DIRS[direction]]=frame
     for direction in range(8):
-        for pose in ["reposo", "sin-equipo"]:
-            name = pose+".png"
-            top = regions[name][direction][1]
-            ground = registration["feet_y"][pose][direction]
-            add(pose, direction, name, direction, 80/(ground-top), anchor_y=ground)
-        for kind, poses in [("marcha", ["andar-a", "paso-a", "andar-b", "paso-b"]),
-                            ("sprint", ["sprint-a", "sprint-paso-a", "sprint-b", "sprint-paso-b"])]:
-            name = kind+".png"
-            first = regions[name][direction*4]
-            height = registration["feet_y"]["marcha"][direction]-regions["marcha.png"][direction*4][1] if kind == "marcha" else first[3]-(round(first[3]*.07) if direction in [3, 4, 5] else 0)
-            factor = 80/height
-            for phase, pose in enumerate(poses):
-                top = regions[name][direction*4+phase][1]
-                add(pose, direction, name, direction*4+phase, factor, anchor_y=top+height)
-        for kind, suffix in [("mineria", ""), ("tala", "-talar")]:
-            name = kind+".png"
-            first = regions[name][direction*4]
-            height = first[3]-(round(first[3]*.07) if direction in [3, 4, 5] else 0)
-            factor = 80/height
-            for phase, pose in [(0, "medio"), (1, "cargar"), (3, "recuperar")]:
-                add(pose+suffix, direction, name, direction*4+phase, factor)
-        for action, pose in [("minar", "golpe"), ("talar", "golpe-talar")]:
-            add(pose, direction, f"impacto-{action}.png", direction, .26,
-                anchor=registration["impact_feet"][action][direction], point=registration["impact_points"][action][direction])
-        add("arrodillado", direction, "arrodillado.png", direction, .285)
-        add("levantar", direction, "levantar.png", direction, .26)
-    assert len(frames) == 160
-    sources = {name: {"size_px": list(Image.open(SOURCE/name).size),
-                      "sha256": hashlib.sha256((SOURCE/name).read_bytes()).hexdigest()}
-               for name in images}
-    return {"version": 1, "art_revision": registration.get("art_revision", "reinicio-pixel-npc-2026-10-10"), "height_px": 80,
-            "directions": DIRS, "sources": sources, "frames": frames,
-            "notes": registration["notes"]}
-
+        anchor=support('reposo.png',direction,direction); top=regions['reposo.png'][direction][1]
+        for pose in ['reposo','sin-equipo']: add(pose,direction,'reposo.png',direction,80/(anchor[1]-top))
+        for name,poses in [('marcha.png',['andar-a','paso-a','andar-b','paso-b']),('sprint.png',['sprint-a','sprint-paso-a','sprint-b','sprint-paso-b'])]:
+            first=direction*4; height=support(name,first,direction)[1]-regions[name][first][1]
+            for phase,pose in enumerate(poses):
+                add(pose,direction,name,first+phase,80/height,anchor_y=regions[name][first+phase][1]+height)
+        for name,poses,action in [('tala.png',['medio-talar','cargar-talar','golpe-talar','recuperar-talar'],'talar'),('mineria.png',['medio','cargar','golpe','recuperar'],'minar')]:
+            # Norte/diagonal y perfil opuestos se proyectan de una vista coherente
+            # cuando el generador cambia la orientación entre fotogramas.
+            projected=3 if direction==5 else direction
+            for phase,pose in enumerate(poses):
+                source_direction=2 if direction==6 and phase==1 else (1 if direction==7 and phase==1 else projected)
+                mirror=direction==5 or (direction in [6,7] and phase==1)
+                first=source_direction*4
+                base=regions[name][first]; height=support(name,first,source_direction)[1]-base[1]
+                add(pose,direction,name,first+phase,80/height,mirror=mirror,action=action if phase==2 else None)
+        name='zarpazo.png'
+        for phase,pose in enumerate(['zarpazo-cargar','zarpazo-golpe','zarpazo-seguir','zarpazo-recuperar']):
+            projected=3 if direction in [3,5] else direction
+            first=projected*4; height=support(name,first,projected)[1]-regions[name][first][1]
+            add(pose,direction,name,first+phase,80/height,mirror=direction==3)
+        name='pesca.png'
+        for phase,pose in enumerate(['pesca-cargar','pesca-esperar','pesca-recoger']):
+            projected=7 if direction==1 else (6 if direction==2 else (5 if direction==3 else direction))
+            first=projected*3
+            mirror=direction in [1,2,3]
+            # La caña eleva el recorte, no la altura anatómica del cuerpo.
+            region=regions[name][first+1]; x,y,w,h=region
+            hip,blue_top=anatomy(images[name],region)
+            height=support(name,first+1,direction)[1]-(blue_top-round(h*.055))
+            add(pose,direction,'pesca-norte.png' if direction==4 and phase==2 else name,0 if direction==4 and phase==2 else first+phase,80/height,mirror=mirror)
+    assert len(frames)==216
+    sources={name:{'size_px':list(Image.open(SOURCE/name).size),'sha256':hashlib.sha256((SOURCE/name).read_bytes()).hexdigest()} for name in images}
+    return {'version':2,'art_revision':registration['art_revision'],'height_px':80,'directions':DIRS,'sources':sources,'frames':frames,'notes':registration['notes']}
 def main():
     catalog = build_catalog()
     text = json.dumps(catalog, ensure_ascii=False, indent=2)+"\n"
@@ -142,7 +149,7 @@ def main():
     for name in catalog["sources"]:
         shutil.copyfile(SOURCE/name, TARGET/name)
     (TARGET/"dragon-jugable.json").write_text(text)
-    print("160 poses nuevas registradas; diez PNG copiados sin editar sus bytes.")
+    print("216 poses registradas; diez PNG copiados sin editar sus bytes.")
 
 if __name__ == "__main__":
     main()

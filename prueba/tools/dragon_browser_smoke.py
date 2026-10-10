@@ -29,8 +29,8 @@ async def main():
                     recorder.onstop=async()=>resolve(Array.from(new Uint8Array(await new Blob(chunks).arrayBuffer())));
                 });recorder.start();
             }''')
-            for key,name in [('1','reposo'),('2','marcha'),('3','minar'),('4','talar'),('5','palin'),('7','sprint')]:
-                expected_mode={'1':'REPOSO','2':'MARCHA','3':'MINAR','4':'TALAR','5':'PALÍN','7':'SPRINT'}[key]
+            for key,name in [('1','reposo'),('2','marcha'),('3','minar'),('4','talar'),('5','palin'),('7','sprint'),('8','pesca'),('9','zarpazo')]:
+                expected_mode={'1':'REPOSO','2':'MARCHA','3':'MINAR','4':'TALAR','5':'PALÍN','7':'SPRINT','8':'PESCA','9':'ZARPAZO'}[key]
                 async with page.expect_console_message(
                     predicate=lambda m: f'BITU_DRAGON_MODE:{expected_mode}' in m.text,
                     timeout=15000):
@@ -57,7 +57,7 @@ async def main():
             (PROJECT/'capturas/dragon-animaciones.webm').write_bytes(bytes(encoded))
             # Guardar cada modo en una pose fija del mismo controlador. Los
             # screenshots pueden tardar más que un golpe en WebGL por software.
-            for name in ['reposo','marcha','minar','talar','palin','sprint']:
+            for name in ['reposo','marcha','minar','talar','palin','sprint','pesca','zarpazo']:
                 capture_messages = len(messages)
                 await page.goto(f'http://127.0.0.1:8765/index.html?vista=dragon&captura={name}',wait_until='networkidle')
                 await page.wait_for_function("document.getElementById('status') === null",timeout=60000)
@@ -66,7 +66,7 @@ async def main():
                           for _,text in messages[capture_messages:]
                           if 'BITU_DRAGON_CAPTURE_READY:' in text]
                 expected_pose = {'reposo':'reposo','marcha':'andar-a',
-                                 'minar':'golpe','talar':'golpe-talar','palin':'arrodillado','sprint':'sprint-a'}[name]
+                                 'minar':'golpe','talar':'golpe-talar','palin':'arrodillado','sprint':'sprint-a','pesca':'pesca-recoger','zarpazo':'zarpazo-golpe'}[name]
                 expected_frames = [f'{expected_pose}-{direction}'
                                    for direction in ['S','SW','W','NW','N','NE','E','SE']]
                 assert states and states[-1] == {'mode':name,'frames':expected_frames}, states
@@ -92,7 +92,7 @@ async def main():
                            for phase in range(4)),f'Piernas congeladas en dirección {i}'
             assert any('BITU_DRAGON_PREVIEW_READY' in text for _,text in messages),messages
             assert not any(kind in {'error','pageerror'} for kind,_ in messages),messages
-            print('BITU_DRAGON_BROWSER_SMOKE_OK: 8 direcciones × 6 acciones')
+            print('BITU_DRAGON_BROWSER_SMOKE_OK: 8 direcciones × 8 acciones')
         finally:
             if any(k in {'error','pageerror'} for k,_ in messages):print(messages)
             await browser.close()

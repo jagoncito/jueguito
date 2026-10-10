@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d22i886m8nvyt"
-path="res://.godot/imported/sin-equipo.png-3e7e435cbbf5384f92bd98676cffaa86.ctex"
+uid="uid://03th82eq0eh2"
+path="res://.godot/imported/zarpazo.png-22514b328cd2d296e617ff0cbdaa0202.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personajes/dragon/sin-equipo.png"
-dest_files=["res://.godot/imported/sin-equipo.png-3e7e435cbbf5384f92bd98676cffaa86.ctex"]
+source_file="res://assets/personajes/dragon/zarpazo.png"
+dest_files=["res://.godot/imported/zarpazo.png-22514b328cd2d296e617ff0cbdaa0202.ctex"]
 
 [params]
 

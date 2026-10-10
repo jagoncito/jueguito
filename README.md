@@ -7,7 +7,7 @@
 
 Proyecto de juego individual de fantasía, **íntegramente en pixel art**, con **vista desde arriba isométrica cenital**, centrado en explorar, farmear, mejorar y coleccionar.
 
-**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo rehecho en pixel art, con ocho direcciones y160 registros**. Camina y sprinta con el pico–hacha, mina, tala y usa el palín al arrodillarse. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
+**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo rehecho en pixel art, con ocho direcciones y216 registros**. Camina, sprinta, mina, tala, recolecta con palín, pesca y ataca con garras. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
 
 Motor elegido: **Godot 4**. Primera plataforma: **navegador en ordenador, con teclado y ratón**. La versión descargable queda como posibilidad futura.
 
@@ -50,10 +50,10 @@ Los mapas son conceptuales; ninguna distribución es definitiva. El bloc contien
 - [Palín de herborista](assets/herramientas/palin-herborista/README.md): diseño exótico con hoja vegetal, integrado en la recolección arrodillada de flores.
 - [Árboles, cobre, Yde y botín](assets/entorno/recursos/README.md): dos atlas transparentes, tres árboles con sus tocones, estados del cobre y dibujos propios del botín, con recortes, anclas y escala registrados. Revisión con `?vista=recursos`.
 
-Para ejecutar la prueba en tu ordenador: instala Godot **4.6.3**, importa `prueba/project.godot` y pulsa **F5** para jugar. También puedes usar la [descarga para navegador](prueba/descargas/bitu-navegador.zip), con Python 3; consulta las [instrucciones de la prueba](prueba/README.md). Movimiento WASD, **Shift para sprint**, rueda para zoom, un clic izquierdo sobre mena, árbol o flor cercana para extraer, E para las otras interacciones y Tab para mostrar la mochila. La prueba no guarda progreso.
+Para ejecutar la prueba en tu ordenador: instala Godot **4.6.3**, importa `prueba/project.godot` y pulsa **F5** para jugar. También puedes usar la [descarga para navegador](prueba/descargas/bitu-navegador.zip), con Python 3; consulta las [instrucciones de la prueba](prueba/README.md). Movimiento WASD, **Shift para sprint**, rueda para zoom, un clic izquierdo sobre mena, árbol o flor cercana para extraer, clic en suelo/enemigo para zarpazo, clic en agua cercana para pescar, E para las otras interacciones y Tab para mostrar la mochila. Mantén clic para recoger sedal y suelta para aflojar; Esc cancela la pesca. La prueba no guarda progreso.
 
 Para retomar en otro chat, empezar por el bloc y continuar con una decisión cada vez.
 
 ## Personajes dentro de la prueba
 
-Seis NPC de ocho vistas integrados localmente, con colisión y conversación provisional. Protagonista nuevo160 registros, arte anterior retirado. [Auditoría del repositorio y comparativa real de tamaños](docs/revision-personajes-en-juego.md), con dragón80px actual y alternativa72px. F7/F8 permiten compararlos en la misma partida.
+Seis NPC de ocho vistas integrados localmente, con colisión y conversación provisional. Protagonista nuevo216 registros, arte anterior retirado. [Auditoría del repositorio y comparativa real de tamaños](docs/revision-personajes-en-juego.md), con dragón80px actual y alternativa72px. F7/F8 permiten compararlos en la misma partida.

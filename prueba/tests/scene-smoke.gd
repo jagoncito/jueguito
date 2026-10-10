@@ -35,8 +35,9 @@ func run() -> void:
 	assert(scene.task == resource, "El clic elige la mena señalada, no la flor más cercana")
 	flower.position = flower_position
 	assert(scene.player.busy, "Extracción bloquea movimiento")
-	assert(scene.player.dragon.has_baked_tool() and not scene.player.tool.visible and scene.player.tool.working, "Herramienta dibujada con las manos, con un único reloj de impactos")
+	assert(not scene.player.tool.visible and (scene.player.approaching or scene.player.tool.working), "Acercamiento físico seguido de un único reloj de impactos")
 	assert(scene.player.work_kind == &"minar", "Extremo de minería seleccionado")
+	while scene.player.approaching: await physics_frame
 	await create_timer(0.4).timeout
 	assert(resource.active and scene.inventory.count("mineral") == 0, "Primer golpe no entrega antes de acabar")
 	assert(scene.task_hits == 1, "Un impacto por movimiento")
@@ -56,6 +57,7 @@ func run() -> void:
 	assert(scene.target == tree, "Se puede seleccionar el árbol")
 	scene._click_resource(tree.position+Vector2(0,-30))
 	assert(scene.player.work_kind == &"talar", "Cambiar automáticamente al lado de hacha")
+	while scene.player.approaching: await physics_frame
 	await create_timer(0.4).timeout
 	assert(tree.active and tree.hits == 1, "Tala da feedback sin eliminar tras el primer golpe")
 	assert(scene.inventory.count("madera") == 0, "No dar madera antes de talar")
@@ -92,7 +94,7 @@ func run() -> void:
 	assert(scene.task_time >= 0.5, "Otro clic no reinicia la recolección")
 	assert(flowers.active and scene.inventory.count("flor") == 0, "No entregar flores antes de terminar")
 	await create_timer(1.6).timeout
-	assert(scene.inventory.count("flor") == 1 and scene.player.tool_mount.visible, "Recogida de flores y reposo conservados")
+	assert(scene.inventory.count("flor") == 1 and not scene.player.tool_mount.visible, "Recogida de flores y reposo conservados")
 	assert(not scene.player.herbal_mount.visible and scene.player.kneel_amount == 0, "Guardar palín y volver de pie")
 	assert(not flowers.active and flowers.cooldown > 0, "La flor inicia respawn al terminar")
 	assert(plant_hits[0] == 1, "Una extracción, un botín")

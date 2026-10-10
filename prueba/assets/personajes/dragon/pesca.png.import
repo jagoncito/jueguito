@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://didu3pcw7m7f3"
-path="res://.godot/imported/impacto-minar.png-7bf5fbd47ca825b5c4d96c61102c4dc5.ctex"
+uid="uid://bucpat5lmltst"
+path="res://.godot/imported/pesca.png-daba557b3568a9bb06ceba64d44ad569.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/personajes/dragon/impacto-minar.png"
-dest_files=["res://.godot/imported/impacto-minar.png-7bf5fbd47ca825b5c4d96c61102c4dc5.ctex"]
+source_file="res://assets/personajes/dragon/pesca.png"
+dest_files=["res://.godot/imported/pesca.png-daba557b3568a9bb06ceba64d44ad569.ctex"]
 
 [params]
 

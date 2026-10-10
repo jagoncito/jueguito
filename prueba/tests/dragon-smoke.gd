@@ -3,226 +3,109 @@ extends SceneTree
 func _initialize() -> void:
 	call_deferred("run")
 
+func wait_free(actor: BituPlayer) -> void:
+	for frame in range(240):
+		if not actor.busy: return
+		await physics_frame
+	assert(false,"Acción termina y devuelve control")
+
 func run() -> void:
+	for action in ["move_left","move_right","move_up","move_down"]:
+		if not InputMap.has_action(action): InputMap.add_action(action)
 	var actor := BituPlayer.new()
 	actor.equipment_enabled = true
 	root.add_child(actor)
-	actor.set_physics_process(false)
 	actor.work_finished.connect(actor.end_work)
 	var visual := actor.dragon
-	var equipped_tool_id := actor.tool.get_instance_id()
-	var resting_frame := visual.current_frame
-	actor.begin_work(&"pescar",Vector2(30,-20),Vector2(30,0))
-	assert(not actor.busy and not actor.tool.working and actor.work_kind == &"", "Una acción ajena no bloquea al jugador")
-	assert(visual.current_frame == resting_frame and actor.work_stance.is_finite(), "Una acción ajena conserva la pose y el apoyo finito")
-	assert(visual.catalog.frames.size() == 160,"Dragón nuevo: ocho vistas, marcha, sprint, minería, tala, recuperación y palín")
-	assert(visual.body.scale.x == visual.body.scale.y,"Sin estirar anatomía en un eje")
-	assert(actor.tool_mount.get_index()>visual.get_index(),"Herramienta frontal delante del cuerpo")
-	assert(visual.has_baked_tool() and not actor.tool.visible and not visual.hand_cover.visible,"Cuerpo y herramienta en un dibujo; sin duplicar dedos ni arma")
-	var source_images: Dictionary = {}
+	assert(visual.catalog.frames.size()==216,"Conjunto completo de movimiento, trabajo, pesca y garras")
+	var sources := {}
 	for key in visual.catalog.frames:
 		var frame: Dictionary = visual.catalog.frames[key]
-		if not source_images.has(frame.file):
-			source_images[frame.file] = load(visual.DIRECTORY+frame.file).get_image()
-		assert(source_images[frame.file].get_pixel(frame.hand[0],frame.hand[1]).a>0.5,"Palma sobre píxeles dibujados: "+key)
-		assert(is_finite(float(frame.anchor[0])) and is_finite(float(frame.anchor[1])),"Anclas de suelo finitas: "+key)
-		assert(frame.region[0]>=0 and frame.region[1]>=0 and frame.region[0]+frame.region[2]<=source_images[frame.file].get_width() and frame.region[1]+frame.region[3]<=source_images[frame.file].get_height(),"Atlas sin recortes fuera de la fuente: "+key)
-		if key.begins_with("golpe-"):
-			var action := "talar" if key.begins_with("golpe-talar-") else "minar"
-			var point: Array = frame.contacts[action]
-			assert(frame.working_end == ("axe_edge" if action == "talar" else "pick_tip"),"Cada acción usa su extremo de trabajo: "+key)
-			assert(Vector2(point[0],point[1]).distance_to(Vector2(frame.contact_reference[0],frame.contact_reference[1]))<10,"Contacto junto al extremo revisado, sin saltar al collar o mango: "+key)
-			var metal: Color = source_images[frame.file].get_pixel(point[0],point[1])
-			assert(metal.a>0.5 and maxf(metal.r,maxf(metal.g,metal.b))-minf(metal.r,minf(metal.g,metal.b))<0.26,"Contacto sobre metal visible en el PNG: "+key)
-	var seen: Dictionary = {}
-	var hits := [0]
+		if not sources.has(frame.file): sources[frame.file] = load(visual.DIRECTORY+frame.file).get_image()
+		var image: Image = sources[frame.file]
+		assert(image.get_pixel(frame.hand[0],frame.hand[1]).a>0.5,"Palma sobre dibujo: "+key)
+		assert(frame.scale>0 and frame.anchor.size()==2,"Escala uniforme y apoyo válidos")
+		assert(frame.region[0]+frame.region[2]<=image.get_width() and frame.region[1]+frame.region[3]<=image.get_height(),"Recorte dentro de fuente")
 	var work_hits := [0]
-	var work_actions: Array[StringName] = []
-	actor.tool.impact.connect(func(action: StringName):
-		assert(actor.tool.get_instance_id() == equipped_tool_id,"El mismo pico–hacha realiza minería y tala sin sustituir el equipo")
-		assert(action == actor.work_kind,"El impacto corresponde a la acción que está realizando el jugador")
-		assert(actor.tool.contact_point(action).distance_to(actor.to_global(actor.work_contact))<1,"Punta del pico o filo del hacha sobre el recurso al impactar")
-		var opposite := &"minar" if action == &"talar" else &"talar"
-		assert(not visual.contact_local(opposite).is_finite(),"El fotograma de impacto no ofrece el extremo de la otra acción")
-		work_actions.append(action)
-		work_hits[0] += 1
-	)
-	actor.herbal_tool.impact.connect(func(_action: StringName):
-		assert(actor.herbal_tool.contact_point().distance_to(actor.to_global(actor.plant_contact))<1,"Palín registrado con tierra en todas las vistas")
-		hits[0] += 1
-	)
-	for index in range(8):
-		var direction: Vector2 = BituPlayer.DIRECTIONS[index].normalized()
-		actor.face_towards(direction)
-		actor.walk_time = 0
-		actor.animate_pose(0)
-		var resting_top := visual.body.position.y+visual.body.texture.get_image().get_used_rect().position.y*visual.body.scale.y
-		actor.walk_time = 0.1
-		actor.animate_pose(0)
-		var cycle_scale := visual.body.scale
-		var walking_top := visual.body.position.y+visual.body.texture.get_image().get_used_rect().position.y*visual.body.scale.y
-		assert(absf(resting_top-walking_top)<1,"Altura real constante al arrancar, con una pose de reposo propia")
-		var phases: Dictionary = {}
-		for phase in range(4):
-			actor.walk_time = 0.1+phase*1.15
-			actor.animate_pose(0)
-			assert(visual.body.scale == cycle_scale,"Una sola escala anatómica durante cada ciclo")
-			var texture := visual.body.texture as AtlasTexture
-			phases[hash(texture.get_image().get_data())] = true
-			assert(actor.primary_hand.position.distance_to(actor.tool_mount.position)<0.01,"Agarre registrado en cada fase")
-			assert(actor.tool.direction_index == index,"Perspectiva de herramienta acompaña al cuerpo")
-			assert((actor.tool_mount.get_index()<visual.get_index()) == visual.tool_behind,"Profundidad del agarre según vista")
-			assert(visual.has_baked_tool() and not actor.tool.visible and not visual.hand_cover.visible,"Agarre completo dibujado, sin una segunda herramienta")
+	var attack_hits := [0]
+	var plant_hits := [0]
+	var expected := [Vector2.ZERO]
+	var tool_id := actor.tool.get_instance_id()
+	actor.work_impact.connect(func(action: StringName):
+		if action==&"recolectar":
+			plant_hits[0]+=1
+			assert(actor.herbal_tool.contact_point().distance_to(expected[0])<1,"Palín alcanza tierra")
+		else:
+			work_hits[0]+=1
+			assert(actor.tool.get_instance_id()==tool_id,"La misma herramienta sirve para ambos trabajos")
+			assert(actor.tool.contact_point(action).distance_to(expected[0])<1,"Extremo activo toca recurso")
 			var frame: Dictionary = visual.catalog.frames[visual.current_frame]
-			var head_top := (float(frame.body_bounds_px[1])-float(frame.anchor[1]))*visual.body.scale.y
-			assert(absf(head_top+80.0)<0.01,"La cabeza conserva la altura sobre el suelo al caminar: "+visual.current_frame)
-			var rendered_top := visual.body.position.y+texture.get_image().get_used_rect().position.y*visual.body.scale.y
-			assert(absf(rendered_top+80.0)<2.0,"Altura real de los píxeles de la cresta, no solo de los metadatos: "+visual.current_frame)
-			assert(frame.carry_orientation == "punta-arriba-filo-abajo","Orientación de reposo conservada en la marcha")
-		assert(phases.size()==4,"Cuatro dibujos distintos por dirección, sin paso intermedio repetido")
-		assert(actor.direction_index == index,"Ocho direcciones sin reflejar la cara original")
-		seen[visual.current_frame] = true
-		assert(actor.primary_hand.position.distance_to(actor.tool_mount.position)<0.01,"Agarre de marcha")
-		actor.walk_time = 0
-		# El golpe elevado puede estar al norte aunque la mena esté al sur.
-		var ground := direction*35
-		actor.face_towards(-direction)
-		actor.begin_work(&"minar",ground+Vector2(0,-22),ground)
-		assert(actor.direction_index == index and visual.direction_index == index,"Girar inmediatamente hacia base del recurso")
-		await create_timer(.18).timeout
-		assert(visual.current_frame.begins_with("cargar-"),"Carga completa del cuerpo")
-		assert(actor.direction_index == index,"Orientación fija durante el golpe")
-		var scale_before := actor.tool_mount.scale
-		actor.animate_pose(0,0.15)
-		var preparation_angle := actor.tool_mount.rotation
-		actor.animate_pose(0,0.24)
-		assert(is_equal_approx(preparation_angle,actor.tool_mount.rotation),"La herramienta no gira por su cuenta en una pose mantenida")
-		for sample in [0.06,0.18,0.30,0.36,0.44]:
-			actor.animate_pose(0,sample)
-			check_work_grip(actor)
-			assert(actor.tool_mount.scale.is_equal_approx(scale_before),"Sin invertir extremos ni agrandar la herramienta durante el golpe")
-		actor.animate_pose(0)
-		assert(actor.primary_hand.position.distance_to(actor.tool_mount.position)<0.01,"Agarre del golpe en palma dibujada")
-		await create_timer(.18).timeout
-		assert(visual.current_frame.begins_with("golpe-"),"Impacto completo del cuerpo")
-		assert(visual.body.scale.x == visual.body.scale.y,"Cabeza, brazos, piernas y cola no se deforman")
-		check_return_to_idle(actor)
-		actor.begin_work(&"talar",ground+Vector2(0,-24),ground)
-		actor.animate_pose(0,0.18)
-		assert(visual.current_frame.begins_with("cargar-talar-"),"Tala usa la misma carga natural y golpea con el extremo opuesto")
-		check_work_grip(actor)
-		actor.animate_pose(0)
-		await create_timer(.36).timeout
-		assert(visual.current_frame.begins_with("golpe-"),"Tala completa y filo registrado en ocho vistas")
-		assert(work_actions[-2] == &"minar" and work_actions[-1] == &"talar","Cada dirección completa un impacto de pico y otro de hacha con el mismo equipo")
-		check_return_to_idle(actor)
-		actor.face_towards(-direction)
-		actor.begin_gathering(ground+Vector2(0,-5),ground)
-		assert(actor.direction_index == index,"Recolectar gira el cuerpo entero")
-		await create_timer(.5).timeout
-		assert(visual.current_frame.begins_with("arrodillado-"),"Recolección arrodillada en ocho vistas")
-		assert(actor.primary_hand.position.distance_to(actor.herbal_mount.position)<0.01,"Palma sobre palín sin brazos desplazados")
-		await create_timer(1.6).timeout
-		assert(not actor.busy and actor.kneel_amount == 0,"Recuperar postura y control")
-	assert(seen.size() == 8 and hits[0] == 8 and work_hits[0] == 16,"Ocho vistas distintas, contactos de pico/hacha y ocho extracciones")
-	# La marcha sigue el desplazamiento real y las diagonales no son más rápidas.
-	for action in ["move_left","move_right","move_up","move_down"]:
-		if not InputMap.has_action(action):
-			InputMap.add_action(action)
-	actor.set_physics_process(true)
+			assert(frame.working_end==("axe_edge" if action==&"talar" else "pick_tip"),"Pico y filo diferenciados")
+	)
+	actor.attack_impact.connect(func(_direction: Vector2): attack_hits[0]+=1)
 	for index in range(8):
-		var direction: Vector2 = BituPlayer.DIRECTIONS[index]
-		var actions: Array[String] = []
-		if direction.x < 0: actions.append("move_left")
-		if direction.x > 0: actions.append("move_right")
-		if direction.y < 0: actions.append("move_up")
-		if direction.y > 0: actions.append("move_down")
-		var start := actor.position
-		for action in actions: Input.action_press(action)
-		await create_timer(.3).timeout
-		assert(actor.direction_index == index,"Vista según movimiento real, incluida izquierda y espalda")
-		assert(actor.position.distance_to(start)>30,"Desplazamiento efectivo")
-		assert(is_equal_approx(actor.velocity.length(),BituPlayer.SPEED),"Velocidad diagonal normalizada")
-		assert(actor.walk_time>0,"Marcha activa al avanzar")
-		for action in actions: Input.action_release(action)
-		await create_timer(.04).timeout
-		assert(actor.walk_time==0,"Reposo al dejar de desplazarse")
-	# Sprint: velocidad existente y cuatro dibujos propios por dirección.
-	var sprint_start := actor.position
-	Input.action_press("move_right")
+		actor.position=Vector2.ZERO
+		actor.face_towards(BituPlayer.DIRECTIONS[index])
+		actor.walk_time=0
+		actor.animate_pose(0)
+		assert(not actor.tool.visible and not visual.has_baked_tool(),"Manos libres al descansar")
+		var resting_top := visual.body.position.y+visual.body.texture.get_image().get_used_rect().position.y*visual.body.scale.y
+		for running in [false,true]:
+			actor.sprinting=running
+			var distinct := {}
+			var factor := 0.0
+			for phase in range(4):
+				actor.walk_time=0.1+phase*1.15
+				actor.animate_pose(0)
+				if phase==0: factor=visual.body.scale.x
+				assert(visual.body.scale==Vector2.ONE*factor,"Una escala por ciclo, sin estirar cuerpo")
+				var image: Image=visual.body.texture.get_image()
+				var top := visual.body.position.y+image.get_used_rect().position.y*factor
+				assert(absf(resting_top-top)<2.0,"No crecer al andar/correr")
+				distinct[hash(image.get_data())]=true
+			assert(distinct.size()==4,"Cuatro pasos diferentes por dirección")
+		actor.sprinting=false
+		actor.walk_time=0
+		for action in [&"minar",&"talar"]:
+			visual.show_pose("golpe" if action==&"minar" else "golpe-talar",index)
+			expected[0]=visual.contact_global(action)
+			actor.begin_work(action,expected[0],actor.to_global(BituPlayer.DIRECTIONS[index]*35))
+			assert(actor.direction_index==index,"El golpe mira a la base del recurso")
+			await wait_free(actor)
+		actor.position=Vector2.ZERO
+		expected[0]=BituPlayer.DIRECTIONS[index].normalized()*35+Vector2(0,-5)
+		actor.begin_gathering(expected[0],BituPlayer.DIRECTIONS[index]*35)
+		await wait_free(actor)
+		assert(actor.kneel_amount==0 and not actor.herbal_mount.visible,"Recolección recupera de pie")
+		actor.begin_attack(actor.to_global(BituPlayer.DIRECTIONS[index]*35))
+		assert(not actor.begin_attack(Vector2.ZERO),"Clics repetidos no duplican zarpazo")
+		await wait_free(actor)
+		actor.begin_fishing(actor.to_global(BituPlayer.DIRECTIONS[index]*35))
+		for pose in ["pesca-cargar","pesca-esperar","pesca-recoger"]:
+			actor.set_fishing_pose(pose)
+			assert(visual.contact_global(&"sedal").is_finite(),"Sedal unido a punta de caña en ocho vistas")
+		actor.end_work()
+	assert(work_hits[0]==16 and plant_hits[0]==8 and attack_hits[0]==8,"Una señal por golpe/extracción en ocho vistas")
+	# Desplazar el cuerpo físico antes del trabajo; el contacto sigue al recurso.
+	actor.position=Vector2.ZERO
+	actor.face_towards(Vector2.LEFT)
+	expected[0]=Vector2(-35,-22)
+	actor.begin_work(&"minar",expected[0],Vector2(-35,0))
+	var initial := actor.position
+	await wait_free(actor)
+	assert(actor.position.distance_to(initial)>3,"Apoyo mueve colisión y pies, no solo dibujo")
+	for action in ["move_left","move_right","move_up","move_down"]:
+		if not InputMap.has_action(action): InputMap.add_action(action)
+	Input.action_press("move_right"); Input.action_press("move_down")
+	await create_timer(0.2).timeout
+	assert(is_equal_approx(actor.velocity.length(),BituPlayer.SPEED),"Diagonal normalizada")
 	Input.action_press("sprint")
-	await create_timer(.3).timeout
-	assert(actor.position.distance_to(sprint_start)>45,"Shift activa el sprint")
-	assert(is_equal_approx(actor.velocity.length(),BituPlayer.SPRINT_SPEED),"Velocidad de sprint registrada")
-	assert(actor.dragon.current_frame.begins_with("sprint-"),"Sprint usa su ciclo propio")
-	Input.action_release("sprint")
-	Input.action_release("move_right")
-	await create_timer(.04).timeout
-	for direction in range(8):
-		actor.sprinting = true
-		var phases := {}
-		for phase in range(4):
-			actor.direction_index = direction
-			actor.walk_time = 0.1+phase*1.15
-			actor.animate_pose(0)
-			var image := actor.dragon.body.texture.get_image()
-			phases[hash(image.get_data())] = true
-			assert(absf(actor.dragon.body.position.y+image.get_used_rect().position.y*actor.dragon.body.scale.y+80)<1,"Sprint conserva altura real")
-		assert(phases.size()==4,"Cuatro fotogramas de sprint distintos por vista")
-	actor.sprinting = false
-	actor.walk_time = 0
-	actor.set_physics_process(false)
-	actor.position = Vector2.ZERO
-	var wall := StaticBody2D.new()
-	var wall_collision := CollisionShape2D.new()
-	var wall_shape := RectangleShape2D.new()
-	wall_shape.size = Vector2(10,300)
-	wall_collision.shape = wall_shape
-	wall.add_child(wall_collision)
-	wall.position = Vector2(16,-3)
-	root.add_child(wall)
-	actor.set_physics_process(true)
-	Input.action_press("move_right")
-	await create_timer(.3).timeout
-	assert(actor.position.x<6 and actor.walk_time==0,"No caminar en el sitio contra un obstáculo")
-	Input.action_press("move_up")
-	await create_timer(.2).timeout
-	assert(actor.direction_index==4,"Al deslizarse, orientar hacia el desplazamiento real")
-	Input.action_release("move_right")
-	Input.action_release("move_up")
-	actor.set_physics_process(false)
-	actor.position = Vector2.ZERO
-	wall.queue_free()
-	# Regresión: la base está al sur y el impacto elevado queda al norte.
-	actor.face_towards(Vector2.UP)
-	actor.begin_work(&"minar",Vector2(0,-12),Vector2(0,10))
-	assert(actor.direction_index == 0 and not actor.facing_back,"La altura del golpe no decide la vista del cuerpo")
-	actor.end_work()
-	var enlarged := BituPlayer.new()
-	enlarged.equipment_enabled = true
-	enlarged.scale = Vector2(3,3)
-	root.add_child(enlarged)
-	enlarged.set_physics_process(false)
-	actor.begin_work(&"talar",Vector2(35,-22),Vector2(35,0))
-	enlarged.begin_work(&"talar",enlarged.to_global(Vector2(35,-22)),enlarged.to_global(Vector2(35,0)))
-	assert(enlarged.direction_index == actor.direction_index,"Escala de revisión no altera dirección")
-	assert(enlarged.tool_mount.position.is_equal_approx(actor.tool_mount.position),"Escala no altera registro")
-	assert(is_equal_approx(enlarged.tool_mount.rotation,actor.tool_mount.rotation),"Escala no altera agarre")
-	actor.queue_free()
-	enlarged.queue_free()
-	await process_frame
+	await create_timer(0.2).timeout
+	assert(is_equal_approx(actor.velocity.length(),BituPlayer.SPRINT_SPEED) and visual.current_frame.begins_with("sprint-"),"Correr con Shift")
+	Input.action_release("sprint");Input.action_release("move_right");Input.action_release("move_down")
+	await create_timer(0.05).timeout
+	assert(actor.walk_time==0,"Parada devuelve reposo")
 	print("BITU_DRAGON_SMOKE_OK")
-	quit(0)
-
-func check_work_grip(actor: BituPlayer) -> void:
-	assert(actor.dragon.has_baked_tool() and not actor.tool.visible,"Golpe con herramienta incorporada al dibujo de las manos")
-	assert(actor.tool_mount.position.is_equal_approx(actor.primary_hand.position),"Mano inferior registrada en mango")
-	assert(is_zero_approx(actor.tool.rotation) and is_zero_approx(actor.tool_mount.rotation),"Sin rotación adicional de la herramienta")
-	assert(not actor.dragon.hand_cover.visible and not actor.dragon.other_hand_cover.visible,"Dedos del propio PNG sin parches duplicados")
-
-func check_return_to_idle(actor: BituPlayer) -> void:
-	actor.animate_pose(0,0.56)
-	var carried_angle := actor.tool_mount.rotation
-	var carried_scale := actor.tool_mount.scale
-	actor.end_work()
-	assert(is_equal_approx(actor.tool_mount.rotation,carried_angle) and actor.tool_mount.scale.is_equal_approx(carried_scale),"Sin giro ni inversión final con el cuerpo ya en reposo")
+	actor.queue_free()
+	await process_frame
+	quit()

@@ -6,13 +6,13 @@ var cooldowns: Array[float] = []
 var time := 0.0
 var mode := 0
 var mode_label: Label
-const MODES := ["REPOSO","MARCHA","MINAR","TALAR","PALÍN","PARAR / ANDAR","SPRINT"]
+const MODES := ["REPOSO","MARCHA","MINAR","TALAR","PALÍN","PARAR / ANDAR","SPRINT","PESCA","ZARPAZO"]
 const LABELS := ["SUR · frontal","SUROESTE","OESTE · perfil","NOROESTE","NORTE · espalda","NORESTE","ESTE · perfil","SURESTE"]
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("15232a"))
 	_label("DRAGÓN · OCHO DIRECCIONES",Vector2(28,16),25)
-	_label("1 Reposo · 2 Marcha · 3 Minar · 4 Talar · 5 Palín · 6 Parar/andar · 7 Sprint | Espacio: lenta",Vector2(28,51),16)
+	_label("1 Reposo · 2 Marcha · 3 Minar · 4 Talar · 5 Palín · 6 Parar/andar · 7 Sprint · 8 Pesca · 9 Zarpazo",Vector2(28,51),14)
 	mode_label = _label("REPOSO",Vector2(1030,20),20)
 	for index in range(8):
 		var actor := BituPlayer.new()
@@ -30,6 +30,7 @@ func _ready() -> void:
 			actor.end_work()
 			cooldowns[index] = 0.35
 		)
+		actor.attack_finished.connect(func(): cooldowns[index] = 0.35)
 		_label(LABELS[index],Vector2(28+(index%4)*320,370+(index/4)*320),16)
 	# Capturas reproducibles de las poses reales, sin depender del rendimiento WebGL.
 	if OS.has_feature("web"):
@@ -39,7 +40,7 @@ func _ready() -> void:
 	print("BITU_DRAGON_PREVIEW_READY")
 
 func _capture_pose(requested: String) -> void:
-	var names := ["reposo","marcha","minar","talar","palin"]
+	var names := ["reposo","marcha","minar","talar","palin","parar","sprint","pesca","zarpazo"]
 	var walk_phase := -1
 	var running := requested.begins_with("sprint")
 	if requested.begins_with("marcha-"):
@@ -66,6 +67,13 @@ func _capture_pose(requested: String) -> void:
 				actor.tool.motion.custom_step(float(sample) if sample != null else 0.34)
 		elif mode in [1,6]:
 			actor.walk_time = 0.1+walk_phase*1.15 if walk_phase >= 0 else 1.0
+		elif mode == 7:
+			actor.begin_fishing(actor.to_global(BituPlayer.DIRECTIONS[index]*35))
+			var phase = JavaScriptBridge.eval("new URLSearchParams(location.search).get('fase')")
+			actor.set_fishing_pose("pesca-"+(String(phase) if phase != null else "recoger"))
+		elif mode == 8:
+			actor.begin_attack(actor.to_global(BituPlayer.DIRECTIONS[index]*35))
+			actor.activity_time = 0.23
 		actor.animate_pose(0)
 	set_process(false)
 	var frames: Array[String] = []
@@ -80,14 +88,16 @@ func _start_action(index: int) -> void:
 	if mode == 4:
 		actor.begin_gathering(actor.to_global(direction*35+Vector2(0,-5)),ground)
 	else:
-		actor.begin_work(&"minar" if mode == 2 else &"talar",actor.to_global(direction*35+Vector2(0,-22)),ground)
+		var action := &"minar" if mode == 2 else &"talar"
+		actor.dragon.show_pose("golpe" if mode == 2 else "golpe-talar",index)
+		actor.begin_work(action,actor.dragon.contact_global(action),ground)
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.physical_keycode == KEY_SPACE:
 			Engine.time_scale = 0.25 if Engine.time_scale == 1.0 else 1.0
 			return
-		if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_7:
+		if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_9:
 			mode = event.physical_keycode-KEY_1
 			mode_label.text = MODES[mode]
 			print("BITU_DRAGON_MODE:",MODES[mode])
@@ -109,6 +119,14 @@ func _process(delta: float) -> void:
 		cooldowns[index] = maxf(0,cooldowns[index]-delta)
 		if mode in [2,3,4] and not actor.busy and cooldowns[index] == 0:
 			_start_action(index)
+		if mode == 7:
+			if not actor.busy:
+				actor.begin_fishing(actor.to_global(BituPlayer.DIRECTIONS[index]*35))
+			actor.set_fishing_pose(["pesca-cargar","pesca-esperar","pesca-recoger"][int(time/0.7)%3])
+		if mode == 8:
+			if not actor.busy and cooldowns[index] == 0:
+				actor.begin_attack(actor.to_global(BituPlayer.DIRECTIONS[index]*35))
+			actor._process(delta)
 		actor.animate_pose(delta)
 
 func _draw() -> void:
@@ -116,7 +134,7 @@ func _draw() -> void:
 		return
 	for index in range(actors.size()):
 		var direction: Vector2 = BituPlayer.DIRECTIONS[index].normalized()
-		var point := actors[index].to_global(direction*35+Vector2(0,-5 if mode == 4 else -22))
+		var point := actors[index].to_global(actors[index].plant_contact if mode == 4 else actors[index].work_contact)
 		# Referencia de contacto, detrás del personaje según la perspectiva.
 		draw_circle(point,7,Color("ae86b4") if mode == 4 else Color("7c8c87"))
 		draw_circle(point,3,Color("e0c788"))

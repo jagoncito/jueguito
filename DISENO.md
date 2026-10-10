@@ -31,7 +31,7 @@ Se busca que las mejoras se noten y que encontrar algo especial dé ilusión. La
 
 Mismo marco de escala dentro del juego, conservando estaturas: suelo64×32; Flavia, Unamahloni, elfa y cocinero80px; comerciante84; enano64. Los seis NPC comparten **ocho vistas estáticas de reposo sin instrumentos**,48 sprites nativos128×128 con apoyo(64,112). Variantes extra de marcha/equipo/comida retiradas; referencias necesarias conservadas. Solo el protagonista controlable necesita el conjunto completo.
 
-El usuario solicita después **reiniciar por completo el arte del dragón** para aproximarlo al estilo de los NPC. Nuevo cuerpo80px,160 registros y diez atlas fuente en [dragon/](assets/personajes/dragon/README.md), incluyendo sprint propio. Las cifras80/104/112 del protagonista y128/152/160/288 totales describen entregas anteriores. Conjunto vigente: **208 registros**,48NPC +160protagonista. Las ilustraciones grandes son fuentes separadas del tamaño del juego; el dragón usa AtlasTexture, los NPC sus PNG nativos. Acabado visual pendiente de aprobación.
+El usuario solicita después **reiniciar por completo el arte del dragón** para aproximarlo al estilo de los NPC. Nuevo cuerpo80px,216 registros y diez atlas fuente en [dragon/](assets/personajes/dragon/README.md), incluyendo sprint propio. Las cifras80/104/112 del protagonista y128/152/160/288 totales describen entregas anteriores. Conjunto vigente: **264 registros**,48NPC +216protagonista. Las ilustraciones grandes son fuentes separadas del tamaño del juego; el dragón usa AtlasTexture, los NPC sus PNG nativos. Acabado visual pendiente de aprobación.
 
 Los seis habitantes están integrados en posiciones provisionales, con colisión en pies, mirada hacia el jugador e interacciónE de prueba. F6 pausa/reanuda giros breves sobre el sitio usando sus ocho vistas; no marcha de NPC ni diálogos/servicios finales. F7/F8 comparan el protagonista80/72px. Se conservan los cambios remotos de NPC y entorno; no se recuperan variantes descartadas ni se duplica ningún habitante. [Comparación en el juego](docs/revision-personajes-en-juego.md).
 
@@ -267,11 +267,11 @@ Los nombres, aspectos y relatos todavía no definidos de los personajes siguen a
 - Protagonista **dragón bípedo**; la elección sustituye al humano anterior. Nombre, especie concreta, historia y personalización siguen abiertos.
 - **Reinicio solicitado el10 de octubre:** tras comparar las capturas, el usuario rechaza el acabado de mascota/ilustración frente al pixel art de los habitantes. Pide retirar todo el arte anterior y rehacer las vistas y acciones ya existentes, integrarlas y subir la entrega. Se retira el paquete `dragon-avatar/`, también el original; se conserva el historial de Git. Esta decisión sustituye las restricciones anteriores de conservar la misma cara o los PNG de minería.
 - [Conjunto nuevo](assets/personajes/dragon/README.md): propuesta de cuerpo esbelto gris azulado, hocico/vientre crema, ojos ámbar, cresta y alas recogidas naranja óxido, piernas más largas y contorno fino. Perspectiva elevada y escala cercana a los NPC; **diseño gráfico pendiente de revisión**, no aprobación definitiva.
-- **160 registros en ocho direcciones:** reposo propio con herramienta/sin equipo; cuatro fases de marcha y cuatro propias de sprint; preparación, carga, impacto y recuperación de minería/tala; arrodillarse y levantarse para el palín. Diez PNG nuevos, copias idénticas en la prueba y catálogo registrado; ninguna imagen anterior del dragón activa.
+- **216 registros en ocho direcciones:** reposo/sin equipo, cuatro fases de marcha y sprint, cuatro de minería/tala, arrodillarse/levantarse preservados para el palín, tres de pesca y cuatro de zarpazo. Diez PNG nuevos, copias idénticas en la prueba y catálogo registrado; ninguna imagen anterior del dragón activa.
 - Altura de cresta80px sobre el apoyo en reposo/marcha/sprint; una escala uniforme por ciclo, sin crecimiento al alternar pies. Posturas bajas mediante dibujos flexionados, sin estirar partes. Las fuentes son atlas grandes con AtlasTexture y nearest, no PNG nativos128×128. F7/F8 mantienen la comparación gráfica80/72.
 - Pico–hacha dibujado con manos y cuerpo; punta arriba/filo abajo al llevarlo, también de perfil. Punta afilada contra mena y borde ancho de la hoja opuesta contra árbol, partículas en el metal registrado. El palín conserva sus ocho proyecciones con agarres nuevos. No hay giro independiente del pico–hacha.
-- Marcha ligada al desplazamiento real, ocho direcciones, diagonales normalizadas, parada al chocar. Velocidades150/225px/s, cinco golpes, tiempos, controles, colisión, NPC y entorno conservados. No pesca, riego animado, combate ni sistemas nuevos.
-- Revisión real en `?vista=dragon`:1 reposo,2 marcha,3 minar,4 talar,5 palín,6 parar/andar,7 sprint; Espacio cámara lenta. Capturas y vídeos del motor, prueba conjunta con seis NPC y ZIP actualizado. Autorizada esta publicación concreta sin forzar historial; aprobación visual pendiente.
+- Marcha ligada al desplazamiento real, ocho direcciones, diagonales normalizadas, parada al chocar. Velocidades150/225px/s, cinco golpes, tiempos, controles, colisión, NPC y entorno conservados. Revisión posterior autorizada: pesca desde costa y zarpazo integrados; riego animado y demás sistemas pendientes.
+- Revisión real en `?vista=dragon`:1 reposo,2 marcha,3 minar,4 talar,5 palín,6 parar/andar,7 sprint,8 pesca,9 zarpazo; Espacio cámara lenta. Capturas y vídeos del motor, prueba conjunta con seis NPC y ZIP actualizado. Autorizada esta publicación concreta sin forzar historial; aprobación visual pendiente.
 
 ### Casa y granja
 
@@ -389,7 +389,7 @@ Pescar y coleccionar peces, incluidos hallazgos especiales en distintas aguas y 
 
 **Desafío por tensión del sedal aceptado, conservando la propuesta original:** tras la picada, **mantener clic izquierdo recoge sedal y acerca el pez**; **soltar afloja cuando tira fuerte para evitar que escape**. Una pequeña barra muestra la tensión. Se busca acercar el pez a la orilla respondiendo a sus tirones. Comunes fáciles y raros con comportamientos distintos que aprender. Las mejoras de caña aportan mayor control y acceso a capturas más exigentes.
 
-**Balance y detalles pendientes:** lanzamiento y respuesta inicial a la picada, curvas de tensión y acercamiento, comportamiento del avance al aflojar, duración, consecuencias exactas de fallar y propiedades por especie y caña. El usuario retira su preocupación anterior sobre la duración y pide mantener la propuesta original: quedan fuera las sugerencias posteriores de conservar siempre el avance al soltar y de duraciones de 3–5/6–10 segundos. No adoptar esas cifras ni esa simplificación como acuerdos. Pesca todavía sin implementar en la prueba.
+**Balance y detalles pendientes:** lanzamiento y respuesta inicial a la picada, curvas de tensión y acercamiento, comportamiento del avance al aflojar, duración, consecuencias exactas de fallar y propiedades por especie y caña. El usuario retira su preocupación anterior sobre la duración y pide mantener la propuesta original: quedan fuera las sugerencias posteriores de conservar siempre el avance al soltar y de duraciones de 3–5/6–10 segundos. No adoptar esas cifras ni esa simplificación como acuerdos. Pesca desde costa implementada en la revisión integral del10 de octubre; curvas y tiempos actuales son balance de prototipo, no acuerdos definitivos.
 
 Cebos, recetas concretas y efectos específicos de comida están por definir. **Acordado el valor culinario de las cosechas excepcionales:** los ingredientes prístinos mejoran el resultado de recetas y los Siru permiten elaborar preparaciones especiales. Esto conecta los cultivos con el maestro de pesca/cocina. No confirma Siru para todas las familias de ingredientes ni una lista de recetas. Se busca que la comida sea útil y opcional, sin exigir alimentación constante.
 
@@ -853,3 +853,22 @@ Taberna, tiendas independientes y más habitantes fueron ideas tempranas. Si se 
 - **10 de octubre de 2026, publicación posterior:** el usuario solicita subir a GitHub la entrega preparada: personajes de comparación integrados, revisión de reposo/marcha y tala del protagonista, documentación, pruebas, capturas/vídeos y descarga actualizada. Publicación de esta entrega concreta, preservando el historial y sin aprobación visual automática ni autorización de futuras subidas.
 
 - **10 de octubre de 2026, reconciliación antes de subir:** detectados dos commits posteriores que simplifican NPC a ocho vistas e integran habitantes, agua/casa y comparativas 80/72. Se conserva ese conjunto reducido y su integración; los pasos locales de Flavia/Unamahloni se adaptan a giros breves para los seis, sin recuperar variantes eliminadas ni duplicarlos. F6 pausa/reanuda la muestra. Conservados colisión, mirada cercana, interacción de prueba, posiciones y controles remotos.
+
+### Revisión integral jugable del10 de octubre de2026
+
+Petición explícita de terminar las acciones del protagonista y subirlas junto a
+la prueba. Zarpazo elegido en vez de armas. Un clic sobre recurso inicia su
+trabajo; enemigo o suelo libre inicia ataque dirigido al cursor; agua cercana
+inicia pesca. Un único contacto de garras, alcance frontal; maniquí de práctica
+y soporte de objetivos enemigos, sin criaturas/IA nuevas.
+
+Marcha y sprint sin equipo visible; el instrumento se equipa por actividad.
+Apoyo de minería/tala mediante un paso físico previo, respetando colisiones.
+Pico afilado en mena y filo ancho en árbol; cinco golpes. La recolección aprobada
+conserva dos PNG,16 registros y gesto/tiempos completos.
+
+Pesca desde costa: lanzamiento, picada, tensión controlada manteniendo/soltando
+clic, recuperación, captura/botín, fallo y cancelación con Esc. Caña disponible
+en la prueba, sin implementar su regalo narrativo. Icono de pez común de prueba;
+no fija especie, peso, calidad o rareza. Progresión de herramientas, criaturas,
+barco, inicio narrativo, guardado y balance definitivo pendientes.

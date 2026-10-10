@@ -21,17 +21,20 @@ WASD: mover; Shift + WASD: sprint provisional; rueda: zoom; Tab: mochila.
 Clic izquierdo sobre una mena, árbol o flor cercana: completa toda la extracción.
 No hace falta mantener pulsado ni repetir clics por golpe.
 Para flores se equipa el palín y el personaje se arrodilla, extrae y se levanta.
+Clic en suelo libre o enemigo: zarpazo hacia el cursor; prueba con el maniquí.
+Clic en agua cercana desde la orilla: lanzar caña. Espera la picada.
+Mantén clic para recoger; suelta para bajar la tensión. Esc cancela la pesca.
 E: plantar, regar, cosechar o hablar con un habitante cercano.
 Seis habitantes quietos integrados en posiciones provisionales, con ocho vistas cada uno.
 F7: dragón actual80px. F8: comparación72px (ajuste gráfico reversible, sin cambiar NPC).
-Dragón rehecho en pixel art: ocho direcciones, reposo, caminar, sprint, minar, talar y palín.
+Dragón rehecho en pixel art: ocho direcciones, reposo, caminar, sprint, minar, talar, palín, pesca y zarpazo.
 Marcha de cuatro fases distintas; pico-hacha y palín con ocho perspectivas y agarres registrados.
 Para ver ocho direcciones ampliadas, añade ?vista=dragon a la URL del juego.
-Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín, 6 parar/andar, 7 sprint.
+Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín, 6 parar/andar, 7 sprint, 8 pesca, 9 zarpazo.
 Para comparar los siete personajes a escala de juego: ?vista=personajes.
 Flechas: vista; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común 1×/2×.
-Seis NPC con ocho vistas de reposo cada uno; protagonista actualizado con 160 fotogramas nuevos.
-Protagonista de 80 px; pico arriba y filo de hacha abajo al llevarlo.
+Seis NPC con ocho vistas de reposo cada uno; protagonista actualizado con 216 registros.
+Protagonista de80px, manos libres al caminar; equipa el instrumento de cada actividad.
 Una misma herramienta pico-hacha sirve para las dos acciones; no se cambia el equipo.
 Minería: la punta del pico golpea la mena; tala: el filo ancho del hacha golpea el tronco.
 Espacio alterna la cámara lenta en la revisión del dragón.

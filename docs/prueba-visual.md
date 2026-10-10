@@ -1,20 +1,51 @@
 # Primera prueba visual de Bītu
 
-**Pico–hacha multiuso, 10 de octubre:** la misma herramienta equipada tiene dos animaciones: la punta del pico trabaja la mena y el filo ancho del hacha trabaja el árbol. Corregidas las ocho poses de impacto minero para conservar la hoja ancha opuesta; se evita que parezca otro pico de dos puntas. Tala y los otros nueve PNG fuente conservados. Contactos medidos de nuevo y copias runtime idénticas. No hay giro independiente en el jugador. Cinco golpes y tiempos intactos. Entrega autorizada para GitHub tras aclarar el usuario que no puede acceder al proyecto local; acabado pendiente de revisión visual.
+**Revisión integral del10 de octubre:** dragón de216 registros en ocho direcciones:
+reposo, marcha, sprint, minería, tala, recolección, pesca y zarpazo. Diez fuentes
+PNG y copias idénticas en ejecución. Dos PNG y16 registros aprobados de la
+recolección conservados exactamente, junto al palín y sus tiempos.
 
-Cinco pruebas Godot afectadas superadas: herramienta, dragón, escena de extracción, escala y comparativa NPC. Misma instancia equipada alternando minería/tala, señales correctas, contactos exclusivos en ocho direcciones y rechazo sin bloqueo de acciones ajenas. Tres pruebas Chromium/WebGL superadas: animaciones de ocho direcciones, ambos impactos sobre recursos reales y extracción completa de mena/árbol/flor por clic. Capturas y vídeo actualizados. Estas verificaciones no aprueban automáticamente la continuidad o el acabado artístico.
+Manos libres al desplazarse. Pico–hacha dibujado con manos/cuerpo en las poses
+de trabajo, punta contra mena y filo contra tronco. Cinco golpes. Un paso físico
+ajusta el apoyo antes del golpe, respetando colisiones; si queda bloqueado se
+cancela sin consumir el recurso. Reposo/marcha/sprint mantienen la cresta80px;
+cuatro dibujos por ciclo y una escala uniforme, sin crecer al cambiar de paso.
 
-Descarga combinada actualizada: **28.341.872 bytes**, CRC correcto y PCK idéntico al exportado, sin `dragon-avatar`. SHA-256: `cda16529d932eef90eac5d618501b385bebefbf2978fe044462aed14d4aaefa9`. Todos los archivos están por debajo del límite GitHub de104.857.600bytes. Conservada la actualización remota de césped, tierra y arena (`1f13cd8`), incluida en este ZIP junto al pico–hacha corregido. Tras combinar, cuatro pruebas Godot afectadas superadas: herramienta, dragón, escena y entorno; también impactos reales y extracción completa en Chromium/WebGL. Capturas de la partida y de ambos impactos renovadas con los nuevos suelos. La entrega histórica del reinicio indicada abajo tiene un ZIP distinto.
+**Clic contextual:** recurso activo tiene prioridad; enemigo/suelo libre da un
+zarpazo hacia el cursor; agua cercana desde costa lanza caña. Garras con un único
+impacto frontal y alcance limitado. Maniquí al suroeste, bajo los habitantes,
+para comprobar contacto/daño. Sin criaturas o IA nuevas. Los NPC no reciben daño.
 
-**Reinicio del dragón,10 de octubre de2026:** el usuario pide retirar el arte anterior y rehacerlo con un estilo más cercano al de los NPC. Nuevo conjunto:160 registros, diez PNG y ocho direcciones; reposo con herramienta/sin equipo, marcha, sprint propio, minería, tala, arrodillarse y levantarse con palín. Cuerpo esbelto, cabeza menor, contorno fino y paleta apagada como propuesta gráfica. **Aprobación visual pendiente.** El paquete anterior y su original se retiran del árbol vigente; el historial se conserva.
+Pesca: lanzamiento, picada, recoger manteniendo clic y aflojar soltándolo.
+Barra superior de acercamiento y naranja de tensión. El sedal sale del extremo
+registrado de la caña, también en las vistas reflejadas. Captura junto a los pies,
+botín/mochila, fallo por tensión o abandono y cancelación con Esc. Caña disponible
+en esta prueba; regalo narrativo, especies, mejoras y balance definitivo pendientes.
 
-**Verificación de la entrega anterior del reinicio:** nueve pruebas Godot y seis revisiones Chromium/WebGL superadas: animaciones (ocho direcciones × seis modos, incluidas piernas y sprint), recursos, giros/pausa de NPC, comparativas80/72, impactos reales y extracción por clic de cobre/madera/Yde. Sin errores de consola. Capturas y vídeos renovados con el dragón nuevo. ZIP íntegro de **27.490.995 bytes**, PCK idéntico al exportado, runtime4.6.3 comprobado, sin ruta `dragon-avatar` en el paquete. Límite GitHub por archivo104.857.600bytes; no hace falta dividir la entrega. SHA-256 del ZIP: `ac8c9e0e63d3ff9425abd4130c1e4e3ff11d4222571b92cc6b270900da6ea28d`. Acabado visual pendiente.
+**Verificación:** ocho pruebas Godot superadas: inventario, herramienta, recursos,
+entorno, dragón, acciones, extracción real y escala. Siete suites Chromium/WebGL:
+ocho direcciones × ocho modos, altura reposo/arranque e impactos reales, extracción
+de cobre/madera/Yde, zarpazo y pesca por clic con captura/botín/cancelación,
+comparativas80/72, giros/pausa de NPC y recursos. Capturas y vídeos del canvas
+renovados. El acabado artístico se revisa en juego; los tests comprueban registro,
+contactos, transiciones y comportamiento, sin otorgar aprobación visual.
 
-La entrega anterior superó nueve pruebas Godot: inventario, herramientas, recursos, dragón, escena, escala, entorno y dos revisiones de NPC. Altura real de cresta80px estable en reposo/marcha/sprint y una escala por ciclo, comprobadas sobre píxeles fuente. Extremos activos registrados en metal: pico contra mena y filo ancho contra árbol. Cinco golpes, tiempos, velocidades, controles y colisión intactos. Los atlas nuevos se copian sin modificar bytes; no hay limpieza de píxeles en el renderizador. Son fuentes grandes con AtlasTexture, no PNG nativos128×128. [Ficha del dragón](../assets/personajes/dragon/README.md).
+Descarga actual: **30.875.732 bytes**, CRC correcto y PCK idéntico al exportado.
+SHA-256: `533d9e2b1c28db94be825c73f04729f450c6b82036864ec8028f19eda971a7da`. Límite GitHub por archivo:104.857.600bytes; no hace falta
+dividir la entrega. Suelos de césped/tierra/arena, NPC, agua/casa e historial remoto
+conservados. El ZIP contiene la partida y las revisiones ampliadas.
 
-Se conservan los seis NPC nativos y sus posiciones provisionales, colisión, mirada e interacciónE de prueba, además de agua/casa y los demás recursos. F6 pausa/reanuda sus giros; Tab oculta la mochila. Marcha de NPC, diálogos definitivos, pesca y guardado pendientes.
+Revisión: `?vista=dragon`: **1 reposo,2 marcha,3 minar,4 talar,5 palín,6 parar/andar,
+7 sprint,8 pesca,9 zarpazo**. Espacio: cámara lenta. `?vista=personajes` compara con
+habitantes. Impactos reales: `?captura=impacto-minar&captura-impacto=1` o tala.
+Pesca/zarpazo en partida: `?captura=pesca` y `?captura=zarpazo` sitúan al jugador
+para la revisión, sin alterar el comportamiento de las acciones. `verificar=1`
+solo emite estado de pesca en consola para que el test responda a la tensión real.
 
-Revisión del protagonista: `prueba/scenes/dragon.tscn` o `?vista=dragon`. **1 reposo,2 marcha,3 minar,4 talar,5 palín,6 parar/andar,7 sprint**; Espacio cámara lenta. `?vista=personajes` compara con habitantes. Impactos reales reproducibles con `?captura=impacto-minar&captura-impacto=1` y `?captura=impacto-talar&captura-impacto=1`: pausa en el primer golpe real para revisarlo. No altera la partida normal.
+[Pesca en juego](../prueba/capturas/pesca-en-juego.png) ·
+[Botín de pesca](../prueba/capturas/pesca-botin-en-juego.png) ·
+[Zarpazo](../prueba/capturas/zarpazo-en-juego.png) ·
+[Todas las orientaciones](../assets/personajes/dragon/README.md).
 
 ## Recursos de terreno y botín
 
@@ -26,7 +57,7 @@ Revisión: `prueba/scenes/recursos.tscn` con F6, o `?vista=recursos` en navegado
 
 ## Qué se puede probar
 
-**Movimiento y agarre revisados:** cuatro dibujos de marcha por dirección, incluidos perfiles y diagonales; vistas traseras que avanzan alejándose de la cámara. La marcha sigue la distancia recorrida y se detiene al quedar bloqueado. Pico–hacha y dedos dibujados junto al cuerpo en cada vista; punta arriba/filo abajo al llevarlo. El palín conserva sus proyecciones y registro por separado. Las ruinas se definen en el bloc como refugio costero con patio de llegada; ese nivel todavía no está incluido.
+**Movimiento y agarre revisados:** cuatro dibujos de marcha por dirección, incluidos perfiles y diagonales; vistas traseras que avanzan alejándose de la cámara. La marcha sigue la distancia recorrida y se detiene al quedar bloqueado. Manos libres al caminar; pico–hacha y dedos dibujados junto al cuerpo en las poses de trabajo. El palín conserva sus proyecciones y registro por separado. Las ruinas se definen en el bloc como refugio costero con patio de llegada; ese nivel todavía no está incluido.
 
 - Caminar con **WASD** y mantener **Shift** para el sprint provisional, con colisiones en agua, casa, bases de árboles y límites. La marcha sigue el desplazamiento real y las diagonales mantienen la velocidad normalizada.
 - Ajustar el zoom con la **rueda**.
@@ -117,4 +148,4 @@ Ajuste de cinco golpes: la prueba de escena confirma que cuatro impactos conserv
 
 ## NPC en partida y revisión de tamaños
 
-Seis NPC con ocho vistas cada uno, colisión en pies, giro al aproximarse e interacciónE de prueba. Protagonista nuevo160 poses. F7/F8 comparan su tamaño80/72px sin cambiar el zoom o los NPC. [Auditoría completa, funcionamiento y capturas del motor](revision-personajes-en-juego.md). Posiciones y diálogos provisionales; servicios pendientes.
+Seis NPC con ocho vistas cada uno, colisión en pies, giro al aproximarse e interacciónE de prueba. Protagonista nuevo216 poses. F7/F8 comparan su tamaño80/72px sin cambiar el zoom o los NPC. [Auditoría completa, funcionamiento y capturas del motor](revision-personajes-en-juego.md). Posiciones y diálogos provisionales; servicios pendientes.

@@ -1,7 +1,7 @@
 extends Node2D
 
 const TOMATO_IDS := ["tomate", "tomate-pristino", "tomate-siru", "tomate-siru-pristino"]
-const NAMES := {"tomate":"Tomate", "tomate-pristino":"Tomate prístino", "tomate-siru":"Tomate Siru", "tomate-siru-pristino":"Siru prístino", "mineral":"Mena de cobre", "flor":"Flor de Yde", "madera":"Madera"}
+const NAMES := {"tomate":"Tomate", "tomate-pristino":"Tomate prístino", "tomate-siru":"Tomate Siru", "tomate-siru-pristino":"Siru prístino", "mineral":"Mena de cobre", "flor":"Flor de Yde", "madera":"Madera", "pez":"Pez de costa"}
 var terrain: BituTerrain
 var objects: Node2D
 var player: BituPlayer
@@ -20,6 +20,9 @@ var slot_views: Array[VBoxContainer] = []
 var hint: Label
 var status: Label
 var progress: ProgressBar
+var tension_bar: ProgressBar
+var fishing: BituFishing
+var practice_target: BituPracticeTarget
 var xp_label: Label
 var backpack: PanelContainer
 var target: Node2D
@@ -55,6 +58,13 @@ func _ready() -> void:
 		textures[item_id] = load("res://assets/objetos/cultivos/%s.png" % item_id)
 	for item_id in ["madera","mineral","flor"]:
 		textures[item_id] = BituResourceArt.loot_texture(item_id)
+	var fish_info: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/objetos/pesca/pez.json"))
+	var fish_texture := AtlasTexture.new()
+	fish_texture.atlas = load("res://assets/objetos/pesca/pez.png")
+	var fish_region: Array = fish_info.region
+	fish_texture.region = Rect2(fish_region[0],fish_region[1],fish_region[2],fish_region[3])
+	fish_texture.filter_clip = true
+	textures["pez"] = fish_texture
 	terrain = BituTerrain.new()
 	add_child(terrain)
 	objects = Node2D.new()
@@ -90,6 +100,28 @@ func _ready() -> void:
 	_spawn_npcs()
 	player.work_impact.connect(_on_work_impact)
 	player.work_finished.connect(_on_work_finished)
+	player.work_cancelled.connect(func():
+		task = null
+		progress.visible = false
+		_notify("No hay espacio para apoyar los pies. Prueba desde otro lado.")
+	)
+	player.attack_impact.connect(_on_attack_impact)
+	practice_target = BituPracticeTarget.new()
+	practice_target.position = Vector2(-190,710)
+	objects.add_child(practice_target)
+	fishing = BituFishing.new()
+	fishing.player = player
+	fishing.terrain = terrain
+	add_child(fishing)
+	fishing.bite.connect(func(): _notify("¡Picada! Mantén el clic para recoger; suelta si sube la tensión."))
+	fishing.finished.connect(func(success: bool):
+		progress.visible = false
+		tension_bar.visible = false
+		if success:
+			_spawn_drop("pez",player.position+Vector2(0,8))
+		else:
+			_notify(fishing.failure_reason+" Puedes volver a lanzar.")
+	)
 	camera = Camera2D.new()
 	camera.position = player.position + Vector2(0,-100)
 	camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
@@ -116,6 +148,11 @@ func _prepare_scale_capture() -> void:
 		return
 	var params = JavaScriptBridge.eval("JSON.stringify({capture:new URLSearchParams(location.search).get('captura'),height:new URLSearchParams(location.search).get('altura')})")
 	var settings: Dictionary = JSON.parse_string(String(params))
+	if settings.capture in ["pesca","zarpazo"]:
+		player.position = BituTerrain.cell_to_world(Vector2(22,22)) if settings.capture == "pesca" else practice_target.position+Vector2(35,0)
+		zoom_index = 1
+		backpack.visible = false
+		return
 	if settings.capture in ["impacto-minar","impacto-talar"]:
 		# Posición reproducible para fotografiar el impacto real del controlador.
 		var resource: Node2D = resources[0] if settings.capture == "impacto-minar" else trees[3]
@@ -225,6 +262,11 @@ func _process(delta: float) -> void:
 		task_time += delta
 		if required_hits == 0:
 			progress.value = task_time / 2.0 * 100.0
+	if fishing.stage != BituFishing.Stage.IDLE:
+		progress.visible = fishing.stage in [BituFishing.Stage.REELING,BituFishing.Stage.LANDING]
+		progress.value = fishing.progress*100
+		tension_bar.visible = fishing.stage == BituFishing.Stage.REELING
+		tension_bar.value = fishing.tension*100
 	_find_target()
 	if Input.is_action_just_pressed("interact") and task == null:
 		_interact()
@@ -233,6 +275,10 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
+		if event.physical_keycode == KEY_ESCAPE and fishing.stage != BituFishing.Stage.IDLE:
+			fishing.cancel()
+			get_viewport().set_input_as_handled()
+			return
 		if event.physical_keycode == KEY_F6:
 			var paused := not npcs[0].review_paused
 			for npc in npcs:
@@ -248,7 +294,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			_click_resource(get_global_mouse_position())
+			_primary_click(get_global_mouse_position())
 			get_viewport().set_input_as_handled()
 			return
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -259,9 +305,37 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
 
-func _click_resource(point: Vector2) -> void:
+func _primary_click(point: Vector2) -> void:
 	if task != null or player.busy:
 		return
+	if _click_resource(point):
+		return
+	var enemy: Node2D
+	for candidate in get_tree().get_nodes_in_group("enemies"):
+		if candidate is Node2D and candidate.has_method("contains_visual_point") and candidate.contains_visual_point(candidate.to_local(point)):
+			if enemy == null or candidate.global_position.y > enemy.global_position.y:
+				enemy = candidate
+	if enemy != null:
+		player.begin_attack(enemy.global_position)
+	elif terrain.is_water(BituTerrain.world_to_cell(point)):
+		if not fishing.start(point):
+			_notify("Acércate a la orilla para lanzar la caña.")
+	else:
+		player.begin_attack(point)
+		print("BITU_CLAW_START")
+
+func _on_attack_impact(direction: Vector2) -> void:
+	# Un impacto por animación, limitado al frente y al alcance de las garras.
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		if not enemy is Node2D or not enemy.has_method("take_damage"):
+			continue
+		var offset: Vector2 = enemy.global_position-player.global_position
+		if offset.length() <= 45.0 and (offset.length() < 8.0 or offset.normalized().dot(direction) >= 0.5):
+			enemy.take_damage(1)
+
+func _click_resource(point: Vector2) -> bool:
+	if task != null or player.busy:
+		return true
 	var clicked: Node2D
 	for candidate in resources + trees:
 		if not candidate.active:
@@ -272,11 +346,12 @@ func _click_resource(point: Vector2) -> void:
 		if contains and (clicked == null or candidate.global_position.y >= clicked.global_position.y):
 			clicked = candidate
 	if clicked == null:
-		return
+		return false
 	if player.global_position.distance_to(clicked.global_position) >= INTERACTION_RANGE:
 		_notify("Acércate al recurso para trabajar")
-		return
+		return true
 	_begin_extraction(clicked)
+	return true
 
 func _find_target() -> void:
 	target = null
@@ -288,7 +363,14 @@ func _find_target() -> void:
 		if distance < best_distance:
 			best_distance = distance
 			target = candidate
-	if task != null:
+	if fishing.stage != BituFishing.Stage.IDLE:
+		match fishing.stage:
+			BituFishing.Stage.CASTING: hint.text = "Lanzando la caña… · Esc cancela"
+			BituFishing.Stage.WAITING: hint.text = "Esperando la picada… · Esc cancela"
+			_: hint.text = "Clic: recoger · Suelta: aflojar · Tensión %.0f%%" % (fishing.tension*100)
+	elif player.activity == "zarpazo":
+		hint.text = "Zarpazo"
+	elif task != null:
 		if required_hits > 0:
 			hint.text = "%s · %d/%d golpes" % ["Talando" if task is BituTree else "Minando",task_hits,required_hits]
 		else:
@@ -309,7 +391,7 @@ func _find_target() -> void:
 		else:
 			hint.text = "Tomate creciendo · %.0f%%" % (target.growth / 12.0 * 100.0)
 	else:
-		hint.text = "Acércate a una parcela, mena, flor o árbol"
+		hint.text = "Clic en suelo: zarpazo · Clic en agua cercana: pescar"
 
 func _interact() -> void:
 	if task != null or player.busy:
@@ -385,6 +467,8 @@ func _deplete_task() -> void:
 	task_complete = true
 	var item_id := "madera" if task is BituTree else ("mineral" if task.kind == "ore" else "flor")
 	var point := task.position+(player.position-task.position).normalized()*20
+	if required_hits > 0:
+		point = player.position+(task.position-player.position).normalized()*18
 	_spawn_drop(item_id,point,3 if task is BituTree else 1)
 	print("BITU_RESOURCE_DEPLETED:",item_id)
 	if task is BituTree:
@@ -461,7 +545,7 @@ func _build_ui() -> void:
 	headings.add_child(_label("BĪTU",30,Color("e6cc83")))
 	headings.add_child(_label("Primera prueba · tu rincón del archipiélago",15))
 	headings.add_child(_label("WASD · mover    Shift · sprint    Rueda · zoom    E · interactuar",14,Color("a7b797")))
-	headings.add_child(_label("Clic izquierdo · minar, talar o recoger flores",14,Color("a7b797")))
+	headings.add_child(_label("Clic · recurso: trabajar | enemigo/suelo: zarpazo | agua: pescar",14,Color("a7b797")))
 	headings.add_child(_label("F6 · detener / reanudar los giros de los personajes",13,Color("a7b797")))
 	backpack = _panel()
 	hud.add_child(backpack)
@@ -472,7 +556,7 @@ func _build_ui() -> void:
 	var bag_content := VBoxContainer.new()
 	backpack.add_child(bag_content)
 	bag_content.add_child(_label("MOCHILA  ·  Tab",18,Color("e6cc83")))
-	bag_content.add_child(_label("Pico–hacha, palín y regadera · equipo",13,Color("a7b797")))
+	bag_content.add_child(_label("Pico–hacha, palín, caña y regadera · equipo",13,Color("a7b797")))
 	var grid := GridContainer.new()
 	grid.columns = 3
 	grid.add_theme_constant_override("h_separation",8)
@@ -512,6 +596,14 @@ func _build_ui() -> void:
 	progress.custom_minimum_size.y = 8
 	progress.visible = false
 	prompt_content.add_child(progress)
+	tension_bar = ProgressBar.new()
+	tension_bar.show_percentage = false
+	tension_bar.custom_minimum_size.y = 8
+	tension_bar.visible = false
+	var tension_style := StyleBoxFlat.new()
+	tension_style.bg_color = Color("d59448")
+	tension_bar.add_theme_stylebox_override("fill",tension_style)
+	prompt_content.add_child(tension_bar)
 	status = _label("",15,Color("e6cc83"))
 	status.position = Vector2(505,585)
 	hud.add_child(status)

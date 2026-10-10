@@ -1,295 +1,842 @@
 {
-  "version": 1,
+  "version": 2,
+  "art_revision": "dragon-integral-2026-10-10",
   "sources": {
-    "sin-equipo.png": {
-      "columns": 4,
-      "kind": "sin-equipo"
-    },
     "reposo.png": {
-      "columns": 4,
-      "kind": "reposo"
+      "columns": 2
     },
     "marcha.png": {
-      "columns": 4,
-      "kind": "marcha"
+      "columns": 4
     },
     "sprint.png": {
-      "columns": 4,
-      "kind": "sprint"
+      "columns": 4
     },
     "mineria.png": {
-      "columns": 4,
-      "kind": "mineria"
+      "columns": 4
     },
     "tala.png": {
-      "columns": 4,
-      "kind": "tala"
+      "columns": 4
+    },
+    "zarpazo.png": {
+      "columns": 4
+    },
+    "pesca.png": {
+      "columns": 3
     },
     "arrodillado.png": {
       "columns": 4,
-      "kind": "arrodillado"
+      "count": 16
     },
     "levantar.png": {
-      "columns": 2,
-      "kind": "levantar"
+      "columns": 2
     },
-    "impacto-minar.png": {
-      "columns": 2,
-      "kind": "impacto-minar"
-    },
-    "impacto-talar.png": {
-      "columns": 2,
-      "kind": "impacto-talar"
+    "pesca-norte.png": {
+      "columns": 0,
+      "regions": [
+        [
+          661,
+          883,
+          187,
+          232
+        ]
+      ],
+      "note": "Solo la recogida norte; otros dibujos de la fuente no se usan."
     }
   },
-  "feet_y": {
-    "reposo": [
-      408,
-      412,
-      414,
-      401,
-      808,
-      815,
-      827,
-      829
-    ],
-    "sin-equipo": [
-      404,
-      407,
-      407,
-      398,
-      808,
-      816,
-      823,
-      828
-    ],
-    "marcha": [
-      211,
-      420,
-      639,
-      846,
-      1072,
-      1317,
-      1532,
-      1758
-    ]
-  },
-  "impact_points": {
-    "minar": [
-      [
-        342,
+  "preserved_frames": {
+    "arrodillado-S": {
+      "file": "arrodillado.png",
+      "region": [
+        88,
+        101,
+        139,
+        203
+      ],
+      "anchor": [
+        156,
         304
       ],
-      [
-        820,
-        299
-      ],
-      [
-        199,
-        589
-      ],
-      [
-        801,
-        428
-      ],
-      [
-        310,
-        615
-      ],
-      [
-        1082,
-        742
-      ],
-      [
-        445,
-        1205
-      ],
-      [
-        1034,
-        1223
-      ]
-    ],
-    "talar": [
-      [
-        296,
-        302
-      ],
-      [
-        779,
-        291
-      ],
-      [
-        153,
-        559
-      ],
-      [
-        804,
-        401
-      ],
-      [
-        263,
-        687
-      ],
-      [
-        1084,
-        711
-      ],
-      [
-        494,
-        1188
-      ],
-      [
-        1060,
-        1214
-      ]
-    ]
-  },
-  "impact_feet": {
-    "minar": [
-      [
-        315,
-        289
-      ],
-      [
-        951,
-        294
-      ],
-      [
-        316,
-        590
-      ],
-      [
-        986,
-        600
-      ],
-      [
-        319,
-        921
-      ],
-      [
-        980,
-        914
-      ],
-      [
-        327,
-        1218
-      ],
-      [
-        943,
-        1222
-      ]
-    ],
-    "talar": [
-      [
-        315,
-        293
-      ],
-      [
-        956,
-        301
-      ],
-      [
-        316,
-        595
-      ],
-      [
-        986,
-        605
-      ],
-      [
-        319,
-        916
-      ],
-      [
-        980,
-        914
-      ],
-      [
-        327,
-        1216
-      ],
-      [
-        943,
-        1222
-      ]
-    ]
-  },
-  "herbal_hands": {
-    "arrodillado": [
-      [
+      "scale": 0.285,
+      "hand": [
         141,
         290
       ],
-      [
-        391,
-        291
+      "other_hand": [
+        141,
+        290
       ],
-      [
-        701,
-        293
+      "body_bounds_px": [
+        88,
+        101,
+        139,
+        203
       ],
-      [
-        1024,
-        286
-      ],
-      [
-        218,
-        530
-      ],
-      [
-        535,
-        555
-      ],
-      [
-        858,
-        562
-      ],
-      [
-        1181,
-        566
+      "body_height_px": 203,
+      "presentation_height_px": 57.855,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        136,
+        285,
+        10,
+        10
       ]
-    ],
-    "levantar": [
-      [
+    },
+    "levantar-S": {
+      "file": "levantar.png",
+      "region": [
+        304,
+        17,
+        211,
+        289
+      ],
+      "anchor": [
+        376,
+        306
+      ],
+      "scale": 0.26,
+      "hand": [
         419,
         203
       ],
-      [
+      "other_hand": [
+        419,
+        203
+      ],
+      "body_bounds_px": [
+        304,
+        17,
+        211,
+        289
+      ],
+      "body_height_px": 289,
+      "presentation_height_px": 75.14,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        414,
+        198,
+        10,
+        10
+      ]
+    },
+    "arrodillado-SW": {
+      "file": "arrodillado.png",
+      "region": [
+        361,
+        97,
+        227,
+        208
+      ],
+      "anchor": [
+        450,
+        305
+      ],
+      "scale": 0.285,
+      "hand": [
+        391,
+        291
+      ],
+      "other_hand": [
+        391,
+        291
+      ],
+      "body_bounds_px": [
+        361,
+        97,
+        227,
+        208
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 59.279999999999994,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        386,
+        286,
+        10,
+        10
+      ]
+    },
+    "levantar-SW": {
+      "file": "levantar.png",
+      "region": [
+        804,
+        19,
+        269,
+        287
+      ],
+      "anchor": [
+        919,
+        306
+      ],
+      "scale": 0.26,
+      "hand": [
         887,
         211
       ],
-      [
+      "other_hand": [
+        887,
+        211
+      ],
+      "body_bounds_px": [
+        804,
+        19,
+        269,
+        287
+      ],
+      "body_height_px": 287,
+      "presentation_height_px": 74.62,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        882,
+        206,
+        10,
+        10
+      ]
+    },
+    "arrodillado-W": {
+      "file": "arrodillado.png",
+      "region": [
+        676,
+        96,
+        233,
+        208
+      ],
+      "anchor": [
+        765,
+        304
+      ],
+      "scale": 0.285,
+      "hand": [
+        701,
+        293
+      ],
+      "other_hand": [
+        701,
+        293
+      ],
+      "body_bounds_px": [
+        676,
+        96,
+        233,
+        208
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 59.279999999999994,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        696,
+        288,
+        10,
+        10
+      ]
+    },
+    "levantar-W": {
+      "file": "levantar.png",
+      "region": [
+        281,
+        326,
+        288,
+        282
+      ],
+      "anchor": [
+        379,
+        608
+      ],
+      "scale": 0.26,
+      "hand": [
         315,
         496
       ],
-      [
+      "other_hand": [
+        315,
+        496
+      ],
+      "body_bounds_px": [
+        281,
+        326,
+        288,
+        282
+      ],
+      "body_height_px": 282,
+      "presentation_height_px": 73.32000000000001,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        310,
+        491,
+        10,
+        10
+      ]
+    },
+    "arrodillado-NW": {
+      "file": "arrodillado.png",
+      "region": [
+        1007,
+        96,
+        196,
+        213
+      ],
+      "anchor": [
+        1080,
+        294
+      ],
+      "scale": 0.285,
+      "hand": [
+        1024,
+        286
+      ],
+      "other_hand": [
+        1024,
+        286
+      ],
+      "body_bounds_px": [
+        1007,
+        96,
+        196,
+        198
+      ],
+      "body_height_px": 198,
+      "presentation_height_px": 56.42999999999999,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        1019,
+        281,
+        10,
+        10
+      ]
+    },
+    "levantar-NW": {
+      "file": "levantar.png",
+      "region": [
+        809,
+        321,
+        263,
+        287
+      ],
+      "anchor": [
+        901,
+        588
+      ],
+      "scale": 0.26,
+      "hand": [
         822,
         475
       ],
-      [
-        449,
+      "other_hand": [
+        822,
+        475
+      ],
+      "body_bounds_px": [
+        809,
+        321,
+        263,
+        267
+      ],
+      "body_height_px": 267,
+      "presentation_height_px": 69.42,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        817,
+        470,
+        10,
+        10
+      ]
+    },
+    "arrodillado-N": {
+      "file": "arrodillado.png",
+      "region": [
+        81,
+        390,
+        148,
+        221
+      ],
+      "anchor": [
+        155,
+        596
+      ],
+      "scale": 0.285,
+      "hand": [
+        211,
+        536
+      ],
+      "other_hand": [
+        211,
+        536
+      ],
+      "body_bounds_px": [
+        81,
+        390,
+        148,
+        206
+      ],
+      "body_height_px": 206,
+      "presentation_height_px": 58.709999999999994,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        206,
+        531,
+        10,
+        10
+      ]
+    },
+    "levantar-N": {
+      "file": "levantar.png",
+      "region": [
+        303,
+        626,
+        164,
+        292
+      ],
+      "anchor": [
+        382,
+        898
+      ],
+      "scale": 0.26,
+      "hand": [
+        448,
         866
       ],
-      [
+      "other_hand": [
+        448,
+        866
+      ],
+      "body_bounds_px": [
+        303,
+        626,
+        164,
+        272
+      ],
+      "body_height_px": 272,
+      "presentation_height_px": 70.72,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        443,
+        861,
+        10,
+        10
+      ]
+    },
+    "arrodillado-NE": {
+      "file": "arrodillado.png",
+      "region": [
+        354,
+        381,
+        196,
+        217
+      ],
+      "anchor": [
+        480,
+        583
+      ],
+      "scale": 0.285,
+      "hand": [
+        535,
+        555
+      ],
+      "other_hand": [
+        535,
+        555
+      ],
+      "body_bounds_px": [
+        354,
+        381,
+        196,
+        202
+      ],
+      "body_height_px": 202,
+      "presentation_height_px": 57.56999999999999,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        530,
+        550,
+        10,
+        10
+      ]
+    },
+    "levantar-NE": {
+      "file": "levantar.png",
+      "region": [
+        769,
+        627,
+        268,
+        276
+      ],
+      "anchor": [
+        955,
+        884
+      ],
+      "scale": 0.26,
+      "hand": [
         1018,
         758
       ],
-      [
+      "other_hand": [
+        1018,
+        758
+      ],
+      "body_bounds_px": [
+        769,
+        627,
+        268,
+        257
+      ],
+      "body_height_px": 257,
+      "presentation_height_px": 66.82000000000001,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        1013,
+        753,
+        10,
+        10
+      ]
+    },
+    "arrodillado-E": {
+      "file": "arrodillado.png",
+      "region": [
+        640,
+        387,
+        240,
+        207
+      ],
+      "anchor": [
+        785,
+        594
+      ],
+      "scale": 0.285,
+      "hand": [
+        858,
+        562
+      ],
+      "other_hand": [
+        858,
+        562
+      ],
+      "body_bounds_px": [
+        640,
+        387,
+        240,
+        207
+      ],
+      "body_height_px": 207,
+      "presentation_height_px": 58.995,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        853,
+        557,
+        10,
+        10
+      ]
+    },
+    "levantar-E": {
+      "file": "levantar.png",
+      "region": [
+        215,
+        927,
+        306,
+        293
+      ],
+      "anchor": [
+        407,
+        1220
+      ],
+      "scale": 0.26,
+      "hand": [
         476,
         1098
       ],
-      [
+      "other_hand": [
+        476,
+        1098
+      ],
+      "body_bounds_px": [
+        215,
+        927,
+        306,
+        293
+      ],
+      "body_height_px": 293,
+      "presentation_height_px": 76.18,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        471,
+        1093,
+        10,
+        10
+      ]
+    },
+    "arrodillado-SE": {
+      "file": "arrodillado.png",
+      "region": [
+        1021,
+        408,
+        172,
+        187
+      ],
+      "anchor": [
+        1100,
+        595
+      ],
+      "scale": 0.285,
+      "hand": [
+        1181,
+        566
+      ],
+      "other_hand": [
+        1181,
+        566
+      ],
+      "body_bounds_px": [
+        1021,
+        408,
+        172,
+        187
+      ],
+      "body_height_px": 187,
+      "presentation_height_px": 53.294999999999995,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        1176,
+        561,
+        10,
+        10
+      ]
+    },
+    "levantar-SE": {
+      "file": "levantar.png",
+      "region": [
+        747,
+        928,
+        264,
+        281
+      ],
+      "anchor": [
+        900,
+        1209
+      ],
+      "scale": 0.26,
+      "hand": [
         995,
         1094
+      ],
+      "other_hand": [
+        995,
+        1094
+      ],
+      "body_bounds_px": [
+        747,
+        928,
+        264,
+        281
+      ],
+      "body_height_px": 281,
+      "presentation_height_px": 73.06,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        990,
+        1089,
+        10,
+        10
+      ]
+    }
+  },
+  "impact_points": {
+    "talar": [
+      [
+        521,
+        257
+      ],
+      [
+        484,
+        460
+      ],
+      [
+        470,
+        670
+      ],
+      [
+        482,
+        888
+      ],
+      [
+        651,
+        1027
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        631,
+        1551
+      ],
+      [
+        629,
+        1762
+      ]
+    ],
+    "minar": [
+      [
+        525,
+        263
+      ],
+      [
+        494,
+        464
+      ],
+      [
+        493,
+        683
+      ],
+      [
+        499,
+        895
+      ],
+      [
+        656,
+        1043
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        605,
+        1557
+      ],
+      [
+        602,
+        1762
       ]
     ]
   },
   "notes": [
-    "PNG generados nuevos e intactos. Sin fuentes del dragón descartado.",
-    "Impactos con ocho vistas independientes y márgenes amplios.",
-    "El atlas arrodillado aporta solo las ocho primeras poses; sus elevaciones de ensayo no se usan.",
-    "Los atlas de minería/tala aportan preparación, carga y recuperación; impacto procede de sus hojas dedicadas.",
-    "Pico–hacha multiuso: minería conserva la hoja ancha opuesta; ocho impactos nuevos con una sola cabeza y punta activa. Tala, preparación/carga/recuperación y locomoción conservadas."
+    "Reposo, marcha y sprint sin equipo; la actividad equipa su instrumento.",
+    "Recolección: PNG, registros y gesto aprobados conservados exactamente.",
+    "Atlas originales sin editar bytes; escala uniforme y nearest.",
+    "Proyecciones simétricas donde una vista generada giraba al lado incorrecto; reflexión de cuerpo/manos/contacto juntos, nunca giro aislado de herramienta.",
+    "Cresta80px en reposo/marcha/sprint; una escala por ciclo. Apoyos de trabajo físicos.",
+    "Fuentes gráficas propuestas: acabado pendiente de revisión del usuario."
   ],
-  "art_revision": "pico-hacha-multiuso-2026-10-10"
+  "fishing_tips": {
+    "pesca-cargar": [
+      [
+        171,
+        16
+      ],
+      [
+        171,
+        248
+      ],
+      [
+        233,
+        460
+      ],
+      [
+        246,
+        668
+      ],
+      [
+        140,
+        884
+      ],
+      [
+        148,
+        1127
+      ],
+      [
+        51,
+        1334
+      ],
+      [
+        64,
+        1545
+      ]
+    ],
+    "pesca-esperar": [
+      [
+        572,
+        49
+      ],
+      [
+        589,
+        264
+      ],
+      [
+        595,
+        476
+      ],
+      [
+        580,
+        674
+      ],
+      [
+        304,
+        901
+      ],
+      [
+        600,
+        1117
+      ],
+      [
+        612,
+        1341
+      ],
+      [
+        619,
+        1561
+      ]
+    ],
+    "pesca-recoger": [
+      [
+        855,
+        109
+      ],
+      [
+        855,
+        318
+      ],
+      [
+        854,
+        511
+      ],
+      [
+        855,
+        724
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        853,
+        1123
+      ],
+      [
+        855,
+        1385
+      ],
+      [
+        855,
+        1597
+      ]
+    ]
+  },
+  "fishing_north_tip": [
+    847,
+    906
+  ]
 }

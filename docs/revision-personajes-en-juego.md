@@ -14,11 +14,11 @@ Revisión actualizada el10 de octubre de2026 tras el reinicio completo del arte 
 | Comerciante | 84 | 46 |
 | Cocinero | 80 | 40 |
 | Enano | 64 | 39 |
-| Dragón nuevo sin equipo, frente | 80 | 40,5 |
+| Dragón nuevo sin equipo, frente | 80 | 55,02 |
 
-NPC: alfa de sus PNG nativos. Dragón nuevo: recorte fuente registrado, desde el apoyo hasta la cresta; frente sin equipo80px de cuerpo y40,5px de ancho. La cola en vistas traseras puede proyectarse por debajo del apoyo en pantalla: no se usa su extremo para reducir el cuerpo. En reposo, marcha y sprint la cresta conserva80px sobre el origen físico. Cada ciclo de cuatro fases utiliza una única escala.
+NPC: alfa de sus PNG nativos. Dragón nuevo: recorte fuente registrado, desde el apoyo hasta la cresta; frente sin equipo80px de cuerpo y55,02px de ancho. La cola en vistas traseras puede proyectarse por debajo del apoyo en pantalla: no se usa su extremo para reducir el cuerpo. En reposo, marcha y sprint la cresta conserva80px sobre el origen físico. Cada ciclo de cuatro fases utiliza una única escala.
 
-El usuario rechazó el estilo anterior de cabeza muy grande, contorno negro grueso y acabado de ilustración. Se retiran todos sus PNG, incluso el original. La propuesta nueva tiene cabeza menor, piernas más largas, alas recogidas, contorno fino y paleta apagada; usa160 registros y diez atlas nuevos. Los NPC se conservan idénticos. No se considera aprobado el acabado por superar mediciones y pruebas.
+El usuario rechazó el estilo anterior de cabeza muy grande, contorno negro grueso y acabado de ilustración. Se retiran todos sus PNG, incluso el original. La propuesta nueva tiene cabeza menor, piernas más largas, alas recogidas, contorno fino y paleta apagada; usa216 registros y diez atlas nuevos. Los NPC se conservan idénticos. No se considera aprobado el acabado por superar mediciones y pruebas.
 
 ## Capturas reales y cómo compararlas
 

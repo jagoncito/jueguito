@@ -12,6 +12,9 @@ const RUN_POSES := ["sprint-a","sprint-paso-a","sprint-b","sprint-paso-b"]
 const TOOL_SCALE := 0.64
 signal work_impact(function: StringName)
 signal work_finished
+signal work_cancelled
+signal attack_impact(direction: Vector2)
+signal attack_finished
 var busy := false
 var equipment_enabled := false
 var work_kind: StringName = &""
@@ -36,6 +39,13 @@ var work_stance := Vector2.ZERO
 var repeat_stance := false
 var recovery_offset := Vector2.ZERO
 var stance_return: Tween
+var approaching := false
+var approach_target := Vector2.ZERO
+var approach_time := 0.0
+var activity := ""
+var activity_time := 0.0
+var fishing_pose := "pesca-cargar"
+var attack_hit := false
 
 func _ready() -> void:
 	if not InputMap.has_action("sprint"):
@@ -105,7 +115,13 @@ func begin_work(action: StringName, contact: Vector2, ground_target := Vector2.I
 	dragon.show_pose("golpe-talar" if action == &"talar" else "golpe",direction_index)
 	tool.set_direction(direction_index)
 	work_stance = work_contact-dragon.contact_local(action)
-	tool.play_work(action)
+	# El apoyo pertenece al cuerpo físico: caminar hasta él antes del golpe.
+	# Evita deslizar solo el dibujo sobre una colisión inmóvil.
+	approach_target = global_position+work_stance
+	approach_time = 0.0
+	approaching = work_stance.length() > 2.0
+	if not approaching:
+		tool.play_work(action)
 	animate_pose(0)
 
 func repeat_work() -> void:
@@ -114,9 +130,12 @@ func repeat_work() -> void:
 	animate_pose(0)
 
 func end_work() -> void:
+	approaching = false
+	activity = ""
+	activity_time = 0.0
 	if stance_return != null and stance_return.is_valid():
 		stance_return.kill()
-	recovery_offset = dragon.position if busy and not gathering else Vector2.ZERO
+	recovery_offset = Vector2.ZERO
 	if not recovery_offset.is_zero_approx():
 		stance_return = create_tween()
 		stance_return.tween_property(self,"recovery_offset",Vector2.ZERO,0.12).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
@@ -132,6 +151,34 @@ func end_work() -> void:
 	if tool_mount != null:
 		tool.reset_pose()
 		tool_mount.visible = true
+	animate_pose(0)
+
+func begin_attack(aim: Vector2) -> bool:
+	if busy:
+		return false
+	face_towards(aim-global_position)
+	busy = true
+	activity = "zarpazo"
+	activity_time = 0.0
+	attack_hit = false
+	walk_time = 0.0
+	animate_pose(0)
+	return true
+
+func begin_fishing(point: Vector2) -> bool:
+	if busy:
+		return false
+	face_towards(point-global_position)
+	busy = true
+	activity = "pesca"
+	activity_time = 0.0
+	fishing_pose = "pesca-cargar"
+	walk_time = 0.0
+	animate_pose(0)
+	return true
+
+func set_fishing_pose(pose: String) -> void:
+	fishing_pose = pose
 	animate_pose(0)
 
 func begin_gathering(contact: Vector2, ground_target := Vector2.INF) -> void:
@@ -151,7 +198,26 @@ func begin_gathering(contact: Vector2, ground_target := Vector2.INF) -> void:
 	herbal_tool.play_work()
 	animate_pose(0)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if approaching:
+		approach_time += delta
+		var remaining := approach_target-global_position
+		if remaining.length() <= 2.0:
+			approaching = false
+			work_contact -= global_position-(approach_target-work_stance)
+			work_stance = Vector2.ZERO
+			walk_time = 0.0
+			velocity = Vector2.ZERO
+			tool.play_work(work_kind)
+			return
+		velocity = remaining.normalized()*minf(SPEED,remaining.length()/delta)
+		var previous := position
+		move_and_slide()
+		walk_time += position.distance_to(previous)*0.06
+		if approach_time > 1.2:
+			end_work()
+			work_cancelled.emit()
+		return
 	var direction := Input.get_vector("move_left","move_right","move_up","move_down")
 	sprinting = not busy and Input.is_action_pressed("sprint")
 	var speed := SPRINT_SPEED if sprinting else SPEED
@@ -172,6 +238,15 @@ func _physics_process(_delta: float) -> void:
 			face_towards(direction)
 
 func _process(delta: float) -> void:
+	if activity == "zarpazo":
+		activity_time += delta
+		if activity_time >= 0.22 and not attack_hit:
+			attack_hit = true
+			animate_pose(0)
+			attack_impact.emit(DIRECTIONS[direction_index].normalized())
+		if activity_time >= 0.50:
+			end_work()
+			attack_finished.emit()
 	animate_pose(delta)
 
 func animate_pose(_delta: float, work_time := -1.0) -> void:
@@ -179,7 +254,13 @@ func animate_pose(_delta: float, work_time := -1.0) -> void:
 		return
 	var pose := "reposo"
 	var elapsed := 0.0
-	if gathering:
+	if activity == "zarpazo":
+		pose = ["zarpazo-cargar","zarpazo-golpe","zarpazo-seguir","zarpazo-recuperar"][0 if activity_time < 0.18 else (1 if activity_time < 0.28 else (2 if activity_time < 0.38 else 3))]
+	elif activity == "pesca":
+		pose = fishing_pose
+	elif approaching:
+		pose = WALK_POSES[int(walk_time/1.15)%4]
+	elif gathering:
 		elapsed = herbal_tool.motion.get_total_elapsed_time() if herbal_tool.motion != null else 0.0
 		if elapsed >= 0.20 and elapsed < 1.90:
 			pose = "arrodillado" if elapsed < 1.68 else "levantar"
@@ -191,7 +272,7 @@ func animate_pose(_delta: float, work_time := -1.0) -> void:
 			pose = "cargar" if work_kind == &"minar" else "cargar-talar"
 		elif elapsed < 0.40:
 			pose = "golpe-talar" if work_kind == &"talar" else "golpe"
-		elif elapsed < 0.53:
+		else:
 			pose = "recuperar-talar" if work_kind == &"talar" else "recuperar"
 	elif walk_time > 0:
 		pose = (RUN_POSES if sprinting else WALK_POSES)[int(walk_time/1.15)%4]
@@ -199,10 +280,11 @@ func animate_pose(_delta: float, work_time := -1.0) -> void:
 		pose = "sin-equipo"
 	dragon.show_pose(pose,direction_index)
 	dragon.position = recovery_offset
-	if busy and not gathering:
-		# Mantener el apoyo entre los cinco golpes; recuperar solo al terminar.
-		var support := 1.0 if repeat_stance else smoothstep(0.0,0.12,elapsed)
-		dragon.position = work_stance*support
+	if busy and not gathering and not approaching and work_kind != &"":
+		# Solo el error residual del último paso (máximo 2px), sin saltos.
+		var registered := dragon.contact_local(work_kind)
+		if registered.is_finite():
+			dragon.position = work_contact-registered
 	# Pequeño cambio de apoyo al agacharse: mantener el tamaño del palín.
 	# La posición física del jugador y el alcance de interacción no cambian.
 	if gathering and pose not in ["reposo","sin-equipo"]:
@@ -221,7 +303,9 @@ func animate_pose(_delta: float, work_time := -1.0) -> void:
 		dragon.hand_cover.visible = false
 		dragon.other_hand_cover.visible = false
 		return
-	tool.visible = not dragon.has_baked_tool()
+	tool.visible = gathering and not dragon.has_baked_tool()
+	tool_mount.visible = busy and work_kind != &"" and not approaching
+	herbal_mount.visible = gathering
 	tool.set_direction(direction_index)
 	herbal_tool.set_direction(direction_index)
 	var mount := herbal_mount if gathering else tool_mount

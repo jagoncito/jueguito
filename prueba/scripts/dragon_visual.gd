@@ -60,6 +60,11 @@ func show_pose(pose: String, direction: int) -> void:
 	body.position = (Vector2(frame.region[0],frame.region[1])-anchor)*factor
 	primary_hand.position = (Vector2(frame.hand[0],frame.hand[1])-anchor)*factor
 	secondary_hand.position = (Vector2(frame.other_hand[0],frame.other_hand[1])-anchor)*factor
+	body.flip_h = frame.get("mirror_x",false)
+	if body.flip_h:
+		body.position.x = -(float(frame.region[0])+float(frame.region[2])-anchor.x)*factor
+		primary_hand.position.x *= -1
+		secondary_hand.position.x *= -1
 	tool_behind = frame.tool_behind
 	hand_cover.visible = frame.has("hand_cover")
 	other_hand_cover.visible = false
@@ -94,7 +99,10 @@ func contact_local(action: StringName) -> Vector2:
 	if not contacts.has(String(action)):
 		return Vector2.INF
 	var point: Array = contacts[String(action)]
-	return (Vector2(point[0],point[1])-Vector2(frame.anchor[0],frame.anchor[1]))*body.scale.x
+	var local_point := (Vector2(point[0],point[1])-Vector2(frame.anchor[0],frame.anchor[1]))*body.scale.x
+	if frame.get("mirror_x",false):
+		local_point.x *= -1
+	return local_point
 
 func contact_global(action: StringName) -> Vector2:
 	return to_global(contact_local(action))
