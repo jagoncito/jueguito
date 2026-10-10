@@ -24,13 +24,13 @@ Para flores se equipa el palín y el personaje se arrodilla, extrae y se levanta
 E: plantar, regar, cosechar o hablar con un habitante cercano.
 Seis habitantes quietos integrados en posiciones provisionales, con ocho vistas cada uno.
 F7: dragón actual80px. F8: comparación72px (ajuste gráfico reversible, sin cambiar NPC).
-Dragón bípedo: ocho direcciones, cola conectada, caminar, minar, talar y palín.
+Dragón rehecho en pixel art: ocho direcciones, reposo, caminar, sprint, minar, talar y palín.
 Marcha de cuatro fases distintas; pico-hacha y palín con ocho perspectivas y agarres registrados.
 Para ver ocho direcciones ampliadas, añade ?vista=dragon a la URL del juego.
-Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín, 6 parar/andar.
+Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín, 6 parar/andar, 7 sprint.
 Para comparar los siete personajes a escala de juego: ?vista=personajes.
 Flechas: vista; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común 1×/2×.
-Seis NPC con ocho vistas de reposo cada uno; protagonista actualizado con 112 fotogramas.
+Seis NPC con ocho vistas de reposo cada uno; protagonista actualizado con 160 fotogramas nuevos.
 Protagonista de 80 px; pico arriba y filo de hacha abajo al llevarlo.
 Minería: golpea la mena con la punta del pico. Tala: el filo del hacha golpea el tronco.
 Espacio alterna la cámara lenta en la revisión del dragón.
@@ -39,7 +39,7 @@ elfa del museo y comerciante para comparar con el protagonista.
 Los seis giran brevemente sobre el sitio usando sus ocho vistas vigentes.
 F6 detiene/reanuda su movimiento para comparar tamaños. Tab oculta la mochila.
 Ubicaciones de comparación provisionales; estos giros todavía no son marcha.
-Primera revisión de movimiento, escala y agarres pendiente de aprobación visual.
+Arte anterior del dragón retirado; el conjunto nuevo sigue pendiente de aprobación visual.
 Árboles con tres variantes y tocones; mena de cobre entera/picada; flor de Yde.
 Madera, fragmento de cobre y flor recogida tienen su propio botín e icono.
 Para comparar terreno, botín y mochila añade ?vista=recursos a la URL.

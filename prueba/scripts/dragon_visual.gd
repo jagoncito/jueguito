@@ -1,12 +1,10 @@
 class_name BituDragonVisual
 extends Node2D
-## Poses completas: ninguna extremidad ni la cola se estira en tiempo de ejecución.
-
-const DIRECTORY := "res://assets/personajes/dragon-avatar/"
+## Atlas nuevos completos: escalado uniforme, sin limpieza ni deformación.
+const DIRECTORY := "res://assets/personajes/dragon/"
 var presentation_height_px := 80.0
 var catalog: Dictionary
 var textures: Dictionary = {}
-var frame_textures: Dictionary = {}
 var atlases: Dictionary = {}
 var body: Sprite2D
 var primary_hand: Node2D
@@ -14,21 +12,10 @@ var secondary_hand: Node2D
 var current_frame := ""
 var direction_index := 0
 var hand_cover: Sprite2D
-var cover_offset := Vector2.ZERO
 var other_hand_cover: Sprite2D
+var cover_offset := Vector2.ZERO
 var other_cover_offset := Vector2.ZERO
 var tool_behind := false
-var covers: Dictionary = {}
-var frame_metrics: Dictionary = {}
-
-## The atlases were authored at different source resolutions.  They are still
-## complete pixel-art drawings, but using their historical scale values made a
-## few walking/work frames render one or two pixels taller or shorter.  Keep a
-## single presentation height in the game and let the kneeling poses use their
-## own, intentionally lower, silhouette.
-const UPRIGHT_HEIGHT_PX := 80.0
-const KNEEL_HEIGHT_PX := 59.0
-const ISOLATED_PIXEL_COMPONENT_LIMIT := 240
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -44,92 +31,20 @@ func _ready() -> void:
 	hand_cover.centered = false
 	add_child(hand_cover)
 	other_hand_cover = Sprite2D.new()
-	other_hand_cover.centered = false
+	other_hand_cover.visible = false
 	add_child(other_hand_cover)
 	show_pose("reposo",0)
 
-func _frame_texture(key: String, frame: Dictionary) -> Texture2D:
-	if frame_textures.has(key):
-		return frame_textures[key]
+func _texture(frame: Dictionary, key: String, region: Array) -> AtlasTexture:
 	if not textures.has(frame.file):
 		textures[frame.file] = load(DIRECTORY+frame.file)
-	var source: Image = (textures[frame.file] as Texture2D).get_image()
-	var region: Array = frame.region
-	var width := int(region[2])
-	var height := int(region[3])
-	var image := source.get_region(Rect2i(int(region[0]),int(region[1]),width,height))
-	# Some source atlas cells contain a handful of disconnected black/red
-	# pixels from the neighboring drawing.  Removing only tiny disconnected
-	# components keeps the complete silhouette (wings, tail and feet) intact
-	# while preventing those pixels from becoming rays during a turn.
-	var visited := PackedByteArray()
-	visited.resize(width*height)
-	var neighbours := [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
-	for y in range(height):
-		for x in range(width):
-			var start := y*width+x
-			if visited[start] == 1 or image.get_pixel(x,y).a <= 0.08:
-				continue
-			var stack: Array[Vector2i] = [Vector2i(x,y)]
-			var component: Array[Vector2i] = []
-			visited[start] = 1
-			while not stack.is_empty():
-				var point: Vector2i = stack.pop_back()
-				component.append(point)
-				for offset: Vector2i in neighbours:
-					var next: Vector2i = point+offset
-					if next.x < 0 or next.x >= width or next.y < 0 or next.y >= height:
-						continue
-					var index: int = next.y*width+next.x
-					if visited[index] == 1 or image.get_pixel(next.x,next.y).a <= 0.08:
-						continue
-					visited[index] = 1
-					stack.append(next)
-			if component.size() <= ISOLATED_PIXEL_COMPONENT_LIMIT:
-				for point in component:
-					image.set_pixel(point.x,point.y,Color(0,0,0,0))
-	var texture := ImageTexture.create_from_image(image)
-	frame_textures[key] = texture
-	return texture
-
-func _metrics_for_frame(key: String, frame: Dictionary) -> Dictionary:
-	if frame_metrics.has(key):
-		return frame_metrics[key]
-	var image: Image = (_frame_texture(key,frame) as Texture2D).get_image()
-	var width := image.get_width()
-	var height := image.get_height()
-	var min_x := width
-	var min_y := height
-	var max_x := -1
-	var max_y := -1
-	# Read only the frame's alpha.  This keeps neighboring atlas drawings out
-	# of the measurement and is performed once per frame, not every tick.
-	for y in range(height):
-		for x in range(width):
-			if image.get_pixel(x,y).a > 0.08:
-				min_x = mini(min_x,x)
-				min_y = mini(min_y,y)
-				max_x = maxi(max_x,x)
-				max_y = maxi(max_y,y)
-	if max_y < 0:
-		var fallback := {"alpha_height": float(height), "alpha_width": float(width)}
-		frame_metrics[key] = fallback
-		return fallback
-	var metrics := {
-		"alpha_height": float(max_y-min_y+1),
-		"alpha_width": float(max_x-min_x+1),
-		"alpha_top": min_y,
-		"alpha_bottom": max_y+1,
-	}
-	frame_metrics[key] = metrics
-	return metrics
-
-func _presentation_height(pose: String) -> float:
-	if pose == "arrodillado":
-		return KNEEL_HEIGHT_PX
-	if pose == "levantar":
-		return 60.0
-	return UPRIGHT_HEIGHT_PX
+	if not atlases.has(key):
+		var atlas := AtlasTexture.new()
+		atlas.atlas = textures[frame.file]
+		atlas.region = Rect2(region[0],region[1],region[2],region[3])
+		atlas.filter_clip = true
+		atlases[key] = atlas
+	return atlases[key]
 
 func show_pose(pose: String, direction: int) -> void:
 	direction_index = posmod(direction,8)
@@ -138,59 +53,26 @@ func show_pose(pose: String, direction: int) -> void:
 		return
 	current_frame = key
 	var frame: Dictionary = catalog.frames[key]
-	var frame_texture := _frame_texture(key,frame)
-	if not atlases.has(key):
-		var atlas := AtlasTexture.new()
-		atlas.atlas = frame_texture
-		atlas.region = Rect2(0,0,frame.region[2],frame.region[3])
-		atlas.filter_clip = true
-		atlases[key] = atlas
 	var anchor := Vector2(frame.anchor[0],frame.anchor[1])
-	var metrics := _metrics_for_frame(key,frame)
-	var pose_name := key.get_slice("-",0)
-	# Medir el cuerpo desde el suelo, excluyendo metal/madera. Los golpes
-	# flexionan las rodillas y conservan una silueta más baja, sin agrandar la cara.
-	var factor := float(frame.get("presentation_height_px",_presentation_height(pose_name)))/float(frame.get("body_height_px",metrics["alpha_height"]))
-	factor *= presentation_height_px/UPRIGHT_HEIGHT_PX
-	body.texture = atlases[key]
+	var factor := float(frame.scale)*presentation_height_px/80.0
+	body.texture = _texture(frame,key,frame.region)
 	body.scale = Vector2.ONE*factor
 	body.position = (Vector2(frame.region[0],frame.region[1])-anchor)*factor
 	primary_hand.position = (Vector2(frame.hand[0],frame.hand[1])-anchor)*factor
 	secondary_hand.position = (Vector2(frame.other_hand[0],frame.other_hand[1])-anchor)*factor
-	tool_behind = frame.get("tool_behind",direction_index in [3,4,5])
-	var region: Array = frame.get("hand_cover",[])
-	hand_cover.visible = not has_baked_tool() and not region.is_empty()
-	if not region.is_empty():
-		if not covers.has(key):
-			var cover := AtlasTexture.new()
-			cover.atlas = frame_texture
-			cover.region = Rect2(region[0]-frame.region[0],region[1]-frame.region[1],region[2],region[3])
-			cover.filter_clip = true
-			covers[key] = cover
-		hand_cover.texture = covers[key]
+	tool_behind = frame.tool_behind
+	hand_cover.visible = frame.has("hand_cover")
+	other_hand_cover.visible = false
+	if hand_cover.visible:
+		var region: Array = frame.hand_cover
+		hand_cover.texture = _texture(frame,key+"-dedos",region)
 		hand_cover.scale = Vector2.ONE*factor
 		cover_offset = (Vector2(region[0],region[1])-Vector2(frame.hand[0],frame.hand[1]))*factor
 		hand_cover.position = primary_hand.position+cover_offset
-	# Reponer únicamente los dedos de la segunda palma, desde el mismo
-	# dibujo intacto, para que el mango quede sujeto por las dos manos.
-	var other_key := key+"-other"
-	var radius := 1.8/factor
-	var other := Vector2(frame.other_hand[0],frame.other_hand[1])
-	if not covers.has(other_key):
-		var cover := AtlasTexture.new()
-		cover.atlas = frame_texture
-		cover.region = Rect2(other-Vector2(frame.region[0],frame.region[1])-Vector2.ONE*radius,Vector2.ONE*radius*2)
-		cover.filter_clip = true
-		covers[other_key] = cover
-	other_hand_cover.texture = covers[other_key]
-	other_hand_cover.scale = Vector2.ONE*factor
-	other_cover_offset = -Vector2.ONE*radius*factor
-	other_hand_cover.position = secondary_hand.position+other_cover_offset
-	other_hand_cover.visible = hand_cover.visible
 
 func _draw() -> void:
 	draw_set_transform(Vector2(0,-2),0,Vector2(1,0.27))
-	draw_circle(Vector2.ZERO,18,Color(0.025,0.04,0.055,0.3))
+	draw_circle(Vector2.ZERO,17,Color(0.025,0.04,0.055,0.3))
 	draw_set_transform(Vector2.ZERO)
 
 func set_presentation_height(height: float) -> void:
@@ -198,14 +80,13 @@ func set_presentation_height(height: float) -> void:
 	if is_equal_approx(requested,presentation_height_px):
 		return
 	presentation_height_px = requested
-	if current_frame.is_empty():
-		return
-	var pose := current_frame.substr(0,current_frame.rfind("-"))
-	current_frame = ""
-	show_pose(pose,direction_index)
+	if not current_frame.is_empty():
+		var pose := current_frame.substr(0,current_frame.rfind("-"))
+		current_frame = ""
+		show_pose(pose,direction_index)
 
 func has_baked_tool() -> bool:
-	return catalog.frames[current_frame].get("baked_tool",false)
+	return catalog.frames[current_frame].baked_tool
 
 func contact_local(action: StringName) -> Vector2:
 	var frame: Dictionary = catalog.frames[current_frame]

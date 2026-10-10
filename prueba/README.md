@@ -1,22 +1,14 @@
 # Prueba visual de Bītu
 
-**Comparación de personajes (10 de octubre de 2026):** Flavia, Unamahloni, cocinero/pescador, minero/herrero, elfa del museo y comerciante conservan las posiciones provisionales de la versión nueva de GitHub. Los seis giran brevemente sobre el sitio con sus ocho vistas vigentes, sin recuperar las variantes retiradas. **F6** detiene/reanuda el grupo; **Tab** oculta la mochila y **WASD** permite acercar el protagonista para comparar. Posiciones provisionales; conservada la interacción E de prueba, sin diálogos definitivos ni comercio. La descarga incluye esta comparación y la revisión de reposo/marcha y tala del protagonista.
+**Dragón rehecho por completo:** nuevo pixel art con cuerpo esbelto, cabeza menor, contorno fino y paleta más cercana a los NPC.160 registros en ocho direcciones: reposo/sin equipo, caminar, sprint propio, minería, tala y palín. Retirados los recursos anteriores; historial de Git conservado. **Acabado pendiente de revisión visual.**
 
-![Personajes y protagonista en la granja](capturas/personajes-comparacion.png)
+![Personajes y protagonista nuevo en la granja](capturas/personajes-comparacion.png)
 
-[Vídeo de sus movimientos dentro del juego](capturas/personajes-movimiento.webm)
+[Vídeo dentro del juego](capturas/personajes-movimiento.webm) · [Conjunto y medidas](../assets/personajes/dragon/README.md)
 
-**Revisión de reposo/marcha y tala (10 de octubre de 2026):** el usuario rechaza la tala anterior y el crecimiento aparente al caminar. Reposo comparte ahora el dibujo de contacto A de cada dirección; los cuatro pasos usan una única escala anatómica por ciclo. Retirados los atlas separados de reposo/apoyos/marcha opuesta que mezclaban proporciones. Marcha frontal y norte corregidas manteniendo la anatomía de sus hojas; 112 registros en catálogo v5, ocho atlas jugables. Tala usa el mismo gesto de preparación/carga/golpe que la minería, con el filo ancho como extremo activo; añadida carga propia de tala. PNG y registros de minería conservados exactamente. La petición posterior del usuario autoriza publicar esta revisión junto a los personajes de comparación. Acabado pendiente de la revisión del usuario.
+Nueve pruebas Godot y seis revisiones WebGL superadas. ZIP27.490.995bytes, CRC correcto, sin paquete antiguo; no ha hecho falta dividirlo para subir.
 
-
-**Agua y casa integradas:** vivienda rural a escala nativa, colisión ajustada a los cimientos y profundidad respecto al personaje; costa con agua turquesa, zonas profundas y orillas. Agua estática y casa exterior. Descarga local actualizada en `prueba/descargas/bitu-navegador.zip`.
-
-![Casa y agua dentro del prototipo](capturas/casa-agua-en-juego.png)
-**Corrección de impactos (10 de octubre de 2026):** el usuario precisa que el árbol se golpea con el filo del hacha y la mena con la punta del pico, y solicita integrar/publicar. Actualizados los dos atlas de trabajo y sus contactos en las ocho vistas, sobre el extremo activo del metal; no sobre el collar ni el mango. Tala usa también su preparación lateral en entrada/recuperación. Las partículas nacen del contacto registrado, incluida la altura propia de la mena. Conservados 80 px, cinco golpes, tiempos, controles y colisión. Esta corrección está autorizada para subir; el acabado visual sigue pendiente de revisión.
-
-![Dragón protagonista dentro del juego](capturas/dragon-en-juego.png)
-
-Una zona provisional para revisar el aspecto, la escala y el farmeo básico.
+Los seis habitantes conservan sus posiciones provisionales, ocho vistas, giros breves, colisión e interacciónE de prueba. F6 pausa/reanuda giros; Tab oculta la mochila. Agua/casa y recursos existentes conservados. Cinco golpes por mena/árbol, tiempos y controles intactos; no añade sistemas nuevos.
 
 ## Jugar en el navegador
 
@@ -45,7 +37,7 @@ Los cuatro PNG de tomates se incluyen en `assets/objetos/cultivos/` dentro de es
 | Acción | Control |
 |---|---|
 | Moverse | WASD |
-| Sprint provisional | Shift + WASD |
+| Sprint | Shift + WASD |
 | Zoom | Rueda del ratón |
 | Minar, talar o recolectar flores | Un clic izquierdo sobre el recurso cercano |
 | Plantar, regar o cosechar | E al acercarte |
@@ -53,7 +45,7 @@ Los cuatro PNG de tomates se incluyen en `assets/objetos/cultivos/` dentro de es
 | Detener / reanudar los personajes de comparación | F6 |
 | Recoger botín del suelo | Acercarte |
 
-**No guarda progreso.** El protagonista es el dragón bípedo, con sus rasgos faciales originales, ocho vistas y animaciones mediante poses completas con cola conectada. La marcha tiene cuatro fases distintas por dirección, sigue el desplazamiento real y no se reproduce al quedar bloqueado. El dragón mide 80 px antes del zoom y conserva esa altura al caminar. Lleva el pico–hacha con punta arriba y filo abajo, dibujado junto a las manos; minería y tala tienen poses propias. El palín sigue registrado por separado. Edificios, terreno, tiempos y acabado de movimientos son provisionales. Los tomates junto a la orilla son muestras para comparar sus diseños; las cosechas normales de esta prueba dan tomate común. Todavía no incluye pesca, barco ni el inicio narrativo del juego.
+**No guarda progreso.** El protagonista es el dragón bípedo, nuevo, con ocho vistas y animaciones mediante poses completas con cola conectada. La marcha tiene cuatro fases distintas por dirección, sigue el desplazamiento real y no se reproduce al quedar bloqueado. El dragón mide 80 px antes del zoom y conserva esa altura al caminar. Lleva el pico–hacha con punta arriba y filo abajo, dibujado junto a las manos; minería y tala tienen poses propias. El palín sigue registrado por separado. Edificios, terreno, tiempos y acabado de movimientos son provisionales. Los tomates junto a la orilla son muestras para comparar sus diseños; las cosechas normales de esta prueba dan tomate común. Todavía no incluye pesca, barco ni el inicio narrativo del juego.
 
 El pico–hacha está equipado y elige automáticamente el extremo correspondiente a mena o árbol. **Un clic inicia toda la extracción**, sin mantener pulsado ni repetir clics por golpe. Al seleccionar una flor, guarda el pico–hacha, se arrodilla y usa el **palín de herborista**; tras extraerla se levanta y recuperas el movimiento. Debes estar cerca; clic en suelo no extrae y clic desde lejos no mueve al personaje. Cada golpe tiene preparación, impacto y recuperación. El golpe final suelta mineral o madera, que se recoge al acercarte; talar deja un tocón transitable. Los árboles no reaparecen hasta reiniciar esta prueba; su regeneración definitiva queda pendiente.
 
@@ -73,7 +65,7 @@ Abre `scenes/recursos.tscn` y pulsa **F6**, o añade **`?vista=recursos`** a la 
 
 ## Revisar el dragón y sus animaciones
 
-Abre `scenes/dragon.tscn` en el editor de Godot y pulsa **F6** para ver las ocho direcciones ampliadas ×2. **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín, 6 parar/andar**. Son las mismas poses y herramientas utilizadas en la granja. El modo 6 compara el reposo con los cuatro pasos. En el navegador añade **`?vista=dragon`** a la URL abierta por `JUGAR.py`. [Ficha del personaje](../assets/personajes/dragon-avatar/README.md) · [Vídeo real del canvas](capturas/dragon-animaciones.webm) · [Transición reposo/marcha](capturas/dragon-parar-andar.webm).
+Abre `scenes/dragon.tscn` en el editor de Godot y pulsa **F6** para ver las ocho direcciones ampliadas ×2. **1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín, 6 parar/andar,7 sprint**. Son las mismas poses y herramientas utilizadas en la granja. El modo 6 compara el reposo con los cuatro pasos. En el navegador añade **`?vista=dragon`** a la URL abierta por `JUGAR.py`. [Ficha del personaje](../assets/personajes/dragon/README.md) · [Vídeo real del canvas](capturas/dragon-animaciones.webm) · [Transición reposo/marcha](capturas/dragon-parar-andar.webm).
 
 ![Revisión de las animaciones reales](capturas/dragon-animaciones.png)
 
@@ -87,9 +79,9 @@ La captura anterior con humano se ha retirado al sustituirla por el dragón.
 
 ## Escala común dentro del juego
 
-Los seis NPC tienen sprites nativos a escala de mundo y el protagonista conserva su renderizador actualizado, conservando las estaturas. Revisión: `prueba/scenes/personajes.tscn` (F6), o `?vista=personajes` en la descarga web. Flechas: vistas; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común. Recursos y medidas: `assets/personajes/escala-juego/README.md`. El dragón y los seis NPC aparecen también en la partida principal; su distribución es provisional.
+Los seis NPC tienen sprites nativos a escala de mundo y el protagonista usa sus nuevos atlas registrados, conservando las estaturas. Revisión: `prueba/scenes/personajes.tscn` (F6), o `?vista=personajes` en la descarga web. Flechas: vistas; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común. Recursos y medidas: `assets/personajes/escala-juego/README.md`. El dragón y los seis NPC aparecen también en la partida principal; su distribución es provisional.
 
-Conjunto simplificado: seis NPC con ocho vistas de reposo cada uno y protagonista actualizado con 112 fotogramas (160 en total).
+Conjunto simplificado: seis NPC con ocho vistas de reposo cada uno y protagonista nuevo con160 registros (208 en total).
 
 ## Habitantes integrados y comparación de escala
 

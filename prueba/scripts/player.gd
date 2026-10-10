@@ -8,6 +8,7 @@ const HERBAL_TOOL := preload("res://assets/herramientas/palin-herborista/palin-h
 const DRAGON_VISUAL := preload("res://scripts/dragon_visual.gd")
 const DIRECTIONS := [Vector2.DOWN,Vector2(-1,1),Vector2.LEFT,Vector2(-1,-1),Vector2.UP,Vector2(1,-1),Vector2.RIGHT,Vector2(1,1)]
 const WALK_POSES := ["andar-a","paso-a","andar-b","paso-b"]
+const RUN_POSES := ["sprint-a","sprint-paso-a","sprint-b","sprint-paso-b"]
 const TOOL_SCALE := 0.64
 signal work_impact(function: StringName)
 signal work_finished
@@ -30,6 +31,7 @@ var facing := 1
 var facing_back := false
 var direction_index := 0
 var walk_time := 0.0
+var sprinting := false
 var work_stance := Vector2.ZERO
 var repeat_stance := false
 var recovery_offset := Vector2.ZERO
@@ -151,7 +153,7 @@ func begin_gathering(contact: Vector2, ground_target := Vector2.INF) -> void:
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left","move_right","move_up","move_down")
-	var sprinting := not busy and Input.is_action_pressed("sprint")
+	sprinting = not busy and Input.is_action_pressed("sprint")
 	var speed := SPRINT_SPEED if sprinting else SPEED
 	velocity = direction*speed if not busy else Vector2.ZERO
 	var previous := position
@@ -183,14 +185,16 @@ func animate_pose(_delta: float, work_time := -1.0) -> void:
 			pose = "arrodillado" if elapsed < 1.68 else "levantar"
 	elif busy and work_kind != &"":
 		elapsed = work_time if work_time >= 0 else (tool.motion.get_total_elapsed_time() if tool.motion != null else 0.0)
-		if elapsed < 0.12 or (elapsed >= 0.40 and elapsed < 0.53):
+		if elapsed < 0.12:
 			pose = "medio-talar" if work_kind == &"talar" else "medio"
 		elif elapsed < 0.28:
 			pose = "cargar" if work_kind == &"minar" else "cargar-talar"
 		elif elapsed < 0.40:
 			pose = "golpe-talar" if work_kind == &"talar" else "golpe"
+		elif elapsed < 0.53:
+			pose = "recuperar-talar" if work_kind == &"talar" else "recuperar"
 	elif walk_time > 0:
-		pose = WALK_POSES[int(walk_time/1.15)%4]
+		pose = (RUN_POSES if sprinting else WALK_POSES)[int(walk_time/1.15)%4]
 	if pose == "reposo" and (gathering or not equipment_enabled):
 		pose = "sin-equipo"
 	dragon.show_pose(pose,direction_index)

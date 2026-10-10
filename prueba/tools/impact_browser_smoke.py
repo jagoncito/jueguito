@@ -1,4 +1,4 @@
-"""Capture the actual first axe/ore impact and verify idle/start pixels."""
+"""Capture the actual first axe/ore impact and verify idle/start height."""
 import asyncio
 import io
 from pathlib import Path
@@ -27,7 +27,13 @@ async def main():
             for i in range(8):
                 x=320*(i%4); y=320*(i//4)
                 bounds=(x+40,y+90,x+300,y+345)
-                assert ImageChops.difference(shots[0].crop(bounds),shots[1].crop(bounds)).getbbox() is None, ('Idle/start changes visible body', i)
+                tops=[]
+                for shot in shots:
+                    patch=shot.crop(bounds)
+                    rows=[y for y in range(patch.height) if any(patch.getpixel((x,y))!=(21,35,42) for x in range(patch.width))]
+                    assert rows, ('Cuerpo ausente',i)
+                    tops.append(rows[0])
+                assert abs(tops[0]-tops[1])<=1, ('Cambia altura real al arrancar',i,tops)
             # Record the transition review in the actual Godot canvas.
             await page.goto('http://127.0.0.1:8765/index.html?vista=dragon', wait_until='networkidle')
             await page.wait_for_function("document.getElementById('status') === null", timeout=60000)
@@ -65,7 +71,7 @@ async def main():
                 await page.screenshot(path=str(PROJECT/'capturas'/f'impacto-real-{action}.png'))
                 assert ready and f'"action":"{action}"' in ready[-1], (action,messages[mark:])
             assert not any(kind in ['error','pageerror'] for kind,_ in messages),messages
-            print('BITU_IMPACT_BROWSER_OK: reposo/arranque idénticos y golpe sobre árbol/mena reales')
+            print('BITU_IMPACT_BROWSER_OK: altura reposo/arranque constante y golpe sobre árbol/mena reales')
         finally:
             await browser.close()
 

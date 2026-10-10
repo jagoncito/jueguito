@@ -1,6 +1,6 @@
 # Personajes dentro del juego: auditoría y comparación de tamaños
 
-Revisión del 10 de octubre de 2026, solicitada para explicar el funcionamiento, comprobar el repositorio e integrar los NPC con capturas reales.
+Revisión actualizada el10 de octubre de2026 tras el reinicio completo del arte del dragón solicitado por el usuario. Capturas del conjunto nuevo, sin cambiar los NPC. Aprobación visual pendiente.
 
 ## Resultado de la medición
 
@@ -14,11 +14,11 @@ Revisión del 10 de octubre de 2026, solicitada para explicar el funcionamiento,
 | Comerciante | 84 | 46 |
 | Cocinero | 80 | 40 |
 | Enano | 64 | 39 |
-| Dragón sin equipo, ajuste actual | 81,7 | 50,6 |
+| Dragón nuevo sin equipo, frente | 80 | 40,5 |
 
-NPC: medición del alpha de los PNG nativos. Dragón: recorte sin equipo, limpieza de componentes pequeños como hace el juego y aplicación del factor de su catálogo. Sus ocho vistas sin equipo dan 81,55–82,46px visibles aunque la referencia nominal sea 80px. La diferencia de unos 2px es menor que la diferencia de proporciones.
+NPC: alfa de sus PNG nativos. Dragón nuevo: recorte fuente registrado, desde el apoyo hasta la cresta; frente sin equipo80px de cuerpo y40,5px de ancho. La cola en vistas traseras puede proyectarse por debajo del apoyo en pantalla: no se usa su extremo para reducir el cuerpo. En reposo, marcha y sprint la cresta conserva80px sobre el origen físico. Cada ciclo de cuatro fases utiliza una única escala.
 
-La cabeza grande, las alas y la cola dan más volumen al dragón; la elfa es especialmente estrecha. Los NPC tienen proporciones más estilizadas. **Ajustar la escala por código puede cambiar el tamaño; no cambia la proporción cabeza/cuerpo, la paleta o la perspectiva del dibujo.** Aumentar todos los NPC para igualar su volumen también aumenta su altura respecto a la puerta, árboles y casillas.
+El usuario rechazó el estilo anterior de cabeza muy grande, contorno negro grueso y acabado de ilustración. Se retiran todos sus PNG, incluso el original. La propuesta nueva tiene cabeza menor, piernas más largas, alas recogidas, contorno fino y paleta apagada; usa160 registros y diez atlas nuevos. Los NPC se conservan idénticos. No se considera aprobado el acabado por superar mediciones y pruebas.
 
 ## Capturas reales y cómo compararlas
 
@@ -44,7 +44,7 @@ La alternativa 72px reduce solo al dragón un 10%: cuerpo, arma dibujada, palmas
 3. **Tamaño visible.** Los NPC se dibujan a escala 1:1. El dragón utiliza el recorte y las medidas corporales de su catálogo, más un único factor ajustable para todas sus poses. Nunca se cambia solo el ancho o solo el alto.
 4. **Colisión.** El círculo físico está en los pies; alas, pelo, barba y arma dibujada no bloquean el mundo por ocupar píxeles. Cambiar la escala de dibujo no multiplica automáticamente el círculo físico.
 5. **Profundidad.** Todos pertenecen al mismo grupo ordenado por posición vertical del suelo. Si el jugador pasa detrás de un NPC o árbol, queda detrás de su dibujo; la cabeza no decide la profundidad.
-6. **Acciones.** El protagonista selecciona marcha, minería, tala o recolección. Sus contactos se calculan con el mismo factor que el cuerpo, de modo que el extremo dibujado siga golpeando el recurso. Los NPC giran brevemente sobre el sitio y responden a la interacción de prueba. F6 pausa/reanuda la muestra.
+6. **Acciones.** El protagonista selecciona marcha, sprint, minería, tala o recolección. Sus contactos se calculan con el mismo factor que el cuerpo, de modo que el extremo dibujado siga golpeando el recurso. Los NPC giran brevemente sobre el sitio y responden a la interacción de prueba. F6 pausa/reanuda la muestra.
 7. **Cámara.** El zoom amplía por igual personajes y escenario. Con zoom 1,5, un NPC de 80px ocupa unos120px en pantalla. Cambiar el zoom no cambia su estatura en el mundo.
 
 El formato de imagen, el tamaño dibujado, el área de colisión y el zoom son medidas distintas. Se mantienen coordinadas mediante anclas, metadatos y pruebas; no conviene modificar la escala del nodo físico completo para resolver una diferencia de dibujo.
@@ -62,7 +62,7 @@ El formato de imagen, el tamaño dibujado, el área de colisión y el zoom son m
 | Área | Estado encontrado |
 |---|---|
 | Juego | Un único proyecto Godot 2D en `prueba/`, exportable a navegador. Zona provisional 32×32; no es Bītu completa. |
-| Protagonista | 112 poses y ocho direcciones; movimiento, sprint, minería, tala y palín. Equipo de trabajo integrado en los dibujos. |
+| Protagonista | 160 registros nuevos y ocho direcciones; movimiento, sprint, minería, tala y palín. Equipo de trabajo integrado en los dibujos. |
 | NPC |48 sprites nativos, seis × 8. Ahora integrados en la prueba; conversación básica provisional. |
 | Entorno | Agua y orillas con atlas, casa exterior con colisión y profundidad; árboles/tocones, cobre/Yde y botín. Parte del suelo y cultivos siguen dibujados por código. |
 | Recursos adicionales | Miutu y atlas de hierba/tierra existen como assets de referencia, sin conectarse aún al runtime de la prueba. |
@@ -70,13 +70,13 @@ El formato de imagen, el tamaño dibujado, el área de colisión y el zoom son m
 | Pendientes funcionales | Guardado, regiones y transiciones, inicio ruinas–astillero, interiores, diálogos definitivos, comercio, museo, pesca, recetas, profesiones y barcos. El prototipo no implementa todavía las reglas finales de cosechas sucesivas. |
 | Organización | Fuentes y referencias en `assets/`; recursos independientes de ejecución en `prueba/assets/`; diseño en `DISENO.md` y `docs/`. Los PNG de NPC y catálogo del dragón coinciden con sus copias de ejecución. |
 | Documentación | Las notas antiguas conservan cantidades y propuestas históricas. Se corrigieron dos enlaces a la antigua ruta de la imagen base de Unamahloni. Esta revisión describe el estado actual. |
-| Optimización futura | El dragón recorta y limpia sus fuentes la primera vez que usa cada pose y luego las guarda en caché. Preprocesar esos recortes puede reducir trabajo inicial; no se ha redibujado ni cambiado el catálogo por esta auditoría. |
+| Optimización futura | El renderizador nuevo carga atlas y recortes AtlasTexture en caché, sin escanear/eliminar componentes ni deformar extremidades. Las fuentes aún son grandes; una exportación nativa común128×128 queda como posible optimización posterior. |
 
 ## Validación y reproducción
 
 - `tests/npc-smoke.gd`: seis NPC, ocho vistas, suelo transitable, orientación, interacción, colisión; escala reversible y contactos de pico/hacha/palín en ocho direcciones a 80 y 72px.
-- Regresión de protagonista, escenario y entorno; conserva 112 poses, cinco golpes, tiempos y acciones existentes.
+- Regresión de protagonista, escenario y entorno; conserva 160 registros nuevos, cinco golpes, tiempos y acciones existentes.
 - `tools/npc_browser_smoke.py`: capturas y arranque/movimiento real en WebGL, sin errores de script. `capturas/npc-comparativa.json` registra viewport, zoom, dirección y altura.
-- Archivos y referencias estáticas de Godot comprobados: sin rutas inexistentes. PNG de NPC, originales del dragón y número de sprites conservados.
+- Archivos y referencias estáticas de Godot comprobados: sin rutas inexistentes. PNG de NPC, fuentes nuevas del dragón verificadas y copias idénticas.
 
 Prueba local: importar `prueba/project.godot` y F5. Para la revisión aislada, abrir `scenes/personajes.tscn` y F6. En navegador, ejecutar `JUGAR.py` desde el ZIP actualizado y añadir los parámetros a la dirección abierta.

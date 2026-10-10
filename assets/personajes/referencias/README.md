@@ -11,4 +11,4 @@ Estas imágenes grandes sirven para conocer el aspecto de los personajes y repro
 
 Algunas fuentes originales contienen columnas de poses antiguas; `../escala-juego/fuentes.json` selecciona solo las ocho de reposo. Los PNG nativos, atlas, visores, prefabs, paquetes y láminas adicionales de NPC fueron retirados al simplificar el conjunto. Se mantienen las fuentes necesarias para regenerar los sprites vigentes y las referencias de cuerpo completo.
 
-El dragón conserva su referencia original y todas sus fuentes en `../dragon-avatar/`.
+El arte anterior del dragón, incluido su original, se ha retirado por solicitud posterior del usuario. Las nuevas fuentes y poses están en `../dragon/`; el historial de Git se conserva.

@@ -7,7 +7,7 @@
 
 Proyecto de juego individual de fantasía, **íntegramente en pixel art**, con **vista desde arriba isométrica cenital**, centrado en explorar, farmear, mejorar y coleccionar.
 
-**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo y sus rasgos faciales originales y ocho direcciones**. Camina con el pico–hacha, mina, tala y usa el palín al arrodillarse. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon-avatar/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
+**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo rehecho en pixel art, con ocho direcciones y160 registros**. Camina y sprinta con el pico–hacha, mina, tala y usa el palín al arrodillarse. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
 
 Motor elegido: **Godot 4**. Primera plataforma: **navegador en ordenador, con teclado y ratón**. La versión descargable queda como posibilidad futura.
 
@@ -46,4 +46,4 @@ Para retomar en otro chat, empezar por el bloc y continuar con una decisión cad
 
 ## Personajes dentro de la prueba
 
-Seis NPC de ocho vistas integrados localmente, con colisión y conversación provisional. Protagonista112 poses. [Auditoría del repositorio y comparativa real de tamaños](docs/revision-personajes-en-juego.md), con dragón80px actual y alternativa72px. F7/F8 permiten compararlos en la misma partida.
+Seis NPC de ocho vistas integrados localmente, con colisión y conversación provisional. Protagonista nuevo160 registros, arte anterior retirado. [Auditoría del repositorio y comparativa real de tamaños](docs/revision-personajes-en-juego.md), con dragón80px actual y alternativa72px. F7/F8 permiten compararlos en la misma partida.

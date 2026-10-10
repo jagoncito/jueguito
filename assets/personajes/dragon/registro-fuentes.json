@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "sources": {
+    "sin-equipo.png": {
+      "columns": 4,
+      "kind": "sin-equipo"
+    },
+    "reposo.png": {
+      "columns": 4,
+      "kind": "reposo"
+    },
+    "marcha.png": {
+      "columns": 4,
+      "kind": "marcha"
+    },
+    "sprint.png": {
+      "columns": 4,
+      "kind": "sprint"
+    },
+    "mineria.png": {
+      "columns": 4,
+      "kind": "mineria"
+    },
+    "tala.png": {
+      "columns": 4,
+      "kind": "tala"
+    },
+    "arrodillado.png": {
+      "columns": 4,
+      "kind": "arrodillado"
+    },
+    "levantar.png": {
+      "columns": 2,
+      "kind": "levantar"
+    },
+    "impacto-minar.png": {
+      "columns": 2,
+      "kind": "impacto-minar"
+    },
+    "impacto-talar.png": {
+      "columns": 2,
+      "kind": "impacto-talar"
+    }
+  },
+  "feet_y": {
+    "reposo": [
+      408,
+      412,
+      414,
+      401,
+      808,
+      815,
+      827,
+      829
+    ],
+    "sin-equipo": [
+      404,
+      407,
+      407,
+      398,
+      808,
+      816,
+      823,
+      828
+    ],
+    "marcha": [
+      211,
+      420,
+      639,
+      846,
+      1072,
+      1317,
+      1532,
+      1758
+    ]
+  },
+  "impact_points": {
+    "minar": [
+      [
+        310,
+        323
+      ],
+      [
+        827,
+        315
+      ],
+      [
+        211,
+        609
+      ],
+      [
+        813,
+        443
+      ],
+      [
+        216,
+        721
+      ],
+      [
+        1085,
+        747
+      ],
+      [
+        451,
+        1202
+      ],
+      [
+        1050,
+        1211
+      ]
+    ],
+    "talar": [
+      [
+        296,
+        302
+      ],
+      [
+        779,
+        291
+      ],
+      [
+        153,
+        559
+      ],
+      [
+        804,
+        401
+      ],
+      [
+        263,
+        687
+      ],
+      [
+        1084,
+        711
+      ],
+      [
+        494,
+        1188
+      ],
+      [
+        1060,
+        1214
+      ]
+    ]
+  },
+  "impact_feet": {
+    "minar": [
+      [
+        312,
+        296
+      ],
+      [
+        951,
+        310
+      ],
+      [
+        319,
+        611
+      ],
+      [
+        991,
+        608
+      ],
+      [
+        323,
+        913
+      ],
+      [
+        991,
+        908
+      ],
+      [
+        328,
+        1215
+      ],
+      [
+        955,
+        1214
+      ]
+    ],
+    "talar": [
+      [
+        315,
+        293
+      ],
+      [
+        956,
+        301
+      ],
+      [
+        316,
+        595
+      ],
+      [
+        986,
+        605
+      ],
+      [
+        319,
+        916
+      ],
+      [
+        980,
+        914
+      ],
+      [
+        327,
+        1216
+      ],
+      [
+        943,
+        1222
+      ]
+    ]
+  },
+  "herbal_hands": {
+    "arrodillado": [
+      [
+        141,
+        290
+      ],
+      [
+        391,
+        291
+      ],
+      [
+        701,
+        293
+      ],
+      [
+        1024,
+        286
+      ],
+      [
+        218,
+        530
+      ],
+      [
+        535,
+        555
+      ],
+      [
+        858,
+        562
+      ],
+      [
+        1181,
+        566
+      ]
+    ],
+    "levantar": [
+      [
+        419,
+        203
+      ],
+      [
+        887,
+        211
+      ],
+      [
+        315,
+        496
+      ],
+      [
+        822,
+        475
+      ],
+      [
+        449,
+        866
+      ],
+      [
+        1018,
+        758
+      ],
+      [
+        476,
+        1098
+      ],
+      [
+        995,
+        1094
+      ]
+    ]
+  },
+  "notes": [
+    "PNG generados nuevos e intactos. Sin fuentes del dragón descartado.",
+    "Impactos con ocho vistas independientes y márgenes amplios.",
+    "El atlas arrodillado aporta solo las ocho primeras poses; sus elevaciones de ensayo no se usan.",
+    "Los atlas de minería/tala aportan preparación, carga y recuperación; impacto procede de sus hojas dedicadas."
+  ]
+}

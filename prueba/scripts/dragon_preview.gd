@@ -6,13 +6,13 @@ var cooldowns: Array[float] = []
 var time := 0.0
 var mode := 0
 var mode_label: Label
-const MODES := ["REPOSO","MARCHA","MINAR","TALAR","PALÍN","PARAR / ANDAR"]
+const MODES := ["REPOSO","MARCHA","MINAR","TALAR","PALÍN","PARAR / ANDAR","SPRINT"]
 const LABELS := ["SUR · frontal","SUROESTE","OESTE · perfil","NOROESTE","NORTE · espalda","NORESTE","ESTE · perfil","SURESTE"]
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("15232a"))
 	_label("DRAGÓN · OCHO DIRECCIONES",Vector2(28,16),25)
-	_label("1 Reposo · 2 Marcha · 3 Minar · 4 Talar · 5 Palín · 6 Parar/andar  |  Espacio: cámara lenta",Vector2(28,51),16)
+	_label("1 Reposo · 2 Marcha · 3 Minar · 4 Talar · 5 Palín · 6 Parar/andar · 7 Sprint | Espacio: lenta",Vector2(28,51),16)
 	mode_label = _label("REPOSO",Vector2(1030,20),20)
 	for index in range(8):
 		var actor := BituPlayer.new()
@@ -41,15 +41,19 @@ func _ready() -> void:
 func _capture_pose(requested: String) -> void:
 	var names := ["reposo","marcha","minar","talar","palin"]
 	var walk_phase := -1
+	var running := requested.begins_with("sprint")
 	if requested.begins_with("marcha-"):
 		walk_phase = ["a","paso-a","b","paso-b"].find(requested.trim_prefix("marcha-"))
-	if not names.has(requested) and walk_phase < 0:
+	if requested.begins_with("sprint-"):
+		walk_phase = ["a","paso-a","b","paso-b"].find(requested.trim_prefix("sprint-"))
+	if not names.has(requested) and walk_phase < 0 and not running:
 		return
-	mode = 1 if walk_phase >= 0 else names.find(requested)
+	mode = 6 if running else (1 if walk_phase >= 0 else names.find(requested))
 	mode_label.text = MODES[mode]
 	for index in range(actors.size()):
 		var actor := actors[index]
-		if mode >= 2:
+		actor.sprinting = running
+		if mode in [2,3,4]:
 			_start_action(index)
 			if mode == 4:
 				actor.herbal_tool.motion.pause()
@@ -60,7 +64,7 @@ func _capture_pose(requested: String) -> void:
 				actor.tool.motion.pause()
 				var sample = JavaScriptBridge.eval("new URLSearchParams(location.search).get('tiempo')")
 				actor.tool.motion.custom_step(float(sample) if sample != null else 0.34)
-		elif mode == 1:
+		elif mode in [1,6]:
 			actor.walk_time = 0.1+walk_phase*1.15 if walk_phase >= 0 else 1.0
 		actor.animate_pose(0)
 	set_process(false)
@@ -83,7 +87,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if event.physical_keycode == KEY_SPACE:
 			Engine.time_scale = 0.25 if Engine.time_scale == 1.0 else 1.0
 			return
-		if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_6:
+		if event.physical_keycode >= KEY_1 and event.physical_keycode <= KEY_7:
 			mode = event.physical_keycode-KEY_1
 			mode_label.text = MODES[mode]
 			print("BITU_DRAGON_MODE:",MODES[mode])
@@ -97,7 +101,8 @@ func _process(delta: float) -> void:
 	time += delta
 	for index in range(actors.size()):
 		var actor := actors[index]
-		actor.walk_time = time*9 if mode == 1 else 0.0
+		actor.sprinting = mode == 6
+		actor.walk_time = time*9 if mode in [1,6] else 0.0
 		if mode == 5:
 			var phase := int(time/0.30)%6
 			actor.walk_time = 0.1+(phase-1)*1.15 if phase in [1,2,3,4] else 0.0

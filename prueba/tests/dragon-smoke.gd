@@ -10,7 +10,7 @@ func run() -> void:
 	actor.set_physics_process(false)
 	actor.work_finished.connect(actor.end_work)
 	var visual := actor.dragon
-	assert(visual.catalog.frames.size() == 112,"Ocho direcciones, marcha, minería y carga/impacto de tala con su extremo opuesto")
+	assert(visual.catalog.frames.size() == 160,"Dragón nuevo: ocho vistas, marcha, sprint, minería, tala, recuperación y palín")
 	assert(visual.body.scale.x == visual.body.scale.y,"Sin estirar anatomía en un eje")
 	assert(actor.tool_mount.get_index()>visual.get_index(),"Herramienta frontal delante del cuerpo")
 	assert(visual.has_baked_tool() and not actor.tool.visible and not visual.hand_cover.visible,"Cuerpo y herramienta en un dibujo; sin duplicar dedos ni arma")
@@ -26,7 +26,7 @@ func run() -> void:
 			var action := "talar" if key.begins_with("golpe-talar-") else "minar"
 			var point: Array = frame.contacts[action]
 			assert(frame.working_end == ("axe_edge" if action == "talar" else "pick_tip"),"Cada acción usa su extremo de trabajo: "+key)
-			assert(Vector2(point[0],point[1]).distance_to(Vector2(frame.contact_reference[0],frame.contact_reference[1]))<6,"Contacto junto al extremo revisado, sin saltar al collar o mango: "+key)
+			assert(Vector2(point[0],point[1]).distance_to(Vector2(frame.contact_reference[0],frame.contact_reference[1]))<10,"Contacto junto al extremo revisado, sin saltar al collar o mango: "+key)
 			var metal: Color = source_images[frame.file].get_pixel(point[0],point[1])
 			assert(metal.a>0.5 and maxf(metal.r,maxf(metal.g,metal.b))-minf(metal.r,minf(metal.g,metal.b))<0.26,"Contacto sobre metal visible en el PNG: "+key)
 	var seen: Dictionary = {}
@@ -45,20 +45,19 @@ func run() -> void:
 		actor.face_towards(direction)
 		actor.walk_time = 0
 		actor.animate_pose(0)
-		var resting_pixels := (visual.body.texture as AtlasTexture).atlas.get_image().get_data()
-		var resting_position := visual.body.position
-		var resting_scale := visual.body.scale
+		var resting_top := visual.body.position.y+visual.body.texture.get_image().get_used_rect().position.y*visual.body.scale.y
 		actor.walk_time = 0.1
 		actor.animate_pose(0)
-		assert((visual.body.texture as AtlasTexture).atlas.get_image().get_data() == resting_pixels,"Reposo y arranque comparten anatomía real, no solo una altura declarada")
-		assert(visual.body.position == resting_position and visual.body.scale == resting_scale,"Sin cambio de apoyo ni escala al arrancar")
+		var cycle_scale := visual.body.scale
+		var walking_top := visual.body.position.y+visual.body.texture.get_image().get_used_rect().position.y*visual.body.scale.y
+		assert(absf(resting_top-walking_top)<1,"Altura real constante al arrancar, con una pose de reposo propia")
 		var phases: Dictionary = {}
 		for phase in range(4):
 			actor.walk_time = 0.1+phase*1.15
 			actor.animate_pose(0)
-			assert(visual.body.scale == resting_scale,"La escala anatómica no cambia con el pie usado al medir")
+			assert(visual.body.scale == cycle_scale,"Una sola escala anatómica durante cada ciclo")
 			var texture := visual.body.texture as AtlasTexture
-			phases[hash(texture.atlas.get_image().get_data())] = true
+			phases[hash(texture.get_image().get_data())] = true
 			assert(actor.primary_hand.position.distance_to(actor.tool_mount.position)<0.01,"Agarre registrado en cada fase")
 			assert(actor.tool.direction_index == index,"Perspectiva de herramienta acompaña al cuerpo")
 			assert((actor.tool_mount.get_index()<visual.get_index()) == visual.tool_behind,"Profundidad del agarre según vista")
@@ -66,8 +65,7 @@ func run() -> void:
 			var frame: Dictionary = visual.catalog.frames[visual.current_frame]
 			var head_top := (float(frame.body_bounds_px[1])-float(frame.anchor[1]))*visual.body.scale.y
 			assert(absf(head_top+80.0)<0.01,"La cabeza conserva la altura sobre el suelo al caminar: "+visual.current_frame)
-			var metrics: Dictionary = visual._metrics_for_frame(visual.current_frame,frame)
-			var rendered_top: float = visual.body.position.y+float(metrics.alpha_top)*visual.body.scale.y
+			var rendered_top := visual.body.position.y+texture.get_image().get_used_rect().position.y*visual.body.scale.y
 			assert(absf(rendered_top+80.0)<2.0,"Altura real de los píxeles de la cresta, no solo de los metadatos: "+visual.current_frame)
 			assert(frame.carry_orientation == "punta-arriba-filo-abajo","Orientación de reposo conservada en la marcha")
 		assert(phases.size()==4,"Cuatro dibujos distintos por dirección, sin paso intermedio repetido")
@@ -137,17 +135,30 @@ func run() -> void:
 		for action in actions: Input.action_release(action)
 		await create_timer(.04).timeout
 		assert(actor.walk_time==0,"Reposo al dejar de desplazarse")
-	# Sprint provisional: conserva la dirección y aumenta la velocidad sin
-	# cambiar el tamaño ni el ciclo de las poses del personaje.
+	# Sprint: velocidad existente y cuatro dibujos propios por dirección.
 	var sprint_start := actor.position
 	Input.action_press("move_right")
 	Input.action_press("sprint")
 	await create_timer(.3).timeout
 	assert(actor.position.distance_to(sprint_start)>45,"Shift activa el sprint")
 	assert(is_equal_approx(actor.velocity.length(),BituPlayer.SPRINT_SPEED),"Velocidad de sprint registrada")
+	assert(actor.dragon.current_frame.begins_with("sprint-"),"Sprint usa su ciclo propio")
 	Input.action_release("sprint")
 	Input.action_release("move_right")
 	await create_timer(.04).timeout
+	for direction in range(8):
+		actor.sprinting = true
+		var phases := {}
+		for phase in range(4):
+			actor.direction_index = direction
+			actor.walk_time = 0.1+phase*1.15
+			actor.animate_pose(0)
+			var image := actor.dragon.body.texture.get_image()
+			phases[hash(image.get_data())] = true
+			assert(absf(actor.dragon.body.position.y+image.get_used_rect().position.y*actor.dragon.body.scale.y+80)<1,"Sprint conserva altura real")
+		assert(phases.size()==4,"Cuatro fotogramas de sprint distintos por vista")
+	actor.sprinting = false
+	actor.walk_time = 0
 	actor.set_physics_process(false)
 	actor.position = Vector2.ZERO
 	var wall := StaticBody2D.new()

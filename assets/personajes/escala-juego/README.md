@@ -13,7 +13,7 @@ Los seis NPC comparten **ocho vistas de reposo sin instrumentos**: frente, espal
 
 Cada carpeta contiene PNG individuales, atlas, `animaciones.tres` y `personaje.tscn`. Sprite no centrado en(-64,-112) respecto al nodo de suelo. Las animaciones del recurso son poses de un fotograma, no ciclos de conversación. Unamahloni conserva una variación de muestreo de1px (79–80).
 
-**Protagonista conservado:** al preparar la publicación se detectó una actualización remota con112 fotogramas y cuerpo de80px, herramientas integradas en los dibujos y golpes revisados. Se conserva esa versión íntegra en `../dragon-avatar/` y su renderizador de juego; este paquete no la sustituye por los80 dibujos antiguos ni altera sus agarres. Total actual:160 fotogramas, seis NPC×8 más protagonista112. Solo él tiene el conjunto completo.
+**Protagonista rehecho:** reinicio completo solicitado después por el usuario. Nuevo conjunto en `../dragon/`:160 registros, diez PNG fuente,80px, ocho vistas y ciclos de marcha/sprint/trabajo. Este paquete de NPC se conserva idéntico. Total vigente:208 registros,48NPC +160protagonista. El dragón usa atlas grandes con AtlasTexture; el renderizador real se compara con los NPC nativos. Arte anterior retirado, aprobación visual pendiente.
 
 ## Revisión
 

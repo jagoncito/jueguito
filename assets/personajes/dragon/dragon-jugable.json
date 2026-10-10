@@ -1,0 +1,5559 @@
+{
+  "version": 1,
+  "art_revision": "reinicio-pixel-npc-2026-10-10",
+  "height_px": 80,
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "sources": {
+    "sin-equipo.png": {
+      "size_px": [
+        1774,
+        887
+      ],
+      "sha256": "5aa8a837fe28434b8d4d6108e120618d5b0374229990a3c1c2202664ec15b64f"
+    },
+    "reposo.png": {
+      "size_px": [
+        1774,
+        887
+      ],
+      "sha256": "9b9ff5afd77161adc75903c0976e7c775bc576cfb1752c933d475eba5ed3902a"
+    },
+    "marcha.png": {
+      "size_px": [
+        887,
+        1774
+      ],
+      "sha256": "8fefbf4addbf30b5764c1010c33f95af03bd3a0e5abb260a7310cd414d189cf1"
+    },
+    "sprint.png": {
+      "size_px": [
+        887,
+        1774
+      ],
+      "sha256": "a4defcd76be450e8c475cec092cef8d6a4376839102c255de2e6b0d95c61c319"
+    },
+    "mineria.png": {
+      "size_px": [
+        887,
+        1774
+      ],
+      "sha256": "78f53699fe1b4103ad803bd5d007904aa9aa273fb6f53d74dee0efd3e3c287f3"
+    },
+    "tala.png": {
+      "size_px": [
+        887,
+        1774
+      ],
+      "sha256": "16f705a868487bf451ced74427bcb0c830d44fa61d1a3ba6d5c208d9325159fd"
+    },
+    "arrodillado.png": {
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "a071986e7859cb959391202bd6077fe1199da7e525924b4585340d8f571c14be"
+    },
+    "levantar.png": {
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "2a6e400ebe6080da79b5bb20125a15f9276dd8caa7b0ac177b0831f16f61ccaa"
+    },
+    "impacto-minar.png": {
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "e8da427800c581739f51d6bab87aa007ca3e389d8de0b61a58bb10b5fcd67769"
+    },
+    "impacto-talar.png": {
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "d4a7e27fdcb29700aca6510a2b64035fc6a65eb89aed30760ad20f58eab87800"
+    }
+  },
+  "frames": {
+    "reposo-S": {
+      "file": "reposo.png",
+      "region": [
+        142,
+        79,
+        197,
+        329
+      ],
+      "anchor": [
+        283,
+        408
+      ],
+      "scale": 0.24316109422492402,
+      "hand": [
+        278,
+        231
+      ],
+      "other_hand": [
+        278,
+        231
+      ],
+      "body_bounds_px": [
+        142,
+        79,
+        197,
+        329
+      ],
+      "body_height_px": 329,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sin-equipo-S": {
+      "file": "sin-equipo.png",
+      "region": [
+        174,
+        84,
+        162,
+        320
+      ],
+      "anchor": [
+        275,
+        404
+      ],
+      "scale": 0.25,
+      "hand": [
+        230,
+        229
+      ],
+      "other_hand": [
+        230,
+        229
+      ],
+      "body_bounds_px": [
+        174,
+        84,
+        162,
+        320
+      ],
+      "body_height_px": 320,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": false
+    },
+    "andar-a-S": {
+      "file": "marcha.png",
+      "region": [
+        57,
+        18,
+        106,
+        193
+      ],
+      "anchor": [
+        130,
+        211
+      ],
+      "scale": 0.41450777202072536,
+      "hand": [
+        106,
+        102
+      ],
+      "other_hand": [
+        106,
+        102
+      ],
+      "body_bounds_px": [
+        57,
+        18,
+        106,
+        193
+      ],
+      "body_height_px": 193,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-a-S": {
+      "file": "marcha.png",
+      "region": [
+        279,
+        18,
+        104,
+        193
+      ],
+      "anchor": [
+        348,
+        211
+      ],
+      "scale": 0.41450777202072536,
+      "hand": [
+        323,
+        101
+      ],
+      "other_hand": [
+        323,
+        101
+      ],
+      "body_bounds_px": [
+        279,
+        18,
+        104,
+        193
+      ],
+      "body_height_px": 193,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "andar-b-S": {
+      "file": "marcha.png",
+      "region": [
+        498,
+        19,
+        103,
+        191
+      ],
+      "anchor": [
+        570,
+        212
+      ],
+      "scale": 0.41450777202072536,
+      "hand": [
+        543,
+        102
+      ],
+      "other_hand": [
+        543,
+        102
+      ],
+      "body_bounds_px": [
+        498,
+        19,
+        103,
+        193
+      ],
+      "body_height_px": 193,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-b-S": {
+      "file": "marcha.png",
+      "region": [
+        721,
+        19,
+        103,
+        191
+      ],
+      "anchor": [
+        791,
+        212
+      ],
+      "scale": 0.41450777202072536,
+      "hand": [
+        767,
+        102
+      ],
+      "other_hand": [
+        767,
+        102
+      ],
+      "body_bounds_px": [
+        721,
+        19,
+        103,
+        193
+      ],
+      "body_height_px": 193,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-a-S": {
+      "file": "sprint.png",
+      "region": [
+        46,
+        9,
+        129,
+        201
+      ],
+      "anchor": [
+        116,
+        210
+      ],
+      "scale": 0.39800995024875624,
+      "hand": [
+        112,
+        98
+      ],
+      "other_hand": [
+        112,
+        98
+      ],
+      "body_bounds_px": [
+        46,
+        9,
+        129,
+        201
+      ],
+      "body_height_px": 201,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-a-S": {
+      "file": "sprint.png",
+      "region": [
+        271,
+        9,
+        126,
+        186
+      ],
+      "anchor": [
+        360,
+        210
+      ],
+      "scale": 0.39800995024875624,
+      "hand": [
+        356,
+        98
+      ],
+      "other_hand": [
+        356,
+        98
+      ],
+      "body_bounds_px": [
+        271,
+        9,
+        126,
+        201
+      ],
+      "body_height_px": 201,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-b-S": {
+      "file": "sprint.png",
+      "region": [
+        498,
+        9,
+        121,
+        201
+      ],
+      "anchor": [
+        582,
+        210
+      ],
+      "scale": 0.39800995024875624,
+      "hand": [
+        553,
+        99
+      ],
+      "other_hand": [
+        553,
+        99
+      ],
+      "body_bounds_px": [
+        498,
+        9,
+        121,
+        201
+      ],
+      "body_height_px": 201,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-b-S": {
+      "file": "sprint.png",
+      "region": [
+        714,
+        9,
+        125,
+        202
+      ],
+      "anchor": [
+        797,
+        210
+      ],
+      "scale": 0.39800995024875624,
+      "hand": [
+        797,
+        96
+      ],
+      "other_hand": [
+        797,
+        96
+      ],
+      "body_bounds_px": [
+        714,
+        9,
+        125,
+        201
+      ],
+      "body_height_px": 201,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "medio-S": {
+      "file": "mineria.png",
+      "region": [
+        43,
+        41,
+        117,
+        177
+      ],
+      "anchor": [
+        91,
+        218
+      ],
+      "scale": 0.4519774011299435,
+      "hand": [
+        124,
+        120
+      ],
+      "other_hand": [
+        124,
+        120
+      ],
+      "body_bounds_px": [
+        43,
+        47,
+        117,
+        171
+      ],
+      "body_height_px": 171,
+      "presentation_height_px": 77.28813559322033,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-S": {
+      "file": "mineria.png",
+      "region": [
+        265,
+        21,
+        164,
+        199
+      ],
+      "anchor": [
+        350,
+        220
+      ],
+      "scale": 0.4519774011299435,
+      "hand": [
+        335,
+        80
+      ],
+      "other_hand": [
+        335,
+        80
+      ],
+      "body_bounds_px": [
+        265,
+        21,
+        164,
+        199
+      ],
+      "body_height_px": 199,
+      "presentation_height_px": 89.94350282485875,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-S": {
+      "file": "mineria.png",
+      "region": [
+        719,
+        41,
+        106,
+        178
+      ],
+      "anchor": [
+        761,
+        219
+      ],
+      "scale": 0.4519774011299435,
+      "hand": [
+        792,
+        121
+      ],
+      "other_hand": [
+        792,
+        121
+      ],
+      "body_bounds_px": [
+        719,
+        47,
+        106,
+        172
+      ],
+      "body_height_px": 172,
+      "presentation_height_px": 77.74011299435028,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "medio-talar-S": {
+      "file": "tala.png",
+      "region": [
+        45,
+        47,
+        118,
+        171
+      ],
+      "anchor": [
+        95,
+        218
+      ],
+      "scale": 0.4678362573099415,
+      "hand": [
+        99,
+        123
+      ],
+      "other_hand": [
+        99,
+        123
+      ],
+      "body_bounds_px": [
+        45,
+        57,
+        118,
+        161
+      ],
+      "body_height_px": 161,
+      "presentation_height_px": 75.32163742690058,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-talar-S": {
+      "file": "tala.png",
+      "region": [
+        258,
+        25,
+        175,
+        195
+      ],
+      "anchor": [
+        346,
+        220
+      ],
+      "scale": 0.4678362573099415,
+      "hand": [
+        274,
+        63
+      ],
+      "other_hand": [
+        274,
+        63
+      ],
+      "body_bounds_px": [
+        258,
+        25,
+        175,
+        195
+      ],
+      "body_height_px": 195,
+      "presentation_height_px": 91.22807017543859,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-talar-S": {
+      "file": "tala.png",
+      "region": [
+        714,
+        47,
+        115,
+        171
+      ],
+      "anchor": [
+        762,
+        218
+      ],
+      "scale": 0.4678362573099415,
+      "hand": [
+        792,
+        122
+      ],
+      "other_hand": [
+        792,
+        122
+      ],
+      "body_bounds_px": [
+        714,
+        58,
+        115,
+        160
+      ],
+      "body_height_px": 160,
+      "presentation_height_px": 74.85380116959064,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "golpe-S": {
+      "file": "impacto-minar.png",
+      "region": [
+        221,
+        37,
+        184,
+        289
+      ],
+      "anchor": [
+        312,
+        296
+      ],
+      "scale": 0.26,
+      "hand": [
+        313,
+        162
+      ],
+      "other_hand": [
+        313,
+        162
+      ],
+      "body_bounds_px": [
+        221,
+        53,
+        184,
+        243
+      ],
+      "body_height_px": 243,
+      "presentation_height_px": 63.18,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "minar": [
+          310,
+          321
+        ]
+      },
+      "working_end": "pick_tip",
+      "contact_reference": [
+        310,
+        323
+      ]
+    },
+    "golpe-talar-S": {
+      "file": "impacto-talar.png",
+      "region": [
+        224,
+        34,
+        198,
+        273
+      ],
+      "anchor": [
+        315,
+        293
+      ],
+      "scale": 0.26,
+      "hand": [
+        316,
+        152
+      ],
+      "other_hand": [
+        316,
+        152
+      ],
+      "body_bounds_px": [
+        224,
+        34,
+        198,
+        259
+      ],
+      "body_height_px": 259,
+      "presentation_height_px": 67.34,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "talar": [
+          296,
+          300
+        ]
+      },
+      "working_end": "axe_edge",
+      "contact_reference": [
+        296,
+        302
+      ]
+    },
+    "arrodillado-S": {
+      "file": "arrodillado.png",
+      "region": [
+        88,
+        101,
+        139,
+        203
+      ],
+      "anchor": [
+        156,
+        304
+      ],
+      "scale": 0.285,
+      "hand": [
+        141,
+        290
+      ],
+      "other_hand": [
+        141,
+        290
+      ],
+      "body_bounds_px": [
+        88,
+        101,
+        139,
+        203
+      ],
+      "body_height_px": 203,
+      "presentation_height_px": 57.855,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        136,
+        285,
+        10,
+        10
+      ]
+    },
+    "levantar-S": {
+      "file": "levantar.png",
+      "region": [
+        304,
+        17,
+        211,
+        289
+      ],
+      "anchor": [
+        376,
+        306
+      ],
+      "scale": 0.26,
+      "hand": [
+        419,
+        203
+      ],
+      "other_hand": [
+        419,
+        203
+      ],
+      "body_bounds_px": [
+        304,
+        17,
+        211,
+        289
+      ],
+      "body_height_px": 289,
+      "presentation_height_px": 75.14,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        414,
+        198,
+        10,
+        10
+      ]
+    },
+    "reposo-SW": {
+      "file": "reposo.png",
+      "region": [
+        546,
+        82,
+        253,
+        330
+      ],
+      "anchor": [
+        672,
+        412
+      ],
+      "scale": 0.24242424242424243,
+      "hand": [
+        608,
+        229
+      ],
+      "other_hand": [
+        608,
+        229
+      ],
+      "body_bounds_px": [
+        546,
+        82,
+        253,
+        330
+      ],
+      "body_height_px": 330,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sin-equipo-SW": {
+      "file": "sin-equipo.png",
+      "region": [
+        575,
+        85,
+        205,
+        322
+      ],
+      "anchor": [
+        668,
+        407
+      ],
+      "scale": 0.2484472049689441,
+      "hand": [
+        609,
+        228
+      ],
+      "other_hand": [
+        609,
+        228
+      ],
+      "body_bounds_px": [
+        575,
+        85,
+        205,
+        322
+      ],
+      "body_height_px": 322,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": false
+    },
+    "andar-a-SW": {
+      "file": "marcha.png",
+      "region": [
+        37,
+        228,
+        143,
+        192
+      ],
+      "anchor": [
+        115,
+        420
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        99,
+        317
+      ],
+      "other_hand": [
+        99,
+        317
+      ],
+      "body_bounds_px": [
+        37,
+        228,
+        143,
+        192
+      ],
+      "body_height_px": 192,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-a-SW": {
+      "file": "marcha.png",
+      "region": [
+        260,
+        227,
+        140,
+        195
+      ],
+      "anchor": [
+        337,
+        419
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        320,
+        311
+      ],
+      "other_hand": [
+        320,
+        311
+      ],
+      "body_bounds_px": [
+        260,
+        227,
+        140,
+        192
+      ],
+      "body_height_px": 192,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "andar-b-SW": {
+      "file": "marcha.png",
+      "region": [
+        477,
+        227,
+        145,
+        193
+      ],
+      "anchor": [
+        556,
+        419
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        520,
+        310
+      ],
+      "other_hand": [
+        520,
+        310
+      ],
+      "body_bounds_px": [
+        477,
+        227,
+        145,
+        192
+      ],
+      "body_height_px": 192,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-b-SW": {
+      "file": "marcha.png",
+      "region": [
+        697,
+        229,
+        136,
+        194
+      ],
+      "anchor": [
+        775,
+        421
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        742,
+        317
+      ],
+      "other_hand": [
+        742,
+        317
+      ],
+      "body_bounds_px": [
+        697,
+        229,
+        136,
+        192
+      ],
+      "body_height_px": 192,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-a-SW": {
+      "file": "sprint.png",
+      "region": [
+        38,
+        224,
+        170,
+        194
+      ],
+      "anchor": [
+        127,
+        418
+      ],
+      "scale": 0.41237113402061853,
+      "hand": [
+        105,
+        318
+      ],
+      "other_hand": [
+        105,
+        318
+      ],
+      "body_bounds_px": [
+        38,
+        224,
+        170,
+        194
+      ],
+      "body_height_px": 194,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-a-SW": {
+      "file": "sprint.png",
+      "region": [
+        258,
+        221,
+        176,
+        199
+      ],
+      "anchor": [
+        351,
+        415
+      ],
+      "scale": 0.41237113402061853,
+      "hand": [
+        305,
+        313
+      ],
+      "other_hand": [
+        305,
+        313
+      ],
+      "body_bounds_px": [
+        258,
+        221,
+        176,
+        194
+      ],
+      "body_height_px": 194,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-b-SW": {
+      "file": "sprint.png",
+      "region": [
+        483,
+        225,
+        172,
+        195
+      ],
+      "anchor": [
+        572,
+        419
+      ],
+      "scale": 0.41237113402061853,
+      "hand": [
+        531,
+        320
+      ],
+      "other_hand": [
+        531,
+        320
+      ],
+      "body_bounds_px": [
+        483,
+        225,
+        172,
+        194
+      ],
+      "body_height_px": 194,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-b-SW": {
+      "file": "sprint.png",
+      "region": [
+        704,
+        226,
+        171,
+        189
+      ],
+      "anchor": [
+        791,
+        420
+      ],
+      "scale": 0.41237113402061853,
+      "hand": [
+        749,
+        309
+      ],
+      "other_hand": [
+        749,
+        309
+      ],
+      "body_bounds_px": [
+        704,
+        226,
+        171,
+        194
+      ],
+      "body_height_px": 194,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "medio-SW": {
+      "file": "mineria.png",
+      "region": [
+        32,
+        261,
+        162,
+        178
+      ],
+      "anchor": [
+        117,
+        439
+      ],
+      "scale": 0.449438202247191,
+      "hand": [
+        110,
+        344
+      ],
+      "other_hand": [
+        110,
+        344
+      ],
+      "body_bounds_px": [
+        32,
+        264,
+        162,
+        175
+      ],
+      "body_height_px": 175,
+      "presentation_height_px": 78.65168539325842,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-SW": {
+      "file": "mineria.png",
+      "region": [
+        257,
+        236,
+        168,
+        203
+      ],
+      "anchor": [
+        346,
+        439
+      ],
+      "scale": 0.449438202247191,
+      "hand": [
+        288,
+        278
+      ],
+      "other_hand": [
+        288,
+        278
+      ],
+      "body_bounds_px": [
+        257,
+        236,
+        168,
+        203
+      ],
+      "body_height_px": 203,
+      "presentation_height_px": 91.23595505617978,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-SW": {
+      "file": "mineria.png",
+      "region": [
+        717,
+        263,
+        141,
+        176
+      ],
+      "anchor": [
+        788,
+        439
+      ],
+      "scale": 0.449438202247191,
+      "hand": [
+        765,
+        345
+      ],
+      "other_hand": [
+        765,
+        345
+      ],
+      "body_bounds_px": [
+        717,
+        266,
+        141,
+        173
+      ],
+      "body_height_px": 173,
+      "presentation_height_px": 77.75280898876404,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "medio-talar-SW": {
+      "file": "tala.png",
+      "region": [
+        31,
+        254,
+        172,
+        180
+      ],
+      "anchor": [
+        119,
+        434
+      ],
+      "scale": 0.4444444444444444,
+      "hand": [
+        94,
+        338
+      ],
+      "other_hand": [
+        94,
+        338
+      ],
+      "body_bounds_px": [
+        31,
+        256,
+        172,
+        178
+      ],
+      "body_height_px": 178,
+      "presentation_height_px": 79.1111111111111,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-talar-SW": {
+      "file": "tala.png",
+      "region": [
+        251,
+        234,
+        184,
+        200
+      ],
+      "anchor": [
+        345,
+        434
+      ],
+      "scale": 0.4444444444444444,
+      "hand": [
+        262,
+        276
+      ],
+      "other_hand": [
+        262,
+        276
+      ],
+      "body_bounds_px": [
+        251,
+        234,
+        184,
+        200
+      ],
+      "body_height_px": 200,
+      "presentation_height_px": 88.88888888888889,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-talar-SW": {
+      "file": "tala.png",
+      "region": [
+        700,
+        254,
+        170,
+        180
+      ],
+      "anchor": [
+        785,
+        434
+      ],
+      "scale": 0.4444444444444444,
+      "hand": [
+        776,
+        338
+      ],
+      "other_hand": [
+        776,
+        338
+      ],
+      "body_bounds_px": [
+        700,
+        256,
+        170,
+        178
+      ],
+      "body_height_px": 178,
+      "presentation_height_px": 79.1111111111111,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "golpe-SW": {
+      "file": "impacto-minar.png",
+      "region": [
+        762,
+        57,
+        353,
+        264
+      ],
+      "anchor": [
+        951,
+        310
+      ],
+      "scale": 0.26,
+      "hand": [
+        882,
+        171
+      ],
+      "other_hand": [
+        882,
+        171
+      ],
+      "body_bounds_px": [
+        762,
+        74,
+        353,
+        236
+      ],
+      "body_height_px": 236,
+      "presentation_height_px": 61.36,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "minar": [
+          827,
+          315
+        ]
+      },
+      "working_end": "pick_tip",
+      "contact_reference": [
+        827,
+        315
+      ]
+    },
+    "golpe-talar-SW": {
+      "file": "impacto-talar.png",
+      "region": [
+        748,
+        27,
+        336,
+        274
+      ],
+      "anchor": [
+        956,
+        301
+      ],
+      "scale": 0.26,
+      "hand": [
+        891,
+        146
+      ],
+      "other_hand": [
+        891,
+        146
+      ],
+      "body_bounds_px": [
+        748,
+        47,
+        336,
+        254
+      ],
+      "body_height_px": 254,
+      "presentation_height_px": 66.04,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "talar": [
+          779,
+          291
+        ]
+      },
+      "working_end": "axe_edge",
+      "contact_reference": [
+        779,
+        291
+      ]
+    },
+    "arrodillado-SW": {
+      "file": "arrodillado.png",
+      "region": [
+        361,
+        97,
+        227,
+        208
+      ],
+      "anchor": [
+        450,
+        305
+      ],
+      "scale": 0.285,
+      "hand": [
+        391,
+        291
+      ],
+      "other_hand": [
+        391,
+        291
+      ],
+      "body_bounds_px": [
+        361,
+        97,
+        227,
+        208
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 59.279999999999994,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        386,
+        286,
+        10,
+        10
+      ]
+    },
+    "levantar-SW": {
+      "file": "levantar.png",
+      "region": [
+        804,
+        19,
+        269,
+        287
+      ],
+      "anchor": [
+        919,
+        306
+      ],
+      "scale": 0.26,
+      "hand": [
+        887,
+        211
+      ],
+      "other_hand": [
+        887,
+        211
+      ],
+      "body_bounds_px": [
+        804,
+        19,
+        269,
+        287
+      ],
+      "body_height_px": 287,
+      "presentation_height_px": 74.62,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        882,
+        206,
+        10,
+        10
+      ]
+    },
+    "reposo-W": {
+      "file": "reposo.png",
+      "region": [
+        972,
+        80,
+        261,
+        334
+      ],
+      "anchor": [
+        1083,
+        414
+      ],
+      "scale": 0.23952095808383234,
+      "hand": [
+        1029,
+        240
+      ],
+      "other_hand": [
+        1029,
+        240
+      ],
+      "body_bounds_px": [
+        972,
+        80,
+        261,
+        334
+      ],
+      "body_height_px": 334,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sin-equipo-W": {
+      "file": "sin-equipo.png",
+      "region": [
+        991,
+        83,
+        234,
+        324
+      ],
+      "anchor": [
+        1082,
+        407
+      ],
+      "scale": 0.24691358024691357,
+      "hand": [
+        1046,
+        230
+      ],
+      "other_hand": [
+        1046,
+        230
+      ],
+      "body_bounds_px": [
+        991,
+        83,
+        234,
+        324
+      ],
+      "body_height_px": 324,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": false
+    },
+    "andar-a-W": {
+      "file": "marcha.png",
+      "region": [
+        50,
+        440,
+        165,
+        199
+      ],
+      "anchor": [
+        113,
+        639
+      ],
+      "scale": 0.4020100502512563,
+      "hand": [
+        88,
+        527
+      ],
+      "other_hand": [
+        88,
+        527
+      ],
+      "body_bounds_px": [
+        50,
+        440,
+        165,
+        199
+      ],
+      "body_height_px": 199,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-a-W": {
+      "file": "marcha.png",
+      "region": [
+        256,
+        439,
+        175,
+        198
+      ],
+      "anchor": [
+        323,
+        638
+      ],
+      "scale": 0.4020100502512563,
+      "hand": [
+        297,
+        531
+      ],
+      "other_hand": [
+        297,
+        531
+      ],
+      "body_bounds_px": [
+        256,
+        439,
+        175,
+        199
+      ],
+      "body_height_px": 199,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "andar-b-W": {
+      "file": "marcha.png",
+      "region": [
+        474,
+        437,
+        167,
+        202
+      ],
+      "anchor": [
+        541,
+        636
+      ],
+      "scale": 0.4020100502512563,
+      "hand": [
+        511,
+        524
+      ],
+      "other_hand": [
+        511,
+        524
+      ],
+      "body_bounds_px": [
+        474,
+        437,
+        167,
+        199
+      ],
+      "body_height_px": 199,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-b-W": {
+      "file": "marcha.png",
+      "region": [
+        693,
+        441,
+        169,
+        202
+      ],
+      "anchor": [
+        759,
+        640
+      ],
+      "scale": 0.4020100502512563,
+      "hand": [
+        731,
+        529
+      ],
+      "other_hand": [
+        731,
+        529
+      ],
+      "body_bounds_px": [
+        693,
+        441,
+        169,
+        199
+      ],
+      "body_height_px": 199,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-a-W": {
+      "file": "sprint.png",
+      "region": [
+        46,
+        432,
+        190,
+        208
+      ],
+      "anchor": [
+        127,
+        640
+      ],
+      "scale": 0.38461538461538464,
+      "hand": [
+        83,
+        522
+      ],
+      "other_hand": [
+        83,
+        522
+      ],
+      "body_bounds_px": [
+        46,
+        432,
+        190,
+        208
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-a-W": {
+      "file": "sprint.png",
+      "region": [
+        267,
+        432,
+        186,
+        206
+      ],
+      "anchor": [
+        347,
+        640
+      ],
+      "scale": 0.38461538461538464,
+      "hand": [
+        305,
+        524
+      ],
+      "other_hand": [
+        305,
+        524
+      ],
+      "body_bounds_px": [
+        267,
+        432,
+        186,
+        208
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-b-W": {
+      "file": "sprint.png",
+      "region": [
+        489,
+        432,
+        181,
+        208
+      ],
+      "anchor": [
+        566,
+        640
+      ],
+      "scale": 0.38461538461538464,
+      "hand": [
+        523,
+        522
+      ],
+      "other_hand": [
+        523,
+        522
+      ],
+      "body_bounds_px": [
+        489,
+        432,
+        181,
+        208
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-b-W": {
+      "file": "sprint.png",
+      "region": [
+        711,
+        432,
+        172,
+        204
+      ],
+      "anchor": [
+        782,
+        640
+      ],
+      "scale": 0.38461538461538464,
+      "hand": [
+        743,
+        520
+      ],
+      "other_hand": [
+        743,
+        520
+      ],
+      "body_bounds_px": [
+        711,
+        432,
+        172,
+        208
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "medio-W": {
+      "file": "mineria.png",
+      "region": [
+        37,
+        482,
+        160,
+        179
+      ],
+      "anchor": [
+        112,
+        661
+      ],
+      "scale": 0.44692737430167595,
+      "hand": [
+        92,
+        559
+      ],
+      "other_hand": [
+        92,
+        559
+      ],
+      "body_bounds_px": [
+        37,
+        482,
+        160,
+        179
+      ],
+      "body_height_px": 179,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-W": {
+      "file": "mineria.png",
+      "region": [
+        260,
+        452,
+        164,
+        208
+      ],
+      "anchor": [
+        338,
+        660
+      ],
+      "scale": 0.44692737430167595,
+      "hand": [
+        292,
+        492
+      ],
+      "other_hand": [
+        292,
+        492
+      ],
+      "body_bounds_px": [
+        260,
+        452,
+        164,
+        208
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 92.9608938547486,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-W": {
+      "file": "mineria.png",
+      "region": [
+        710,
+        482,
+        154,
+        178
+      ],
+      "anchor": [
+        783,
+        660
+      ],
+      "scale": 0.44692737430167595,
+      "hand": [
+        764,
+        563
+      ],
+      "other_hand": [
+        764,
+        563
+      ],
+      "body_bounds_px": [
+        710,
+        487,
+        154,
+        173
+      ],
+      "body_height_px": 173,
+      "presentation_height_px": 77.31843575418993,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "medio-talar-W": {
+      "file": "tala.png",
+      "region": [
+        32,
+        459,
+        178,
+        189
+      ],
+      "anchor": [
+        116,
+        648
+      ],
+      "scale": 0.42328042328042326,
+      "hand": [
+        91,
+        544
+      ],
+      "other_hand": [
+        91,
+        544
+      ],
+      "body_bounds_px": [
+        32,
+        464,
+        178,
+        184
+      ],
+      "body_height_px": 184,
+      "presentation_height_px": 77.88359788359787,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-talar-W": {
+      "file": "tala.png",
+      "region": [
+        255,
+        443,
+        180,
+        205
+      ],
+      "anchor": [
+        349,
+        648
+      ],
+      "scale": 0.42328042328042326,
+      "hand": [
+        275,
+        473
+      ],
+      "other_hand": [
+        275,
+        473
+      ],
+      "body_bounds_px": [
+        255,
+        443,
+        180,
+        205
+      ],
+      "body_height_px": 205,
+      "presentation_height_px": 86.77248677248677,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-talar-W": {
+      "file": "tala.png",
+      "region": [
+        701,
+        460,
+        171,
+        188
+      ],
+      "anchor": [
+        782,
+        648
+      ],
+      "scale": 0.42328042328042326,
+      "hand": [
+        769,
+        542
+      ],
+      "other_hand": [
+        769,
+        542
+      ],
+      "body_bounds_px": [
+        701,
+        461,
+        171,
+        187
+      ],
+      "body_height_px": 187,
+      "presentation_height_px": 79.15343915343915,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "golpe-W": {
+      "file": "impacto-minar.png",
+      "region": [
+        144,
+        356,
+        396,
+        258
+      ],
+      "anchor": [
+        319,
+        611
+      ],
+      "scale": 0.26,
+      "hand": [
+        281,
+        467
+      ],
+      "other_hand": [
+        281,
+        467
+      ],
+      "body_bounds_px": [
+        144,
+        374,
+        396,
+        237
+      ],
+      "body_height_px": 237,
+      "presentation_height_px": 61.620000000000005,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "minar": [
+          210,
+          609
+        ]
+      },
+      "working_end": "pick_tip",
+      "contact_reference": [
+        211,
+        609
+      ]
+    },
+    "golpe-talar-W": {
+      "file": "impacto-talar.png",
+      "region": [
+        145,
+        342,
+        399,
+        257
+      ],
+      "anchor": [
+        316,
+        595
+      ],
+      "scale": 0.26,
+      "hand": [
+        319,
+        460
+      ],
+      "other_hand": [
+        319,
+        460
+      ],
+      "body_bounds_px": [
+        145,
+        353,
+        399,
+        242
+      ],
+      "body_height_px": 242,
+      "presentation_height_px": 62.92,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "talar": [
+          159,
+          557
+        ]
+      },
+      "working_end": "axe_edge",
+      "contact_reference": [
+        153,
+        559
+      ]
+    },
+    "arrodillado-W": {
+      "file": "arrodillado.png",
+      "region": [
+        676,
+        96,
+        233,
+        208
+      ],
+      "anchor": [
+        765,
+        304
+      ],
+      "scale": 0.285,
+      "hand": [
+        701,
+        293
+      ],
+      "other_hand": [
+        701,
+        293
+      ],
+      "body_bounds_px": [
+        676,
+        96,
+        233,
+        208
+      ],
+      "body_height_px": 208,
+      "presentation_height_px": 59.279999999999994,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        696,
+        288,
+        10,
+        10
+      ]
+    },
+    "levantar-W": {
+      "file": "levantar.png",
+      "region": [
+        281,
+        326,
+        288,
+        282
+      ],
+      "anchor": [
+        379,
+        608
+      ],
+      "scale": 0.26,
+      "hand": [
+        315,
+        496
+      ],
+      "other_hand": [
+        315,
+        496
+      ],
+      "body_bounds_px": [
+        281,
+        326,
+        288,
+        282
+      ],
+      "body_height_px": 282,
+      "presentation_height_px": 73.32000000000001,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        310,
+        491,
+        10,
+        10
+      ]
+    },
+    "reposo-NW": {
+      "file": "reposo.png",
+      "region": [
+        1417,
+        78,
+        251,
+        327
+      ],
+      "anchor": [
+        1505,
+        401
+      ],
+      "scale": 0.2476780185758514,
+      "hand": [
+        1481,
+        276
+      ],
+      "other_hand": [
+        1481,
+        276
+      ],
+      "body_bounds_px": [
+        1417,
+        78,
+        251,
+        323
+      ],
+      "body_height_px": 323,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sin-equipo-NW": {
+      "file": "sin-equipo.png",
+      "region": [
+        1440,
+        79,
+        203,
+        325
+      ],
+      "anchor": [
+        1501,
+        398
+      ],
+      "scale": 0.2507836990595611,
+      "hand": [
+        1445,
+        295
+      ],
+      "other_hand": [
+        1445,
+        295
+      ],
+      "body_bounds_px": [
+        1440,
+        79,
+        203,
+        319
+      ],
+      "body_height_px": 319,
+      "presentation_height_px": 79.99999999999999,
+      "tool_behind": true,
+      "baked_tool": false
+    },
+    "andar-a-NW": {
+      "file": "marcha.png",
+      "region": [
+        48,
+        665,
+        146,
+        198
+      ],
+      "anchor": [
+        99,
+        846
+      ],
+      "scale": 0.4419889502762431,
+      "hand": [
+        69,
+        761
+      ],
+      "other_hand": [
+        69,
+        761
+      ],
+      "body_bounds_px": [
+        48,
+        665,
+        146,
+        181
+      ],
+      "body_height_px": 181,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-a-NW": {
+      "file": "marcha.png",
+      "region": [
+        276,
+        665,
+        144,
+        198
+      ],
+      "anchor": [
+        326,
+        846
+      ],
+      "scale": 0.4419889502762431,
+      "hand": [
+        296,
+        757
+      ],
+      "other_hand": [
+        296,
+        757
+      ],
+      "body_bounds_px": [
+        276,
+        665,
+        144,
+        181
+      ],
+      "body_height_px": 181,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "andar-b-NW": {
+      "file": "marcha.png",
+      "region": [
+        490,
+        664,
+        147,
+        201
+      ],
+      "anchor": [
+        545,
+        845
+      ],
+      "scale": 0.4419889502762431,
+      "hand": [
+        510,
+        762
+      ],
+      "other_hand": [
+        510,
+        762
+      ],
+      "body_bounds_px": [
+        490,
+        664,
+        147,
+        181
+      ],
+      "body_height_px": 181,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-b-NW": {
+      "file": "marcha.png",
+      "region": [
+        717,
+        665,
+        144,
+        201
+      ],
+      "anchor": [
+        768,
+        846
+      ],
+      "scale": 0.4419889502762431,
+      "hand": [
+        736,
+        764
+      ],
+      "other_hand": [
+        736,
+        764
+      ],
+      "body_bounds_px": [
+        717,
+        665,
+        144,
+        181
+      ],
+      "body_height_px": 181,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-a-NW": {
+      "file": "sprint.png",
+      "region": [
+        50,
+        658,
+        158,
+        205
+      ],
+      "anchor": [
+        111,
+        849
+      ],
+      "scale": 0.418848167539267,
+      "hand": [
+        86,
+        771
+      ],
+      "other_hand": [
+        86,
+        771
+      ],
+      "body_bounds_px": [
+        50,
+        658,
+        158,
+        191
+      ],
+      "body_height_px": 191,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-a-NW": {
+      "file": "sprint.png",
+      "region": [
+        279,
+        656,
+        163,
+        218
+      ],
+      "anchor": [
+        342,
+        847
+      ],
+      "scale": 0.418848167539267,
+      "hand": [
+        314,
+        770
+      ],
+      "other_hand": [
+        314,
+        770
+      ],
+      "body_bounds_px": [
+        279,
+        656,
+        163,
+        191
+      ],
+      "body_height_px": 191,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-b-NW": {
+      "file": "sprint.png",
+      "region": [
+        502,
+        657,
+        159,
+        206
+      ],
+      "anchor": [
+        559,
+        848
+      ],
+      "scale": 0.418848167539267,
+      "hand": [
+        521,
+        761
+      ],
+      "other_hand": [
+        521,
+        761
+      ],
+      "body_bounds_px": [
+        502,
+        657,
+        159,
+        191
+      ],
+      "body_height_px": 191,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-b-NW": {
+      "file": "sprint.png",
+      "region": [
+        723,
+        658,
+        153,
+        203
+      ],
+      "anchor": [
+        789,
+        849
+      ],
+      "scale": 0.418848167539267,
+      "hand": [
+        764,
+        769
+      ],
+      "other_hand": [
+        764,
+        769
+      ],
+      "body_bounds_px": [
+        723,
+        658,
+        153,
+        191
+      ],
+      "body_height_px": 191,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "medio-NW": {
+      "file": "mineria.png",
+      "region": [
+        61,
+        704,
+        115,
+        187
+      ],
+      "anchor": [
+        116,
+        878
+      ],
+      "scale": 0.45977011494252873,
+      "hand": [
+        98,
+        829
+      ],
+      "other_hand": [
+        98,
+        829
+      ],
+      "body_bounds_px": [
+        61,
+        710,
+        115,
+        168
+      ],
+      "body_height_px": 168,
+      "presentation_height_px": 77.24137931034483,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "cargar-NW": {
+      "file": "mineria.png",
+      "region": [
+        246,
+        683,
+        153,
+        194
+      ],
+      "anchor": [
+        330,
+        863
+      ],
+      "scale": 0.45977011494252873,
+      "hand": [
+        361,
+        722
+      ],
+      "other_hand": [
+        361,
+        722
+      ],
+      "body_bounds_px": [
+        246,
+        683,
+        153,
+        180
+      ],
+      "body_height_px": 180,
+      "presentation_height_px": 82.75862068965517,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "recuperar-NW": {
+      "file": "mineria.png",
+      "region": [
+        724,
+        705,
+        117,
+        186
+      ],
+      "anchor": [
+        777,
+        878
+      ],
+      "scale": 0.45977011494252873,
+      "hand": [
+        784,
+        834
+      ],
+      "other_hand": [
+        784,
+        834
+      ],
+      "body_bounds_px": [
+        724,
+        710,
+        117,
+        168
+      ],
+      "body_height_px": 168,
+      "presentation_height_px": 77.24137931034483,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "medio-talar-NW": {
+      "file": "tala.png",
+      "region": [
+        56,
+        671,
+        135,
+        201
+      ],
+      "anchor": [
+        115,
+        858
+      ],
+      "scale": 0.42780748663101603,
+      "hand": [
+        94,
+        796
+      ],
+      "other_hand": [
+        94,
+        796
+      ],
+      "body_bounds_px": [
+        56,
+        676,
+        135,
+        182
+      ],
+      "body_height_px": 182,
+      "presentation_height_px": 77.86096256684492,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "cargar-talar-NW": {
+      "file": "tala.png",
+      "region": [
+        235,
+        657,
+        176,
+        196
+      ],
+      "anchor": [
+        324,
+        839
+      ],
+      "scale": 0.42780748663101603,
+      "hand": [
+        376,
+        677
+      ],
+      "other_hand": [
+        376,
+        677
+      ],
+      "body_bounds_px": [
+        235,
+        657,
+        176,
+        182
+      ],
+      "body_height_px": 182,
+      "presentation_height_px": 77.86096256684492,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "recuperar-talar-NW": {
+      "file": "tala.png",
+      "region": [
+        722,
+        671,
+        130,
+        199
+      ],
+      "anchor": [
+        779,
+        856
+      ],
+      "scale": 0.42780748663101603,
+      "hand": [
+        759,
+        799
+      ],
+      "other_hand": [
+        759,
+        799
+      ],
+      "body_bounds_px": [
+        722,
+        676,
+        130,
+        180
+      ],
+      "body_height_px": 180,
+      "presentation_height_px": 77.00534759358288,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "golpe-NW": {
+      "file": "impacto-minar.png",
+      "region": [
+        810,
+        352,
+        327,
+        259
+      ],
+      "anchor": [
+        991,
+        608
+      ],
+      "scale": 0.26,
+      "hand": [
+        938,
+        474
+      ],
+      "other_hand": [
+        938,
+        474
+      ],
+      "body_bounds_px": [
+        810,
+        352,
+        327,
+        256
+      ],
+      "body_height_px": 256,
+      "presentation_height_px": 66.56,
+      "tool_behind": true,
+      "baked_tool": true,
+      "contacts": {
+        "minar": [
+          816,
+          440
+        ]
+      },
+      "working_end": "pick_tip",
+      "contact_reference": [
+        813,
+        443
+      ]
+    },
+    "golpe-talar-NW": {
+      "file": "impacto-talar.png",
+      "region": [
+        776,
+        329,
+        353,
+        277
+      ],
+      "anchor": [
+        986,
+        605
+      ],
+      "scale": 0.26,
+      "hand": [
+        938,
+        455
+      ],
+      "other_hand": [
+        938,
+        455
+      ],
+      "body_bounds_px": [
+        776,
+        329,
+        353,
+        276
+      ],
+      "body_height_px": 276,
+      "presentation_height_px": 71.76,
+      "tool_behind": true,
+      "baked_tool": true,
+      "contacts": {
+        "talar": [
+          804,
+          401
+        ]
+      },
+      "working_end": "axe_edge",
+      "contact_reference": [
+        804,
+        401
+      ]
+    },
+    "arrodillado-NW": {
+      "file": "arrodillado.png",
+      "region": [
+        1007,
+        96,
+        196,
+        213
+      ],
+      "anchor": [
+        1080,
+        294
+      ],
+      "scale": 0.285,
+      "hand": [
+        1024,
+        286
+      ],
+      "other_hand": [
+        1024,
+        286
+      ],
+      "body_bounds_px": [
+        1007,
+        96,
+        196,
+        198
+      ],
+      "body_height_px": 198,
+      "presentation_height_px": 56.42999999999999,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        1019,
+        281,
+        10,
+        10
+      ]
+    },
+    "levantar-NW": {
+      "file": "levantar.png",
+      "region": [
+        809,
+        321,
+        263,
+        287
+      ],
+      "anchor": [
+        901,
+        588
+      ],
+      "scale": 0.26,
+      "hand": [
+        822,
+        475
+      ],
+      "other_hand": [
+        822,
+        475
+      ],
+      "body_bounds_px": [
+        809,
+        321,
+        263,
+        267
+      ],
+      "body_height_px": 267,
+      "presentation_height_px": 69.42,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        817,
+        470,
+        10,
+        10
+      ]
+    },
+    "reposo-N": {
+      "file": "reposo.png",
+      "region": [
+        165,
+        495,
+        209,
+        344
+      ],
+      "anchor": [
+        257,
+        808
+      ],
+      "scale": 0.25559105431309903,
+      "hand": [
+        309,
+        695
+      ],
+      "other_hand": [
+        309,
+        695
+      ],
+      "body_bounds_px": [
+        165,
+        495,
+        209,
+        313
+      ],
+      "body_height_px": 313,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sin-equipo-N": {
+      "file": "sin-equipo.png",
+      "region": [
+        174,
+        501,
+        162,
+        337
+      ],
+      "anchor": [
+        254,
+        808
+      ],
+      "scale": 0.26058631921824105,
+      "hand": [
+        182,
+        704
+      ],
+      "other_hand": [
+        182,
+        704
+      ],
+      "body_bounds_px": [
+        174,
+        501,
+        162,
+        307
+      ],
+      "body_height_px": 307,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": false
+    },
+    "andar-a-N": {
+      "file": "marcha.png",
+      "region": [
+        53,
+        880,
+        118,
+        208
+      ],
+      "anchor": [
+        106,
+        1072
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        66,
+        1002
+      ],
+      "other_hand": [
+        66,
+        1002
+      ],
+      "body_bounds_px": [
+        53,
+        880,
+        118,
+        192
+      ],
+      "body_height_px": 192,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-a-N": {
+      "file": "marcha.png",
+      "region": [
+        276,
+        881,
+        118,
+        199
+      ],
+      "anchor": [
+        330,
+        1073
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        294,
+        1003
+      ],
+      "other_hand": [
+        294,
+        1003
+      ],
+      "body_bounds_px": [
+        276,
+        881,
+        118,
+        192
+      ],
+      "body_height_px": 192,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "andar-b-N": {
+      "file": "marcha.png",
+      "region": [
+        493,
+        881,
+        121,
+        208
+      ],
+      "anchor": [
+        548,
+        1073
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        508,
+        1002
+      ],
+      "other_hand": [
+        508,
+        1002
+      ],
+      "body_bounds_px": [
+        493,
+        881,
+        121,
+        192
+      ],
+      "body_height_px": 192,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-b-N": {
+      "file": "marcha.png",
+      "region": [
+        720,
+        880,
+        118,
+        206
+      ],
+      "anchor": [
+        774,
+        1072
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        735,
+        1002
+      ],
+      "other_hand": [
+        735,
+        1002
+      ],
+      "body_bounds_px": [
+        720,
+        880,
+        118,
+        192
+      ],
+      "body_height_px": 192,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-a-N": {
+      "file": "sprint.png",
+      "region": [
+        48,
+        875,
+        138,
+        207
+      ],
+      "anchor": [
+        116,
+        1068
+      ],
+      "scale": 0.41450777202072536,
+      "hand": [
+        103,
+        1012
+      ],
+      "other_hand": [
+        103,
+        1012
+      ],
+      "body_bounds_px": [
+        48,
+        875,
+        138,
+        193
+      ],
+      "body_height_px": 193,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-a-N": {
+      "file": "sprint.png",
+      "region": [
+        272,
+        875,
+        135,
+        207
+      ],
+      "anchor": [
+        337,
+        1068
+      ],
+      "scale": 0.41450777202072536,
+      "hand": [
+        338,
+        1037
+      ],
+      "other_hand": [
+        338,
+        1037
+      ],
+      "body_bounds_px": [
+        272,
+        875,
+        135,
+        193
+      ],
+      "body_height_px": 193,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-b-N": {
+      "file": "sprint.png",
+      "region": [
+        497,
+        874,
+        135,
+        209
+      ],
+      "anchor": [
+        562,
+        1067
+      ],
+      "scale": 0.41450777202072536,
+      "hand": [
+        547,
+        1011
+      ],
+      "other_hand": [
+        547,
+        1011
+      ],
+      "body_bounds_px": [
+        497,
+        874,
+        135,
+        193
+      ],
+      "body_height_px": 193,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-b-N": {
+      "file": "sprint.png",
+      "region": [
+        718,
+        876,
+        134,
+        206
+      ],
+      "anchor": [
+        784,
+        1069
+      ],
+      "scale": 0.41450777202072536,
+      "hand": [
+        773,
+        1020
+      ],
+      "other_hand": [
+        773,
+        1020
+      ],
+      "body_bounds_px": [
+        718,
+        876,
+        134,
+        193
+      ],
+      "body_height_px": 193,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "medio-N": {
+      "file": "mineria.png",
+      "region": [
+        57,
+        924,
+        119,
+        189
+      ],
+      "anchor": [
+        112,
+        1100
+      ],
+      "scale": 0.45454545454545453,
+      "hand": [
+        172,
+        1027
+      ],
+      "other_hand": [
+        172,
+        1027
+      ],
+      "body_bounds_px": [
+        57,
+        931,
+        119,
+        169
+      ],
+      "body_height_px": 169,
+      "presentation_height_px": 76.81818181818181,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "cargar-N": {
+      "file": "mineria.png",
+      "region": [
+        239,
+        902,
+        154,
+        198
+      ],
+      "anchor": [
+        311,
+        1086
+      ],
+      "scale": 0.45454545454545453,
+      "hand": [
+        353,
+        947
+      ],
+      "other_hand": [
+        353,
+        947
+      ],
+      "body_bounds_px": [
+        239,
+        902,
+        154,
+        184
+      ],
+      "body_height_px": 184,
+      "presentation_height_px": 83.63636363636364,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "recuperar-N": {
+      "file": "mineria.png",
+      "region": [
+        723,
+        923,
+        118,
+        190
+      ],
+      "anchor": [
+        778,
+        1100
+      ],
+      "scale": 0.45454545454545453,
+      "hand": [
+        738,
+        1037
+      ],
+      "other_hand": [
+        738,
+        1037
+      ],
+      "body_bounds_px": [
+        723,
+        929,
+        118,
+        171
+      ],
+      "body_height_px": 171,
+      "presentation_height_px": 77.72727272727272,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "medio-talar-N": {
+      "file": "tala.png",
+      "region": [
+        49,
+        895,
+        134,
+        188
+      ],
+      "anchor": [
+        113,
+        1070
+      ],
+      "scale": 0.45714285714285713,
+      "hand": [
+        178,
+        989
+      ],
+      "other_hand": [
+        178,
+        989
+      ],
+      "body_bounds_px": [
+        49,
+        902,
+        134,
+        168
+      ],
+      "body_height_px": 168,
+      "presentation_height_px": 76.8,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "cargar-talar-N": {
+      "file": "tala.png",
+      "region": [
+        244,
+        875,
+        163,
+        197
+      ],
+      "anchor": [
+        322,
+        1058
+      ],
+      "scale": 0.45714285714285713,
+      "hand": [
+        359,
+        915
+      ],
+      "other_hand": [
+        359,
+        915
+      ],
+      "body_bounds_px": [
+        244,
+        875,
+        163,
+        183
+      ],
+      "body_height_px": 183,
+      "presentation_height_px": 83.65714285714286,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "recuperar-talar-N": {
+      "file": "tala.png",
+      "region": [
+        716,
+        896,
+        134,
+        187
+      ],
+      "anchor": [
+        780,
+        1070
+      ],
+      "scale": 0.45714285714285713,
+      "hand": [
+        760,
+        1017
+      ],
+      "other_hand": [
+        760,
+        1017
+      ],
+      "body_bounds_px": [
+        716,
+        905,
+        134,
+        165
+      ],
+      "body_height_px": 165,
+      "presentation_height_px": 75.42857142857143,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "golpe-N": {
+      "file": "impacto-minar.png",
+      "region": [
+        213,
+        643,
+        221,
+        296
+      ],
+      "anchor": [
+        323,
+        913
+      ],
+      "scale": 0.26,
+      "hand": [
+        306,
+        829
+      ],
+      "other_hand": [
+        306,
+        829
+      ],
+      "body_bounds_px": [
+        213,
+        643,
+        221,
+        270
+      ],
+      "body_height_px": 270,
+      "presentation_height_px": 70.2,
+      "tool_behind": true,
+      "baked_tool": true,
+      "contacts": {
+        "minar": [
+          219,
+          716
+        ]
+      },
+      "working_end": "pick_tip",
+      "contact_reference": [
+        216,
+        721
+      ]
+    },
+    "golpe-talar-N": {
+      "file": "impacto-talar.png",
+      "region": [
+        225,
+        636,
+        187,
+        307
+      ],
+      "anchor": [
+        319,
+        916
+      ],
+      "scale": 0.26,
+      "hand": [
+        296,
+        858
+      ],
+      "other_hand": [
+        296,
+        858
+      ],
+      "body_bounds_px": [
+        225,
+        636,
+        187,
+        280
+      ],
+      "body_height_px": 280,
+      "presentation_height_px": 72.8,
+      "tool_behind": true,
+      "baked_tool": true,
+      "contacts": {
+        "talar": [
+          269,
+          685
+        ]
+      },
+      "working_end": "axe_edge",
+      "contact_reference": [
+        263,
+        687
+      ]
+    },
+    "arrodillado-N": {
+      "file": "arrodillado.png",
+      "region": [
+        81,
+        390,
+        148,
+        221
+      ],
+      "anchor": [
+        155,
+        596
+      ],
+      "scale": 0.285,
+      "hand": [
+        211,
+        536
+      ],
+      "other_hand": [
+        211,
+        536
+      ],
+      "body_bounds_px": [
+        81,
+        390,
+        148,
+        206
+      ],
+      "body_height_px": 206,
+      "presentation_height_px": 58.709999999999994,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        206,
+        531,
+        10,
+        10
+      ]
+    },
+    "levantar-N": {
+      "file": "levantar.png",
+      "region": [
+        303,
+        626,
+        164,
+        292
+      ],
+      "anchor": [
+        382,
+        898
+      ],
+      "scale": 0.26,
+      "hand": [
+        448,
+        866
+      ],
+      "other_hand": [
+        448,
+        866
+      ],
+      "body_bounds_px": [
+        303,
+        626,
+        164,
+        272
+      ],
+      "body_height_px": 272,
+      "presentation_height_px": 70.72,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        443,
+        861,
+        10,
+        10
+      ]
+    },
+    "reposo-NE": {
+      "file": "reposo.png",
+      "region": [
+        537,
+        492,
+        243,
+        328
+      ],
+      "anchor": [
+        684,
+        815
+      ],
+      "scale": 0.2476780185758514,
+      "hand": [
+        714,
+        680
+      ],
+      "other_hand": [
+        714,
+        680
+      ],
+      "body_bounds_px": [
+        537,
+        492,
+        243,
+        323
+      ],
+      "body_height_px": 323,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sin-equipo-NE": {
+      "file": "sin-equipo.png",
+      "region": [
+        543,
+        500,
+        204,
+        317
+      ],
+      "anchor": [
+        682,
+        816
+      ],
+      "scale": 0.25316455696202533,
+      "hand": [
+        741,
+        709
+      ],
+      "other_hand": [
+        741,
+        709
+      ],
+      "body_bounds_px": [
+        543,
+        500,
+        204,
+        316
+      ],
+      "body_height_px": 316,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": false
+    },
+    "andar-a-NE": {
+      "file": "marcha.png",
+      "region": [
+        27,
+        1110,
+        152,
+        207
+      ],
+      "anchor": [
+        125,
+        1317
+      ],
+      "scale": 0.3864734299516908,
+      "hand": [
+        159,
+        1227
+      ],
+      "other_hand": [
+        159,
+        1227
+      ],
+      "body_bounds_px": [
+        27,
+        1110,
+        152,
+        207
+      ],
+      "body_height_px": 207,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-a-NE": {
+      "file": "marcha.png",
+      "region": [
+        240,
+        1109,
+        167,
+        205
+      ],
+      "anchor": [
+        351,
+        1316
+      ],
+      "scale": 0.3864734299516908,
+      "hand": [
+        373,
+        1236
+      ],
+      "other_hand": [
+        373,
+        1236
+      ],
+      "body_bounds_px": [
+        240,
+        1109,
+        167,
+        207
+      ],
+      "body_height_px": 207,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "andar-b-NE": {
+      "file": "marcha.png",
+      "region": [
+        463,
+        1109,
+        159,
+        208
+      ],
+      "anchor": [
+        562,
+        1316
+      ],
+      "scale": 0.3864734299516908,
+      "hand": [
+        581,
+        1199
+      ],
+      "other_hand": [
+        581,
+        1199
+      ],
+      "body_bounds_px": [
+        463,
+        1109,
+        159,
+        207
+      ],
+      "body_height_px": 207,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-b-NE": {
+      "file": "marcha.png",
+      "region": [
+        689,
+        1105,
+        157,
+        208
+      ],
+      "anchor": [
+        779,
+        1312
+      ],
+      "scale": 0.3864734299516908,
+      "hand": [
+        826,
+        1220
+      ],
+      "other_hand": [
+        826,
+        1220
+      ],
+      "body_bounds_px": [
+        689,
+        1105,
+        157,
+        207
+      ],
+      "body_height_px": 207,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-a-NE": {
+      "file": "sprint.png",
+      "region": [
+        13,
+        1093,
+        165,
+        217
+      ],
+      "anchor": [
+        117,
+        1295
+      ],
+      "scale": 0.39603960396039606,
+      "hand": [
+        141,
+        1188
+      ],
+      "other_hand": [
+        141,
+        1188
+      ],
+      "body_bounds_px": [
+        13,
+        1093,
+        165,
+        202
+      ],
+      "body_height_px": 202,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-a-NE": {
+      "file": "sprint.png",
+      "region": [
+        235,
+        1092,
+        175,
+        220
+      ],
+      "anchor": [
+        341,
+        1294
+      ],
+      "scale": 0.39603960396039606,
+      "hand": [
+        368,
+        1187
+      ],
+      "other_hand": [
+        368,
+        1187
+      ],
+      "body_bounds_px": [
+        235,
+        1092,
+        175,
+        202
+      ],
+      "body_height_px": 202,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-b-NE": {
+      "file": "sprint.png",
+      "region": [
+        460,
+        1094,
+        170,
+        218
+      ],
+      "anchor": [
+        565,
+        1296
+      ],
+      "scale": 0.39603960396039606,
+      "hand": [
+        586,
+        1188
+      ],
+      "other_hand": [
+        586,
+        1188
+      ],
+      "body_bounds_px": [
+        460,
+        1094,
+        170,
+        202
+      ],
+      "body_height_px": 202,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-b-NE": {
+      "file": "sprint.png",
+      "region": [
+        681,
+        1093,
+        171,
+        212
+      ],
+      "anchor": [
+        784,
+        1295
+      ],
+      "scale": 0.39603960396039606,
+      "hand": [
+        813,
+        1188
+      ],
+      "other_hand": [
+        813,
+        1188
+      ],
+      "body_bounds_px": [
+        681,
+        1093,
+        171,
+        202
+      ],
+      "body_height_px": 202,
+      "presentation_height_px": 80.0,
+      "tool_behind": true,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "medio-NE": {
+      "file": "mineria.png",
+      "region": [
+        27,
+        1147,
+        162,
+        179
+      ],
+      "anchor": [
+        122,
+        1313
+      ],
+      "scale": 0.4819277108433735,
+      "hand": [
+        153,
+        1255
+      ],
+      "other_hand": [
+        153,
+        1255
+      ],
+      "body_bounds_px": [
+        27,
+        1149,
+        162,
+        164
+      ],
+      "body_height_px": 164,
+      "presentation_height_px": 79.03614457831326,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "cargar-NE": {
+      "file": "mineria.png",
+      "region": [
+        241,
+        1122,
+        152,
+        201
+      ],
+      "anchor": [
+        325,
+        1309
+      ],
+      "scale": 0.4819277108433735,
+      "hand": [
+        353,
+        1164
+      ],
+      "other_hand": [
+        353,
+        1164
+      ],
+      "body_bounds_px": [
+        241,
+        1122,
+        152,
+        187
+      ],
+      "body_height_px": 187,
+      "presentation_height_px": 90.12048192771084,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "recuperar-NE": {
+      "file": "mineria.png",
+      "region": [
+        688,
+        1147,
+        158,
+        180
+      ],
+      "anchor": [
+        772,
+        1314
+      ],
+      "scale": 0.4819277108433735,
+      "hand": [
+        790,
+        1226
+      ],
+      "other_hand": [
+        790,
+        1226
+      ],
+      "body_bounds_px": [
+        688,
+        1150,
+        158,
+        164
+      ],
+      "body_height_px": 164,
+      "presentation_height_px": 79.03614457831326,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "medio-talar-NE": {
+      "file": "tala.png",
+      "region": [
+        22,
+        1111,
+        164,
+        182
+      ],
+      "anchor": [
+        118,
+        1280
+      ],
+      "scale": 0.47337278106508873,
+      "hand": [
+        180,
+        1219
+      ],
+      "other_hand": [
+        180,
+        1219
+      ],
+      "body_bounds_px": [
+        22,
+        1118,
+        164,
+        162
+      ],
+      "body_height_px": 162,
+      "presentation_height_px": 76.68639053254438,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "cargar-talar-NE": {
+      "file": "tala.png",
+      "region": [
+        238,
+        1096,
+        165,
+        197
+      ],
+      "anchor": [
+        329,
+        1279
+      ],
+      "scale": 0.47337278106508873,
+      "hand": [
+        369,
+        1115
+      ],
+      "other_hand": [
+        369,
+        1115
+      ],
+      "body_bounds_px": [
+        238,
+        1096,
+        165,
+        183
+      ],
+      "body_height_px": 183,
+      "presentation_height_px": 86.62721893491124,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "recuperar-talar-NE": {
+      "file": "tala.png",
+      "region": [
+        692,
+        1111,
+        161,
+        182
+      ],
+      "anchor": [
+        778,
+        1280
+      ],
+      "scale": 0.47337278106508873,
+      "hand": [
+        791,
+        1194
+      ],
+      "other_hand": [
+        791,
+        1194
+      ],
+      "body_bounds_px": [
+        692,
+        1116,
+        161,
+        164
+      ],
+      "body_height_px": 164,
+      "presentation_height_px": 77.63313609467455,
+      "tool_behind": true,
+      "baked_tool": true
+    },
+    "golpe-NE": {
+      "file": "impacto-minar.png",
+      "region": [
+        733,
+        659,
+        356,
+        252
+      ],
+      "anchor": [
+        991,
+        908
+      ],
+      "scale": 0.26,
+      "hand": [
+        968,
+        779
+      ],
+      "other_hand": [
+        968,
+        779
+      ],
+      "body_bounds_px": [
+        733,
+        659,
+        356,
+        249
+      ],
+      "body_height_px": 249,
+      "presentation_height_px": 64.74000000000001,
+      "tool_behind": true,
+      "baked_tool": true,
+      "contacts": {
+        "minar": [
+          1082,
+          747
+        ]
+      },
+      "working_end": "pick_tip",
+      "contact_reference": [
+        1085,
+        747
+      ]
+    },
+    "golpe-talar-NE": {
+      "file": "impacto-talar.png",
+      "region": [
+        762,
+        639,
+        344,
+        281
+      ],
+      "anchor": [
+        980,
+        914
+      ],
+      "scale": 0.26,
+      "hand": [
+        961,
+        764
+      ],
+      "other_hand": [
+        961,
+        764
+      ],
+      "body_bounds_px": [
+        762,
+        639,
+        344,
+        275
+      ],
+      "body_height_px": 275,
+      "presentation_height_px": 71.5,
+      "tool_behind": true,
+      "baked_tool": true,
+      "contacts": {
+        "talar": [
+          1084,
+          711
+        ]
+      },
+      "working_end": "axe_edge",
+      "contact_reference": [
+        1084,
+        711
+      ]
+    },
+    "arrodillado-NE": {
+      "file": "arrodillado.png",
+      "region": [
+        354,
+        381,
+        196,
+        217
+      ],
+      "anchor": [
+        480,
+        583
+      ],
+      "scale": 0.285,
+      "hand": [
+        535,
+        555
+      ],
+      "other_hand": [
+        535,
+        555
+      ],
+      "body_bounds_px": [
+        354,
+        381,
+        196,
+        202
+      ],
+      "body_height_px": 202,
+      "presentation_height_px": 57.56999999999999,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        530,
+        550,
+        10,
+        10
+      ]
+    },
+    "levantar-NE": {
+      "file": "levantar.png",
+      "region": [
+        769,
+        627,
+        268,
+        276
+      ],
+      "anchor": [
+        955,
+        884
+      ],
+      "scale": 0.26,
+      "hand": [
+        1018,
+        758
+      ],
+      "other_hand": [
+        1018,
+        758
+      ],
+      "body_bounds_px": [
+        769,
+        627,
+        268,
+        257
+      ],
+      "body_height_px": 257,
+      "presentation_height_px": 66.82000000000001,
+      "tool_behind": true,
+      "baked_tool": false,
+      "hand_cover": [
+        1013,
+        753,
+        10,
+        10
+      ]
+    },
+    "reposo-E": {
+      "file": "reposo.png",
+      "region": [
+        940,
+        496,
+        267,
+        331
+      ],
+      "anchor": [
+        1090,
+        827
+      ],
+      "scale": 0.24169184290030213,
+      "hand": [
+        1145,
+        648
+      ],
+      "other_hand": [
+        1145,
+        648
+      ],
+      "body_bounds_px": [
+        940,
+        496,
+        267,
+        331
+      ],
+      "body_height_px": 331,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sin-equipo-E": {
+      "file": "sin-equipo.png",
+      "region": [
+        943,
+        500,
+        242,
+        324
+      ],
+      "anchor": [
+        1088,
+        823
+      ],
+      "scale": 0.2476780185758514,
+      "hand": [
+        1144,
+        644
+      ],
+      "other_hand": [
+        1144,
+        644
+      ],
+      "body_bounds_px": [
+        943,
+        500,
+        242,
+        323
+      ],
+      "body_height_px": 323,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": false
+    },
+    "andar-a-E": {
+      "file": "marcha.png",
+      "region": [
+        22,
+        1332,
+        170,
+        200
+      ],
+      "anchor": [
+        119,
+        1532
+      ],
+      "scale": 0.4,
+      "hand": [
+        150,
+        1421
+      ],
+      "other_hand": [
+        150,
+        1421
+      ],
+      "body_bounds_px": [
+        22,
+        1332,
+        170,
+        200
+      ],
+      "body_height_px": 200,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-a-E": {
+      "file": "marcha.png",
+      "region": [
+        236,
+        1335,
+        171,
+        198
+      ],
+      "anchor": [
+        335,
+        1535
+      ],
+      "scale": 0.4,
+      "hand": [
+        366,
+        1421
+      ],
+      "other_hand": [
+        366,
+        1421
+      ],
+      "body_bounds_px": [
+        236,
+        1335,
+        171,
+        200
+      ],
+      "body_height_px": 200,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "andar-b-E": {
+      "file": "marcha.png",
+      "region": [
+        454,
+        1337,
+        177,
+        200
+      ],
+      "anchor": [
+        556,
+        1537
+      ],
+      "scale": 0.4,
+      "hand": [
+        581,
+        1424
+      ],
+      "other_hand": [
+        581,
+        1424
+      ],
+      "body_bounds_px": [
+        454,
+        1337,
+        177,
+        200
+      ],
+      "body_height_px": 200,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-b-E": {
+      "file": "marcha.png",
+      "region": [
+        684,
+        1340,
+        171,
+        201
+      ],
+      "anchor": [
+        781,
+        1540
+      ],
+      "scale": 0.4,
+      "hand": [
+        806,
+        1428
+      ],
+      "other_hand": [
+        806,
+        1428
+      ],
+      "body_bounds_px": [
+        684,
+        1340,
+        171,
+        200
+      ],
+      "body_height_px": 200,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-a-E": {
+      "file": "sprint.png",
+      "region": [
+        13,
+        1319,
+        172,
+        213
+      ],
+      "anchor": [
+        113,
+        1532
+      ],
+      "scale": 0.3755868544600939,
+      "hand": [
+        150,
+        1415
+      ],
+      "other_hand": [
+        150,
+        1415
+      ],
+      "body_bounds_px": [
+        13,
+        1319,
+        172,
+        213
+      ],
+      "body_height_px": 213,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-a-E": {
+      "file": "sprint.png",
+      "region": [
+        242,
+        1321,
+        171,
+        211
+      ],
+      "anchor": [
+        334,
+        1534
+      ],
+      "scale": 0.3755868544600939,
+      "hand": [
+        375,
+        1413
+      ],
+      "other_hand": [
+        375,
+        1413
+      ],
+      "body_bounds_px": [
+        242,
+        1321,
+        171,
+        213
+      ],
+      "body_height_px": 213,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-b-E": {
+      "file": "sprint.png",
+      "region": [
+        456,
+        1319,
+        178,
+        221
+      ],
+      "anchor": [
+        556,
+        1532
+      ],
+      "scale": 0.3755868544600939,
+      "hand": [
+        585,
+        1417
+      ],
+      "other_hand": [
+        585,
+        1417
+      ],
+      "body_bounds_px": [
+        456,
+        1319,
+        178,
+        213
+      ],
+      "body_height_px": 213,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-b-E": {
+      "file": "sprint.png",
+      "region": [
+        690,
+        1323,
+        162,
+        214
+      ],
+      "anchor": [
+        775,
+        1536
+      ],
+      "scale": 0.3755868544600939,
+      "hand": [
+        814,
+        1418
+      ],
+      "other_hand": [
+        814,
+        1418
+      ],
+      "body_bounds_px": [
+        690,
+        1323,
+        162,
+        213
+      ],
+      "body_height_px": 213,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "medio-E": {
+      "file": "mineria.png",
+      "region": [
+        26,
+        1372,
+        156,
+        177
+      ],
+      "anchor": [
+        105,
+        1549
+      ],
+      "scale": 0.4519774011299435,
+      "hand": [
+        125,
+        1453
+      ],
+      "other_hand": [
+        125,
+        1453
+      ],
+      "body_bounds_px": [
+        26,
+        1378,
+        156,
+        171
+      ],
+      "body_height_px": 171,
+      "presentation_height_px": 77.28813559322033,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-E": {
+      "file": "mineria.png",
+      "region": [
+        255,
+        1346,
+        174,
+        203
+      ],
+      "anchor": [
+        343,
+        1549
+      ],
+      "scale": 0.4519774011299435,
+      "hand": [
+        301,
+        1398
+      ],
+      "other_hand": [
+        301,
+        1398
+      ],
+      "body_bounds_px": [
+        255,
+        1346,
+        174,
+        203
+      ],
+      "body_height_px": 203,
+      "presentation_height_px": 91.75141242937853,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-E": {
+      "file": "mineria.png",
+      "region": [
+        692,
+        1372,
+        156,
+        179
+      ],
+      "anchor": [
+        764,
+        1551
+      ],
+      "scale": 0.4519774011299435,
+      "hand": [
+        777,
+        1449
+      ],
+      "other_hand": [
+        777,
+        1449
+      ],
+      "body_bounds_px": [
+        692,
+        1376,
+        156,
+        175
+      ],
+      "body_height_px": 175,
+      "presentation_height_px": 79.09604519774011,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "medio-talar-E": {
+      "file": "tala.png",
+      "region": [
+        18,
+        1321,
+        176,
+        192
+      ],
+      "anchor": [
+        105,
+        1513
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        118,
+        1406
+      ],
+      "other_hand": [
+        118,
+        1406
+      ],
+      "body_bounds_px": [
+        18,
+        1326,
+        176,
+        187
+      ],
+      "body_height_px": 187,
+      "presentation_height_px": 77.91666666666667,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-talar-E": {
+      "file": "tala.png",
+      "region": [
+        255,
+        1309,
+        184,
+        203
+      ],
+      "anchor": [
+        354,
+        1512
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        280,
+        1335
+      ],
+      "other_hand": [
+        280,
+        1335
+      ],
+      "body_bounds_px": [
+        255,
+        1309,
+        184,
+        203
+      ],
+      "body_height_px": 203,
+      "presentation_height_px": 84.58333333333334,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-talar-E": {
+      "file": "tala.png",
+      "region": [
+        688,
+        1324,
+        170,
+        189
+      ],
+      "anchor": [
+        770,
+        1513
+      ],
+      "scale": 0.4166666666666667,
+      "hand": [
+        796,
+        1415
+      ],
+      "other_hand": [
+        796,
+        1415
+      ],
+      "body_bounds_px": [
+        688,
+        1331,
+        170,
+        182
+      ],
+      "body_height_px": 182,
+      "presentation_height_px": 75.83333333333334,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "golpe-E": {
+      "file": "impacto-minar.png",
+      "region": [
+        129,
+        964,
+        382,
+        253
+      ],
+      "anchor": [
+        328,
+        1215
+      ],
+      "scale": 0.26,
+      "hand": [
+        368,
+        1073
+      ],
+      "other_hand": [
+        368,
+        1073
+      ],
+      "body_bounds_px": [
+        129,
+        982,
+        382,
+        233
+      ],
+      "body_height_px": 233,
+      "presentation_height_px": 60.580000000000005,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "minar": [
+          451,
+          1202
+        ]
+      },
+      "working_end": "pick_tip",
+      "contact_reference": [
+        451,
+        1202
+      ]
+    },
+    "golpe-talar-E": {
+      "file": "impacto-talar.png",
+      "region": [
+        140,
+        976,
+        391,
+        244
+      ],
+      "anchor": [
+        327,
+        1216
+      ],
+      "scale": 0.26,
+      "hand": [
+        347,
+        1085
+      ],
+      "other_hand": [
+        347,
+        1085
+      ],
+      "body_bounds_px": [
+        140,
+        979,
+        391,
+        237
+      ],
+      "body_height_px": 237,
+      "presentation_height_px": 61.620000000000005,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "talar": [
+          494,
+          1188
+        ]
+      },
+      "working_end": "axe_edge",
+      "contact_reference": [
+        494,
+        1188
+      ]
+    },
+    "arrodillado-E": {
+      "file": "arrodillado.png",
+      "region": [
+        640,
+        387,
+        240,
+        207
+      ],
+      "anchor": [
+        785,
+        594
+      ],
+      "scale": 0.285,
+      "hand": [
+        858,
+        562
+      ],
+      "other_hand": [
+        858,
+        562
+      ],
+      "body_bounds_px": [
+        640,
+        387,
+        240,
+        207
+      ],
+      "body_height_px": 207,
+      "presentation_height_px": 58.995,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        853,
+        557,
+        10,
+        10
+      ]
+    },
+    "levantar-E": {
+      "file": "levantar.png",
+      "region": [
+        215,
+        927,
+        306,
+        293
+      ],
+      "anchor": [
+        407,
+        1220
+      ],
+      "scale": 0.26,
+      "hand": [
+        476,
+        1098
+      ],
+      "other_hand": [
+        476,
+        1098
+      ],
+      "body_bounds_px": [
+        215,
+        927,
+        306,
+        293
+      ],
+      "body_height_px": 293,
+      "presentation_height_px": 76.18,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        471,
+        1093,
+        10,
+        10
+      ]
+    },
+    "reposo-SE": {
+      "file": "reposo.png",
+      "region": [
+        1388,
+        498,
+        258,
+        334
+      ],
+      "anchor": [
+        1514,
+        829
+      ],
+      "scale": 0.24169184290030213,
+      "hand": [
+        1572,
+        645
+      ],
+      "other_hand": [
+        1572,
+        645
+      ],
+      "body_bounds_px": [
+        1388,
+        498,
+        258,
+        331
+      ],
+      "body_height_px": 331,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sin-equipo-SE": {
+      "file": "sin-equipo.png",
+      "region": [
+        1397,
+        503,
+        206,
+        325
+      ],
+      "anchor": [
+        1510,
+        828
+      ],
+      "scale": 0.24615384615384617,
+      "hand": [
+        1566,
+        645
+      ],
+      "other_hand": [
+        1566,
+        645
+      ],
+      "body_bounds_px": [
+        1397,
+        503,
+        206,
+        325
+      ],
+      "body_height_px": 325,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": false
+    },
+    "andar-a-SE": {
+      "file": "marcha.png",
+      "region": [
+        45,
+        1559,
+        138,
+        199
+      ],
+      "anchor": [
+        102,
+        1758
+      ],
+      "scale": 0.4020100502512563,
+      "hand": [
+        139,
+        1650
+      ],
+      "other_hand": [
+        139,
+        1650
+      ],
+      "body_bounds_px": [
+        45,
+        1559,
+        138,
+        199
+      ],
+      "body_height_px": 199,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-a-SE": {
+      "file": "marcha.png",
+      "region": [
+        265,
+        1559,
+        134,
+        199
+      ],
+      "anchor": [
+        322,
+        1758
+      ],
+      "scale": 0.4020100502512563,
+      "hand": [
+        362,
+        1645
+      ],
+      "other_hand": [
+        362,
+        1645
+      ],
+      "body_bounds_px": [
+        265,
+        1559,
+        134,
+        199
+      ],
+      "body_height_px": 199,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "andar-b-SE": {
+      "file": "marcha.png",
+      "region": [
+        487,
+        1558,
+        138,
+        200
+      ],
+      "anchor": [
+        542,
+        1757
+      ],
+      "scale": 0.4020100502512563,
+      "hand": [
+        582,
+        1647
+      ],
+      "other_hand": [
+        582,
+        1647
+      ],
+      "body_bounds_px": [
+        487,
+        1558,
+        138,
+        199
+      ],
+      "body_height_px": 199,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "paso-b-SE": {
+      "file": "marcha.png",
+      "region": [
+        710,
+        1561,
+        140,
+        197
+      ],
+      "anchor": [
+        767,
+        1760
+      ],
+      "scale": 0.4020100502512563,
+      "hand": [
+        806,
+        1650
+      ],
+      "other_hand": [
+        806,
+        1650
+      ],
+      "body_bounds_px": [
+        710,
+        1561,
+        140,
+        199
+      ],
+      "body_height_px": 199,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-a-SE": {
+      "file": "sprint.png",
+      "region": [
+        30,
+        1541,
+        152,
+        211
+      ],
+      "anchor": [
+        100,
+        1752
+      ],
+      "scale": 0.3791469194312796,
+      "hand": [
+        143,
+        1639
+      ],
+      "other_hand": [
+        143,
+        1639
+      ],
+      "body_bounds_px": [
+        30,
+        1541,
+        152,
+        211
+      ],
+      "body_height_px": 211,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-a-SE": {
+      "file": "sprint.png",
+      "region": [
+        250,
+        1547,
+        155,
+        209
+      ],
+      "anchor": [
+        322,
+        1758
+      ],
+      "scale": 0.3791469194312796,
+      "hand": [
+        368,
+        1639
+      ],
+      "other_hand": [
+        368,
+        1639
+      ],
+      "body_bounds_px": [
+        250,
+        1547,
+        155,
+        211
+      ],
+      "body_height_px": 211,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-b-SE": {
+      "file": "sprint.png",
+      "region": [
+        472,
+        1547,
+        162,
+        211
+      ],
+      "anchor": [
+        549,
+        1758
+      ],
+      "scale": 0.3791469194312796,
+      "hand": [
+        594,
+        1639
+      ],
+      "other_hand": [
+        594,
+        1639
+      ],
+      "body_bounds_px": [
+        472,
+        1547,
+        162,
+        211
+      ],
+      "body_height_px": 211,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "sprint-paso-b-SE": {
+      "file": "sprint.png",
+      "region": [
+        691,
+        1550,
+        159,
+        207
+      ],
+      "anchor": [
+        764,
+        1761
+      ],
+      "scale": 0.3791469194312796,
+      "hand": [
+        810,
+        1642
+      ],
+      "other_hand": [
+        810,
+        1642
+      ],
+      "body_bounds_px": [
+        691,
+        1550,
+        159,
+        211
+      ],
+      "body_height_px": 211,
+      "presentation_height_px": 80.0,
+      "tool_behind": false,
+      "baked_tool": true,
+      "carry_orientation": "punta-arriba-filo-abajo"
+    },
+    "medio-SE": {
+      "file": "mineria.png",
+      "region": [
+        40,
+        1585,
+        138,
+        175
+      ],
+      "anchor": [
+        98,
+        1760
+      ],
+      "scale": 0.45714285714285713,
+      "hand": [
+        106,
+        1668
+      ],
+      "other_hand": [
+        106,
+        1668
+      ],
+      "body_bounds_px": [
+        40,
+        1590,
+        138,
+        170
+      ],
+      "body_height_px": 170,
+      "presentation_height_px": 77.71428571428571,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-SE": {
+      "file": "mineria.png",
+      "region": [
+        260,
+        1563,
+        171,
+        203
+      ],
+      "anchor": [
+        348,
+        1766
+      ],
+      "scale": 0.45714285714285713,
+      "hand": [
+        284,
+        1592
+      ],
+      "other_hand": [
+        284,
+        1592
+      ],
+      "body_bounds_px": [
+        260,
+        1563,
+        171,
+        203
+      ],
+      "body_height_px": 203,
+      "presentation_height_px": 92.8,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-SE": {
+      "file": "mineria.png",
+      "region": [
+        700,
+        1591,
+        146,
+        169
+      ],
+      "anchor": [
+        774,
+        1760
+      ],
+      "scale": 0.45714285714285713,
+      "hand": [
+        794,
+        1670
+      ],
+      "other_hand": [
+        794,
+        1670
+      ],
+      "body_bounds_px": [
+        700,
+        1597,
+        146,
+        163
+      ],
+      "body_height_px": 163,
+      "presentation_height_px": 74.5142857142857,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "medio-talar-SE": {
+      "file": "tala.png",
+      "region": [
+        22,
+        1547,
+        171,
+        181
+      ],
+      "anchor": [
+        104,
+        1728
+      ],
+      "scale": 0.4419889502762431,
+      "hand": [
+        115,
+        1626
+      ],
+      "other_hand": [
+        115,
+        1626
+      ],
+      "body_bounds_px": [
+        22,
+        1555,
+        171,
+        173
+      ],
+      "body_height_px": 173,
+      "presentation_height_px": 76.46408839779005,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "cargar-talar-SE": {
+      "file": "tala.png",
+      "region": [
+        254,
+        1527,
+        179,
+        210
+      ],
+      "anchor": [
+        349,
+        1737
+      ],
+      "scale": 0.4419889502762431,
+      "hand": [
+        273,
+        1558
+      ],
+      "other_hand": [
+        273,
+        1558
+      ],
+      "body_bounds_px": [
+        254,
+        1527,
+        179,
+        210
+      ],
+      "body_height_px": 210,
+      "presentation_height_px": 92.81767955801105,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "recuperar-talar-SE": {
+      "file": "tala.png",
+      "region": [
+        688,
+        1545,
+        166,
+        189
+      ],
+      "anchor": [
+        773,
+        1734
+      ],
+      "scale": 0.4419889502762431,
+      "hand": [
+        798,
+        1633
+      ],
+      "other_hand": [
+        798,
+        1633
+      ],
+      "body_bounds_px": [
+        688,
+        1555,
+        166,
+        179
+      ],
+      "body_height_px": 179,
+      "presentation_height_px": 79.1160220994475,
+      "tool_behind": false,
+      "baked_tool": true
+    },
+    "golpe-SE": {
+      "file": "impacto-minar.png",
+      "region": [
+        777,
+        958,
+        341,
+        259
+      ],
+      "anchor": [
+        955,
+        1214
+      ],
+      "scale": 0.26,
+      "hand": [
+        970,
+        1070
+      ],
+      "other_hand": [
+        970,
+        1070
+      ],
+      "body_bounds_px": [
+        777,
+        976,
+        341,
+        238
+      ],
+      "body_height_px": 238,
+      "presentation_height_px": 61.88,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "minar": [
+          1050,
+          1211
+        ]
+      },
+      "working_end": "pick_tip",
+      "contact_reference": [
+        1050,
+        1211
+      ]
+    },
+    "golpe-talar-SE": {
+      "file": "impacto-talar.png",
+      "region": [
+        801,
+        957,
+        289,
+        271
+      ],
+      "anchor": [
+        943,
+        1222
+      ],
+      "scale": 0.26,
+      "hand": [
+        953,
+        1074
+      ],
+      "other_hand": [
+        953,
+        1074
+      ],
+      "body_bounds_px": [
+        801,
+        973,
+        289,
+        249
+      ],
+      "body_height_px": 249,
+      "presentation_height_px": 64.74000000000001,
+      "tool_behind": false,
+      "baked_tool": true,
+      "contacts": {
+        "talar": [
+          1060,
+          1214
+        ]
+      },
+      "working_end": "axe_edge",
+      "contact_reference": [
+        1060,
+        1214
+      ]
+    },
+    "arrodillado-SE": {
+      "file": "arrodillado.png",
+      "region": [
+        1021,
+        408,
+        172,
+        187
+      ],
+      "anchor": [
+        1100,
+        595
+      ],
+      "scale": 0.285,
+      "hand": [
+        1181,
+        566
+      ],
+      "other_hand": [
+        1181,
+        566
+      ],
+      "body_bounds_px": [
+        1021,
+        408,
+        172,
+        187
+      ],
+      "body_height_px": 187,
+      "presentation_height_px": 53.294999999999995,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        1176,
+        561,
+        10,
+        10
+      ]
+    },
+    "levantar-SE": {
+      "file": "levantar.png",
+      "region": [
+        747,
+        928,
+        264,
+        281
+      ],
+      "anchor": [
+        900,
+        1209
+      ],
+      "scale": 0.26,
+      "hand": [
+        995,
+        1094
+      ],
+      "other_hand": [
+        995,
+        1094
+      ],
+      "body_bounds_px": [
+        747,
+        928,
+        264,
+        281
+      ],
+      "body_height_px": 281,
+      "presentation_height_px": 73.06,
+      "tool_behind": false,
+      "baked_tool": false,
+      "hand_cover": [
+        990,
+        1089,
+        10,
+        10
+      ]
+    }
+  },
+  "notes": [
+    "PNG generados nuevos e intactos. Sin fuentes del dragón descartado.",
+    "Impactos con ocho vistas independientes y márgenes amplios.",
+    "El atlas arrodillado aporta solo las ocho primeras poses; sus elevaciones de ensayo no se usan.",
+    "Los atlas de minería/tala aportan preparación, carga y recuperación; impacto procede de sus hojas dedicadas."
+  ]
+}
