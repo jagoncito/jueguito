@@ -15,6 +15,10 @@ La generación general de imágenes está en pausa; solo se crean recursos cuand
 
 [![Captura real de la prueba](prueba/capturas/recursos-en-juego.png)](prueba/README.md)
 
+## Mapa y astillero
+
+[Mapa de Bītu para el jugador](mapas/README.md) y [exterior/interior del astillero de Flavia](assets/entorno/astillero/README.md), con módulos visuales para su preparación posterior. Fuentes revisadas; todavía no integradas en el juego.
+
 ## Documentos
 
 - [Bloc de diseño](DISENO.md): decisiones, personajes, sistemas, secretos narrativos para los creadores, propuestas y pendientes.
