@@ -49,49 +49,25 @@ async def main():
             encoded=await page.evaluate('async()=>{window.reviewRecorder.stop();return await window.reviewVideo}')
             (PROJECT/'capturas/dragon-parar-andar.webm').write_bytes(bytes(encoded))
             for action in ['minar','talar']:
-                await page.goto('http://127.0.0.1:8765/index.html?captura-impacto=1',wait_until='networkidle')
+                await page.goto(f'http://127.0.0.1:8765/index.html?captura=impacto-{action}&captura-impacto=1',wait_until='networkidle')
                 await page.wait_for_function("document.getElementById('status') === null",timeout=60000)
                 await page.wait_for_timeout(400)
-                await page.mouse.wheel(0,120)
-                await page.wait_for_timeout(100)
                 mark=len(messages)
-                if action == 'minar':
-                    await move(page,'s',120)
-                    await page.mouse.move(668,468)
-                    await page.wait_for_timeout(150)
-                    await page.mouse.click(668,468,delay=80)
-                else:
-                    # Lado sureste: el personaje queda delante del tronco,
-                    # permitiendo ver el filo en vez de ocultarlo tras la copa.
-                    await move(page,'s',900)
-                    await move(page,'a',150)
-                    for _ in range(5):
-                        await page.mouse.move(610,410)
-                        await page.wait_for_timeout(150)
-                        await page.mouse.click(610,410,delay=80)
-                        await page.wait_for_timeout(500)
-                        if any('BITU_IMPACT_CAPTURE_READY:' in text for _,text in messages[mark:]):
-                            break
-                        await move(page,'s',100)
-                        await move(page,'a',50)
-                for _ in range(30):
+                click=(620,430) if action == 'minar' else (605,420)
+                await page.mouse.move(*click)
+                await page.wait_for_timeout(250)
+                await page.mouse.click(*click,delay=250)
+                for _ in range(100):
                     ready=[text for _,text in messages[mark:] if 'BITU_IMPACT_CAPTURE_READY:' in text]
                     if ready:
                         break
                     await page.wait_for_timeout(100)
-                assert ready and f'"action":"{action}"' in ready[-1], (action,messages[mark:])
                 await page.screenshot(path=str(PROJECT/'capturas'/f'impacto-real-{action}.png'))
+                assert ready and f'"action":"{action}"' in ready[-1], (action,messages[mark:])
             assert not any(kind in ['error','pageerror'] for kind,_ in messages),messages
             print('BITU_IMPACT_BROWSER_OK: reposo/arranque idénticos y golpe sobre árbol/mena reales')
         finally:
             await browser.close()
-
-
-async def move(page, key, milliseconds):
-    await page.keyboard.down(key)
-    await page.wait_for_timeout(milliseconds)
-    await page.keyboard.up(key)
-    await page.wait_for_timeout(60)
 
 
 if __name__=='__main__':

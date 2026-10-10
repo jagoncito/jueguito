@@ -1,0 +1,77 @@
+[
+  {
+    "file": "capturas/npc-escala-frente-80.png",
+    "direction": "escala-frente",
+    "dragon_height_px": 80,
+    "camera_zoom": 1.5,
+    "viewport": [
+      1280,
+      720
+    ],
+    "ready_messages": [
+      "BITU_NPCS_READY:6",
+      "BITU_INGAME_SCALE_CAPTURE_READY:escala-frente:80.0",
+      "BITU_READY"
+    ]
+  },
+  {
+    "file": "capturas/npc-escala-frente-72.png",
+    "direction": "escala-frente",
+    "dragon_height_px": 72,
+    "camera_zoom": 1.5,
+    "viewport": [
+      1280,
+      720
+    ],
+    "ready_messages": [
+      "BITU_NPCS_READY:6",
+      "BITU_INGAME_SCALE_CAPTURE_READY:escala-frente:72.0",
+      "BITU_READY"
+    ]
+  },
+  {
+    "file": "capturas/npc-escala-diagonal-80.png",
+    "direction": "escala-diagonal",
+    "dragon_height_px": 80,
+    "camera_zoom": 1.5,
+    "viewport": [
+      1280,
+      720
+    ],
+    "ready_messages": [
+      "BITU_NPCS_READY:6",
+      "BITU_INGAME_SCALE_CAPTURE_READY:escala-diagonal:80.0",
+      "BITU_READY"
+    ]
+  },
+  {
+    "file": "capturas/npc-escala-diagonal-72.png",
+    "direction": "escala-diagonal",
+    "dragon_height_px": 72,
+    "camera_zoom": 1.5,
+    "viewport": [
+      1280,
+      720
+    ],
+    "ready_messages": [
+      "BITU_NPCS_READY:6",
+      "BITU_INGAME_SCALE_CAPTURE_READY:escala-diagonal:72.0",
+      "BITU_READY"
+    ]
+  },
+  {
+    "file": "capturas/npc-escala-espalda-80.png",
+    "direction": "escala-espalda",
+    "dragon_height_px": 80,
+    "camera_zoom": 1.5,
+    "viewport": [
+      1280,
+      720
+    ],
+    "ready_messages": [
+      "BITU_NPCS_READY:6",
+      "BITU_INGAME_SCALE_CAPTURE_READY:escala-espalda:80.0",
+      "BITU_READY"
+    ]
+  }
+]

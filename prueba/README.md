@@ -1,6 +1,6 @@
 # Prueba visual de Bītu
 
-**Comparación de personajes (10 de octubre de 2026):** Flavia, Unamahloni, cocinero/pescador, minero/herrero, elfa del museo y comerciante aparecen en una fila cerca del protagonista. Flavia y Unamahloni dan pasos cortos de ida/vuelta; los demás giran sobre el sitio, porque sus recursos todavía no incluyen marcha. **F6** detiene/reanuda el grupo; **Tab** oculta la mochila y **WASD** permite acercar el protagonista para comparar. Posiciones provisionales, sin diálogos ni comercio. La descarga incluye esta comparación y la revisión de reposo/marcha y tala del protagonista.
+**Comparación de personajes (10 de octubre de 2026):** Flavia, Unamahloni, cocinero/pescador, minero/herrero, elfa del museo y comerciante conservan las posiciones provisionales de la versión nueva de GitHub. Los seis giran brevemente sobre el sitio con sus ocho vistas vigentes, sin recuperar las variantes retiradas. **F6** detiene/reanuda el grupo; **Tab** oculta la mochila y **WASD** permite acercar el protagonista para comparar. Posiciones provisionales; conservada la interacción E de prueba, sin diálogos definitivos ni comercio. La descarga incluye esta comparación y la revisión de reposo/marcha y tala del protagonista.
 
 ![Personajes y protagonista en la granja](capturas/personajes-comparacion.png)
 
@@ -8,6 +8,10 @@
 
 **Revisión de reposo/marcha y tala (10 de octubre de 2026):** el usuario rechaza la tala anterior y el crecimiento aparente al caminar. Reposo comparte ahora el dibujo de contacto A de cada dirección; los cuatro pasos usan una única escala anatómica por ciclo. Retirados los atlas separados de reposo/apoyos/marcha opuesta que mezclaban proporciones. Marcha frontal y norte corregidas manteniendo la anatomía de sus hojas; 112 registros en catálogo v5, ocho atlas jugables. Tala usa el mismo gesto de preparación/carga/golpe que la minería, con el filo ancho como extremo activo; añadida carga propia de tala. PNG y registros de minería conservados exactamente. La petición posterior del usuario autoriza publicar esta revisión junto a los personajes de comparación. Acabado pendiente de la revisión del usuario.
 
+
+**Agua y casa integradas:** vivienda rural a escala nativa, colisión ajustada a los cimientos y profundidad respecto al personaje; costa con agua turquesa, zonas profundas y orillas. Agua estática y casa exterior. Descarga local actualizada en `prueba/descargas/bitu-navegador.zip`.
+
+![Casa y agua dentro del prototipo](capturas/casa-agua-en-juego.png)
 **Corrección de impactos (10 de octubre de 2026):** el usuario precisa que el árbol se golpea con el filo del hacha y la mena con la punta del pico, y solicita integrar/publicar. Actualizados los dos atlas de trabajo y sus contactos en las ocho vistas, sobre el extremo activo del metal; no sobre el collar ni el mango. Tala usa también su preparación lateral en entrada/recuperación. Las partículas nacen del contacto registrado, incluida la altura propia de la mena. Conservados 80 px, cinco golpes, tiempos, controles y colisión. Esta corrección está autorizada para subir; el acabado visual sigue pendiente de revisión.
 
 ![Dragón protagonista dentro del juego](capturas/dragon-en-juego.png)
@@ -80,3 +84,13 @@ Consulta [alcance y comprobaciones](../docs/prueba-visual.md). Para regenerar la
 Abre `scenes/herramienta.tscn` en Godot y pulsa **F6**. Muestra el dragón y el [pico–hacha de hierro](../assets/herramientas/pico-hacha/README.md), con proporciones reales ampliadas ×4. **1** reproduce minería, **2** tala y **R** restaura las poses. Esta revisión independiente se conserva; **F5** abre la granja con la herramienta integrada. Las mejoras de materiales todavía no son jugables.
 
 La captura anterior con humano se ha retirado al sustituirla por el dragón.
+
+## Escala común dentro del juego
+
+Los seis NPC tienen sprites nativos a escala de mundo y el protagonista conserva su renderizador actualizado, conservando las estaturas. Revisión: `prueba/scenes/personajes.tscn` (F6), o `?vista=personajes` en la descarga web. Flechas: vistas; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común. Recursos y medidas: `assets/personajes/escala-juego/README.md`. El dragón y los seis NPC aparecen también en la partida principal; su distribución es provisional.
+
+Conjunto simplificado: seis NPC con ocho vistas de reposo cada uno y protagonista actualizado con 112 fotogramas (160 en total).
+
+## Habitantes integrados y comparación de escala
+
+Los seis NPC están en posiciones provisionales del mapa y giran brevemente sobre el sitio; F6 pausa/reanuda los giros. Al acercarte miran al protagonista y **E** muestra una conversación de prueba. No incluye servicios ni diálogos definitivos. **F7**: dragón80px actual. **F8**: alternativa72px; se restablece al recargar. NPC y zoom sin cambios. [Capturas, mediciones y explicación](../docs/revision-personajes-en-juego.md).

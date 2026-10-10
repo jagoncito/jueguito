@@ -1,0 +1,944 @@
+{
+  "flavia": {
+    "height_px": 80,
+    "frames": [
+      {
+        "id": "reposo-S",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "S",
+        "source": "assets/personajes/referencias/flavia-manos-libres.png",
+        "region": [
+          163,
+          55,
+          152,
+          263
+        ],
+        "height": 80,
+        "foot": [
+          239,
+          315
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-SW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SW",
+        "source": "assets/personajes/referencias/flavia-manos-libres.png",
+        "region": [
+          160,
+          349,
+          151,
+          272
+        ],
+        "height": 80,
+        "foot": [
+          235.5,
+          618
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-W",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "W",
+        "source": "assets/personajes/referencias/flavia-manos-libres.png",
+        "region": [
+          175,
+          642,
+          122,
+          275
+        ],
+        "height": 80,
+        "foot": [
+          236,
+          914
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-NW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NW",
+        "source": "assets/personajes/referencias/flavia-manos-libres.png",
+        "region": [
+          166,
+          935,
+          150,
+          275
+        ],
+        "height": 80,
+        "foot": [
+          241,
+          1207
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-N",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "N",
+        "source": "assets/personajes/referencias/flavia-manos-libres-espalda.png",
+        "region": [
+          160,
+          29,
+          162,
+          261
+        ],
+        "height": 80,
+        "foot": [
+          241,
+          287
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-NE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NE",
+        "source": "assets/personajes/referencias/flavia-manos-libres-espalda.png",
+        "region": [
+          158,
+          329,
+          153,
+          270
+        ],
+        "height": 80,
+        "foot": [
+          234.5,
+          596
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-E",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "E",
+        "source": "assets/personajes/referencias/flavia-manos-libres-espalda.png",
+        "region": [
+          171,
+          628,
+          117,
+          278
+        ],
+        "height": 80,
+        "foot": [
+          229.5,
+          903
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-SE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SE",
+        "source": "assets/personajes/referencias/flavia-manos-libres-espalda.png",
+        "region": [
+          162,
+          934,
+          148,
+          283
+        ],
+        "height": 80,
+        "foot": [
+          236,
+          1214
+        ],
+        "hands": {}
+      }
+    ]
+  },
+  "unamahloni": {
+    "height_px": 80,
+    "frames": [
+      {
+        "id": "reposo-S",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "S",
+        "source": "assets/personajes/referencias/unamahloni-manos-libres.png",
+        "region": [
+          98,
+          63,
+          151,
+          286
+        ],
+        "height": 80,
+        "foot": [
+          173.5,
+          346
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-SW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SW",
+        "source": "assets/personajes/referencias/unamahloni-manos-libres.png",
+        "region": [
+          99,
+          388,
+          141,
+          289
+        ],
+        "height": 80,
+        "foot": [
+          169.5,
+          674
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-W",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "W",
+        "source": "assets/personajes/referencias/unamahloni-manos-libres.png",
+        "region": [
+          113,
+          700,
+          114,
+          293
+        ],
+        "height": 80,
+        "foot": [
+          170,
+          990
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-NW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NW",
+        "source": "assets/personajes/referencias/unamahloni-manos-libres-nw.png",
+        "region": [
+          159,
+          30,
+          242,
+          660
+        ],
+        "height": 80,
+        "foot": [
+          280,
+          687
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-N",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "N",
+        "source": "assets/personajes/referencias/unamahloni-manos-libres-espalda.png",
+        "region": [
+          92,
+          37,
+          141,
+          288
+        ],
+        "height": 80,
+        "foot": [
+          162.5,
+          322
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-NE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NE",
+        "source": "assets/personajes/referencias/unamahloni-manos-libres-espalda.png",
+        "region": [
+          98,
+          364,
+          136,
+          292
+        ],
+        "height": 80,
+        "foot": [
+          166,
+          653
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-E",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "E",
+        "source": "assets/personajes/referencias/unamahloni-manos-libres-espalda.png",
+        "region": [
+          110,
+          689,
+          123,
+          305
+        ],
+        "height": 80,
+        "foot": [
+          171.5,
+          991
+        ],
+        "hands": {}
+      },
+      {
+        "id": "reposo-SE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SE",
+        "source": "assets/personajes/referencias/unamahloni-manos-libres-espalda.png",
+        "region": [
+          97,
+          1010,
+          148,
+          292
+        ],
+        "height": 80,
+        "foot": [
+          171,
+          1299
+        ],
+        "hands": {}
+      }
+    ]
+  },
+  "elfa-museo": {
+    "height_px": 80,
+    "frames": [
+      {
+        "id": "reposo-S",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "S",
+        "source": "assets/personajes/referencias/elfa-museo-vistas.png",
+        "region": [
+          106,
+          19,
+          185,
+          473
+        ],
+        "foot": [
+          202.5,
+          492
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-SW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SW",
+        "source": "assets/personajes/referencias/elfa-museo-vistas.png",
+        "region": [
+          485,
+          19,
+          178,
+          475
+        ],
+        "foot": [
+          587,
+          494
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-W",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "W",
+        "source": "assets/personajes/referencias/elfa-museo-vistas.png",
+        "region": [
+          898,
+          20,
+          125,
+          474
+        ],
+        "foot": [
+          966.5,
+          494
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-NW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NW",
+        "source": "assets/personajes/referencias/elfa-museo-vistas.png",
+        "region": [
+          1261,
+          19,
+          160,
+          471
+        ],
+        "foot": [
+          1327,
+          490
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-N",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "N",
+        "source": "assets/personajes/referencias/elfa-museo-vistas.png",
+        "region": [
+          98,
+          529,
+          192,
+          468
+        ],
+        "foot": [
+          197,
+          997
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-NE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NE",
+        "source": "assets/personajes/referencias/elfa-museo-vistas.png",
+        "region": [
+          492,
+          531,
+          171,
+          467
+        ],
+        "foot": [
+          596,
+          998
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-E",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "E",
+        "source": "assets/personajes/referencias/elfa-museo-vistas.png",
+        "region": [
+          890,
+          532,
+          125,
+          474
+        ],
+        "foot": [
+          947,
+          1006
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-SE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SE",
+        "source": "assets/personajes/referencias/elfa-museo-vistas.png",
+        "region": [
+          1257,
+          530,
+          186,
+          469
+        ],
+        "foot": [
+          1319,
+          999
+        ],
+        "height": 80,
+        "hands": {}
+      }
+    ]
+  },
+  "comerciante": {
+    "height_px": 84,
+    "frames": [
+      {
+        "id": "reposo-S",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "S",
+        "source": "assets/personajes/referencias/comerciante-vistas.png",
+        "region": [
+          102,
+          16,
+          250,
+          461
+        ],
+        "foot": [
+          226.5,
+          477
+        ],
+        "height": 84,
+        "hands": {}
+      },
+      {
+        "id": "reposo-SW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SW",
+        "source": "assets/personajes/referencias/comerciante-vistas.png",
+        "region": [
+          475,
+          16,
+          228,
+          472
+        ],
+        "foot": [
+          628.5,
+          488
+        ],
+        "height": 84,
+        "hands": {}
+      },
+      {
+        "id": "reposo-W",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "W",
+        "source": "assets/personajes/referencias/comerciante-vistas.png",
+        "region": [
+          890,
+          16,
+          171,
+          467
+        ],
+        "foot": [
+          934.5,
+          483
+        ],
+        "height": 84,
+        "hands": {}
+      },
+      {
+        "id": "reposo-NW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NW",
+        "source": "assets/personajes/referencias/comerciante-vistas.png",
+        "region": [
+          1207,
+          15,
+          220,
+          467
+        ],
+        "foot": [
+          1279,
+          482
+        ],
+        "height": 84,
+        "hands": {}
+      },
+      {
+        "id": "reposo-N",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "N",
+        "source": "assets/personajes/referencias/comerciante-vistas.png",
+        "region": [
+          96,
+          506,
+          255,
+          474
+        ],
+        "foot": [
+          221,
+          980
+        ],
+        "height": 84,
+        "hands": {}
+      },
+      {
+        "id": "reposo-NE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NE",
+        "source": "assets/personajes/referencias/comerciante-vistas.png",
+        "region": [
+          482,
+          509,
+          218,
+          465
+        ],
+        "foot": [
+          623,
+          974
+        ],
+        "height": 84,
+        "hands": {}
+      },
+      {
+        "id": "reposo-E",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "E",
+        "source": "assets/personajes/referencias/comerciante-vistas.png",
+        "region": [
+          855,
+          509,
+          170,
+          471
+        ],
+        "foot": [
+          972.5,
+          980
+        ],
+        "height": 84,
+        "hands": {}
+      },
+      {
+        "id": "reposo-SE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SE",
+        "source": "assets/personajes/referencias/comerciante-vistas.png",
+        "region": [
+          1202,
+          509,
+          227,
+          476
+        ],
+        "foot": [
+          1275.5,
+          985
+        ],
+        "height": 84,
+        "hands": {}
+      }
+    ]
+  },
+  "cocinero": {
+    "height_px": 80,
+    "frames": [
+      {
+        "id": "reposo-S",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "S",
+        "source": "assets/personajes/referencias/cocinero-libre.png",
+        "region": [
+          36,
+          27,
+          270,
+          546
+        ],
+        "foot": [
+          172.5,
+          573
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-SW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SW",
+        "source": "assets/personajes/referencias/cocinero-libre.png",
+        "region": [
+          369,
+          31,
+          230,
+          552
+        ],
+        "foot": [
+          536.5,
+          583
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-W",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "W",
+        "source": "assets/personajes/referencias/cocinero-libre.png",
+        "region": [
+          687,
+          37,
+          186,
+          540
+        ],
+        "foot": [
+          770,
+          577
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-NW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NW",
+        "source": "assets/personajes/referencias/cocinero-libre.png",
+        "region": [
+          1000,
+          34,
+          235,
+          541
+        ],
+        "foot": [
+          1075,
+          575
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-N",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "N",
+        "source": "assets/personajes/referencias/cocinero-libre.png",
+        "region": [
+          32,
+          661,
+          271,
+          524
+        ],
+        "foot": [
+          167,
+          1185
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-NE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NE",
+        "source": "assets/personajes/referencias/cocinero-libre.png",
+        "region": [
+          364,
+          657,
+          235,
+          541
+        ],
+        "foot": [
+          522.5,
+          1198
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-E",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "E",
+        "source": "assets/personajes/referencias/cocinero-libre.png",
+        "region": [
+          689,
+          657,
+          182,
+          543
+        ],
+        "foot": [
+          800,
+          1200
+        ],
+        "height": 80,
+        "hands": {}
+      },
+      {
+        "id": "reposo-SE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SE",
+        "source": "assets/personajes/referencias/cocinero-libre.png",
+        "region": [
+          987,
+          655,
+          238,
+          556
+        ],
+        "foot": [
+          1165.5,
+          1211
+        ],
+        "height": 80,
+        "hands": {}
+      }
+    ]
+  },
+  "enano": {
+    "height_px": 64,
+    "frames": [
+      {
+        "id": "reposo-S",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "S",
+        "source": "assets/personajes/referencias/enano-libre.png",
+        "region": [
+          10,
+          87,
+          320,
+          525
+        ],
+        "foot": [
+          171,
+          612
+        ],
+        "height": 64,
+        "hands": {}
+      },
+      {
+        "id": "reposo-SW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SW",
+        "source": "assets/personajes/referencias/enano-libre.png",
+        "region": [
+          923,
+          656,
+          299,
+          536
+        ],
+        "foot": [
+          1149.5,
+          1192
+        ],
+        "height": 64,
+        "hands": {}
+      },
+      {
+        "id": "reposo-W",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "W",
+        "source": "assets/personajes/referencias/enano-libre.png",
+        "region": [
+          674,
+          654,
+          216,
+          533
+        ],
+        "foot": [
+          772.5,
+          1187
+        ],
+        "height": 64,
+        "hands": {}
+      },
+      {
+        "id": "reposo-NW",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NW",
+        "source": "assets/personajes/referencias/enano-libre.png",
+        "region": [
+          354,
+          654,
+          283,
+          523
+        ],
+        "foot": [
+          547,
+          1177
+        ],
+        "height": 64,
+        "hands": {}
+      },
+      {
+        "id": "reposo-N",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "N",
+        "source": "assets/personajes/referencias/enano-libre.png",
+        "region": [
+          16,
+          654,
+          314,
+          510
+        ],
+        "foot": [
+          180,
+          1164
+        ],
+        "height": 64,
+        "hands": {}
+      },
+      {
+        "id": "reposo-NE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "NE",
+        "source": "assets/personajes/referencias/enano-libre.png",
+        "region": [
+          962,
+          90,
+          284,
+          522
+        ],
+        "foot": [
+          1169,
+          612
+        ],
+        "height": 64,
+        "hands": {}
+      },
+      {
+        "id": "reposo-E",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "E",
+        "source": "assets/personajes/referencias/enano-libre.png",
+        "region": [
+          667,
+          87,
+          218,
+          529
+        ],
+        "foot": [
+          769.5,
+          616
+        ],
+        "height": 64,
+        "hands": {}
+      },
+      {
+        "id": "reposo-SE",
+        "action": "reposo",
+        "phase": 0,
+        "direction": "SE",
+        "source": "assets/personajes/referencias/enano-libre.png",
+        "region": [
+          353,
+          90,
+          289,
+          528
+        ],
+        "foot": [
+          420.5,
+          618
+        ],
+        "height": 64,
+        "hands": {}
+      }
+    ]
+  }
+}

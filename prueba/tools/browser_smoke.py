@@ -27,12 +27,22 @@ async def main():
             await page.mouse.wheel(0,120)
             await page.wait_for_timeout(100)
             # Entrar en el alcance desde el norte, sin bajar hasta el árbol.
-            await move(page, "s", 120)
-            await page.mouse.click(668, camera_y(576-20, 528+24))
+            await move(page, "s", 220)
+            await page.mouse.move(668, camera_y(576-20, 528+24))
+            await page.wait_for_timeout(200)
+            await page.mouse.click(668, camera_y(576-20, 528+24),delay=250)
             await page.wait_for_timeout(180)
             await page.screenshot(path=str(PROJECT / "build/minando.png"))
             await page.wait_for_timeout(3400)
             await page.screenshot(path=str(PROJECT / "build/mineral-recogido.png"))
+            for attempt in range(2):
+                if any("BITU_PICKUP:mineral:1" in entry["text"] for entry in messages):
+                    break
+                await move(page,"s",80)
+                await page.mouse.move(668,450)
+                await page.wait_for_timeout(200)
+                await page.mouse.click(668,450,delay=250)
+                await page.wait_for_timeout(4000)
             assert any("BITU_PICKUP:mineral:1" in entry["text"] for entry in messages), "Cobre no recogido"
             # Árbol cercano a la orilla, aproximación desde la derecha.
             await move(page, "s", 610)

@@ -1,0 +1,73 @@
+[gd_resource type="TileSet" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/entorno/agua-casa/agua-atlas.png" id="1_o0g0r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndq2i"]
+texture = ExtResource("1_o0g0r")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = "agua-superficie-0"
+1:0/0 = 0
+1:0/0/custom_data_0 = "agua-superficie-1"
+2:0/0 = 0
+2:0/0/custom_data_0 = "agua-superficie-2"
+3:0/0 = 0
+3:0/0/custom_data_0 = "agua-superficie-3"
+0:1/0 = 0
+0:1/0/custom_data_0 = "agua-profunda-0"
+1:1/0 = 0
+1:1/0/custom_data_0 = "agua-profunda-1"
+2:1/0 = 0
+2:1/0/custom_data_0 = "agua-profunda-2"
+3:1/0 = 0
+3:1/0/custom_data_0 = "agua-profunda-3"
+0:2/0 = 0
+0:2/0/custom_data_0 = "agua-somera-0"
+1:2/0 = 0
+1:2/0/custom_data_0 = "agua-somera-1"
+2:2/0 = 0
+2:2/0/custom_data_0 = "agua-somera-2"
+3:2/0 = 0
+3:2/0/custom_data_0 = "agua-somera-3"
+0:3/0 = 0
+0:3/0/custom_data_0 = "agua-espuma-0"
+1:3/0 = 0
+1:3/0/custom_data_0 = "agua-espuma-1"
+2:3/0 = 0
+2:3/0/custom_data_0 = "agua-espuma-2"
+3:3/0 = 0
+3:3/0/custom_data_0 = "agua-espuma-3"
+0:4/0 = 0
+0:4/0/custom_data_0 = "orilla-borde-no"
+0:4/0/custom_data_1 = true
+1:4/0 = 0
+1:4/0/custom_data_0 = "orilla-borde-ne"
+1:4/0/custom_data_1 = true
+2:4/0 = 0
+2:4/0/custom_data_0 = "orilla-borde-se"
+2:4/0/custom_data_1 = true
+3:4/0 = 0
+3:4/0/custom_data_0 = "orilla-borde-so"
+3:4/0/custom_data_1 = true
+0:5/0 = 0
+0:5/0/custom_data_0 = "orilla-esquina-arriba"
+0:5/0/custom_data_1 = true
+1:5/0 = 0
+1:5/0/custom_data_0 = "orilla-esquina-derecha"
+1:5/0/custom_data_1 = true
+2:5/0 = 0
+2:5/0/custom_data_0 = "orilla-esquina-abajo"
+2:5/0/custom_data_1 = true
+3:5/0 = 0
+3:5/0/custom_data_0 = "orilla-esquina-izquierda"
+3:5/0/custom_data_1 = true
+
+[resource]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(64, 32)
+custom_data_layer_0/name = "sprite_id"
+custom_data_layer_0/type = 4
+custom_data_layer_1/name = "es_orilla"
+custom_data_layer_1/type = 1
+sources/0 = SubResource("TileSetAtlasSource_ndq2i")

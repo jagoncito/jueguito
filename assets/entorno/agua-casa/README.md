@@ -48,3 +48,7 @@ Comprobaciones realizadas:
 Son variantes **estáticas**, no fotogramas de animación. Este lote no incluye todavía esquinas interiores, autotile completo, cascadas, oleaje animado ni interiores de la casa.
 
 Para repetir la preparación: `python3 registrar.py`, `python3 exportar.py`, `python3 registrar.py`, `python3 validar.py`. Requiere Python 3, Pillow y, para exportar y comprobar el visor, Playwright y Chromium. Los scripts no modifican el proyecto jugable.
+
+## Integración posterior
+
+Por petición del usuario, el prototipo utiliza copias idénticas de `sprites/casa.png` y `agua-atlas.png` en `prueba/assets/entorno/agua-casa/`. Los archivos fuente y este paquete de preparación se conservan. La colisión y el orden de profundidad se definen en `prueba/scripts/house.gd`; el terreno conserva la costa no transitable.
