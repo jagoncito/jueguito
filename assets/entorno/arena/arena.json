@@ -1,0 +1,43 @@
+{
+  "source": "arena-fuente.png",
+  "size": [
+    1774,
+    887
+  ],
+  "sha256": "3a1c075bc7c2a50926e430103fe229f01686caf95ef4ae7e1837b925d8743ab9",
+  "reference_footprint": [
+    64,
+    32
+  ],
+  "status": "integrado-en-prueba-con-geometria-de-suelo-64x32",
+  "frames": {
+    "arena-a": {
+      "region": [
+        48,
+        240,
+        791,
+        412
+      ],
+      "anchor_source": [
+        395.5,
+        206.0
+      ],
+      "uniform_reference_scale": 0.08091024020227561,
+      "seams_status": "pendiente"
+    },
+    "arena-b": {
+      "region": [
+        935,
+        240,
+        791,
+        412
+      ],
+      "anchor_source": [
+        395.5,
+        206.0
+      ],
+      "uniform_reference_scale": 0.08091024020227561,
+      "seams_status": "pendiente"
+    }
+  }
+}

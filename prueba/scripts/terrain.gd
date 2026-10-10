@@ -5,6 +5,9 @@ const HOUSE_ANCHOR := Vector2i(18, 11)
 const WATER_ATLAS = preload("res://assets/entorno/agua-casa/agua-atlas.png")
 const SHORE_DIRECTIONS := [Vector2i(-1,0), Vector2i(0,-1), Vector2i(1,0), Vector2i(0,1)]
 var water_frames: Array[AtlasTexture] = []
+const SURFACE_DIRECTORY := "res://assets/entorno/terreno/"
+var surface_sources: Dictionary = {}
+var surface_frames: Dictionary = {}
 
 const MAP_SIZE := 32
 const HALF_TILE := Vector2(32, 16)
@@ -28,6 +31,11 @@ func is_walkable(cell: Vector2i) -> bool:
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	var surfaces: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(SURFACE_DIRECTORY+"suelos.json"))
+	surface_frames = surfaces.frames
+	for frame in surface_frames.values():
+		if not surface_sources.has(frame.file):
+			surface_sources[frame.file] = load(SURFACE_DIRECTORY+frame.file)
 	for row in range(6):
 		for column in range(4):
 			var frame := AtlasTexture.new()
@@ -81,11 +89,10 @@ func _draw() -> void:
 				color = Color(0.28 + variation, 0.22 + variation, 0.16 + variation)
 			var points := PackedVector2Array([center + Vector2(0, -16), center + Vector2(32, 0), center + Vector2(0, 16), center + Vector2(-32, 0)])
 			draw_colored_polygon(points, color)
-			if not is_water(cell) and farm_cells.has(cell):
-				draw_polyline(points + PackedVector2Array([points[0]]), Color(0.43, 0.34, 0.22), 1)
-			elif not is_water(cell) and (x * 5 + y * 3) % 7 == 0:
-				draw_rect(Rect2(center + Vector2(-8,-4), Vector2(3,5)), Color(0.39,0.53,0.27))
-				draw_rect(Rect2(center + Vector2(5,3), Vector2(2,4)), Color(0.22,0.35,0.19))
+			if not is_water(cell):
+				_draw_surface(cell,points)
+				if farm_cells.has(cell):
+					draw_polyline(points + PackedVector2Array([points[0]]), Color(0.43, 0.34, 0.22), 1)
 	# First water, then transparent banks: neighboring tiles cannot cover a bank.
 	for y in range(MAP_SIZE):
 		for x in range(MAP_SIZE):
@@ -111,6 +118,32 @@ func _draw() -> void:
 				for direction in range(4):
 					if mask & (1 << direction):
 						draw_texture(water_frames[16 + direction], cell_to_world(cell) - HALF_TILE)
+
+func surface_material(cell: Vector2i) -> String:
+	if is_water(cell):
+		return "agua"
+	if cell.x >= 21 and cell.x <= 23 and cell.y <= 26:
+		return "arena"
+	if farm_cells.has(cell) or (cell.x >= 16 and cell.x <= 18 and cell.y >= 10 and cell.y <= 22) or (cell.y == 11 and cell.x >= 8 and cell.x <= 21):
+		return "tierra"
+	return "hierba"
+
+func _draw_surface(cell: Vector2i, points: PackedVector2Array) -> void:
+	var variant := "a" if (cell.x*17+cell.y*31)%2 == 0 else "b"
+	var frame: Dictionary = surface_frames[surface_material(cell)+"-"+variant]
+	var texture: Texture2D = surface_sources[frame.file]
+	var r: Array = frame.region
+	var x := float(r[0])
+	var y := float(r[1])
+	var w := float(r[2])
+	var h := float(r[3])
+	# Mapear la superficie fuente al rombo exacto de suelo, sin cambiar el mundo físico.
+	# La geometría recorta los márgenes del atlas; las texturas se cargan una sola vez.
+	var uv := PackedVector2Array([Vector2(x+w/2,y),Vector2(x+w,y+h/2),Vector2(x+w/2,y+h),Vector2(x,y+h/2)])
+	for index in range(uv.size()):
+		uv[index] /= texture.get_size()
+	var tint := Color(0.65,0.55,0.43) if farm_cells.has(cell) else Color.WHITE
+	draw_polygon(points,PackedColorArray([tint]),uv,texture)
 
 func shore_mask(cell: Vector2i) -> int:
 	var mask := 0
