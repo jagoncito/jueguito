@@ -1,0 +1,43 @@
+{
+  "fecha": "2026-10-11",
+  "tipo": "propuestas visuales de recorrido; no sprites ni mapas jugables",
+  "generacion": "image_gen; revisión posterior de las anotaciones de ruta",
+  "referencias": [
+    "../isla-bitu-concepto.png",
+    "../isla-bitu-mapa-jugador-pixel-art.png",
+    "../../assets/entorno/astillero/referencias/astillero-exterior-fuente.png"
+  ],
+  "revision": "Dorado ruinas–astillero, azul astillero–comercio/museo; ninguna variante elegida; escala de recorrido comprimida. PNG abiertos y revisados visualmente.",
+  "laminas": [
+    {
+      "archivo": "opcion-a-costa-y-puente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGB",
+      "bytes": 3394335,
+      "sha256": "a103d32b828968eecb3c0d32b65efccadc194937cac56b2330bc0a0260d7b1b4"
+    },
+    {
+      "archivo": "opcion-b-bosque-y-rio.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGB",
+      "bytes": 3518512,
+      "sha256": "8be0dc139bca549db982039125eba23d5a4ff4af6381ff4fa5a76db248d9b2fa"
+    },
+    {
+      "archivo": "opcion-c-terrazas-y-miradores.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGB",
+      "bytes": 3492762,
+      "sha256": "33a8fa15734251342d2612a1ef00265c41d5cd2fafec5a88fc0e00cbffcf99e2"
+    }
+  ]
+}

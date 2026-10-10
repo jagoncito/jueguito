@@ -37,3 +37,7 @@ Las piezas separadas en una lámina son fuentes de trabajo, no sprites nativos y
 ## Lote posterior
 
 Registradas 48 piezas en [ruinas-camino](../assets/entorno/ruinas-camino/README.md), con tres atlas, catálogo, texturas, prefabs y galería. El registro permite seleccionarlas; se mantienen pendientes la geometría exacta del suelo, halos, uniones, escala visual final y colisiones.
+
+## Opciones de recorrido, 11 de octubre
+
+El usuario solicita dibujar varias opciones para ruinas–astillero y astillero–pueblo y publicarlas. [Tres propuestas ilustradas y comparación](../mapas/recorridos-iniciales/README.md): costa y puente, bosque y río, terrazas y miradores. «Pueblo» conserva el sentido de pocas casas dispersas con comercio/museo, no una ciudad nueva. Ninguna opción está elegida; no se implementan escenas ni transiciones por esta entrega.

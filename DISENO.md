@@ -94,6 +94,8 @@ El camino inicial conduce al astillero: no debe permitir saltarse ese primer enc
 
 **Presentación del hogar acordada:** Flavia y el herrero mencionan la casa abandonada durante el encuentro del astillero. Después, el comerciante, de camino, se la presenta al protagonista y cuenta que allí vivía un maestro muy antiguo. Las menciones iniciales y la presentación posterior se complementan; no revelan al jugador la especialidad del antiguo dueño. Diálogos, recorrido exacto y forma de señalar o enseñar la casa pendientes; todavía sin implementación.
 
+**Recorridos para comparar, 11 de octubre de 2026:** el usuario solicita dibujos de varias opciones para ruinas → astillero y astillero → pueblo y su publicación. Preparadas [tres variantes visuales](mapas/recorridos-iniciales/README.md): costa y puente, bosque y río, terrazas y miradores. «Pueblo» conserva las pocas casas dispersas de Bītu, con comercio/museo y la granja cercana. Ninguna variante está elegida; no se modifican el juego ni sus transiciones. La recomendación A sigue como propuesta.
+
 ### Propuestas de distribución y narrativa
 
 - Encerrar el sendero de forma natural entre mar, acantilados y vegetación.

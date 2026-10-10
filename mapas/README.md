@@ -9,3 +9,7 @@
 Es una propuesta visual, no una captura del juego ni un mapa navegable ya implementado. El icono de jugador es un marcador provisional; no sustituye al dragón. Los rótulos están incluidos en la fuente: para una interfaz definitiva deben separarse en elementos de UI, con marcadores dinámicos y control de lugares descubiertos. La ilustración no define medidas en casillas, límites de zonas ni duración de recorridos. El mapa de interfaz tiene otra escala que los sprites del mundo.
 
 [Exterior e interior propuestos del astillero](../assets/entorno/astillero/README.md). Revisados y con publicación solicitada por el usuario; pendientes de integración.
+
+## Recorridos iniciales — 11 de octubre de 2026
+
+[Tres opciones dibujadas: ruinas → astillero → casas del interior](recorridos-iniciales/README.md). Costa y puente, bosque y río, y terrazas y miradores. Propuestas para comparar, conservando un único avance inicial al astillero y pocas casas dispersas. Ninguna elegida ni integrada.
