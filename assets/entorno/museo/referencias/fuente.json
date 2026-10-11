@@ -1,0 +1,48 @@
+{
+  "fecha": "2026-10-11",
+  "tipo": "fuentes visuales de museo exterior e interior, sin registro para el juego",
+  "generacion": "image_gen; exterior conservado y utilizado como referencia del interior",
+  "referencias": [
+    "../../agua-casa/sprites/casa.png",
+    "../../astillero/referencias/astillero-exterior-fuente.png"
+  ],
+  "revision_visual": "Arquitectura coherente de piedra/madera; entrada frontal, nave, alas de exposición y archivo posterior; muebles de exposición vacíos. Las fuentes contienen sombreado/halos que requieren limpieza antes de integración.",
+  "fuentes": [
+    {
+      "archivo": "museo-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2635510,
+      "sha256": "2cb199f647c4f88833cace2ea046a673c03d231e8a8b2ed833b4b3813b1c10f8"
+    },
+    {
+      "archivo": "museo-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2838521,
+      "sha256": "09ac550675b777ed04740a23143c36318e3e0fb9ff1246036b2c0e3733e60cb6"
+    }
+  ],
+  "pendiente": [
+    "escala y recortes",
+    "limpieza de fondo/halos",
+    "capas de paredes/mobiliario",
+    "anclas y colisiones",
+    "medidas de puertas y pasillos",
+    "integración y transición"
+  ]
+}
