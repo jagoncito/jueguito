@@ -262,6 +262,8 @@ La timidez y la religiosidad son rasgos de Unamahloni, no una personalidad comú
 
 Los nombres, aspectos y relatos todavía no definidos de los personajes siguen abiertos. Los nombres propuestos anteriormente —Ena, Orun y Sila— no fueron elegidos.
 
+**Casa de Unamahloni solicitada, 11 de octubre de 2026:** crear y subir [exterior e interior](assets/entorno/casa-alquimista/README.md). Propuesta de vivienda con laboratorio, estudio, dormitorio e invernadero lateral, coherente con los materiales y cámara de Bītu. Jardín, utensilios y disposición son propuestas visuales; no fijan recetas, ingredientes, efectos ni rituales. Se conserva ubicación general norte/noreste y la condición de casa con instalaciones de oficio. Publicación autorizada de las fuentes, sin integrar el edificio ni modificar la descarga.
+
 ## 7. Protagonista y hogar
 
 ### Personaje

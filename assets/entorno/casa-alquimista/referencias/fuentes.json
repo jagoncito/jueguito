@@ -1,0 +1,29 @@
+{
+  "fecha": "2026-10-11",
+  "personaje": "Unamahloni, maestro alquimista/herboristero Veyari",
+  "tipo": "fuentes visuales exterior/interior, sin integración",
+  "generacion": "image_gen; exterior referenciado a materiales/cámara de Bītu e interior referenciado a fachada propia",
+  "revision": "Casa con invernadero lateral, laboratorio, estudio y dormitorio. Utensilios/plantas visuales propuestos. Fondo/halos, escala, capas, puertas y colisiones pendientes.",
+  "fuentes": [
+    {
+      "archivo": "casa-alquimista-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2874325,
+      "sha256": "53c0287a508627c7698f77d971cf33afab834ebd253337851a8d058423bf299b"
+    },
+    {
+      "archivo": "casa-alquimista-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 3085003,
+      "sha256": "bc194a2b7471656d0864e79bfb893bf142ebea359bd535cb37f5967b15326ebc"
+    }
+  ]
+}
