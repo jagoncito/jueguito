@@ -590,6 +590,8 @@ Propuestas para debatir: recompensa según rareza, monedas y fichas canjeables p
 
 Todavía no se ha decidido si las piezas ultraexclusivas hacen falta para completar el museo ni si habrá usos alternativos para ellas. No dar por hecho que el jugador está obligado a entregar su único ejemplar.
 
+**Exterior e interior del museo, 11 de octubre de 2026:** tras solicitar el exterior y plantear un interior amplio, el usuario pide preparar ambos y subirlos a GitHub. Fuentes en [museo](assets/entorno/museo/README.md): arquitectura rural amplia coherente con casa/astillero y abandono inicial; interior propuesto con recepción, nave principal, galerías laterales y archivo/reserva. Vitrinas y pedestales vacíos, espacios de paso despejados; distribución, capacidad, categorías y medidas no fijadas. Publicación autorizada de esta entrega gráfica, sin implementar el museo ni modificar la descarga.
+
 ### Nota de probabilidades para el futuro equilibrio
 
 Probabilidad de conseguir al menos una pieza tras `n` intentos independientes, con probabilidad constante `p` por intento: `1 − (1 − p)^n`.

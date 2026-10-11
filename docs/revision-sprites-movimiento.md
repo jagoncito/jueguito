@@ -22,7 +22,7 @@ NW/W/SW reflejadas completas. Todas las posiciones locales se reflejan juntas.
 Solo se sustituye reposo.png y su copia de ejecución, mediante la herramienta
 de imágenes. No se editan imágenes con Python ni se deforman por ejes.
 Fuentes y registros de minería, tala, pesca, garras y los 16 de flores son idénticos a fe7091e. Los cambios remotos de
-recorridos a5250f4 se conservan. No se cambia velocidad, colisión, alcance,
+recorridos a5250f4 y las fuentes del museo4148b98 se conservan. No se cambia velocidad, colisión, alcance,
 número de golpes, mapa, NPC ni tiempo de acciones.
 
 ## Verificación y límites
