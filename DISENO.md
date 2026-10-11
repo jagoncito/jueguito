@@ -925,3 +925,54 @@ Usuario solicita pensar/anotar un sistema común para todos los interiores. [Pla
 ### Casa integrada y colocación de estructuras (11 de octubre)
 
 Casa interior integrada, 11 de octubre: usuario solicita integración/prueba/subida y exige colocar estructuras sin huecos residuales detrás/lados/esquinas. Ver docs/casa-interior-prueba.md. Casa E/fundido/entrada-salida, estado conservado, suelo amplio y muebles con colisión. Huellas continuas y pasos solo deliberados; no reorganizar todo Bītu por esta entrega. Exterior conservado en memoria en este prototipo; resto de interiores y carga general pendientes.
+
+## Acuerdos recuperados de notas locales — 11 de octubre de 2026
+
+Estos acuerdos ya se habían hablado y anotado en local, pero no estaban completos en GitHub. Esta publicación es de documentación: no afirma que las correcciones pendientes estén implementadas. Las revisiones posteriores del código conservadas en main prevalecen sobre descripciones históricas de la prueba.
+
+**Preferencia por la terraza alta, 11 de octubre:** al comparar las láminas, al usuario le gusta que permita un segundo acceso a las ruinas desde otro camino. Propone una mena bloqueando ese paso al principio, de modo que el único avance inicial transitable sea por la terraza media hasta el astillero, donde recibe el equipo. La preferencia no elige íntegramente la variante C. Propuesta de funcionamiento: romper el bloqueo con el pico–hacha inicial y conservar el acceso abierto como atajo de regreso. La mena existente de cobre tiene estados entero/picado, pero su reaparición ordinaria no serviría para un desbloqueo permanente. Anchura, ubicación, aspecto final, material, golpes y persistencia pendientes; sin generación ni integración; acuerdo publicado ahora.
+
+### Interiores: amplitud dentro del juego — confirmada el 11 de octubre
+
+El usuario acepta visualmente los edificios e interiores creados hasta ahora y pide **tomar los interiores como referencias, construyéndolos más amplios in-game** para que se vean algo más grandes. Conservar estilo, arquitectura y organización general, aumentando la extensión real de suelo y el espacio útil entre muebles, salas, entradas y pasillos. Se aplica a los interiores creados (astillero, museo, BITU24H y casa del alquimista) y orienta los siguientes.
+
+Mantener la escala común del personaje y del mobiliario: no conseguir amplitud ampliando todo el PNG, agrandando muebles ni encogiendo al personaje. Al integrar, ensamblar piezas y espaciar la distribución para dar más recorrido y mejor lectura. Dimensiones, factor de ampliación y límites de cámara concretos pendientes de comprobar en juego. Esta amplitud inicial es distinta de las ampliaciones futuras del museo.
+
+Acuerdo guardado como criterio de integración; sin cambios de código ni nuevas imágenes; acuerdo publicado ahora.
+
+### Colisiones y estabilidad del movimiento — revisión solicitada el 11 de octubre
+
+**Problema comunicado por el usuario:** al empujar contra obstáculos, el personaje empieza a botar y repite «minisaltos». Se requiere revisar y optimizar todas sus colisiones: estructuras/edificios, límites de mapa, otros personajes y cualquier otro elemento que bloquee el paso, incluidos recursos y obstáculos del entorno.
+
+**Resultado requerido:** no atravesar ni avanzar dentro del obstáculo y mantener un contacto estable mientras se pulsa movimiento contra él. Sin rebotes repetidos, vibración, cambios bruscos de posición ni pequeños saltos del sprite. Si el personaje está completamente bloqueado, la animación debe reflejar que no está avanzando; no reiniciar repetidamente fases de marcha o sprint por el mero intento de moverse. Al dejar de empujar o cambiar hacia una dirección libre, recuperar el movimiento normal.
+
+La revisión debe cubrir avance frontal, diagonales, esquinas, contactos entre varios obstáculos y sprint, manteniendo alineados cuerpo visual y origen físico. Si existe desplazamiento real tangencial por una pared, la animación debe corresponder a ese desplazamiento, sin temblar ni avanzar hacia la parte bloqueada.
+
+Causa técnica todavía sin diagnosticar: no asumir que el problema sea únicamente el dibujo o únicamente el collider. Requisito y tarea guardados; sin corrección de código ni nueva publicación solicitadas en este mensaje.
+
+### Dirección de reposo en diagonales — corrección solicitada el 11 de octubre
+
+**Problema comunicado por el usuario:** al moverse en diagonal (por ejemplo W+D, arriba-derecha) y detenerse, resulta difícil conservar la pose diagonal: el reposo termina mirando arriba o a la derecha. Se solicita conservar la orientación diagonal al soltar las teclas tras ese movimiento, con el mismo criterio para las ocho direcciones y para marcha/sprint.
+
+La liberación casi simultánea de las dos teclas no debe cambiar involuntariamente la orientación a una dirección cardinal solo porque una se soltó ligeramente antes que la otra. Una continuación deliberada hacia arriba o hacia la derecha sí debe actualizar la orientación. La solución debe distinguir la breve diferencia al soltar teclas de un movimiento cardinal intencional, sin retrasar la parada física ni introducir desplazamientos adicionales.
+
+Causa todavía por comprobar. Un pequeño margen de tolerancia o una confirmación temporal de dirección son posibles soluciones técnicas, no parámetros ni implementación elegidos. Verificar las cuatro diagonales soltando las teclas en ambos órdenes, conservar correctamente el reposo y comprobar que los cambios cardinales deliberados siguen respondiendo. Requisito anotado; corrección pendiente, publicado ahora como acuerdo, sin implementación adicional.
+
+### Cancelación de acciones — confirmada el 11 de octubre
+
+**Regla general solicitada por el usuario:** todas las animaciones de acción del protagonista deben poder cancelarse. Si el jugador inicia una acción (por ejemplo, clic en una mena) y se mueve, se interrumpe la acción y su animación para recuperar inmediatamente el movimiento. Se aplica a minería, tala, recolección/herboristería, pesca y las demás acciones animadas, sin excepciones por oficio.
+
+- Al volver a iniciar la acción, la animación y la secuencia interrumpida arrancan desde su primera fase; no continúan en el fotograma ni el tiempo donde quedaron.
+- La cancelación devuelve al personaje a un estado válido de movimiento o reposo. Se limpian postura, herramienta temporal, objetivos, efectos y fases de interacción que correspondan, sin dejar poses rotas, herramientas flotantes ni al personaje bloqueado.
+- Los eventos pendientes de la acción cancelada no pueden producir golpes, capturas o recompensas después de la interrupción, ni duplicarse al reiniciar. En pesca se termina el intento y se limpia el estado de caña/sedal/desafío; el siguiente intento comienza de nuevo con el lanzamiento.
+- Reiniciar la animación no decide por sí solo qué ocurre con daño o trabajo ya aplicado al recurso; ese detalle sigue pendiente. No se revierte ni concede progreso por deducción de esta regla.
+
+Anotación de diseño: todavía no se ha comprobado ni aplicado esta regla de manera universal al código. Esta petición solicita guardarla, sin nueva implementación ni publicación.
+
+### Ampliación futura del museo
+
+El usuario acepta poder ampliar el interior si falta espacio para objetos. Prever nuevas salas/alas y archivo, conservando los objetos donados y su registro. Dimensiones, costes, condiciones de desbloqueo y método de ampliación pendientes. Es distinto del criterio de crear interiores iniciales más amplios al integrarlos.
+
+### Proporción de cabeza de comerciante y dragón
+
+El usuario pide adaptar la cabeza del comerciante al estilo de proporciones de los demás y aclara expresamente que el dragón también está incluido, en todos sus sprites. Mantener estaturas y escala común. El requisito se registra sin publicar los ajustes de arte antiguos pendientes del checkout local ni sustituir las revisiones posteriores del protagonista de main. Cumplimiento visual completo por revisar; no darlo por aprobado automáticamente.
