@@ -874,3 +874,12 @@ clic, recuperación, captura/botín, fallo y cancelación con Esc. Caña disponi
 en la prueba, sin implementar su regalo narrativo. Icono de pez común de prueba;
 no fija especie, peso, calidad o rareza. Progresión de herramientas, criaturas,
 barco, inicio narrativo, guardado y balance definitivo pendientes.
+
+### Corrección selectiva de sprites, 11 de octubre de 2026
+
+El usuario pide conservar las poses que funcionan y corregir las defectuosas.
+Reposo, caminar y correr se revisan juntos: reposo neutro corregido desde la referencia de marcha,
+alternancia frontal de piernas/brazos y parejas simétricas coherentes. No se
+rehacen acciones que no se han identificado como defectuosas en esta revisión.
+Recolección preservada exactamente. El acabado continúa sujeto a revisión visual;
+altura constante y señales correctas no bastan para aprobar todas las animaciones.

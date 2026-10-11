@@ -107,12 +107,23 @@ def build_catalog():
             frame['rod_tip_reference']=reference
         frames[pose+'-'+DIRS[direction]]=frame
     for direction in range(8):
-        anchor=support('reposo.png',direction,direction); top=regions['reposo.png'][direction][1]
-        for pose in ['reposo','sin-equipo']: add(pose,direction,'reposo.png',direction,80/(anchor[1]-top))
+        # Las vistas derechas se proyectan de sus parejas izquierdas completas.
+        # Evita cambiar anatomía/perspectiva entre direcciones, especialmente NE.
+        movement_direction = {5:3,6:2,7:1}.get(direction,direction)
+        idle_anchor=support('reposo.png',movement_direction,movement_direction)
+        idle_top=regions['reposo.png'][movement_direction][1]
+        for pose in ['reposo','sin-equipo']:
+            add(pose,direction,'reposo.png',movement_direction,80/(idle_anchor[1]-idle_top),mirror=direction in [5,6,7])
         for name,poses in [('marcha.png',['andar-a','paso-a','andar-b','paso-b']),('sprint.png',['sprint-a','sprint-paso-a','sprint-b','sprint-paso-b'])]:
-            first=direction*4; height=support(name,first,direction)[1]-regions[name][first][1]
+            first=movement_direction*4
+            height=support(name,first,movement_direction)[1]-regions[name][first][1]
             for phase,pose in enumerate(poses):
-                add(pose,direction,name,first+phase,80/height,anchor_y=regions[name][first+phase][1]+height)
+                # En frontal los originales repetían la pierna adelantada.
+                # Media zancada opuesta: reflejar figura completa (brazos incluidos).
+                source_phase=phase%2 if direction==0 else phase
+                mirror=direction in [5,6,7] or (direction==0 and phase>=2)
+                index=first+source_phase
+                add(pose,direction,name,index,80/height,anchor_y=regions[name][index][1]+height,mirror=mirror)
         for name,poses,action in [('tala.png',['medio-talar','cargar-talar','golpe-talar','recuperar-talar'],'talar'),('mineria.png',['medio','cargar','golpe','recuperar'],'minar')]:
             # Norte/diagonal y perfil opuestos se proyectan de una vista coherente
             # cuando el generador cambia la orientación entre fotogramas.

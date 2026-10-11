@@ -62,6 +62,9 @@ func run() -> void:
 				var image: Image=visual.body.texture.get_image()
 				var top := visual.body.position.y+image.get_used_rect().position.y*factor
 				assert(absf(resting_top-top)<2.0,"No crecer al andar/correr")
+				# El reflejo completo cambia la pierna/brazo adelantados aunque
+				# comparta región fuente; contar la pose que se dibuja realmente.
+				if visual.body.flip_h: image.flip_x()
 				distinct[hash(image.get_data())]=true
 			assert(distinct.size()==4,"Cuatro pasos diferentes por dirección")
 		actor.sprinting=false

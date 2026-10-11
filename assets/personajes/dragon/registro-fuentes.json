@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "art_revision": "dragon-integral-2026-10-10",
+  "art_revision": "dragon-movimiento-selectivo-2026-10-11",
   "sources": {
     "reposo.png": {
-      "columns": 2
+      "columns": 1,
+      "count": 5,
+      "note": "Cinco apoyos neutros corregidos tomando marcha.png como referencia; vistas derechas reflejadas."
     },
     "marcha.png": {
       "columns": 4
@@ -729,7 +731,8 @@
     "Atlas originales sin editar bytes; escala uniforme y nearest.",
     "Proyecciones simétricas donde una vista generada giraba al lado incorrecto; reflexión de cuerpo/manos/contacto juntos, nunca giro aislado de herramienta.",
     "Cresta80px en reposo/marcha/sprint; una escala por ciclo. Apoyos de trabajo físicos.",
-    "Fuentes gráficas propuestas: acabado pendiente de revisión del usuario."
+    "Fuentes gráficas propuestas: acabado pendiente de revisión del usuario.",
+    "Revisión selectiva: reposo corregido desde marcha; S alterna media zancada por reflexión completa; NE/E/SE se proyectan desde NW/W/SW. Acciones conservadas."
   ],
   "fishing_tips": {
     "pesca-cargar": [

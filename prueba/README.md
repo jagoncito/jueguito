@@ -1,5 +1,7 @@
 # Prueba visual de Bītu
 
+**Revisión selectiva del11 de octubre:** reposo neutro corregido desde marcha; alternancia frontal de piernas/brazos y parejas simétricas de movimiento. Solo se sustituye el PNG de reposo y se ajustan44 registros. Flores y demás acciones conservadas. [Detalle y límites](../docs/revision-sprites-movimiento.md).
+
 **Dragón rehecho por completo:** nuevo pixel art con cuerpo esbelto, cabeza menor, contorno fino y paleta más cercana a los NPC.216 registros en ocho direcciones: reposo/sin equipo, caminar, sprint propio, minería, tala, palín, pesca y zarpazo. Retirados los recursos anteriores; historial de Git conservado. **Acabado pendiente de revisión visual.**
 
 ![Personajes y protagonista nuevo en la granja](capturas/personajes-comparacion.png)

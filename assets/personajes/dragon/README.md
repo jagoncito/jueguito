@@ -1,5 +1,11 @@
 # Dragón jugable de Bītu
 
+Revisión selectiva del 11 de octubre: reposo tiene cinco vistas neutras corregidas desde
+la referencia `marcha.png`, con ambos pies apoyados y cresta a80px. Frontal alterna dos medias zancadas reflejando cuerpo entero;
+NE/E/SE se proyectan desde NW/W/SW durante reposo, marcha y sprint. Solo se sustituye `reposo.png` y su copia de ejecución.
+Se corrigen selecciones/reflejos de 44 registros; nueve PNG permanecen intactos.
+Las acciones de herramienta, garras, pesca y flores conservan todos sus registros.
+
 Revisión integral del10 de octubre: reposo, caminar, correr, minar, talar,
 recolectar, pescar y zarpazo. Se conservan exactamente los PNG y los16 registros
 de arrodillarse/levantarse de la recolección que gustó al usuario.

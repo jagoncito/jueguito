@@ -1,5 +1,15 @@
 # Primera prueba visual de Bītu
 
+**Revisión selectiva del 11 de octubre:** reposo incorpora cinco vistas de apoyo neutro
+corregidas tomando marcha como referencia; alternancia frontal mediante reflexión completa
+de media zancada; vistas derechas de movimiento proyectadas desde sus parejas
+izquierdas, incluida NE desde NW. Cambian 44 registros; nueve PNG y todos los registros
+de trabajo/recolección/pesca/zarpazo permanecen intactos. La altura
+de cresta estable por sí sola no demuestra proporciones ni continuidad correctas.
+[Diagnóstico y límites de la corrección](revision-sprites-movimiento.md).
+Registro reproducible y auditoría de fuentes; dos pruebas Godot y tres suites
+Chromium/WebGL superadas para esta revisión, con vídeo/capturas renovados.
+
 **Revisión integral del10 de octubre:** dragón de216 registros en ocho direcciones:
 reposo, marcha, sprint, minería, tala, recolección, pesca y zarpazo. Diez fuentes
 PNG y copias idénticas en ejecución. Dos PNG y16 registros aprobados de la
@@ -30,8 +40,8 @@ comparativas80/72, giros/pausa de NPC y recursos. Capturas y vídeos del canvas
 renovados. El acabado artístico se revisa en juego; los tests comprueban registro,
 contactos, transiciones y comportamiento, sin otorgar aprobación visual.
 
-Descarga actual: **30.875.732 bytes**, CRC correcto y PCK idéntico al exportado.
-SHA-256: `533d9e2b1c28db94be825c73f04729f450c6b82036864ec8028f19eda971a7da`. Límite GitHub por archivo:104.857.600bytes; no hace falta
+Descarga actual: **30.662.968 bytes**, CRC correcto y PCK idéntico al exportado.
+SHA-256: `04f832bb7f0d9a169f7c2f6d19102d4f30d9d1987c7fe41e3b4bf260f8d6864b`. Límite GitHub por archivo:104.857.600bytes; no hace falta
 dividir la entrega. Suelos de césped/tierra/arena, NPC, agua/casa e historial remoto
 conservados. El ZIP contiene la partida y las revisiones ampliadas.
 

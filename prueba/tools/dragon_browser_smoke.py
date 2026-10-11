@@ -52,6 +52,17 @@ async def main():
                         bounds=(x+20,y+90,x+300,y+395)
                         changes[i] |= ImageChops.difference(before.crop(bounds),after.crop(bounds)).getbbox() is not None
                 if key!='1':
+                    # WebGL por software puede tardar varios ciclos en guardar
+                    # una captura. Evitar confundir muestras de la misma pausa
+                    # de recuperación con una animación realmente congelada.
+                    for wait in [130,370,610,290,470]:
+                        if all(changes): break
+                        await page.wait_for_timeout(wait)
+                        after=Image.open(io.BytesIO(await page.screenshot())).convert('RGB')
+                        for i in range(8):
+                            x=320*(i%4); y=320*(i//4)
+                            bounds=(x+20,y+90,x+300,y+395)
+                            changes[i] |= ImageChops.difference(before.crop(bounds),after.crop(bounds)).getbbox() is not None
                     assert all(changes),f'Animación congelada {name}: {changes}'
             encoded=await page.evaluate('''async()=>{window.dragonRecorder.stop();return await window.dragonVideo}''')
             (PROJECT/'capturas/dragon-animaciones.webm').write_bytes(bytes(encoded))

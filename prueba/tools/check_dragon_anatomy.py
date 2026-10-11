@@ -13,6 +13,21 @@ SOURCE=ROOT/'assets/personajes/dragon'
 def audit():
     catalog=json.loads((SOURCE/'dragon-jugable.json').read_text())
     images={name:np.array(Image.open(SOURCE/name)) for name in catalog['sources']}
+    frames=catalog['frames']
+    for direction in catalog['directions']:
+        idle=frames['reposo-'+direction]
+        assert idle['file']=='reposo.png'
+        assert idle['region']==frames['sin-equipo-'+direction]['region']
+        for right,left in [('NE','NW'),('E','W'),('SE','SW')]:
+            for pose in ['reposo','andar-a','paso-a','andar-b','paso-b','sprint-a','sprint-paso-a','sprint-b','sprint-paso-b']:
+                a,b=frames[pose+'-'+right],frames[pose+'-'+left]
+                assert a['region']==b['region'] and a['anchor']==b['anchor'] and a['scale']==b['scale']
+                assert a['mirror_x'] and not b['mirror_x'], ('Perspectiva opuesta incoherente',pose,right)
+    for prefix in [('andar-a','paso-a','andar-b','paso-b'),('sprint-a','sprint-paso-a','sprint-b','sprint-paso-b')]:
+        for first,opposite in zip(prefix[:2],prefix[2:]):
+            a,b=frames[first+'-S'],frames[opposite+'-S']
+            assert a['region']==b['region'] and a['anchor']==b['anchor'] and a['scale']==b['scale']
+            assert not a['mirror_x'] and b['mirror_x'], 'Frontal debe alternar piernas y brazos'
     report={}
     for direction in catalog['directions']:
         result={}
