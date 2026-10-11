@@ -60,3 +60,7 @@ Reutilizar muebles, suelos y materiales; interior y exterior son escenas distint
 Primero implementar casa del jugador como caso pequeño y comprobar ida/vuelta por la misma puerta, llegada sin colisiones, pulsaciones rápidas, movimiento mantenido, fallo de carga y cámara sin salto visible. Después probar vivienda de pareja con dos accesos y exterior abierto del pescador; aplicar el mismo mecanismo al resto.
 
 Verificar cancelación durante golpe y picada sin entrega duplicada, conservación de cultivo/cofre/botín y sus tiempos al entrar/salir, pausa durante transición, regresar desde otra entrada y límites de cámara. Medir picos de fotograma y memoria en transiciones frías/calientes, con repetidas visitas y exportación web; sin cifras de FPS inventadas. Mantener una prueba de estado y entrada múltiple útil en vez de duplicar tests por cada fachada.
+
+## Primera integración
+
+Implementada casa del jugador en la prueba el11 de octubre. Ver [detalle y límites](casa-interior-prueba.md): conserva una zona exterior en memoria en lugar de descargarla, sin implementar todavía precarga/caché general. E y fundido comprobados en Godot y navegador; resto de destinos de esta tabla sigue como plan.

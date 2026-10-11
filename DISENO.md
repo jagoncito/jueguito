@@ -907,3 +907,7 @@ Lote en [completar Bītu](assets/entregas/completar-bitu/README.md): diez fuente
 ### Entrada a interiores — propuesta de implementación (11 de octubre)
 
 Usuario solicita pensar/anotar un sistema común para todos los interiores. [Plan de transiciones](docs/transiciones-interiores.md): aproximación y E como propuesta, fundido breve a negro, carga de zona y llegada segura por portal identificado; jugador/UI/estado persistentes y precarga acotada. Cerrados cambian zona; cobertizo abierto/patio/muelle del pescador permanecen exteriores transitables sin fundido. Habitaciones contiguas comparten escena cuando convenga. Mantener progreso/timers, cancelar acciones sin eventos tardíos, prevenir rebote de portales y ajustar cámara en negro. Tiempos/tecla/arquitectura son propuesta técnica, no implementación ni rendimiento medido.
+
+### Casa integrada y colocación de estructuras (11 de octubre)
+
+Casa interior integrada, 11 de octubre: usuario solicita integración/prueba/subida y exige colocar estructuras sin huecos residuales detrás/lados/esquinas. Ver docs/casa-interior-prueba.md. Casa E/fundido/entrada-salida, estado conservado, suelo amplio y muebles con colisión. Huellas continuas y pasos solo deliberados; no reorganizar todo Bītu por esta entrega. Exterior conservado en memoria en este prototipo; resto de interiores y carga general pendientes.

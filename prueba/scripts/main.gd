@@ -5,6 +5,13 @@ const NAMES := {"tomate":"Tomate", "tomate-pristino":"Tomate prístino", "tomate
 var terrain: BituTerrain
 var objects: Node2D
 var player: BituPlayer
+var home: BituHouse
+var interior: BituHouseInterior
+var indoors := false
+var transitioning := false
+var fade: ColorRect
+var return_point := Vector2.ZERO
+var exterior_panels: Array[Control] = []
 var camera: Camera2D
 var npcs: Array[BituNPC] = []
 var scale_capture := false
@@ -70,7 +77,7 @@ func _ready() -> void:
 	objects = Node2D.new()
 	objects.y_sort_enabled = true
 	add_child(objects)
-	var home := BituHouse.new()
+	home = BituHouse.new()
 	home.position = BituTerrain.cell_to_world(BituTerrain.HOUSE_ANCHOR)
 	objects.add_child(home)
 	for cell in [Vector2i(9,15), Vector2i(11,22), Vector2i(18,8), Vector2i(20,21), Vector2i(6,12), Vector2i(7,20), Vector2i(19,4), Vector2i(4,17)]:
@@ -124,6 +131,9 @@ func _ready() -> void:
 	)
 	camera = Camera2D.new()
 	camera.position = player.position + Vector2(0,-100)
+	if indoors:
+		camera.position.x = clampf(camera.position.x,BituHouseInterior.CENTER.x-160,BituHouseInterior.CENTER.x+160)
+		camera.position.y = clampf(camera.position.y,-100,20)
 	camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
 	add_child(camera)
 	for index in range(TOMATO_IDS.size()):
@@ -131,6 +141,10 @@ func _ready() -> void:
 	_build_ui()
 	_refresh_backpack()
 	_prepare_scale_capture()
+	_setup_house_interior()
+	if OS.has_feature("web") and bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('vista') === 'casa'")):
+		player.position = home.get_node("Entrada").global_position+Vector2(0,45)
+		_change_house_zone()
 	print("BITU_READY")
 
 func _spawn_npcs() -> void:
@@ -227,6 +241,8 @@ func _create_resource(kind: String, zone: Array[Vector2i]) -> void:
 	resources.append(resource)
 
 func _process(delta: float) -> void:
+	if transitioning:
+		return
 	if not scale_capture:
 		camera.position = player.position + Vector2(0,-100)
 	camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
@@ -268,12 +284,14 @@ func _process(delta: float) -> void:
 		tension_bar.visible = fishing.stage == BituFishing.Stage.REELING
 		tension_bar.value = fishing.tension*100
 	_find_target()
-	if Input.is_action_just_pressed("interact") and task == null:
+	if Input.is_action_just_pressed("interact") and (task == null or _near_house_portal()):
 		_interact()
 	if Input.is_action_just_pressed("backpack"):
 		backpack.visible = not backpack.visible
 
 func _unhandled_input(event: InputEvent) -> void:
+	if transitioning:
+		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.physical_keycode == KEY_ESCAPE and fishing.stage != BituFishing.Stage.IDLE:
 			fishing.cancel()
@@ -306,6 +324,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.zoom = Vector2.ONE * ZOOMS[zoom_index]
 
 func _primary_click(point: Vector2) -> void:
+	if indoors or transitioning:
+		return
 	if task != null or player.busy:
 		return
 	if _click_resource(point):
@@ -355,6 +375,12 @@ func _click_resource(point: Vector2) -> bool:
 
 func _find_target() -> void:
 	target = null
+	if _near_house_portal():
+		hint.text = "E · Salir de casa" if indoors else "E · Entrar en casa"
+		return
+	if indoors:
+		hint.text = "Casa · WASD para moverte · E junto a la salida"
+		return
 	var best_distance := INTERACTION_RANGE
 	for candidate in crops + resources + trees + npcs:
 		if (candidate is BituResource or candidate is BituTree) and not candidate.active:
@@ -394,6 +420,11 @@ func _find_target() -> void:
 		hint.text = "Clic en suelo: zarpazo · Clic en agua cercana: pescar"
 
 func _interact() -> void:
+	if _near_house_portal() and not transitioning:
+		_change_house_zone()
+		return
+	if indoors:
+		return
 	if task != null or player.busy:
 		return
 	if target is BituNPC:
@@ -538,6 +569,7 @@ func _build_ui() -> void:
 	layer.add_child(hud)
 	hud.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var header := _panel()
+	exterior_panels.append(header)
 	header.position = Vector2(22,20)
 	hud.add_child(header)
 	var headings := VBoxContainer.new()
@@ -570,6 +602,7 @@ func _build_ui() -> void:
 	xp_label = _label("Tomates cosechados: 0",14)
 	bag_content.add_child(xp_label)
 	var footer := _panel()
+	exterior_panels.append(footer)
 	footer.position = Vector2(22,557)
 	hud.add_child(footer)
 	var footer_content := VBoxContainer.new()
@@ -637,3 +670,62 @@ func _refresh_backpack() -> void:
 			empty.custom_minimum_size = Vector2(64,64)
 			view.add_child(empty)
 			view.add_child(_label("Vacío",11,Color("65765b")))
+
+func _setup_house_interior() -> void:
+	interior = BituHouseInterior.new()
+	add_child(interior)
+	interior.visible = false
+	interior.process_mode = Node.PROCESS_MODE_DISABLED
+	var layer := CanvasLayer.new()
+	layer.layer = 100
+	add_child(layer)
+	fade = ColorRect.new()
+	fade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	fade.color = Color(0,0,0,0)
+	fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	layer.add_child(fade)
+
+func _near_house_portal() -> bool:
+	if home == null or interior == null:
+		return false
+	var portal: Vector2 = BituHouseInterior.CENTER+BituHouseInterior.EXIT if indoors else home.get_node("Entrada").global_position+Vector2(0,25)
+	return player.global_position.distance_to(portal) <= 42.0
+
+func _change_house_zone() -> void:
+	if transitioning:
+		return
+	transitioning = true
+	fishing.cancel()
+	player.end_work()
+	_finish_work()
+	player.velocity = Vector2.ZERO
+	player.process_mode = Node.PROCESS_MODE_DISABLED
+	backpack.visible = false
+	var tween := create_tween()
+	tween.tween_property(fade,"color:a",1.0,0.15)
+	await tween.finished
+	indoors = not indoors
+	if indoors:
+		return_point = home.get_node("Entrada").global_position+Vector2(0,45)
+		player.reparent(interior.furnishings)
+		player.global_position = BituHouseInterior.CENTER+BituHouseInterior.EXIT-Vector2(0,32)
+		player.face_towards(Vector2.UP)
+	else:
+		player.reparent(objects)
+		player.global_position = return_point
+		player.face_towards(Vector2.DOWN)
+	for panel in exterior_panels:
+		panel.visible = not indoors
+	terrain.visible = not indoors
+	objects.visible = not indoors
+	objects.process_mode = Node.PROCESS_MODE_DISABLED if indoors else Node.PROCESS_MODE_INHERIT
+	interior.visible = indoors
+	interior.process_mode = Node.PROCESS_MODE_INHERIT if indoors else Node.PROCESS_MODE_DISABLED
+	camera.position = player.global_position+Vector2(0,-100)
+	player.animate_pose(0)
+	tween = create_tween()
+	tween.tween_property(fade,"color:a",0.0,0.15)
+	await tween.finished
+	player.process_mode = Node.PROCESS_MODE_INHERIT
+	transitioning = false
+	print("BITU_HOUSE_ENTER" if indoors else "BITU_HOUSE_EXIT")

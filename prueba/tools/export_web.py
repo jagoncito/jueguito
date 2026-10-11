@@ -24,7 +24,8 @@ Para flores se equipa el palín y el personaje se arrodilla, extrae y se levanta
 Clic en suelo libre o enemigo: zarpazo hacia el cursor; prueba con el maniquí.
 Clic en agua cercana desde la orilla: lanzar caña. Espera la picada.
 Mantén clic para recoger; suelta para bajar la tensión. Esc cancela la pesca.
-E: plantar, regar, cosechar o hablar con un habitante cercano.
+E: entrar/salir de casa junto a la puerta, plantar, regar, cosechar o hablar.
+Para revisar directamente el interior añade ?vista=casa a la URL.
 Seis habitantes quietos integrados en posiciones provisionales, con ocho vistas cada uno.
 F7: dragón actual80px. F8: comparación72px (ajuste gráfico reversible, sin cambiar NPC).
 Dragón rehecho en pixel art: ocho direcciones, reposo, caminar, sprint, minar, talar, palín, pesca y zarpazo.

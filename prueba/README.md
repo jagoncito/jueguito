@@ -109,3 +109,7 @@ Los seis NPC están en posiciones provisionales del mapa y giran brevemente sobr
 La prueba usa los sprites existentes de césped/hierba, tierra y arena: dos variantes por material, seis regiones en dos fuentes compartidas. Caminos y parcelas de tierra, franja costera de arena y resto de terreno de hierba. Geometría 64 × 32, controles y colisiones conservados.
 
 ![Césped, tierra y arena dentro del juego](capturas/cesped-tierra-arena-en-juego.png)
+
+## Interior de la casa
+
+E junto a la puerta entra/sale con fundido. Revisión directa en navegador: `?vista=casa`. [Detalles y capturas](../docs/casa-interior-prueba.md). Muebles/paredes con colisión, cámara acotada y estado de granja conservado; casa exterior integrada previamente. Otros interiores aún pendientes.
