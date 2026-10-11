@@ -40,3 +40,9 @@ no establece tareas de restauración obligatorias.
 Antes de integrar: comprobar y limpiar fondo/halos, separar paredes y mobiliario
 para profundidad, medir puertas/pasillos con el personaje y registrar piezas
 reutilizables. Metadatos de las fuentes en `referencias/fuente.json`.
+
+## Ampliación futura aceptada
+
+El usuario acepta añadir salas/alas o ampliar el archivo si falta espacio,
+conservando las colecciones y su distribución actual. Forma de desbloqueo,
+medidas y límites pendientes; sin nuevas salas generadas ni código implementado.

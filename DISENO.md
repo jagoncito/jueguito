@@ -592,6 +592,10 @@ Todavía no se ha decidido si las piezas ultraexclusivas hacen falta para comple
 
 **Exterior e interior del museo, 11 de octubre de 2026:** tras solicitar el exterior y plantear un interior amplio, el usuario pide preparar ambos y subirlos a GitHub. Fuentes en [museo](assets/entorno/museo/README.md): arquitectura rural amplia coherente con casa/astillero y abandono inicial; interior propuesto con recepción, nave principal, galerías laterales y archivo/reserva. Vitrinas y pedestales vacíos, espacios de paso despejados; distribución, capacidad, categorías y medidas no fijadas. Publicación autorizada de esta entrega gráfica, sin implementar el museo ni modificar la descarga.
 
+**Ampliación del museo aceptada, 11 de octubre de 2026:** si falta espacio para objetos, se podrán añadir salas/alas y ampliar el archivo, conservando las colecciones y su distribución actual. Dimensiones, límites y forma de desbloquear las ampliaciones pendientes; no se construyen ni programan ahora.
+
+**BITU24H, 11 de octubre de 2026:** nombre elegido para la tienda del comerciante; el usuario aclara que no abre las 24 horas. Solicita hacer lo mismo que con el museo: preparar [exterior e interior](assets/entorno/tienda-bitu24h/README.md) y publicarlos como referencias. Horario concreto pendiente. Propuesta rural con sala de venta, mostrador, estantes y almacén trasero, dejando posibilidad de ampliar en el futuro. Distribución, medidas, catálogo, precios y ampliaciones no fijados; no se implementan tienda ni horarios por esta entrega.
+
 ### Nota de probabilidades para el futuro equilibrio
 
 Probabilidad de conseguir al menos una pieza tras `n` intentos independientes, con probabilidad constante `p` por intento: `1 − (1 − p)^n`.

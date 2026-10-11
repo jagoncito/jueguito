@@ -1,0 +1,30 @@
+{
+  "fecha": "2026-10-11",
+  "nombre": "BITU24H",
+  "horario": "No abre 24 horas; horario concreto pendiente",
+  "tipo": "fuentes visuales de exterior e interior, sin integración",
+  "generacion": "image_gen; exterior referenciado al museo, interior referenciado a fachada propia y materiales del museo",
+  "revision": "Exterior e interior coherentes; acceso frontal, sala de venta, mostrador y almacén conectado. Fondo/halos, escala, capas y colisiones pendientes. Productos decorativos, no catálogo final.",
+  "fuentes": [
+    {
+      "archivo": "tienda-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2594416,
+      "sha256": "59d54a5efa0f3fa62e40ec8e78a45972dec85934cf81b67690b693b2c478485f"
+    },
+    {
+      "archivo": "tienda-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2803700,
+      "sha256": "eac25160f9687dfeaaa0ee9d13b2cdf17b117564976dec76502940fb75bc07e5"
+    }
+  ]
+}
