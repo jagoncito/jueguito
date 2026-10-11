@@ -158,6 +158,20 @@ El núcleo propuesto de Bītu incluye los cinco personajes de servicio originale
 
 **Dos accesos de la granja aceptados:** una salida al camino principal que conecta con la zona de comercio y museo y, desde ella, con las rutas hacia los demás maestros y el astillero; una segunda salida por un sendero costero que conduce hacia el hogar del maestro de pesca/cocina, siguiendo la bahía del mapa conceptual. Caminos y vegetación pueden marcar estos accesos como propuesta visual, sin imponer un cercado. Posiciones exactas, distancias, límites de mapas y zonas intermedias pendientes. No se han implementado estas conexiones.
 
+### Forma y proporciones de las zonas — criterio del 11 de octubre de 2026
+
+El usuario rechaza imponer un contorno de rombo al exterior y repetirlo en todos los interiores. **La forma visible y las proporciones de cada zona deben responder a su función y al sentido del recorrido**, independientemente de la cuadrícula interna y del movimiento en ocho direcciones. Se conserva la perspectiva isométrica y el estilo de sprites.
+
+- **Granja:** zona rectangular, más ancha que alta.
+- **Camino hacia el norte:** recorrido principalmente vertical, más alto que ancho; no hacerlo horizontal por una regla común para todos los mapas.
+- **Camino hacia este/oeste:** recorrido principalmente horizontal, más ancho que alto.
+- **Otros caminos:** adaptar contorno y proporciones a su trazado y geografía, sin imponer rectángulos idénticos ni un rombo universal.
+- **Interiores:** planta según el edificio y sus habitaciones; no copiar automáticamente la huella en rombo de la cuadrícula exterior. Una distribución horizontal para nuestra casa fue una recomendación, no una medida o planta definitiva aprobada.
+
+Estas proporciones se refieren a la **zona visible/jugable**, no simplemente al número de casillas de una cuadrícula que al proyectarse sigue dibujando un rombo. El mapa puede superar ampliamente la pantalla; la cámara recorre su extensión y se detiene en límites coherentes. Mantener recorridos amplios y el criterio de estructuras sin huecos residuales ni pasillos accidentales.
+
+**Estado:** acuerdo documentado, pendiente de aplicar a terreno, límites físicos, cámara y planta interior de la prueba. No se han cambiado escenas, sprites ni descarga mediante esta anotación; la prueba publicada todavía conserva sus contornos actuales. Dimensiones concretas y trazados por revisar al construir cada zona.
+
 ### Mapas conceptuales guardados
 
 - [Primera propuesta de Bītu](mapas/isla-bitu-propuesta-1.png): isla más compacta y accidentada.
