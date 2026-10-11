@@ -50,6 +50,6 @@ for k,d in enumerate(['S','SW','W','NW','N']):
  pivot=[float(source_center-original_center/f),y+80/f]
  spread=6 if d in ['S','N'] else 2.5
  views[d]=dict(body_triangles=tris(body),anchor=pivot,scale=f,repair_triangles=[],arms=[part(upper,lower,[center+(4 if d=='NW' else -7),-37],None,-1 if d=='NW' else 1,'arm'),part(upper,lower,[center+(-7 if d=='NW' else 7),-37],None,1 if d=='NW' else -1,'arm')],legs=[part(thigh,shin,[center-spread,-22],[center-spread,0],1,'leg',foot),part(thigh,shin,[center+spread,-22],[center+spread,0],-1 if d in ['S','N'] else 1,'leg',foot)])
-data=json.dumps(dict(version=3,renderer='rigid_clean_parts',source='piezas-articuladas.png',source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),views=views),ensure_ascii=False,indent=2)+'\n'
+data=json.dumps(dict(version=3,renderer='rigid_clean_parts',source='piezas-articuladas.png',source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),views=views),ensure_ascii=False,separators=(",",":"))+'\n'
 for directory in [R/'assets/personajes/dragon',R/'prueba/assets/personajes/dragon']:(directory/'articulaciones.json').write_text(data)
 print('Clean connected artwork, metadata:',len(data.encode()),'bytes')

@@ -4,6 +4,7 @@ extends Node2D
 const DATA := "res://assets/personajes/dragon/articulaciones.json"
 const TOOL_TEXTURE := "res://assets/herramientas/pico-hacha/pico-hacha-hierro.png"
 const DIRECTIONS := [Vector2.DOWN,Vector2(-1,1),Vector2.LEFT,Vector2(-1,-1),Vector2.UP,Vector2(1,-1),Vector2.RIGHT,Vector2(1,1)]
+static var cached_definitions: Dictionary = {}
 var definitions: Dictionary
 var assemblies: Dictionary = {}
 var current: Dictionary
@@ -28,7 +29,10 @@ const TOOL_AXE := Vector2(1000,350)
 
 func _ready() -> void:
  texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
- definitions=JSON.parse_string(FileAccess.get_file_as_string(DATA)).views
+ # El registro es de solo lectura; nodos, apoyos y poses son propios de cada actor.
+ if cached_definitions.is_empty():
+  cached_definitions=JSON.parse_string(FileAccess.get_file_as_string(DATA)).views
+ definitions=cached_definitions
  source_texture=load("res://assets/personajes/dragon/piezas-articuladas.png")
  tool_texture=load(TOOL_TEXTURE)
  limb_texture=load("res://assets/personajes/dragon/piezas-articuladas.png")

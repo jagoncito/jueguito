@@ -47,8 +47,8 @@ comparativas80/72, giros/pausa de NPC y recursos. Capturas y vídeos del canvas
 renovados. El acabado artístico se revisa en juego; los tests comprueban registro,
 contactos, transiciones y comportamiento, sin otorgar aprobación visual.
 
-Descarga actual: **32.006.477 bytes**, CRC correcto y PCK idéntico al exportado.
-SHA-256: `7c896c053e4f5c5b1be7e372e40719c89a0aa418b4f66060599b9c0dbdec2da2`. Límite GitHub por archivo:104.857.600bytes; no hace falta
+Descarga actual: **31.939.928 bytes**, CRC correcto y PCK idéntico al exportado.
+SHA-256: `8c0dd9db1e6fd5fdb8003c373930edd90ef64c97c43d70f712f65e96aa783345`. Límite GitHub por archivo:104.857.600bytes; no hace falta
 dividir la entrega. Suelos de césped/tierra/arena, NPC, agua/casa e historial remoto
 conservados. El ZIP contiene la partida y las revisiones ampliadas.
 

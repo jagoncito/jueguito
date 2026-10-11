@@ -62,3 +62,21 @@ Espacio activa cámara lenta. [Capturas](../prueba/capturas/dragon-marcha.png),
 [minería](../prueba/capturas/dragon-minar.png),
 [tala](../prueba/capturas/dragon-talar.png),
 [vídeo](../prueba/capturas/dragon-animaciones.webm).
+
+## Optimización conservadora y límites del acabado
+
+El registro de articulaciones pasa de 2.872.360 a 466.825 bytes (83,75 % menos)
+al compactar JSON; todos los datos y triángulos permanecen idénticos. El registro
+se carga una vez y se comparte en lectura; cada actor conserva sus propios nodos,
+apoyos y poses. La prueba de dos actores confirma esa independencia.
+
+Godot vuelve a pasar la comprobación de marcha. Siete capturas fijas de ocho
+vistas en Chromium/WebGL son idénticas píxel por píxel antes y después. Se
+descartó agrupar triángulos porque modificaba algunos píxeles en el navegador.
+No se ha medido una mejora de FPS. ZIP regenerado, CRC y PCK comprobados.
+
+La estabilidad y los extremos activos de la herramienta están verificados;
+el acabado artístico admite mejora: algunas uniones de miembros se perciben
+segmentadas al ampliar y los golpes podrían transmitir más peso con el cuerpo.
+Minería y tala comparten la trayectoria básica, orientando el extremo activo
+correspondiente. Esta revisión no equivale a una aprobación visual definitiva.
