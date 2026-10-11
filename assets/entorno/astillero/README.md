@@ -1,5 +1,7 @@
 # Astillero de Flavia — propuestas visuales
 
+**Integración parcial, 12 de octubre:** la prueba de isla reutiliza recursos de este lote mediante el registro `assets/mundo/isla-bitu/`, conservando las fuentes. Fachadas, muebles seleccionados o piezas de ruinas están integrados; las láminas completas y sus otros elementos siguen como referencias. Las afirmaciones anteriores de «sin integrar» describen la entrega original. [Alcance actual](../../../docs/isla-y-mochila-prueba.md).
+
 Entrega solicitada el 10 de octubre de 2026. Fuentes pixel art revisadas, con publicación solicitada posteriormente por el usuario. Pendientes de integración.
 
 - [Exterior](referencias/astillero-exterior-fuente.png): edificio de carpintería naval, cobertizo, muelle, casco sobre soportes y piezas separadas de suelo, muelle, postes, cuerdas, barril, caja, tablones y caballetes.

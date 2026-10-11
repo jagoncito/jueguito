@@ -1,12 +1,14 @@
 # Prueba visual de Bītu
 
+**Prueba de isla integrada — 12 de octubre de 2026.** Inicio en las ruinas del este, isla conectada con seis regiones exteriores, diez interiores accesibles con E y los seis habitantes en los patios de sus propiedades. **M** abre el mapa y la cabeza del dragón marca tu ubicación actual; dentro de un edificio señala su propiedad. **Tab** abre una mochila original de supervivencia:24 huecos, pilas de1.000 («1k»), arrastre, intercambio, división con Mayús y ordenación; herramientas aparte. Ambos menús pausan la partida. [Alcance, controles y comprobaciones](../docs/isla-y-mochila-prueba.md). La distribución es de prueba: sin guardado, narrativa, comercio, fabricación ni navegación implementados. Se conserva el conjunto vigente del dragón; esta entrega no modifica sus PNG.
+
 **Revisión del 11 de octubre mediante fotogramas completos:** siete direcciones de marcha y carrera corregidas con seis fases; NORTE conserva sus cuatro originales. Minería y tala tienen secuencias propias de seis fases, con punta del pico para mena y filo del hacha para árbol. Retirado el rig rechazado. Pesca, recolección, reposo y garras conservados. [Ficha y organización](../assets/personajes/dragon/README.md) · [Auditoría de todos los PNG](../docs/auditoria-archivos-dragon.md).
 
 [Vídeo de las ocho direcciones](capturas/dragon-animaciones.webm) · [Reposo y marcha](capturas/dragon-parar-andar.webm) · [Contacto con mena](capturas/impacto-real-minar.png) · [Contacto con árbol](capturas/impacto-real-talar.png).
 
 Los seis habitantes, casa e interior, terreno, recursos, cinco golpes, pesca y zarpazo se conservan. Las pruebas verifican funcionamiento; el acabado visual sigue sujeto a revisión del usuario. El riego localizado se mantiene como referencia, sin integrarlo.
 
-Descarga actual: **31.268.916 bytes** (límite por archivo104.857.600bytes), CRC correcto y PCK idéntico al exportado. SHA-256: `1f9b2240d2f12aaff7a04796acb6a6e4a8cda2d50c64cb11452dd58136ad6702`. No requiere dividirse.
+Descarga actual de la isla: **38.240.383 bytes**, por debajo del límite de **104.857.600 bytes** por archivo. CRC verificado y PCK idéntico al exportado. SHA-256: `3dc2ab3fe4016b85a25cffebefb233c40381b2e8b6b303662328f2a1696085fd`. No requiere dividirse.
 
 ## Jugar en el navegador
 
@@ -40,6 +42,8 @@ Los cuatro PNG de tomates se incluyen en `assets/objetos/cultivos/` dentro de es
 | Minar, talar o recolectar flores | Un clic izquierdo sobre el recurso cercano |
 | Plantar, regar o cosechar | E al acercarte |
 | Mostrar u ocultar la mochila | Tab |
+| Mapa y ubicación del dragón | M |
+| Entrar o salir de un edificio | E junto al umbral |
 | Detener / reanudar los personajes de comparación | F6 |
 | Recoger botín del suelo | Acercarte |
 

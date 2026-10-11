@@ -8,15 +8,15 @@ func check(condition: bool, message: String) -> void:
 
 func _initialize() -> void:
 	var bag := BituInventory.new()
-	check(bag.add_item("tomate",51) == 0, "Dividir pilas")
-	check(bag.slots.size() == 2 and bag.count("tomate") == 51, "Cantidad conservada")
+	check(bag.add_item("tomate",1001) == 0, "Dividir pilas")
+	check(bag.slots.size() == 2 and bag.count("tomate") == 1001, "Cantidad conservada")
 	check(bag.add_item("tomate-pristino",1) == 0, "Calidad separada")
 	check(bag.add_item("tomate-siru",1) == 0, "Variante separada")
-	for index in range(8):
-		bag.add_item("other_%d" % index,50)
-	check(bag.slots.size() == 12, "Capacidad de mochila")
-	check(bag.add_item("tomate",60) == 11, "Recogida parcial con mochila llena")
-	check(bag.count("tomate") == 100, "No perder ni duplicar botín")
+	for index in range(20):
+		bag.add_item("other_%d" % index,1000)
+	check(bag.slots.size() == 24, "Capacidad de mochila")
+	check(bag.add_item("tomate",1000) == 1, "Recogida parcial con mochila llena")
+	check(bag.count("tomate") == 2000, "No perder ni duplicar botín")
 	check(bag.add_item("flor",1) == 1, "Dejar fuera lo que no cabe")
 	var crop := BituCrop.new()
 	crop.plant()

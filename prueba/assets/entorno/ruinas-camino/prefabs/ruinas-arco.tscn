@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="../texturas/ruinas-arco.tres" id="1"]
+
+[node name="Pieza" type="Node2D"]
+texture_filter = 1
+
+[node name="Dibujo" type="Sprite2D" parent="."]
+position = Vector2(-64.84931507, -144.00000000)
+scale = Vector2(0.49315068, 0.49315068)
+texture = ExtResource("1")
+centered = false

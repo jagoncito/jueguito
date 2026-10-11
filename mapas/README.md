@@ -1,5 +1,7 @@
 # Mapas de Bītu
 
+**12 de octubre:** la prueba incluye un mapa con M dibujado desde la geografía jugable, con cabeza del dragón en su posición real. La ilustración de esta carpeta permanece como referencia conceptual; consulta [la isla integrada](../docs/isla-y-mochila-prueba.md).
+
 `isla-bitu-concepto.png` sigue siendo la referencia de estructura elegida. `isla-bitu-propuesta-1.png` es una propuesta anterior.
 
 ## Mapa del jugador en pixel art — 10 de octubre de 2026

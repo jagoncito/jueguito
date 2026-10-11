@@ -23,7 +23,7 @@ var trees: Array[BituTree] = []
 var drops: Array[BituLoot] = []
 var inventory := BituInventory.new()
 var textures: Dictionary = {}
-var slot_views: Array[VBoxContainer] = []
+var menus: BituMenus
 var hint: Label
 var status: Label
 var progress: ProgressBar
@@ -257,7 +257,7 @@ func _process(delta: float) -> void:
 			drops.remove_at(index)
 			drop.queue_free()
 			continue
-		if player.position.distance_to(drop.position) < 29:
+		if drop.is_visible_in_tree() and player.global_position.distance_to(drop.global_position) < 29:
 			var remainder := inventory.add_item(drop.item_id,drop.amount)
 			if remainder < drop.amount:
 				print("BITU_PICKUP:",drop.item_id,":",drop.amount-remainder)
@@ -286,8 +286,6 @@ func _process(delta: float) -> void:
 	_find_target()
 	if Input.is_action_just_pressed("interact") and (task == null or _near_house_portal()):
 		_interact()
-	if Input.is_action_just_pressed("backpack"):
-		backpack.visible = not backpack.visible
 
 func _unhandled_input(event: InputEvent) -> void:
 	if transitioning:
@@ -358,7 +356,7 @@ func _click_resource(point: Vector2) -> bool:
 		return true
 	var clicked: Node2D
 	for candidate in resources + trees:
-		if not candidate.active:
+		if not candidate.active or not candidate.is_visible_in_tree():
 			continue
 		var local_point: Vector2 = candidate.to_local(point)
 		var contains: bool = candidate.contains_visual_point(local_point)
@@ -383,6 +381,7 @@ func _find_target() -> void:
 		return
 	var best_distance := INTERACTION_RANGE
 	for candidate in crops + resources + trees + npcs:
+		if not candidate.is_visible_in_tree(): continue
 		if (candidate is BituResource or candidate is BituTree) and not candidate.active:
 			continue
 		var distance := player.position.distance_to(candidate.position)
@@ -579,28 +578,11 @@ func _build_ui() -> void:
 	headings.add_child(_label("WASD · mover    Shift · sprint    Rueda · zoom    E · interactuar",14,Color("a7b797")))
 	headings.add_child(_label("Clic · recurso: trabajar | enemigo/suelo: zarpazo | agua: pescar",14,Color("a7b797")))
 	headings.add_child(_label("F6 · detener / reanudar los giros de los personajes",13,Color("a7b797")))
-	backpack = _panel()
-	hud.add_child(backpack)
-	backpack.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
-	backpack.offset_left = -302
-	backpack.offset_right = -22
-	backpack.offset_top = 20
-	var bag_content := VBoxContainer.new()
-	backpack.add_child(bag_content)
-	bag_content.add_child(_label("MOCHILA  ·  Tab",18,Color("e6cc83")))
-	bag_content.add_child(_label("Pico–hacha, palín, caña y regadera · equipo",13,Color("a7b797")))
-	var grid := GridContainer.new()
-	grid.columns = 3
-	grid.add_theme_constant_override("h_separation",8)
-	grid.add_theme_constant_override("v_separation",8)
-	bag_content.add_child(grid)
-	for index in range(BituInventory.SLOT_COUNT):
-		var slot := VBoxContainer.new()
-		slot.custom_minimum_size = Vector2(76,85)
-		grid.add_child(slot)
-		slot_views.append(slot)
-	xp_label = _label("Tomates cosechados: 0",14)
-	bag_content.add_child(xp_label)
+	menus = BituMenus.new()
+	menus.game = self
+	add_child(menus)
+	backpack = menus.backpack
+	xp_label = menus.xp_label
 	var footer := _panel()
 	exterior_panels.append(footer)
 	footer.position = Vector2(22,557)
@@ -645,31 +627,7 @@ func _build_ui() -> void:
 	hud.add_child(note)
 
 func _refresh_backpack() -> void:
-	for index in range(slot_views.size()):
-		var view := slot_views[index]
-		for child in view.get_children():
-			view.remove_child(child)
-			child.queue_free()
-		if index < inventory.slots.size():
-			var slot := inventory.slots[index]
-			if textures.has(slot["id"]):
-				view.add_child(_texture_view(textures[slot["id"]]))
-			else:
-				var icon_frame := Control.new()
-				icon_frame.custom_minimum_size = Vector2(64,64)
-				var icon := BituLoot.new()
-				icon.item_id = slot["id"]
-				icon.position = Vector2(32,58)
-				icon.scale = Vector2(2,2)
-				icon.set_process(false)
-				icon_frame.add_child(icon)
-				view.add_child(icon_frame)
-			view.add_child(_label("%s ×%d" % [NAMES[slot["id"]],slot["amount"]],11))
-		else:
-			var empty := _label("·",28,Color("4c6049"))
-			empty.custom_minimum_size = Vector2(64,64)
-			view.add_child(empty)
-			view.add_child(_label("Vacío",11,Color("65765b")))
+	if backpack is BituBackpackMenu: backpack.refresh()
 
 func _setup_house_interior() -> void:
 	interior = BituHouseInterior.new()

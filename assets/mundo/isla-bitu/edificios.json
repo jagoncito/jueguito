@@ -1,0 +1,771 @@
+{
+  "version": 1,
+  "buildings": {
+    "flavia": {
+      "file": "sprites/flavia.png",
+      "entry": [
+        234,
+        385
+      ],
+      "foundation": [
+        [
+          -117,
+          -74
+        ],
+        [
+          97,
+          -16
+        ],
+        [
+          382,
+          -70
+        ],
+        [
+          382,
+          -146
+        ],
+        [
+          148,
+          -236
+        ],
+        [
+          -117,
+          -155
+        ]
+      ],
+      "front": [
+        [
+          -117,
+          -74
+        ],
+        [
+          97,
+          -16
+        ],
+        [
+          382,
+          -70
+        ]
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/flavia-casa-exterior-fuente.png",
+      "source_region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "uniform_scale": 0.45
+    },
+    "pareja": {
+      "file": "sprites/pareja.png",
+      "entry": [
+        460,
+        444
+      ],
+      "foundation": [
+        [
+          -386,
+          -115
+        ],
+        [
+          -193,
+          -60
+        ],
+        [
+          -110,
+          -83
+        ],
+        [
+          51,
+          -12
+        ],
+        [
+          207,
+          -94
+        ],
+        [
+          207,
+          -163
+        ],
+        [
+          -78,
+          -292
+        ],
+        [
+          -386,
+          -205
+        ]
+      ],
+      "front": [
+        [
+          -386,
+          -115
+        ],
+        [
+          -193,
+          -60
+        ],
+        [
+          -110,
+          -83
+        ],
+        [
+          51,
+          -12
+        ]
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/pareja-vivienda-exterior-fuente.png",
+      "source_region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "uniform_scale": 0.46
+    },
+    "alquimista": {
+      "file": "sprites/alquimista.png",
+      "entry": [
+        258,
+        421
+      ],
+      "foundation": [
+        [
+          -216,
+          -108
+        ],
+        [
+          101,
+          5
+        ],
+        [
+          414,
+          -51
+        ],
+        [
+          414,
+          -152
+        ],
+        [
+          166,
+          -242
+        ],
+        [
+          -216,
+          -177
+        ]
+      ],
+      "front": [
+        [
+          -216,
+          -108
+        ],
+        [
+          101,
+          5
+        ],
+        [
+          414,
+          -51
+        ]
+      ],
+      "source": "assets/entorno/casa-alquimista/referencias/casa-alquimista-exterior-fuente.png",
+      "source_region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "uniform_scale": 0.46
+    },
+    "tienda": {
+      "file": "sprites/tienda.png",
+      "entry": [
+        274,
+        413
+      ],
+      "foundation": [
+        [
+          -211,
+          -101
+        ],
+        [
+          178,
+          24
+        ],
+        [
+          418,
+          -31
+        ],
+        [
+          418,
+          -142
+        ],
+        [
+          120,
+          -254
+        ],
+        [
+          -211,
+          -178
+        ]
+      ],
+      "front": [
+        [
+          -211,
+          -101
+        ],
+        [
+          178,
+          24
+        ],
+        [
+          418,
+          -31
+        ]
+      ],
+      "source": "assets/entorno/tienda-bitu24h/referencias/tienda-exterior-fuente.png",
+      "source_region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "uniform_scale": 0.48
+    },
+    "museo": {
+      "file": "sprites/museo.png",
+      "entry": [
+        281,
+        418
+      ],
+      "foundation": [
+        [
+          -228,
+          -120
+        ],
+        [
+          281,
+          26
+        ],
+        [
+          415,
+          -24
+        ],
+        [
+          415,
+          -125
+        ],
+        [
+          127,
+          -240
+        ],
+        [
+          -228,
+          -192
+        ]
+      ],
+      "front": [
+        [
+          -228,
+          -120
+        ],
+        [
+          281,
+          26
+        ],
+        [
+          415,
+          -24
+        ]
+      ],
+      "source": "assets/entorno/museo/referencias/museo-exterior-fuente.png",
+      "source_region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "uniform_scale": 0.48
+    },
+    "herreria": {
+      "file": "sprites/herreria.png",
+      "entry": [
+        451,
+        425
+      ],
+      "foundation": [
+        [
+          -403,
+          -119
+        ],
+        [
+          -275,
+          -84
+        ],
+        [
+          -73,
+          -42
+        ],
+        [
+          55,
+          -15
+        ],
+        [
+          196,
+          -73
+        ],
+        [
+          196,
+          -178
+        ],
+        [
+          -73,
+          -275
+        ],
+        [
+          -403,
+          -205
+        ]
+      ],
+      "front": [
+        [
+          -403,
+          -119
+        ],
+        [
+          -275,
+          -84
+        ],
+        [
+          -73,
+          -42
+        ],
+        [
+          55,
+          -15
+        ]
+      ],
+      "source": "assets/entorno/mina-herreria/referencias/herreria-vivienda-exterior-fuente.png",
+      "source_region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "uniform_scale": 0.44
+    },
+    "pescador": {
+      "file": "sprites/pescador.png",
+      "entry": [
+        376,
+        382
+      ],
+      "foundation": [
+        [
+          -262,
+          -76
+        ],
+        [
+          -74,
+          -16
+        ],
+        [
+          116,
+          -50
+        ],
+        [
+          116,
+          -144
+        ],
+        [
+          -32,
+          -218
+        ],
+        [
+          -262,
+          -166
+        ]
+      ],
+      "front": [
+        [
+          -262,
+          -76
+        ],
+        [
+          -74,
+          -16
+        ],
+        [
+          116,
+          -50
+        ]
+      ],
+      "source": "assets/entorno/parcela-cocinero-pescador/referencias/choza-exterior-fuente.png",
+      "source_region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "uniform_scale": 0.4
+    },
+    "astillero": {
+      "file": "sprites/astillero.png",
+      "entry": [
+        286,
+        288
+      ],
+      "foundation": [
+        [
+          -146,
+          -94
+        ],
+        [
+          103,
+          -60
+        ],
+        [
+          379,
+          -19
+        ],
+        [
+          396,
+          -60
+        ],
+        [
+          180,
+          -175
+        ],
+        [
+          -146,
+          -180
+        ]
+      ],
+      "front": [
+        [
+          -146,
+          -94
+        ],
+        [
+          103,
+          -60
+        ],
+        [
+          379,
+          -19
+        ]
+      ],
+      "source": "assets/entorno/astillero/referencias/astillero-exterior-fuente.png",
+      "source_region": [
+        30,
+        0,
+        1490,
+        670
+      ],
+      "uniform_scale": 0.48
+    },
+    "mina": {
+      "file": "sprites/mina.png",
+      "entry": [
+        394,
+        381
+      ],
+      "foundation": [
+        [
+          -328,
+          -51
+        ],
+        [
+          -147,
+          33
+        ],
+        [
+          99,
+          53
+        ],
+        [
+          222,
+          -51
+        ],
+        [
+          222,
+          -156
+        ],
+        [
+          11,
+          -266
+        ],
+        [
+          -257,
+          -222
+        ]
+      ],
+      "front": [
+        [
+          -328,
+          -51
+        ],
+        [
+          -147,
+          33
+        ],
+        [
+          99,
+          53
+        ]
+      ],
+      "source": "assets/entorno/mina-herreria/referencias/mina-exterior-fuente.png",
+      "source_region": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "uniform_scale": 0.44
+    }
+  },
+  "props": {
+    "cama": {
+      "file": "sprites/prop-cama.png",
+      "size": [
+        107,
+        110
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/flavia-casa-interior-fuente.png",
+      "region": [
+        8,
+        814,
+        172,
+        177
+      ],
+      "scale": 0.62
+    },
+    "armario": {
+      "file": "sprites/prop-armario.png",
+      "size": [
+        53,
+        109
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/flavia-casa-interior-fuente.png",
+      "region": [
+        236,
+        805,
+        86,
+        176
+      ],
+      "scale": 0.62
+    },
+    "cofre": {
+      "file": "sprites/prop-cofre.png",
+      "size": [
+        68,
+        68
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/flavia-casa-interior-fuente.png",
+      "region": [
+        326,
+        870,
+        110,
+        110
+      ],
+      "scale": 0.62
+    },
+    "mesa": {
+      "file": "sprites/prop-mesa.png",
+      "size": [
+        134,
+        89
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/flavia-casa-interior-fuente.png",
+      "region": [
+        443,
+        848,
+        216,
+        143
+      ],
+      "scale": 0.62
+    },
+    "chimenea": {
+      "file": "sprites/prop-chimenea.png",
+      "size": [
+        103,
+        119
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/flavia-casa-interior-fuente.png",
+      "region": [
+        686,
+        809,
+        166,
+        192
+      ],
+      "scale": 0.62
+    },
+    "cocina": {
+      "file": "sprites/prop-cocina.png",
+      "size": [
+        101,
+        120
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/flavia-casa-interior-fuente.png",
+      "region": [
+        855,
+        816,
+        163,
+        194
+      ],
+      "scale": 0.62
+    },
+    "sillon": {
+      "file": "sprites/prop-sillon.png",
+      "size": [
+        70,
+        86
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/flavia-casa-interior-fuente.png",
+      "region": [
+        1025,
+        858,
+        113,
+        139
+      ],
+      "scale": 0.62
+    },
+    "cama-doble": {
+      "file": "sprites/prop-cama-doble.png",
+      "size": [
+        135,
+        118
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/pareja-vivienda-interior-fuente.png",
+      "region": [
+        108,
+        783,
+        217,
+        191
+      ],
+      "scale": 0.62
+    },
+    "biblioteca": {
+      "file": "sprites/prop-biblioteca.png",
+      "size": [
+        90,
+        117
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/pareja-vivienda-interior-fuente.png",
+      "region": [
+        616,
+        786,
+        145,
+        188
+      ],
+      "scale": 0.62
+    },
+    "escritorio": {
+      "file": "sprites/prop-escritorio.png",
+      "size": [
+        123,
+        102
+      ],
+      "source": "assets/entregas/completar-bitu/referencias/pareja-vivienda-interior-fuente.png",
+      "region": [
+        772,
+        808,
+        198,
+        164
+      ],
+      "scale": 0.62
+    },
+    "cajon": {
+      "file": "sprites/prop-cajon.png",
+      "size": [
+        77,
+        74
+      ],
+      "source": "assets/entorno/astillero/referencias/astillero-exterior-fuente.png",
+      "region": [
+        393,
+        846,
+        154,
+        149
+      ],
+      "scale": 0.5
+    },
+    "barril": {
+      "file": "sprites/prop-barril.png",
+      "size": [
+        52,
+        63
+      ],
+      "source": "assets/entorno/astillero/referencias/astillero-exterior-fuente.png",
+      "region": [
+        281,
+        866,
+        104,
+        126
+      ],
+      "scale": 0.5
+    },
+    "tablones": {
+      "file": "sprites/prop-tablones.png",
+      "size": [
+        117,
+        72
+      ],
+      "source": "assets/entorno/astillero/referencias/astillero-exterior-fuente.png",
+      "region": [
+        558,
+        857,
+        234,
+        145
+      ],
+      "scale": 0.5
+    }
+  },
+  "sources": {
+    "assets/entregas/completar-bitu/referencias/flavia-casa-exterior-fuente.png": {
+      "bytes": 2453955,
+      "sha256": "5f26a004b00a3a2c1177e63ab31bf7e7cc9ee215b0e23517842a2dea51c307ea"
+    },
+    "assets/entregas/completar-bitu/referencias/pareja-vivienda-exterior-fuente.png": {
+      "bytes": 2409092,
+      "sha256": "c4389d376eaf57906d6c6a233a995303a52ef5df12ebce0a510a91287363cef8"
+    },
+    "assets/entorno/casa-alquimista/referencias/casa-alquimista-exterior-fuente.png": {
+      "bytes": 2874325,
+      "sha256": "53c0287a508627c7698f77d971cf33afab834ebd253337851a8d058423bf299b"
+    },
+    "assets/entorno/tienda-bitu24h/referencias/tienda-exterior-fuente.png": {
+      "bytes": 2594416,
+      "sha256": "59d54a5efa0f3fa62e40ec8e78a45972dec85934cf81b67690b693b2c478485f"
+    },
+    "assets/entorno/museo/referencias/museo-exterior-fuente.png": {
+      "bytes": 2635510,
+      "sha256": "2cb199f647c4f88833cace2ea046a673c03d231e8a8b2ed833b4b3813b1c10f8"
+    },
+    "assets/entorno/mina-herreria/referencias/herreria-vivienda-exterior-fuente.png": {
+      "bytes": 2569161,
+      "sha256": "962e17868715161cbdfe22724488638ccffaeb79664fa09ed593ea61fea23aec"
+    },
+    "assets/entorno/parcela-cocinero-pescador/referencias/choza-exterior-fuente.png": {
+      "bytes": 2345940,
+      "sha256": "2b0595b4a5e2b9e8234cb158fd3942262c9f437d73150a2ae7e64b7e210c3b1d"
+    },
+    "assets/entorno/astillero/referencias/astillero-exterior-fuente.png": {
+      "bytes": 2525148,
+      "sha256": "16cdf9a15bb60c70ad323ae250398808b467088fe98229d11b157a987c1415e3"
+    },
+    "assets/entorno/mina-herreria/referencias/mina-exterior-fuente.png": {
+      "bytes": 2625107,
+      "sha256": "aaf6a0c6869368152e134a5194c1d048b4772203a77ab4884643bd7d9e65070c"
+    },
+    "assets/entregas/completar-bitu/referencias/flavia-casa-interior-fuente.png": {
+      "bytes": 3068592,
+      "sha256": "d78089e1163fb7cb43b951d8f630dc2855bdca30aeb880af0eeb3ea21132e385"
+    },
+    "assets/entregas/completar-bitu/referencias/pareja-vivienda-interior-fuente.png": {
+      "bytes": 2720495,
+      "sha256": "d9b1ae61aaccffb1e5db0035302b66d816e5896261d9aae37ee8e954714f6140"
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # BITU24H — tienda de Bītu
 
+**Integración parcial, 12 de octubre:** la prueba de isla reutiliza recursos de este lote mediante el registro `assets/mundo/isla-bitu/`, conservando las fuentes. Fachadas, muebles seleccionados o piezas de ruinas están integrados; las láminas completas y sus otros elementos siguen como referencias. Las afirmaciones anteriores de «sin integrar» describen la entrega original. [Alcance actual](../../../docs/isla-y-mochila-prueba.md).
+
 Petición del **11 de octubre de 2026**: hacer lo mismo que con el museo, preparando exterior e interior y su publicación como referencias visuales.
 
 **Nombre elegido: BITU24H. El usuario aclara que no abre las 24 horas.** Horario concreto pendiente; el nombre no impone disponibilidad permanente ni un sistema de horarios por esta entrega.

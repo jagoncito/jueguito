@@ -1,5 +1,7 @@
 # Parcela del maestro cocinero/pescador
 
+**Integración parcial, 12 de octubre:** la prueba de isla reutiliza recursos de este lote mediante el registro `assets/mundo/isla-bitu/`, conservando las fuentes. Fachadas, muebles seleccionados o piezas de ruinas están integrados; las láminas completas y sus otros elementos siguen como referencias. Las afirmaciones anteriores de «sin integrar» describen la entrega original. [Alcance actual](../../../docs/isla-y-mochila-prueba.md).
+
 Petición del **11 de octubre de 2026**: crear una parcela con espacio para pescar, pequeña choza con cama y detalles adicionales, incluyendo exterior e interior de la choza y cualquier otra estructura. Publicación posterior solicitada expresamente.
 
 Se conserva el maestro anciano, excéntrico, buen conversador y amante de la naturaleza. Nombre y especie pendientes. La parcela mantiene su ubicación general costera al suroeste de Bītu y el sendero de conexión con la granja; posición exacta y límites sin fijar.

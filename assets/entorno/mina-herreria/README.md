@@ -1,5 +1,7 @@
 # Mina y herrería del maestro enano
 
+**Integración parcial, 12 de octubre:** la prueba de isla reutiliza recursos de este lote mediante el registro `assets/mundo/isla-bitu/`, conservando las fuentes. Fachadas, muebles seleccionados o piezas de ruinas están integrados; las láminas completas y sus otros elementos siguen como referencias. Las afirmaciones anteriores de «sin integrar» describen la entrega original. [Alcance actual](../../../docs/isla-y-mochila-prueba.md).
+
 Entrega del 11 de octubre de 2026. Exterior e interiores como fuentes visuales, con publicación solicitada por el usuario.
 
 La herrería y la vivienda forman un conjunto: ala doméstica anexa, dormitorio separado del calor y humo de la forja. Mina cercana en el terreno montañoso del noroeste. El maestro sigue de visita con Flavia en el astillero al comienzo; estos dibujos no trasladan su residencia allí.

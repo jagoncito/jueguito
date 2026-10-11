@@ -1,12 +1,14 @@
 # Bloc de diseño — Bītu y el archipiélago
 
-Última revisión: **10 de octubre de 2026**.
+Última revisión: **12 de octubre de 2026**.
 
-**Estado: diseño en conversación y primera prueba visual limitada.** Después de expresar que quiere empezar a programar y preguntar cuándo se podría probar el aspecto, se prepara una pequeña escena provisional de Bītu. No representa el juego completo ni cierra las decisiones pendientes. [Alcance y ejecución](docs/prueba-visual.md).
+**Estado: diseño en conversación y prueba jugable de la isla.** Después de expresar que quiere empezar a programar y preguntar cuándo se podría probar el aspecto, se integra una isla provisional de Bītu con sus lugares conectados. No representa el juego completo ni cierra las decisiones pendientes. [Alcance y ejecución](docs/prueba-visual.md).
 
 **Última decisión gráfica:** reinicio completo del dragón solicitado por el usuario; ver sección7. Autorizada esta generación/integración/publicación concreta; acabado pendiente de revisión.
 
 Este es el documento de referencia para retomar el proyecto, también en otro chat. Las decisiones posteriores sustituyen las interpretaciones anteriores. Los detalles pendientes se decidirán con el usuario, de uno en uno.
+
+**Prueba de isla integrada — 12 de octubre de 2026.** Inicio en las ruinas del este, isla conectada con seis regiones exteriores, diez interiores accesibles con E y los seis habitantes en los patios de sus propiedades. **M** abre el mapa y la cabeza del dragón marca tu ubicación actual; dentro de un edificio señala su propiedad. **Tab** abre una mochila original de supervivencia:24 huecos, pilas de1.000 («1k»), arrastre, intercambio, división con Mayús y ordenación; herramientas aparte. Ambos menús pausan la partida. [Alcance, controles y comprobaciones](docs/isla-y-mochila-prueba.md). La distribución es de prueba: sin guardado, narrativa, comercio, fabricación ni navegación implementados. Se conserva el conjunto vigente del dragón; esta entrega no modifica sus PNG.
 
 ## 1. Visión del juego
 

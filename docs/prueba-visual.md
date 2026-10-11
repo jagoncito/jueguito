@@ -1,5 +1,7 @@
 # Primera prueba visual de Bītu
 
+**Prueba de isla integrada — 12 de octubre de 2026.** Inicio en las ruinas del este, isla conectada con seis regiones exteriores, diez interiores accesibles con E y los seis habitantes en los patios de sus propiedades. **M** abre el mapa y la cabeza del dragón marca tu ubicación actual; dentro de un edificio señala su propiedad. **Tab** abre una mochila original de supervivencia:24 huecos, pilas de1.000 («1k»), arrastre, intercambio, división con Mayús y ordenación; herramientas aparte. Ambos menús pausan la partida. [Alcance, controles y comprobaciones](isla-y-mochila-prueba.md). La distribución es de prueba: sin guardado, narrativa, comercio, fabricación ni navegación implementados. Se conserva el conjunto vigente del dragón; esta entrega no modifica sus PNG.
+
 **Revisión por fotogramas completos del 11 de octubre de 2026.** Se sustituyen las siete direcciones defectuosas de marcha y sus carreras por seis fases completas; NORTE conserva su marcha y sprint originales de cuatro fases. Reposo, pesca, recolección y garras mantienen sus fuentes y registros aceptados. El rig de piezas articuladas fue rechazado y se ha retirado. Las revisiones anteriores están documentadas en [su diagnóstico histórico](revision-apoyos-y-extremos.md); sus afirmaciones sobre el rig no describen esta versión.
 
 Los nuevos dibujos utilizan celdas192×192, ancla de suelo(96,168), referencia de cuerpo80px y escala final1. El margen permite levantar y bajar el instrumento sin recortar ni reducir el personaje. Se importa la figura completa con un solo factor uniforme y nearest; no se estiran extremidades ni se giran recortes. NE/E/SE reflejan sus vistas completas correspondientes una sola vez, sin invertir el cuerpo durante una media zancada SUR. Marcha alterna contacto, apoyo y paso de cada pierna, con brazos contrarios. Carrera utiliza sus propias poses de apoyo y vuelo.
@@ -18,7 +20,7 @@ Pesca: lanzamiento, picada, recoger manteniendo clic y aflojar soltándolo; capt
 
 La revisión separa funcionamiento de acabado: las pruebas comprueban conservación, escala, anclas, reloj, contactos y comportamiento. No otorgan aprobación artística. Se revisan también ciclos completos, arranque/parada, cambios de dirección y golpes en el canvas de Godot.
 
-Descarga actual: **31.268.916 bytes** (límite por archivo104.857.600bytes), CRC correcto y PCK idéntico al exportado. SHA-256: `1f9b2240d2f12aaff7a04796acb6a6e4a8cda2d50c64cb11452dd58136ad6702`. No requiere dividirse.
+Descarga actual de la isla: **38.240.383 bytes**, por debajo del límite de **104.857.600 bytes** por archivo. CRC verificado y PCK idéntico al exportado. SHA-256: `3dc2ab3fe4016b85a25cffebefb233c40381b2e8b6b303662328f2a1696085fd`. No requiere dividirse.
 
 Revisión: `?vista=dragon`: **1 reposo,2 marcha,3 minar,4 talar,5 palín,6 parar/andar,7 sprint,8 pesca,9 zarpazo**. Espacio: cámara lenta. `?vista=personajes` compara con habitantes. Para congelar fases: `&captura=marcha-0` a `marcha-5`, o `sprint-0` a `sprint-5`; NORTE mapea sus cuatro fases conservadas. Trabajo: `&captura=minar&tiempo=0.33` o tala, con tiempos0/0,12/0,24/0,33/0,40/0,50. Impactos reales: `?captura=impacto-minar&captura-impacto=1` o tala.
 
@@ -34,7 +36,7 @@ Revisión: `prueba/scenes/recursos.tscn` con F6, o `?vista=recursos` en navegado
 
 ## Qué se puede probar
 
-**Movimiento y agarre revisados:** fotogramas completos en las vistas corregidas y poses originales en marcha/sprint NORTE; vistas traseras que avanzan alejándose de la cámara. La marcha sigue la distancia recorrida y se detiene al quedar bloqueado. Manos libres al caminar; pico–hacha y dedos dibujados junto al cuerpo en las poses de trabajo. El palín conserva sus proyecciones y registro por separado. Las ruinas se definen en el bloc como refugio costero con patio de llegada; ese nivel todavía no está incluido.
+**Movimiento y agarre revisados:** fotogramas completos en las vistas corregidas y poses originales en marcha/sprint NORTE; vistas traseras que avanzan alejándose de la cámara. La marcha sigue la distancia recorrida y se detiene al quedar bloqueado. Manos libres al caminar; pico–hacha y dedos dibujados junto al cuerpo en las poses de trabajo. El palín conserva sus proyecciones y registro por separado. Las ruinas se definen en el bloc como refugio costero con patio de llegada; ese nivel está incluido en la prueba de isla del12 de octubre.
 
 - Caminar con **WASD** y mantener **Shift** para el sprint provisional, con colisiones en agua, casa, bases de árboles y límites. La marcha sigue el desplazamiento real y las diagonales mantienen la velocidad normalizada.
 - Ajustar el zoom con la **rueda**.
@@ -47,7 +49,7 @@ Revisión: `prueba/scenes/recursos.tscn` con F6, o `?vista=recursos` en navegado
 
 Los cuatro tomates junto a la orilla son **muestras de comparación**, no un ejemplo de rareza normal. Las cosechas de esta prueba dan tomate común y aumentan el contador de experiencia del tomate. Todavía no hay probabilidades de calidad ni variantes en la cosecha.
 
-Las herramientas se indican aparte de la mochila. Huecos interactivos, requisitos y mejoras pendientes. El [palín de herborista](../assets/herramientas/palin-herborista/README.md) se equipa para la flor: pose arrodillada en cada dirección, paladas breves, extracción y recuperación. El mango se registra en la palma y el cambio de apoyo limita su escala; no desplaza al jugador ni cambia el alcance. La elevación E utiliza su nuevo dibujo de perfil, sin reutilizar la pose arrodillada. El acabado sigue siendo de prototipo.
+Las herramientas se indican aparte de la mochila. Huecos interactivos implementados; requisitos y mejoras pendientes. El [palín de herborista](../assets/herramientas/palin-herborista/README.md) se equipa para la flor: pose arrodillada en cada dirección, paladas breves, extracción y recuperación. El mango se registra en la palma y el cambio de apoyo limita su escala; no desplaza al jugador ni cambia el alcance. La elevación E utiliza su nuevo dibujo de perfil, sin reutilizar la pose arrodillada. El acabado sigue siendo de prototipo.
 
 El 8 de octubre se integra el **pico–hacha en la granja**, tras delegar el usuario el siguiente paso técnico. Los brazos acompañan la herramienta; el trabajo bloquea el movimiento hasta acabar la recuperación del golpe final. Recoger flores guarda la herramienta. Se conserva la escena independiente `prueba/scenes/herramienta.tscn`, abrir con F6, para revisar escala y componentes. Las mejoras de materiales siguen pendientes. [Medidas, agarre y uso](../assets/herramientas/pico-hacha/README.md).
 

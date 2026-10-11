@@ -1,5 +1,7 @@
 # Ruinas y camino costero — fuentes visuales
 
+**Integración parcial, 12 de octubre:** la prueba de isla reutiliza recursos de este lote mediante el registro `assets/mundo/isla-bitu/`, conservando las fuentes. Fachadas, muebles seleccionados o piezas de ruinas están integrados; las láminas completas y sus otros elementos siguen como referencias. Las afirmaciones anteriores de «sin integrar» describen la entrega original. [Alcance actual](../../../docs/isla-y-mochila-prueba.md).
+
 Generación solicitada el 10 de octubre de 2026. El usuario solicita después generar el lote de piezas y publicarlo en GitHub. Sin integración solicitada.
 
 - [Ruinas](referencias/ruinas-fuente.png): patio, arco, muros, columnas, escombros, pavimento, escalones y acantilado; piezas aisladas para registro posterior.

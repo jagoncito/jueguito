@@ -1,5 +1,7 @@
 # Museo de Bītu — exterior e interior
 
+**Integración parcial, 12 de octubre:** la prueba de isla reutiliza recursos de este lote mediante el registro `assets/mundo/isla-bitu/`, conservando las fuentes. Fachadas, muebles seleccionados o piezas de ruinas están integrados; las láminas completas y sus otros elementos siguen como referencias. Las afirmaciones anteriores de «sin integrar» describen la entrega original. [Alcance actual](../../../docs/isla-y-mochila-prueba.md).
+
 Petición del **11 de octubre de 2026**: generar visualmente el exterior del museo y considerar un interior amplio para las colecciones. Petición posterior explícita: preparar exterior e interior y subir ambos a GitHub.
 
 Fuentes: `referencias/museo-exterior-fuente.png` y `referencias/museo-interior-fuente.png`, creadas con generación de imagen y conservadas sin ediciones manuales. Referencias de perspectiva y materiales: casa rural y exterior del astillero existentes. Publicación de esta entrega autorizada. Son fuentes visuales para revisar, sin integración solicitada.

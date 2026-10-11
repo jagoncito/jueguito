@@ -12,12 +12,18 @@ PROJECT = Path(__file__).resolve().parents[1]
 ARCHIVE = PROJECT / "descargas/bitu-navegador.zip"
 OUTPUT = PROJECT / "build/web"
 RUNTIME_SHA256 = "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6"
-INSTRUCTIONS = """BĪTU — Primera prueba visual
+INSTRUCTIONS = """BĪTU — Isla, mapa y mochila
 
 Requiere Python 3 y navegador con WebGL 2 (Chrome, Edge o Firefox actualizado).
 Descomprime todo el ZIP. Ejecuta python JUGAR.py desde la carpeta bitu-navegador.
 Se abrirá el navegador automáticamente. Mantén la ventana de Python abierta mientras juegas.
-WASD: mover; Shift + WASD: sprint provisional; rueda: zoom; Tab: mochila.
+WASD: mover; Shift + WASD: sprint; rueda: zoom.
+Empiezas en las ruinas al este de Bītu. Sigue el sendero costero al astillero.
+M: abrir/cerrar mapa, con la cabeza del dragón en tu posición actual.
+Tab: abrir/cerrar mochila; Esc cierra el menú. Los menús pausan la partida.
+Mochila:24 espacios, hasta1.000 por pila (1k), calidades y variantes separadas.
+Arrastra para mover/intercambiar; Mayús+arrastrar divide a la mitad; Ordenar reúne las pilas.
+Las herramientas están en un apartado propio y se equipan según la actividad.
 Clic izquierdo sobre una mena, árbol o flor cercana: completa toda la extracción.
 No hace falta mantener pulsado ni repetir clics por golpe.
 Para flores se equipa el palín y el personaje se arrodilla, extrae y se levanta.
@@ -25,7 +31,9 @@ Clic en suelo libre o enemigo: zarpazo hacia el cursor; prueba con el maniquí.
 Clic en agua cercana desde la orilla: lanzar caña. Espera la picada.
 Mantén clic para recoger; suelta para bajar la tensión. Esc cancela la pesca.
 E: entrar/salir de casa junto a la puerta, plantar, regar, cosechar o hablar.
-Para revisar directamente el interior añade ?vista=casa a la URL.
+E junto a las puertas entra/sale de las diez viviendas, talleres, museo y primera galería.
+Cada habitante está en el exterior de su propiedad. Todo el recorrido de la isla está abierto en esta prueba.
+Para revisar directamente la casa del jugador añade ?vista=casa a la URL.
 Seis habitantes quietos integrados en posiciones provisionales, con ocho vistas cada uno.
 F7: dragón actual80px. F8: comparación72px (ajuste gráfico reversible, sin cambiar NPC).
 Dragón rehecho en pixel art: ocho direcciones, reposo, caminar, sprint, minar, talar, palín, pesca y zarpazo.
@@ -40,8 +48,8 @@ Protagonista de80px, manos libres al caminar; equipa el instrumento de cada acti
 Una misma herramienta pico-hacha sirve para las dos acciones; no se cambia el equipo.
 Minería: la punta del pico golpea la mena; tala: el filo ancho del hacha golpea el tronco.
 Espacio alterna la cámara lenta en la revisión del dragón.
-En la granja aparecen Flavia, Unamahloni, cocinero/pescador, minero/herrero,
-elfa del museo y comerciante para comparar con el protagonista.
+Por la isla están Flavia, Unamahloni, cocinero/pescador, minero/herrero,
+elfa del museo y comerciante, junto a sus hogares e instalaciones.
 Los seis giran brevemente sobre el sitio usando sus ocho vistas vigentes.
 F6 detiene/reanuda su movimiento para comparar tamaños. Tab oculta la mochila.
 Ubicaciones de comparación provisionales; estos giros todavía no son marcha.
@@ -51,7 +59,8 @@ Madera, fragmento de cobre y flor recogida tienen su propio botín e icono.
 Para comparar terreno, botín y mochila añade ?vista=recursos a la URL.
 Casa rural a escala nativa, cimientos transitables por fuera y agua turquesa con orillas.
 Agua estática; casa con exterior e interior transitable y fundido al entrar/salir.
-No guarda progreso. Entorno y animaciones de prototipo.
+Para volver a la antigua granja de comparación: ?vista=granja.
+No guarda progreso. Isla y distribución de prueba; narrativa, servicios y navegación pendientes.
 Sin Python, usa el repositorio y Godot 4.6.3: importar prueba/project.godot y F5.
 """
 

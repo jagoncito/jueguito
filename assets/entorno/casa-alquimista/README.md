@@ -1,5 +1,7 @@
 # Casa de Unamahloni — exterior e interior
 
+**Integración parcial, 12 de octubre:** la prueba de isla reutiliza recursos de este lote mediante el registro `assets/mundo/isla-bitu/`, conservando las fuentes. Fachadas, muebles seleccionados o piezas de ruinas están integrados; las láminas completas y sus otros elementos siguen como referencias. Las afirmaciones anteriores de «sin integrar» describen la entrega original. [Alcance actual](../../../docs/isla-y-mochila-prueba.md).
+
 Petición del **11 de octubre de 2026**: crear la casa del alquimista por fuera y por dentro y subir esta entrega a GitHub.
 
 Unamahloni es el maestro alquimista/herboristero Veyari: metódico, curioso y estudioso de las plantas. Su hogar conserva la ubicación general norte/noreste del mapa de Bītu; coordenadas y límites pendientes.

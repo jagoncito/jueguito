@@ -2,8 +2,8 @@
 config_version=5
 
 [application]
-config/name="Bītu — prueba de escala"
-run/main_scene="res://scenes/main.tscn"
+config/name="Bītu — isla jugable"
+run/main_scene="res://scenes/island.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [display]

@@ -1,5 +1,7 @@
 # Assets pendientes del núcleo inicial de Bītu
 
+**Integración parcial, 12 de octubre:** la prueba de isla reutiliza recursos de este lote mediante el registro `assets/mundo/isla-bitu/`, conservando las fuentes. Fachadas, muebles seleccionados o piezas de ruinas están integrados; las láminas completas y sus otros elementos siguen como referencias. Las afirmaciones anteriores de «sin integrar» describen la entrega original. [Alcance actual](../../../docs/isla-y-mochila-prueba.md).
+
 Entrega del 11 de octubre de 2026 solicitada tras auditar huecos. Publicación autorizada; sin integración por esta petición.
 
 ## Interior de nuestra casa

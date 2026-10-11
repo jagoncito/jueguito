@@ -1,13 +1,13 @@
 # Bītu y el archipiélago
 
 
-**Agua y casa integradas:** vivienda rural a escala nativa, colisión ajustada a los cimientos y profundidad respecto al personaje; costa con agua turquesa, zonas profundas y orillas. Agua estática y casa con interior transitable mediante E y fundido. Descarga local actualizada en `prueba/descargas/bitu-navegador.zip`.
+**Prueba de isla integrada — 12 de octubre de 2026.** Inicio en las ruinas del este, isla conectada con seis regiones exteriores, diez interiores accesibles con E y los seis habitantes en los patios de sus propiedades. **M** abre el mapa y la cabeza del dragón marca tu ubicación actual; dentro de un edificio señala su propiedad. **Tab** abre una mochila original de supervivencia:24 huecos, pilas de1.000 («1k»), arrastre, intercambio, división con Mayús y ordenación; herramientas aparte. Ambos menús pausan la partida. [Alcance, controles y comprobaciones](docs/isla-y-mochila-prueba.md). La distribución es de prueba: sin guardado, narrativa, comercio, fabricación ni navegación implementados. Se conserva el conjunto vigente del dragón; esta entrega no modifica sus PNG.
 
-![Casa y agua dentro del prototipo](prueba/capturas/casa-agua-en-juego.png)
+![Inicio en las ruinas](prueba/capturas/isla-ruinas.png)
 
 Proyecto de juego individual de fantasía, **íntegramente en pixel art**, con **vista desde arriba isométrica cenital**, centrado en explorar, farmear, mejorar y coleccionar.
 
-**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo rehecho en pixel art, con ocho direcciones y ciclos completos por fotogramas**. Camina, sprinta, mina, tala, recolecta con palín, pesca y ataca con garras. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
+**Primera prueba visual jugable:** la isla provisional de Bītu con el **dragón protagonista bípedo rehecho en pixel art, con ocho direcciones y ciclos completos por fotogramas**. Camina, sprinta, mina, tala, recolecta con palín, pesca y ataca con garras. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
 
 Motor elegido: **Godot 4**. Primera plataforma: **navegador en ordenador, con teclado y ratón**. La versión descargable queda como posibilidad futura.
 
@@ -21,9 +21,9 @@ Césped, tierra y arena existentes integrados en la cuadrícula de 64 × 32, con
 
 ## Mapa y astillero
 
-[Ruinas y camino costero: 48 piezas](assets/entorno/ruinas-camino/README.md), tres atlas con catálogo, recursos de Godot y galería. Preparación final e integración pendientes.
+[Ruinas y camino costero: 48 piezas](assets/entorno/ruinas-camino/README.md), tres atlas con catálogo, recursos de Godot y galería. Ruinas y terreno integrados; otras variantes siguen disponibles como fuentes.
 
-[Mapa de Bītu para el jugador](mapas/README.md) y [exterior/interior del astillero de Flavia](assets/entorno/astillero/README.md), con módulos visuales para su preparación posterior. Fuentes revisadas; todavía no integradas en el juego.
+[Mapa de Bītu para el jugador](mapas/README.md) y [exterior/interior del astillero de Flavia](assets/entorno/astillero/README.md), con módulos visuales para su preparación posterior. Fachada y taller del astillero integrados en la prueba de isla; servicios y navegación pendientes.
 
 ## Documentos
 
