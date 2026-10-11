@@ -146,7 +146,7 @@ Su tamaño mediano-grande es una propuesta que permite espacio natural y futuras
 El jugador visita la **casa de cada personaje**, con las instalaciones de su oficio vinculadas a ella y su terreno. Esas instalaciones pueden estar dentro, fuera, en un edificio anexo o al lado.
 
 - **Flavia:** casa y astillero en su terreno, junto al agua.
-- **Minero/herrero:** casa, mina al lado y herrería dentro o en un edificio cercano; distribución pendiente.
+- **Minero/herrero:** vivienda en ala anexa a la herrería, con dormitorio separado del calor de la forja y mina cercana en su terreno montañoso del noroeste. Elección visual por delegación del usuario (11 de octubre); distribución y medidas jugables pendientes.
 - **Otros maestros:** casa y espacios adecuados para sus especialidades; distribución pendiente.
 - **Jugador:** casa y terreno para la granja.
 
@@ -893,3 +893,7 @@ alternancia frontal de piernas/brazos y parejas simétricas coherentes. No se
 rehacen acciones que no se han identificado como defectuosas en esta revisión.
 Recolección preservada exactamente. El acabado continúa sujeto a revisión visual;
 altura constante y señales correctas no bastan para aprobar todas las animaciones.
+
+### Referencias visuales de mina y herrería (11 de octubre de 2026)
+
+Entrega en [mina y herrería](assets/entorno/mina-herreria/README.md): conjunto exterior, herrería/vivienda exterior e interior y mina exterior/primera galería. El maestro está inicialmente de visita con Flavia en el astillero; su residencia permanece en el noroeste. Taller práctico y ala doméstica separada de la forja. Las fuentes no fijan niveles, enemigos, minerales nuevos, recetas ni armas. Al integrar, ampliar suelo útil de interiores conservando escala de personajes/mobiliario. Recortes, fondos/halos, módulos, anclas, colisiones y transiciones pendientes. No integrado en el juego por esta entrega.

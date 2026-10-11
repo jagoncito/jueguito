@@ -1,0 +1,65 @@
+{
+  "fecha": "2026-10-11",
+  "tipo": "fuentes visuales de mina, herrería y vivienda",
+  "generacion": "image_gen; originales conservados sin edición manual",
+  "revision": "PNG abiertos y verificados; cinco referencias; enlaces comprobados; pendiente escala e integración en Godot",
+  "fuentes": [
+    {
+      "archivo": "conjunto-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGB",
+      "bytes": 3435020,
+      "sha256": "b7a77d28aad58d26ddb300a0a3470085708628c403d06ce361c0d23b0691269a"
+    },
+    {
+      "archivo": "herreria-vivienda-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2569161,
+      "sha256": "962e17868715161cbdfe22724488638ccffaeb79664fa09ed593ea61fea23aec"
+    },
+    {
+      "archivo": "herreria-vivienda-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2640462,
+      "sha256": "141d197b09fa3b486d28f20417adebb3ec34dd3d8da86b43fff0d48c4129391e"
+    },
+    {
+      "archivo": "mina-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2625107,
+      "sha256": "aaf6a0c6869368152e134a5194c1d048b4772203a77ab4884643bd7d9e65070c"
+    },
+    {
+      "archivo": "mina-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2386800,
+      "sha256": "fd4c4039b4019a98037745a9c703003ad79969bed73a0a562b6d462ac2b82f63"
+    }
+  ],
+  "pendientes": [
+    "Recortes y limpieza de fondos/halos",
+    "Módulos y capas",
+    "Escala/anclas con enano64px adulto80px suelo64x32",
+    "Más suelo útil en interiores manteniendo escala",
+    "Colisiones, cámara, accesos y transiciones"
+  ]
+}
