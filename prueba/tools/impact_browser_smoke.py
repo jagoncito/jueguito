@@ -28,12 +28,18 @@ async def main():
                 x=320*(i%4); y=320*(i//4)
                 bounds=(x+40,y+90,x+300,y+345)
                 tops=[]
+                centers=[]
                 for shot in shots:
                     patch=shot.crop(bounds)
                     rows=[y for y in range(patch.height) if any(patch.getpixel((x,y))!=(21,35,42) for x in range(patch.width))]
                     assert rows, ('Cuerpo ausente',i)
                     tops.append(rows[0])
+                    crest=[x for y in range(rows[0],rows[0]+40) for x in range(patch.width)
+                           if patch.getpixel((x,y))!=(21,35,42)]
+                    centers.append(sum(crest)/len(crest))
                 assert abs(tops[0]-tops[1])<=1, ('Cambia altura real al arrancar',i,tops)
+                if i != 4:
+                    assert abs(centers[0]-centers[1])<=2, ('Salto lateral al arrancar',i,centers)
             # Record the transition review in the actual Godot canvas.
             await page.goto('http://127.0.0.1:8765/index.html?vista=dragon', wait_until='networkidle')
             await page.wait_for_function("document.getElementById('status') === null", timeout=60000)

@@ -279,10 +279,15 @@ func animate_pose(_delta: float, work_time := -1.0) -> void:
 	if pose == "reposo" and (gathering or not equipment_enabled):
 		pose = "sin-equipo"
 	dragon.show_pose(pose,direction_index)
+	if not gathering and activity.is_empty():
+		if busy and not approaching and work_kind in [&"minar",&"talar"]:
+			dragon.show_articulated_work(work_kind,elapsed)
+		elif walk_time > 0 and ((not sprinting and direction_index != 4) or (sprinting and direction_index in [1,3,5,7])):
+			dragon.show_articulated_gait(walk_time/4.6,sprinting)
 	dragon.position = recovery_offset
 	if busy and not gathering and not approaching and work_kind != &"":
 		# Solo el error residual del último paso (máximo 2px), sin saltos.
-		var registered := dragon.contact_local(work_kind)
+		var registered := dragon.articulated.impact_contact_local(direction_index,work_kind)*dragon.presentation_height_px/80.0
 		if registered.is_finite():
 			dragon.position = work_contact-registered
 	# Pequeño cambio de apoyo al agacharse: mantener el tamaño del palín.

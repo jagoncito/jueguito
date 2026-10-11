@@ -1,6 +1,15 @@
 # Dragón jugable de Bītu
 
-Revisión selectiva del 11 de octubre: reposo tiene cinco vistas neutras corregidas desde
+Revisión actual de apoyos y extremos: marcha SUR/OESTE/ESTE/diagonales, sprint
+diagonal y minería/tala usan `piezas-articuladas.png` y `articulaciones.json`.
+Cinco vistas × seis piezas; reflexión única para el lado derecho, pies alternos,
+manos sobre el mango y extremo activo abajo. Reposo, marcha NORTE, sprint cardinal,
+flores, pesca y garras se conservan. Los diez PNG anteriores y sus 216 nombres de
+pose siguen intactos; la representación de las poses corregidas se sustituye en
+`dragon_visual.gd`. [Alcance, método y pruebas](../../../docs/revision-apoyos-y-extremos.md).
+Registro del atlas adicional: `python prueba/tools/register_dragon_parts.py`.
+
+Revisión anterior del 11 de octubre: reposo tiene cinco vistas neutras corregidas desde
 la referencia `marcha.png`, con ambos pies apoyados y cresta a80px. Frontal alterna dos medias zancadas reflejando cuerpo entero;
 NE/E/SE se proyectan desde NW/W/SW durante reposo, marcha y sprint. Solo se sustituye `reposo.png` y su copia de ejecución.
 Se corrigen selecciones/reflejos de 44 registros; nueve PNG permanecen intactos.
@@ -30,15 +39,14 @@ y escala uniforme: no son atlas nativos128×128. Reposo/marcha/sprint conservan
 la cresta a80px sobre el apoyo; una sola escala durante cada ciclo.
 
 Las manos quedan libres al desplazarse. Cada actividad equipa su instrumento.
-Pico y hacha comparten una herramienta y reloj de trabajo; ambos usan poses
-completas con manos y madera/metal dibujados juntos. Se registran por separado
+Pico y hacha comparten una herramienta y reloj de trabajo; las poses corregidas articulan brazos y mango desde el atlas limpio. Se registran por separado
 la punta minera y el borde ancho de tala. Cinco golpes por recurso. Antes del
 golpe, un paso físico ajusta el apoyo, respetando colisiones. Si no hay espacio,
 se cancela el trabajo y se recupera el control.
 
 Las vistas generadas que giraban de forma incorrecta se proyectan desde su
-vista simétrica coherente: cuerpo, manos y contactos reflejados juntos. Nunca
-se gira la herramienta por separado. `mirror_x` registra esa decisión.
+vista simétrica coherente: cuerpo, manos y contactos reflejados juntos. En las poses históricas no
+se gira la herramienta por separado; el rig actual une el mango a las manos. `mirror_x` registra esa decisión.
 `pesca-norte.png` aporta únicamente la recogida norte; el resto de esa fuente
 no se utiliza. Todas las regiones activas contienen una sola figura.
 

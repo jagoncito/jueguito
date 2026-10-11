@@ -1,6 +1,13 @@
 # Primera prueba visual de Bītu
 
-**Revisión selectiva del 11 de octubre:** reposo incorpora cinco vistas de apoyo neutro
+**Revisión de apoyos y extremos del 11 de octubre:** marcha SUR, OESTE/ESTE y
+cuatro diagonales, sprint diagonal y golpes de pico–hacha usan piezas articuladas.
+El cuerpo no se refleja entre medias zancadas; los pies alternan y las manos siguen
+el mango. Pico abajo al minar y filo del hacha abajo al talar. Se conservan reposo,
+marcha NORTE, sprint cardinal, flores, pesca y zarpazo. Diez PNG previos y catálogo
+intactos; un atlas adicional de piezas limpias. [Detalle y comprobaciones](revision-apoyos-y-extremos.md).
+
+**Revisión anterior del 11 de octubre:** reposo incorpora cinco vistas de apoyo neutro
 corregidas tomando marcha como referencia; alternancia frontal mediante reflexión completa
 de media zancada; vistas derechas de movimiento proyectadas desde sus parejas
 izquierdas, incluida NE desde NW. Cambian 44 registros; nueve PNG y todos los registros
@@ -40,8 +47,8 @@ comparativas80/72, giros/pausa de NPC y recursos. Capturas y vídeos del canvas
 renovados. El acabado artístico se revisa en juego; los tests comprueban registro,
 contactos, transiciones y comportamiento, sin otorgar aprobación visual.
 
-Descarga actual: **30.662.968 bytes**, CRC correcto y PCK idéntico al exportado.
-SHA-256: `04f832bb7f0d9a169f7c2f6d19102d4f30d9d1987c7fe41e3b4bf260f8d6864b`. Límite GitHub por archivo:104.857.600bytes; no hace falta
+Descarga actual: **32.006.477 bytes**, CRC correcto y PCK idéntico al exportado.
+SHA-256: `7c896c053e4f5c5b1be7e372e40719c89a0aa418b4f66060599b9c0dbdec2da2`. Límite GitHub por archivo:104.857.600bytes; no hace falta
 dividir la entrega. Suelos de césped/tierra/arena, NPC, agua/casa e historial remoto
 conservados. El ZIP contiene la partida y las revisiones ampliadas.
 
@@ -67,7 +74,7 @@ Revisión: `prueba/scenes/recursos.tscn` con F6, o `?vista=recursos` en navegado
 
 ## Qué se puede probar
 
-**Movimiento y agarre revisados:** cuatro dibujos de marcha por dirección, incluidos perfiles y diagonales; vistas traseras que avanzan alejándose de la cámara. La marcha sigue la distancia recorrida y se detiene al quedar bloqueado. Manos libres al caminar; pico–hacha y dedos dibujados junto al cuerpo en las poses de trabajo. El palín conserva sus proyecciones y registro por separado. Las ruinas se definen en el bloc como refugio costero con patio de llegada; ese nivel todavía no está incluido.
+**Movimiento y agarre revisados:** articulaciones continuas en las vistas corregidas y poses anteriores en marcha NORTE/sprint cardinal; vistas traseras que avanzan alejándose de la cámara. La marcha sigue la distancia recorrida y se detiene al quedar bloqueado. Manos libres al caminar; pico–hacha y dedos dibujados junto al cuerpo en las poses de trabajo. El palín conserva sus proyecciones y registro por separado. Las ruinas se definen en el bloc como refugio costero con patio de llegada; ese nivel todavía no está incluido.
 
 - Caminar con **WASD** y mantener **Shift** para el sprint provisional, con colisiones en agua, casa, bases de árboles y límites. La marcha sigue el desplazamiento real y las diagonales mantienen la velocidad normalizada.
 - Ajustar el zoom con la **rueda**.
