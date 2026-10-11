@@ -1,5 +1,7 @@
 # Revisión de apoyos y extremos del pico–hacha
 
+> **Revisión retirada.** El usuario rechazó el resultado visual de este montaje en el vídeo del11deoctubre. La sustitución usa fotogramas completos; el atlas de recortes, JSON, renderizador y registrador descritos aquí ya no se utilizan ni se distribuyen. Este documento conserva el diagnóstico y las pruebas históricas, que no demostraban continuidad anatómica. Consultar la [auditoría vigente](auditoria-archivos-dragon.md) y la [guía del dragón](../assets/personajes/dragon/README.md).
+
 11 de octubre de 2026. Alcance confirmado por el usuario: corregir marcha SUR,
 OESTE/ESTE y cuatro diagonales, sprint diagonal, minería y tala; preservar NORTE
 al andar y las demás acciones aceptadas. Verificar y repetir antes de publicar.
@@ -57,11 +59,7 @@ Comprobaciones reproducibles:
   y renueva capturas/vídeo. `browser_smoke.py` y `actions_browser_smoke.py`
   comprueban extracciones, botín, pesca y zarpazo mediante clics reales.
 
-Revisión ampliada: `?vista=dragon`, teclas 2 marcha, 3 minería, 4 tala, 7 sprint;
-Espacio activa cámara lenta. [Capturas](../prueba/capturas/dragon-marcha.png),
-[minería](../prueba/capturas/dragon-minar.png),
-[tala](../prueba/capturas/dragon-talar.png),
-[vídeo](../prueba/capturas/dragon-animaciones.webm).
+Los controles y las capturas de la versión vigente están en la [guía de la prueba](prueba-visual.md); las imágenes publicadas se renuevan al sustituir las animaciones y no documentan este montaje retirado.
 
 ## Optimización conservadora y límites del acabado
 

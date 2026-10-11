@@ -29,12 +29,13 @@ Para revisar directamente el interior añade ?vista=casa a la URL.
 Seis habitantes quietos integrados en posiciones provisionales, con ocho vistas cada uno.
 F7: dragón actual80px. F8: comparación72px (ajuste gráfico reversible, sin cambiar NPC).
 Dragón rehecho en pixel art: ocho direcciones, reposo, caminar, sprint, minar, talar, palín, pesca y zarpazo.
-Marcha de cuatro fases distintas; pico-hacha y palín con ocho perspectivas y agarres registrados.
+Marcha y sprint mediante fotogramas completos: seis fases por vista corregida, cuatro en NORTE conservado.
+Minería y tala con seis fases propias; pico-hacha y palín con ocho perspectivas y agarres registrados.
 Para ver ocho direcciones ampliadas, añade ?vista=dragon a la URL del juego.
 Teclas de revisión: 1 reposo, 2 marcha, 3 minar, 4 talar, 5 palín, 6 parar/andar, 7 sprint, 8 pesca, 9 zarpazo.
 Para comparar los siete personajes a escala de juego: ?vista=personajes.
 Flechas: vista; Espacio: marcha del dragón; V: poses del dragón; Z: zoom común 1×/2×.
-Seis NPC con ocho vistas de reposo cada uno; protagonista actualizado con 216 registros.
+Seis NPC con ocho vistas de reposo cada uno; protagonista con ciclos completos y poses aceptadas conservadas.
 Protagonista de80px, manos libres al caminar; equipa el instrumento de cada actividad.
 Una misma herramienta pico-hacha sirve para las dos acciones; no se cambia el equipo.
 Minería: la punta del pico golpea la mena; tala: el filo ancho del hacha golpea el tronco.
@@ -49,7 +50,7 @@ Arte anterior del dragón retirado; el conjunto nuevo sigue pendiente de aprobac
 Madera, fragmento de cobre y flor recogida tienen su propio botín e icono.
 Para comparar terreno, botín y mochila añade ?vista=recursos a la URL.
 Casa rural a escala nativa, cimientos transitables por fuera y agua turquesa con orillas.
-Agua estática; solo exterior de la casa.
+Agua estática; casa con exterior e interior transitable y fundido al entrar/salir.
 No guarda progreso. Entorno y animaciones de prototipo.
 Sin Python, usa el repositorio y Godot 4.6.3: importar prueba/project.godot y F5.
 """

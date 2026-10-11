@@ -42,11 +42,16 @@ func _ready() -> void:
 func _capture_pose(requested: String) -> void:
 	var names := ["reposo","marcha","minar","talar","palin","parar","sprint","pesca","zarpazo"]
 	var walk_phase := -1
+	var gait_fraction := 0.0
 	var running := requested.begins_with("sprint")
 	if requested.begins_with("marcha-"):
-		walk_phase = ["a","paso-a","b","paso-b"].find(requested.trim_prefix("marcha-"))
+		var suffix := requested.trim_prefix("marcha-")
+		walk_phase = int(suffix) if suffix.is_valid_int() else ["a","paso-a","b","paso-b"].find(suffix)
+		gait_fraction = walk_phase/6.0 if suffix.is_valid_int() else walk_phase/4.0
 	if requested.begins_with("sprint-"):
-		walk_phase = ["a","paso-a","b","paso-b"].find(requested.trim_prefix("sprint-"))
+		var suffix := requested.trim_prefix("sprint-")
+		walk_phase = int(suffix) if suffix.is_valid_int() else ["a","paso-a","b","paso-b"].find(suffix)
+		gait_fraction = walk_phase/6.0 if suffix.is_valid_int() else walk_phase/4.0
 	if not names.has(requested) and walk_phase < 0 and not running:
 		return
 	mode = 6 if running else (1 if walk_phase >= 0 else names.find(requested))
@@ -66,7 +71,7 @@ func _capture_pose(requested: String) -> void:
 				var sample = JavaScriptBridge.eval("new URLSearchParams(location.search).get('tiempo')")
 				actor.tool.motion.custom_step(float(sample) if sample != null else 0.34)
 		elif mode in [1,6]:
-			actor.walk_time = 0.1+walk_phase*1.15 if walk_phase >= 0 else 1.0
+			actor.walk_time = 0.001+gait_fraction*4.6
 		elif mode == 7:
 			actor.begin_fishing(actor.to_global(BituPlayer.DIRECTIONS[index]*35))
 			var phase = JavaScriptBridge.eval("new URLSearchParams(location.search).get('fase')")
@@ -114,8 +119,8 @@ func _process(delta: float) -> void:
 		actor.sprinting = mode == 6
 		actor.walk_time = time*9 if mode in [1,6] else 0.0
 		if mode == 5:
-			var phase := int(time/0.30)%6
-			actor.walk_time = 0.1+(phase-1)*1.15 if phase in [1,2,3,4] else 0.0
+			var phase := int(time/0.16)%8
+			actor.walk_time = 0.001+(phase-1)*4.6/6.0 if phase in [1,2,3,4,5,6] else 0.0
 		cooldowns[index] = maxf(0,cooldowns[index]-delta)
 		if mode in [2,3,4] and not actor.busy and cooldowns[index] == 0:
 			_start_action(index)

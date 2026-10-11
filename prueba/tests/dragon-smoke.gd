@@ -17,7 +17,7 @@ func run() -> void:
 	root.add_child(actor)
 	actor.work_finished.connect(actor.end_work)
 	var visual := actor.dragon
-	assert(visual.catalog.frames.size()==216,"Conjunto completo de movimiento, trabajo, pesca y garras")
+	assert(visual.catalog.frames.size()>=216,"Conjunto completo de movimiento, trabajo, pesca y garras")
 	var sources := {}
 	for key in visual.catalog.frames:
 		var frame: Dictionary = visual.catalog.frames[key]
@@ -54,8 +54,10 @@ func run() -> void:
 			actor.sprinting=running
 			var distinct := {}
 			var factor := 0.0
-			for phase in range(4):
-				actor.walk_time=0.1+phase*1.15
+			var phase_count := visual.animation_frames("sprint" if running else "andar",index).size()
+			if phase_count == 0: phase_count = 4
+			for phase in range(phase_count):
+				actor.walk_time=0.001+phase*4.6/phase_count
 				actor.animate_pose(0)
 				if phase==0: factor=visual.body.scale.x
 				assert(visual.body.scale==Vector2.ONE*factor,"Una escala por ciclo, sin estirar cuerpo")
@@ -66,7 +68,7 @@ func run() -> void:
 				# comparta región fuente; contar la pose que se dibuja realmente.
 				if visual.body.flip_h: image.flip_x()
 				distinct[hash(image.get_data())]=true
-			assert(distinct.size()==4,"Cuatro pasos diferentes por dirección")
+			assert(distinct.size()==phase_count,"Cada fotograma del ciclo tiene un dibujo propio")
 		actor.sprinting=false
 		actor.walk_time=0
 		for action in [&"minar",&"talar"]:

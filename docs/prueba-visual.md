@@ -1,68 +1,28 @@
 # Primera prueba visual de Bītu
 
-**Revisión de apoyos y extremos del 11 de octubre:** marcha SUR, OESTE/ESTE y
-cuatro diagonales, sprint diagonal y golpes de pico–hacha usan piezas articuladas.
-El cuerpo no se refleja entre medias zancadas; los pies alternan y las manos siguen
-el mango. Pico abajo al minar y filo del hacha abajo al talar. Se conservan reposo,
-marcha NORTE, sprint cardinal, flores, pesca y zarpazo. Diez PNG previos y catálogo
-intactos; un atlas adicional de piezas limpias. [Detalle y comprobaciones](revision-apoyos-y-extremos.md).
+**Revisión por fotogramas completos del 11 de octubre de 2026.** Se sustituyen las siete direcciones defectuosas de marcha y sus carreras por seis fases completas; NORTE conserva su marcha y sprint originales de cuatro fases. Reposo, pesca, recolección y garras mantienen sus fuentes y registros aceptados. El rig de piezas articuladas fue rechazado y se ha retirado. Las revisiones anteriores están documentadas en [su diagnóstico histórico](revision-apoyos-y-extremos.md); sus afirmaciones sobre el rig no describen esta versión.
 
-**Revisión anterior del 11 de octubre:** reposo incorpora cinco vistas de apoyo neutro
-corregidas tomando marcha como referencia; alternancia frontal mediante reflexión completa
-de media zancada; vistas derechas de movimiento proyectadas desde sus parejas
-izquierdas, incluida NE desde NW. Cambian 44 registros; nueve PNG y todos los registros
-de trabajo/recolección/pesca/zarpazo permanecen intactos. La altura
-de cresta estable por sí sola no demuestra proporciones ni continuidad correctas.
-[Diagnóstico y límites de la corrección](revision-sprites-movimiento.md).
-Registro reproducible y auditoría de fuentes; dos pruebas Godot y tres suites
-Chromium/WebGL superadas para esta revisión, con vídeo/capturas renovados.
+Los nuevos dibujos utilizan celdas192×192, ancla de suelo(96,168), referencia de cuerpo80px y escala final1. El margen permite levantar y bajar el instrumento sin recortar ni reducir el personaje. Se importa la figura completa con un solo factor uniforme y nearest; no se estiran extremidades ni se giran recortes. NE/E/SE reflejan sus vistas completas correspondientes una sola vez, sin invertir el cuerpo durante una media zancada SUR. Marcha alterna contacto, apoyo y paso de cada pierna, con brazos contrarios. Carrera utiliza sus propias poses de apoyo y vuelo.
 
-**Revisión integral del10 de octubre:** dragón de216 registros en ocho direcciones:
-reposo, marcha, sprint, minería, tala, recolección, pesca y zarpazo. Diez fuentes
-PNG y copias idénticas en ejecución. Dos PNG y16 registros aprobados de la
-recolección conservados exactamente, junto al palín y sus tiempos.
+Minería y tala tienen seis fases: preparación, carga, descenso, impacto, seguimiento y recuperación. La misma herramienta combinada conserva ambos extremos: punta activa contra mena y hoja ancha activa contra árbol. Herramienta y manos están dibujadas junto al personaje; no hay giro independiente. El contacto usa un píxel visible del extremo activo. Cinco golpes, impacto0,33s y golpe0,62s; paso físico previo respetando colisiones y cancelación si no se alcanza el apoyo.
 
-Manos libres al desplazarse. Pico–hacha dibujado con manos/cuerpo en las poses
-de trabajo, punta contra mena y filo contra tronco. Cinco golpes. Un paso físico
-ajusta el apoyo antes del golpe, respetando colisiones; si queda bloqueado se
-cancela sin consumir el recurso. Reposo/marcha/sprint mantienen la cresta80px;
-cuatro dibujos por ciclo y una escala uniforme, sin crecer al cambiar de paso.
+Inventario actual:38PNG activos con copias idénticas en la prueba (ocho originales y30atlas nuevos),58PNG fuente nuevos,96registros conservados y180fotogramas nuevos registrados. Los396nombres del catálogo incluyen120alias para compatibilidad; no son396dibujos distintos. Ochenta poses aceptadas tienen una línea base de píxeles y transformaciones que comprueba su conservación.
 
-**Clic contextual:** recurso activo tiene prioridad; enemigo/suelo libre da un
-zarpazo hacia el cursor; agua cercana desde costa lanza caña. Garras con un único
-impacto frontal y alcance limitado. Maniquí al suroeste, bajo los habitantes,
-para comprobar contacto/daño. Sin criaturas o IA nuevas. Los NPC no reciben daño.
+[Auditoría y movimientos de archivos](auditoria-archivos-dragon.md) · [Fuentes y sprites del dragón](../assets/personajes/dragon/README.md). La fuente de riego se conserva en referencias, sin integrar esa animación. Los PNG de NPC, terreno, casas, recursos y mapas permanecen iguales al remoto integrado.
 
-Pesca: lanzamiento, picada, recoger manteniendo clic y aflojar soltándolo.
-Barra superior de acercamiento y naranja de tensión. El sedal sale del extremo
-registrado de la caña, también en las vistas reflejadas. Captura junto a los pies,
-botín/mochila, fallo por tensión o abandono y cancelación con Esc. Caña disponible
-en esta prueba; regalo narrativo, especies, mejoras y balance definitivo pendientes.
+**Clic contextual:** recurso activo tiene prioridad; enemigo/suelo libre da un zarpazo hacia el cursor; agua cercana desde costa lanza caña. Garras con un único impacto frontal y alcance limitado. Maniquí al suroeste para comprobar daño; sin criaturas ni IA nuevas y los NPC no reciben daño.
 
-**Verificación:** ocho pruebas Godot superadas: inventario, herramienta, recursos,
-entorno, dragón, acciones, extracción real y escala. Siete suites Chromium/WebGL:
-ocho direcciones × ocho modos, altura reposo/arranque e impactos reales, extracción
-de cobre/madera/Yde, zarpazo y pesca por clic con captura/botín/cancelación,
-comparativas80/72, giros/pausa de NPC y recursos. Capturas y vídeos del canvas
-renovados. El acabado artístico se revisa en juego; los tests comprueban registro,
-contactos, transiciones y comportamiento, sin otorgar aprobación visual.
+Pesca: lanzamiento, picada, recoger manteniendo clic y aflojar soltándolo; captura, botín y cancelación con Esc. Caña disponible en esta prueba, sin regalo narrativo ni balance definitivo. Recolección conserva los dos PNG,16registros, palín, gesto y tiempos aceptados. Casa con interior transitable y fundido E; los cambios remotos anteriores se conservan.
 
-Descarga actual: **31.939.928 bytes**, CRC correcto y PCK idéntico al exportado.
-SHA-256: `8c0dd9db1e6fd5fdb8003c373930edd90ef64c97c43d70f712f65e96aa783345`. Límite GitHub por archivo:104.857.600bytes; no hace falta
-dividir la entrega. Suelos de césped/tierra/arena, NPC, agua/casa e historial remoto
-conservados. El ZIP contiene la partida y las revisiones ampliadas.
+**Comprobaciones de esta entrega:** once pruebas Godot4.6.3 superadas, conservación exacta de80poses, auditoría de escala/anclas, y Chromium/WebGL para ciclos en ocho direcciones, arranque/parada, impactos reales, extracción de cobre/madera/Yde, pesca con captura/botín/cancelación y zarpazo. Capturas y vídeos del canvas renovados.
 
-Revisión: `?vista=dragon`: **1 reposo,2 marcha,3 minar,4 talar,5 palín,6 parar/andar,
-7 sprint,8 pesca,9 zarpazo**. Espacio: cámara lenta. `?vista=personajes` compara con
-habitantes. Impactos reales: `?captura=impacto-minar&captura-impacto=1` o tala.
-Pesca/zarpazo en partida: `?captura=pesca` y `?captura=zarpazo` sitúan al jugador
-para la revisión, sin alterar el comportamiento de las acciones. `verificar=1`
-solo emite estado de pesca en consola para que el test responda a la tensión real.
+La revisión separa funcionamiento de acabado: las pruebas comprueban conservación, escala, anclas, reloj, contactos y comportamiento. No otorgan aprobación artística. Se revisan también ciclos completos, arranque/parada, cambios de dirección y golpes en el canvas de Godot.
 
-[Pesca en juego](../prueba/capturas/pesca-en-juego.png) ·
-[Botín de pesca](../prueba/capturas/pesca-botin-en-juego.png) ·
-[Zarpazo](../prueba/capturas/zarpazo-en-juego.png) ·
-[Todas las orientaciones](../assets/personajes/dragon/README.md).
+Descarga actual: **31.268.916 bytes** (límite por archivo104.857.600bytes), CRC correcto y PCK idéntico al exportado. SHA-256: `1f9b2240d2f12aaff7a04796acb6a6e4a8cda2d50c64cb11452dd58136ad6702`. No requiere dividirse.
+
+Revisión: `?vista=dragon`: **1 reposo,2 marcha,3 minar,4 talar,5 palín,6 parar/andar,7 sprint,8 pesca,9 zarpazo**. Espacio: cámara lenta. `?vista=personajes` compara con habitantes. Para congelar fases: `&captura=marcha-0` a `marcha-5`, o `sprint-0` a `sprint-5`; NORTE mapea sus cuatro fases conservadas. Trabajo: `&captura=minar&tiempo=0.33` o tala, con tiempos0/0,12/0,24/0,33/0,40/0,50. Impactos reales: `?captura=impacto-minar&captura-impacto=1` o tala.
+
+[Vídeo de ciclos](../prueba/capturas/dragon-animaciones.webm) · [Arranque/parada](../prueba/capturas/dragon-parar-andar.webm) · [Minería en juego](../prueba/capturas/impacto-real-minar.png) · [Tala en juego](../prueba/capturas/impacto-real-talar.png).
 
 ## Recursos de terreno y botín
 
@@ -74,7 +34,7 @@ Revisión: `prueba/scenes/recursos.tscn` con F6, o `?vista=recursos` en navegado
 
 ## Qué se puede probar
 
-**Movimiento y agarre revisados:** articulaciones continuas en las vistas corregidas y poses anteriores en marcha NORTE/sprint cardinal; vistas traseras que avanzan alejándose de la cámara. La marcha sigue la distancia recorrida y se detiene al quedar bloqueado. Manos libres al caminar; pico–hacha y dedos dibujados junto al cuerpo en las poses de trabajo. El palín conserva sus proyecciones y registro por separado. Las ruinas se definen en el bloc como refugio costero con patio de llegada; ese nivel todavía no está incluido.
+**Movimiento y agarre revisados:** fotogramas completos en las vistas corregidas y poses originales en marcha/sprint NORTE; vistas traseras que avanzan alejándose de la cámara. La marcha sigue la distancia recorrida y se detiene al quedar bloqueado. Manos libres al caminar; pico–hacha y dedos dibujados junto al cuerpo en las poses de trabajo. El palín conserva sus proyecciones y registro por separado. Las ruinas se definen en el bloc como refugio costero con patio de llegada; ese nivel todavía no está incluido.
 
 - Caminar con **WASD** y mantener **Shift** para el sprint provisional, con colisiones en agua, casa, bases de árboles y límites. La marcha sigue el desplazamiento real y las diagonales mantienen la velocidad normalizada.
 - Ajustar el zoom con la **rueda**.
@@ -125,13 +85,13 @@ Estos valores permiten revisar rápido, no fijan dificultad, velocidad o econom�
 
 ## Límites
 
-**No guarda progreso**: recargar o cerrar reinicia la escena. No incluye pesca activa, navegación, servicios de habitantes, relato inicial, enemigos, combate, museo, construcción libre de parcelas ni producción gráfica definitiva. La granja usa parcelas precolocadas para esta revisión de escala; la libertad de distribución sigue siendo el diseño previsto.
+**No guarda progreso**: recargar o cerrar reinicia la escena. Incluye pesca activa y zarpazo de prueba. No incluye navegación, servicios de habitantes, relato inicial, enemigos con IA, museo, construcción libre de parcelas ni producción gráfica definitiva. La granja usa parcelas precolocadas para esta revisión de escala; la libertad de distribución sigue siendo el diseño previsto.
 
 ## Comprobaciones
 
 `tests/smoke.gd` comprueba capacidad y recogida parcial, separación de calidad y variante, conservación del crecimiento sin riego, reaparición dentro de la zona y conversión isométrica.
 
-`tests/tool-smoke.gd` comprueba el registro de piezas, la sustitución independiente de sus texturas y las señales del movimiento. `tests/scene-smoke.gd` ejecuta la granja y comprueba selección por clic frente a otro recurso más cercano, alcance, clic en suelo, impactos sin entregas anticipadas ni duplicadas, tala, madera, retirada de la colisión del árbol, recolección de flores y colisión real contra el agua. También verifica el palín visible, postura arrodillada, agarre, contacto con la tierra, ambas orientaciones laterales y recuperación de pie. `tests/dragon-smoke.gd` comprueba las ocho orientaciones, el giro hacia la base del recurso aunque el impacto elevado esté en otra dirección, las poses completas sin estirar el cuerpo, agarres, contactos de pico/hacha y palín en todas las vistas y registro independiente de la escala de revisión. También verifica el sprint provisional con Shift. La prueba del dragón comprueba además las cuatro fases distintas por dirección, palmas sobre píxeles dibujados, registro de dedos, perspectiva y profundidad de herramientas, desplazamiento real hacia izquierda/diagonales/espalda y parada o deslizamiento al chocar. La exportación se ha abierto en Chromium con WebGL 2, sin errores de consola; se revisaron minería, tala y flores mediante clics reales y capturas del resultado renderizado. La flor llega a la mochila con un solo clic y otro clic durante el trabajo no reinicia su recolección.
+`tests/tool-smoke.gd` comprueba el registro de piezas, la sustitución independiente de sus texturas y las señales del movimiento. `tests/scene-smoke.gd` ejecuta la granja y comprueba selección por clic frente a otro recurso más cercano, alcance, clic en suelo, impactos sin entregas anticipadas ni duplicadas, tala, madera, retirada de la colisión del árbol, recolección de flores y colisión real contra el agua. También verifica el palín visible, postura arrodillada, agarre, contacto con la tierra, ambas orientaciones laterales y recuperación de pie. `tests/dragon-smoke.gd` comprueba las ocho orientaciones, el giro hacia la base del recurso aunque el impacto elevado esté en otra dirección, las poses completas sin estirar el cuerpo, agarres, contactos de pico/hacha y palín en todas las vistas y registro independiente de la escala de revisión. También verifica el sprint provisional con Shift. La prueba del dragón comprueba además seis fases por dirección corregida y cuatro en NORTE, palmas sobre píxeles dibujados, registro de dedos, perspectiva y profundidad de herramientas, desplazamiento real hacia izquierda/diagonales/espalda y parada o deslizamiento al chocar. La exportación se ha abierto en Chromium con WebGL 2, sin errores de consola; se revisaron minería, tala y flores mediante clics reales y capturas del resultado renderizado. La flor llega a la mochila con un solo clic y otro clic durante el trabajo no reinicia su recolección.
 
 **Verificación de la recuperación (9 de octubre de 2026):** inventario, herramientas y escena pasan con Godot 4.6.3. La prueba del dragón pasa con `--fixed-fps 60`; en tiempo real puede fallar al muestrear «Impacto completo del cuerpo», como ya ocurrió sobre la base anterior al parche. La descarga regenerada pasa las comprobaciones en Chromium de la granja y las ocho direcciones en cinco acciones, sin errores de consola. Se registra esta diferencia de ejecución sin dar por aprobado el acabado visual. La recuperación y subida de esta primera pasada han sido solicitadas expresamente por el usuario.
 `tests/resources-smoke.gd` añade comprobaciones de doce recortes, transparencia, anclajes y escala, clic sobre píxeles opacos, variantes de árbol, tocón, daño y reaparición del cobre, botín dentro de 32×32 e iconos de 64×64. Se ejecuta sobre los atlas nuevos creados para esta entrega.
@@ -156,7 +116,7 @@ env XDG_DATA_HOME=/workspace/.local/godot/data XDG_CONFIG_HOME=/workspace/.local
 
 Las carpetas deben existir. Aplicar también estas variables al comando Python de exportación, que inicia Godot. No cambiar `HOME`. Para repetir la revisión web en cloud, sirve `prueba/build/web` en el puerto 8765 y ejecuta `python prueba/tools/browser_smoke.py` desde la raíz; requiere Playwright, Pillow y Chromium. Guarda las comprobaciones en `prueba/build` y actualiza las nuevas capturas `recursos-en-juego.png`, `recursos-tala.png` y `recursos-yde.png`. Selecciona un pétalo opaco y comprueba mediante eventos del juego la recogida de cobre, madera y Yde. `python prueba/tools/resources_browser_smoke.py` comprueba en WebGL las tres variantes, el tocón y el cobre picado y guarda la comparación terreno/botín/mochila. Ambas revisiones han pasado en esta entrega, sin errores de consola.
 
-`python prueba/tools/dragon_browser_smoke.py` comprueba las ocho direcciones en los cinco modos de la revisión ampliada y graba el vídeo WebM real del canvas. Después guarda las capturas con una pose fija del mismo controlador y comprueba sus ocho fotogramas: reposo, paso, impacto del pico, impacto del hacha y recolección arrodillada. Comprueba también cuatro poses fijas de marcha y cambios en la zona de pies/rodillas de las ocho vistas, no solo en la herramienta. Esto evita publicar una imagen de reposo etiquetada como minería o tala. La revisión deja visibles los nombres inferiores y permite volver a animar con las teclas 1–5 desde una captura fija. Las capturas y el vídeo se guardan en `prueba/capturas`; no requiere descargar un grabador externo. La configuración de entorno guardada es un borrador; su publicación es independiente de esta prueba.
+`python prueba/tools/dragon_browser_smoke.py` comprueba las ocho direcciones en los ocho modos de la revisión ampliada y graba el vídeo WebM real del canvas. Después guarda las capturas con una pose fija del mismo controlador y comprueba sus ocho fotogramas: reposo, paso, impacto del pico, impacto del hacha y recolección arrodillada. Comprueba también seis poses fijas de marcha y cambios en la zona de pies/rodillas de las ocho vistas, no solo en la herramienta. Esto evita publicar una imagen de reposo etiquetada como minería o tala. La revisión deja visibles los nombres inferiores y permite volver a animar con las teclas 1–5 desde una captura fija. Las capturas y el vídeo se guardan en `prueba/capturas`; no requiere descargar un grabador externo. La configuración de entorno guardada es un borrador; su publicación es independiente de esta prueba.
 
 ### Comprobación de agua y casa
 
@@ -165,4 +125,4 @@ Ajuste de cinco golpes: la prueba de escena confirma que cuatro impactos conserv
 
 ## NPC en partida y revisión de tamaños
 
-Seis NPC con ocho vistas cada uno, colisión en pies, giro al aproximarse e interacciónE de prueba. Protagonista nuevo216 poses. F7/F8 comparan su tamaño80/72px sin cambiar el zoom o los NPC. [Auditoría completa, funcionamiento y capturas del motor](revision-personajes-en-juego.md). Posiciones y diálogos provisionales; servicios pendientes.
+Seis NPC con ocho vistas cada uno, colisión en pies, giro al aproximarse e interacciónE de prueba. Protagonista con396nombres de catálogo, incluidos alias. F7/F8 comparan su tamaño80/72px sin cambiar el zoom o los NPC. [Auditoría completa, funcionamiento y capturas del motor](revision-personajes-en-juego.md). Posiciones y diálogos provisionales; servicios pendientes.

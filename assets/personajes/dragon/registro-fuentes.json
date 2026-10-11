@@ -5,32 +5,41 @@
     "reposo.png": {
       "columns": 1,
       "count": 5,
-      "note": "Cinco apoyos neutros corregidos tomando marcha.png como referencia; vistas derechas reflejadas."
+      "note": "Cinco apoyos neutros corregidos tomando marcha.png como referencia; vistas derechas reflejadas.",
+      "file": "sprites/conservados/reposo.png"
     },
     "marcha.png": {
-      "columns": 4
+      "columns": 4,
+      "file": "sprites/conservados/marcha.png"
     },
     "sprint.png": {
-      "columns": 4
+      "columns": 4,
+      "file": "sprites/conservados/sprint-norte.png"
     },
     "mineria.png": {
-      "columns": 4
+      "columns": 4,
+      "file": "referencias/anteriores/mineria.png"
     },
     "tala.png": {
-      "columns": 4
+      "columns": 4,
+      "file": "referencias/anteriores/tala.png"
     },
     "zarpazo.png": {
-      "columns": 4
+      "columns": 4,
+      "file": "sprites/conservados/zarpazo.png"
     },
     "pesca.png": {
-      "columns": 3
+      "columns": 3,
+      "file": "sprites/conservados/pesca.png"
     },
     "arrodillado.png": {
       "columns": 4,
-      "count": 16
+      "count": 16,
+      "file": "sprites/conservados/arrodillado.png"
     },
     "levantar.png": {
-      "columns": 2
+      "columns": 2,
+      "file": "sprites/conservados/levantar.png"
     },
     "pesca-norte.png": {
       "columns": 0,
@@ -42,12 +51,13 @@
           232
         ]
       ],
-      "note": "Solo la recogida norte; otros dibujos de la fuente no se usan."
+      "note": "Solo la recogida norte; otros dibujos de la fuente no se usan.",
+      "file": "sprites/conservados/pesca-norte.png"
     }
   },
   "preserved_frames": {
     "arrodillado-S": {
-      "file": "arrodillado.png",
+      "file": "sprites/conservados/arrodillado.png",
       "region": [
         88,
         101,
@@ -85,7 +95,7 @@
       ]
     },
     "levantar-S": {
-      "file": "levantar.png",
+      "file": "sprites/conservados/levantar.png",
       "region": [
         304,
         17,
@@ -123,7 +133,7 @@
       ]
     },
     "arrodillado-SW": {
-      "file": "arrodillado.png",
+      "file": "sprites/conservados/arrodillado.png",
       "region": [
         361,
         97,
@@ -161,7 +171,7 @@
       ]
     },
     "levantar-SW": {
-      "file": "levantar.png",
+      "file": "sprites/conservados/levantar.png",
       "region": [
         804,
         19,
@@ -199,7 +209,7 @@
       ]
     },
     "arrodillado-W": {
-      "file": "arrodillado.png",
+      "file": "sprites/conservados/arrodillado.png",
       "region": [
         676,
         96,
@@ -237,7 +247,7 @@
       ]
     },
     "levantar-W": {
-      "file": "levantar.png",
+      "file": "sprites/conservados/levantar.png",
       "region": [
         281,
         326,
@@ -275,7 +285,7 @@
       ]
     },
     "arrodillado-NW": {
-      "file": "arrodillado.png",
+      "file": "sprites/conservados/arrodillado.png",
       "region": [
         1007,
         96,
@@ -313,7 +323,7 @@
       ]
     },
     "levantar-NW": {
-      "file": "levantar.png",
+      "file": "sprites/conservados/levantar.png",
       "region": [
         809,
         321,
@@ -351,7 +361,7 @@
       ]
     },
     "arrodillado-N": {
-      "file": "arrodillado.png",
+      "file": "sprites/conservados/arrodillado.png",
       "region": [
         81,
         390,
@@ -389,7 +399,7 @@
       ]
     },
     "levantar-N": {
-      "file": "levantar.png",
+      "file": "sprites/conservados/levantar.png",
       "region": [
         303,
         626,
@@ -427,7 +437,7 @@
       ]
     },
     "arrodillado-NE": {
-      "file": "arrodillado.png",
+      "file": "sprites/conservados/arrodillado.png",
       "region": [
         354,
         381,
@@ -465,7 +475,7 @@
       ]
     },
     "levantar-NE": {
-      "file": "levantar.png",
+      "file": "sprites/conservados/levantar.png",
       "region": [
         769,
         627,
@@ -503,7 +513,7 @@
       ]
     },
     "arrodillado-E": {
-      "file": "arrodillado.png",
+      "file": "sprites/conservados/arrodillado.png",
       "region": [
         640,
         387,
@@ -541,7 +551,7 @@
       ]
     },
     "levantar-E": {
-      "file": "levantar.png",
+      "file": "sprites/conservados/levantar.png",
       "region": [
         215,
         927,
@@ -579,7 +589,7 @@
       ]
     },
     "arrodillado-SE": {
-      "file": "arrodillado.png",
+      "file": "sprites/conservados/arrodillado.png",
       "region": [
         1021,
         408,
@@ -617,7 +627,7 @@
       ]
     },
     "levantar-SE": {
-      "file": "levantar.png",
+      "file": "sprites/conservados/levantar.png",
       "region": [
         747,
         928,

@@ -62,10 +62,11 @@ def register():
             'anchor_px':[w/2,h/2], 'target_size_px':[64,32],
             'native_region_px':[(index%4)*64,(4+index//4)*32,64,32],
         }
-    dragon_path=ROOT/'assets/personajes/dragon-avatar/dragon-jugable.json'
-    dragon=json.loads(dragon_path.read_text())['frames']['reposo-S']
+    dragon_path=ROOT/'assets/personajes/dragon/dragon-jugable.json'
+    dragon_catalog=json.loads(dragon_path.read_text())
+    dragon=dragon_catalog['frames']['reposo-S']
     reference={
-        'file': '../../../assets/personajes/dragon-avatar/'+dragon['file'],
+        'file': '../../../assets/personajes/dragon/'+dragon['file'],
         'region_px':dragon['region'],
         'anchor_px':[dragon['anchor'][0]-dragon['region'][0],dragon['anchor'][1]-dragon['region'][1]],
         'scale':dragon['scale'],
@@ -73,7 +74,7 @@ def register():
     }
     data={
         'version':1, 'status':'Sprites de desarrollo independientes; sin integración en el juego.',
-        'reference':{'ground_tile_px':[64,32],'humanoid_height_px':80,'dragon_height_px':90,'filter':'nearest'},
+        'reference':{'ground_tile_px':[64,32],'humanoid_height_px':80,'dragon_height_px':dragon_catalog['height_px'],'filter':'nearest'},
         'house':{
             'footprint_tiles':[10,7], 'footprint_projection_px':[544,272],
             'footprint_cells':[[0,0],[10,0],[10,7],[0,7]], 'placement_anchor_cells':[10,7],

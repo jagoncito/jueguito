@@ -1,0 +1,27 @@
+{
+  "fecha": "2026-10-11",
+  "tipo": "Referencias del dragón fuera de ejecución",
+  "fuentes": [
+    {
+      "archivo": "riego-vistas-fuente.png",
+      "dimensiones_px": [
+        1201,
+        1309
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        255
+      ],
+      "bytes": 1216612,
+      "sha256": "6e2099b6335521cbdd38c9f05dc249dff37931a2c21289ef13f106039aa01657",
+      "uso": "Referencia única de 32 poses de riego. No utilizada por el juego ni registrada como animación."
+    }
+  ],
+  "pendiente": [
+    "Continuidad anatómica frente a sprites aceptados",
+    "Separación y registro de fotogramas",
+    "Escala, apoyo y agarre de regadera",
+    "Animación e integración"
+  ]
+}

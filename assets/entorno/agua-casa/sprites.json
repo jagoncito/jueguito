@@ -7,7 +7,7 @@
       32
     ],
     "humanoid_height_px": 80,
-    "dragon_height_px": 90,
+    "dragon_height_px": 80,
     "filter": "nearest"
   },
   "house": {
@@ -751,18 +751,18 @@
     }
   },
   "reference_character": {
-    "file": "../../../assets/personajes/dragon-avatar/dragon-reposo.png",
+    "file": "../../../assets/personajes/dragon/sprites/conservados/reposo.png",
     "region_px": [
-      73,
-      18,
-      285,
-      479
+      339,
+      67,
+      210,
+      304
     ],
     "anchor_px": [
-      142.5,
-      467.02
+      125,
+      298
     ],
-    "scale": 0.188,
+    "scale": 0.2684563758389262,
     "use": "Referencia existente de escala en el visor, sin cambios al personaje."
   },
   "water": {

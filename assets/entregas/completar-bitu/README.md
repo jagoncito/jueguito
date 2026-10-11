@@ -52,9 +52,9 @@ Regadera básica, grifo rústico/cisterna y mochila en vistas separadas. Capacid
 
 ## Propuestas de fases de riego
 
-![Propuestas de fases de riego](referencias/riego-vistas-fuente.png)
+![Propuestas de fases de riego](../../personajes/dragon/referencias/riego-vistas-fuente.png)
 
-Fuente de poses del protagonista con regadera en varias direcciones. No sustituye atlas vigente ni implica que animación, agarres y escala ya estén registrados/validados.
+Fuente de poses del protagonista con regadera en varias direcciones, trasladada sin alterar sus bytes a [las referencias del dragón](../../personajes/dragon/referencias/README.md). No sustituye atlas vigente ni implica que animación, agarres y escala ya estén registrados/validados.
 
 ## Kit portátil de cocina
 
@@ -68,7 +68,7 @@ Confirmados en las respuestas del usuario: casa del jugador abierta/modesta con 
 
 Las referencias de edificios creadas anteriormente se conservan. Los anexos son módulos nuevos, no fachadas de reemplazo ni conexión ya comprobada en el motor. El cofre oculto no establece un almacén doméstico general; la carta no tiene texto ni revelaciones nuevas.
 
-Diez fuentes generadas, originales intactos. Son láminas de diseño, no atlas nativos listos para juego. Metadatos, dimensiones y huellas en `referencias/fuentes.json`. Comprobación de PNG y enlaces no equivale a prueba de animación o escenas en Godot.
+Diez fuentes generadas, originales intactos: nueve en esta entrega y la de riego en las referencias del dragón. Son láminas de diseño, no atlas nativos listos para juego. Metadatos, dimensiones y huellas en `referencias/fuentes.json`. Comprobación de PNG y enlaces no equivale a prueba de animación o escenas en Godot.
 
 Pendiente: limpiar fondos/halos, separar módulos y fotogramas, corregir continuidad si hace falta, registrar escala/anclas/agarres (adulto/protagonista80px, enano64px, suelo64×32), colisiones, capas y profundidad, transiciones, movimiento del barco y animación de riego. Mantener más suelo útil en interiores al construirlos, sin ampliar globalmente las láminas ni encoger personajes. Vistas de barco y fases de riego son propuestas para revisar por dirección/fase, no promesa de movimiento ya terminado.
 

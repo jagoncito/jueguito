@@ -1,4 +1,4 @@
-"""Revisa ocho direcciones y seis acciones en el canvas real de Godot."""
+"""Revisa los ciclos completos registrados en el canvas real de Godot."""
 import asyncio
 import io
 import json
@@ -6,6 +6,21 @@ from pathlib import Path
 from PIL import Image, ImageChops
 from playwright.async_api import async_playwright
 PROJECT = Path(__file__).resolve().parents[1]
+CATALOG = json.loads((PROJECT/'assets/personajes/dragon/dragon-jugable.json').read_text())
+DIRS = CATALOG['directions']
+
+def gait_frames(running=False, phase=0):
+    action = 'sprint' if running else 'andar'
+    views = CATALOG['animations'][action]
+    return [views[d][min(int(phase*len(views[d])/6),len(views[d])-1)] for d in DIRS]
+
+def capture_frames(name):
+    if name in {'marcha','sprint'}:
+        return gait_frames(name=='sprint')
+    if name in {'minar','talar'}:
+        return [CATALOG['animations'][name][d][3] for d in DIRS]
+    pose = {'reposo':'reposo','palin':'arrodillado','pesca':'pesca-recoger','zarpazo':'zarpazo-golpe'}[name]
+    return [f'{pose}-{d}' for d in DIRS]
 
 async def main():
     messages = []
@@ -76,31 +91,33 @@ async def main():
                 states = [json.loads(text.split('BITU_DRAGON_CAPTURE_READY:',1)[1])
                           for _,text in messages[capture_messages:]
                           if 'BITU_DRAGON_CAPTURE_READY:' in text]
-                expected_pose = {'reposo':'reposo','marcha':'andar-a',
-                                 'minar':'golpe','talar':'golpe-talar','palin':'arrodillado','sprint':'sprint-a','pesca':'pesca-recoger','zarpazo':'zarpazo-golpe'}[name]
-                expected_frames = [f'{expected_pose}-{direction}'
-                                   for direction in ['S','SW','W','NW','N','NE','E','SE']]
+                expected_frames = capture_frames(name)
                 assert states and states[-1] == {'mode':name,'frames':expected_frames}, states
                 capture_name='dragon-animaciones.png' if name=='reposo' else f'dragon-{name}.png'
                 await page.screenshot(path=str(PROJECT/'capturas'/capture_name))
-            # Regresión de piernas: las cuatro fases deben cambiar el dibujo
+            # Regresión de piernas: todas las fases deben cambiar el dibujo
             # en su zona, no aprobar solo porque se mueve la herramienta.
-            walk_images=[]
-            for phase,pose in [('a','andar-a'),('paso-a','paso-a'),('b','andar-b'),('paso-b','paso-b')]:
-                first_message=len(messages)
-                await page.goto(f'http://127.0.0.1:8765/index.html?vista=dragon&captura=marcha-{phase}',wait_until='networkidle')
-                await page.wait_for_function("document.getElementById('status') === null",timeout=60000)
-                states=[json.loads(text.split('BITU_DRAGON_CAPTURE_READY:',1)[1])
-                        for _,text in messages[first_message:] if 'BITU_DRAGON_CAPTURE_READY:' in text]
-                assert states and states[-1]['frames']==[f'{pose}-{d}' for d in ['S','SW','W','NW','N','NE','E','SE']],states
-                walk_images.append(Image.open(io.BytesIO(await page.screenshot(
-                    path=str(PROJECT/'build'/f'dragon-fase-{phase}.png')))).convert('RGB'))
-            for i in range(8):
-                x=320*(i%4);y=320*(i//4)
-                # Parte baja del cuerpo: pies y rodillas, excluyendo el mango.
-                bounds=(x+95,y+247,x+220,y+293)
-                assert all(ImageChops.difference(walk_images[phase].crop(bounds),walk_images[(phase+1)%4].crop(bounds)).getbbox()
-                           for phase in range(4)),f'Piernas congeladas en dirección {i}'
+            for running in [False,True]:
+                action='sprint' if running else 'marcha'
+                gait_images=[]
+                for phase in range(6):
+                    first_message=len(messages)
+                    await page.goto(f'http://127.0.0.1:8765/index.html?vista=dragon&captura={action}-{phase}',wait_until='networkidle')
+                    await page.wait_for_function("document.getElementById('status') === null",timeout=60000)
+                    states=[json.loads(text.split('BITU_DRAGON_CAPTURE_READY:',1)[1])
+                            for _,text in messages[first_message:] if 'BITU_DRAGON_CAPTURE_READY:' in text]
+                    assert states and states[-1]['frames']==gait_frames(running,phase),states
+                    gait_images.append(Image.open(io.BytesIO(await page.screenshot(
+                        path=str(PROJECT/'build'/f'dragon-{action}-fase-{phase}.png')))).convert('RGB'))
+                for i in range(8):
+                    x=320*(i%4);y=320*(i//4)
+                    # Pies y rodillas: comprobar también las poses propias de carrera.
+                    bounds=(x+95,y+247,x+220,y+293)
+                    for phase in range(6):
+                        next_phase=(phase+1)%6
+                        if gait_frames(running,phase)[i]==gait_frames(running,next_phase)[i]:
+                            continue  # NORTE mantiene cuatro fases originales.
+                        assert ImageChops.difference(gait_images[phase].crop(bounds),gait_images[next_phase].crop(bounds)).getbbox(),f'Piernas congeladas {action}, dirección{i}, fase{phase}'
             assert any('BITU_DRAGON_PREVIEW_READY' in text for _,text in messages),messages
             assert not any(kind in {'error','pageerror'} for kind,_ in messages),messages
             print('BITU_DRAGON_BROWSER_SMOKE_OK: 8 direcciones × 8 acciones')

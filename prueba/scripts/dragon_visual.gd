@@ -1,9 +1,10 @@
 class_name BituDragonVisual
 extends Node2D
-## Poses conservadas y articulaciones para la revisión selectiva.
-const ARTICULATED = preload("res://scripts/dragon_articulated.gd")
-var articulated: BituDragonArticulated
+## Fotogramas completos: las proporciones están dibujadas, no articuladas.
 const DIRECTORY := "res://assets/personajes/dragon/"
+const WALK_POSES := ["andar-a","paso-a","andar-b","paso-b"]
+const RUN_POSES := ["sprint-a","sprint-paso-a","sprint-b","sprint-paso-b"]
+const WORK_TIMES := [0.0,0.12,0.24,0.33,0.40,0.50]
 var presentation_height_px := 80.0
 var catalog: Dictionary
 var textures: Dictionary = {}
@@ -35,9 +36,6 @@ func _ready() -> void:
 	other_hand_cover = Sprite2D.new()
 	other_hand_cover.visible = false
 	add_child(other_hand_cover)
-	articulated = ARTICULATED.new()
-	add_child(articulated)
-	articulated.visible = false
 	show_pose("reposo",0)
 
 func _texture(frame: Dictionary, key: String, region: Array) -> AtlasTexture:
@@ -54,10 +52,12 @@ func _texture(frame: Dictionary, key: String, region: Array) -> AtlasTexture:
 func show_pose(pose: String, direction: int) -> void:
 	direction_index = posmod(direction,8)
 	var key := "%s-%s" % [pose,catalog.directions[direction_index]]
+	_show_frame(key)
+
+func _show_frame(key: String) -> void:
 	if current_frame == key:
 		return
 	current_frame = key
-	articulated.visible = false
 	body.visible = true
 	var frame: Dictionary = catalog.frames[key]
 	var anchor := Vector2(frame.anchor[0],frame.anchor[1])
@@ -82,29 +82,35 @@ func show_pose(pose: String, direction: int) -> void:
 		cover_offset = (Vector2(region[0],region[1])-Vector2(frame.hand[0],frame.hand[1]))*factor
 		hand_cover.position = primary_hand.position+cover_offset
 
+func animation_frames(action: String, direction: int) -> Array:
+	var animations: Dictionary = catalog.get("animations",{})
+	var views: Dictionary = animations.get(action,{})
+	if action == "andar" and views.is_empty():
+		views = animations.get("marcha",{})
+	return views.get(catalog.directions[posmod(direction,8)],[])
 
-	var work_poses := ["medio","cargar","golpe","recuperar","medio-talar","cargar-talar","golpe-talar","recuperar-talar"]
-	if pose in work_poses:
-		show_articulated_work(&"talar" if pose.ends_with("talar") else &"minar",[0.04,0.17,0.33,0.50][work_poses.find(pose)%4])
-	var walks := ["andar-a","paso-a","andar-b","paso-b"]
-	var runs := ["sprint-a","sprint-paso-a","sprint-b","sprint-paso-b"]
-	if pose in walks and direction_index != 4:
-		show_articulated_gait(walks.find(pose)/4.0,false)
-	elif pose in runs and direction_index in [1,3,5,7]:
-		show_articulated_gait(runs.find(pose)/4.0,true)
+func show_gait(phase: float, running: bool, direction: int) -> void:
+	direction_index = posmod(direction,8)
+	var frames := animation_frames("sprint" if running else "andar",direction_index)
+	var cycle := fposmod(phase,1.0)
+	if frames.is_empty():
+		show_pose((RUN_POSES if running else WALK_POSES)[int(cycle*4)],direction_index)
+	else:
+		_show_frame(String(frames[mini(int(cycle*frames.size()),frames.size()-1)]))
 
-func _activate_articulated() -> void:
-	articulated.visible = true
-	articulated.scale = Vector2.ONE*presentation_height_px/80.0
-	body.visible = false
-	hand_cover.visible = false
-	other_hand_cover.visible = false
-func show_articulated_gait(phase: float, running: bool) -> void:
-	_activate_articulated()
-	articulated.show_gait(direction_index,phase,running)
-func show_articulated_work(action: StringName, clock: float) -> void:
-	_activate_articulated()
-	articulated.show_work(direction_index,action,clock)
+func show_work(action: StringName, clock: float, direction: int) -> void:
+	direction_index = posmod(direction,8)
+	var frames := animation_frames(String(action),direction_index)
+	if frames.is_empty():
+		var names := ["medio","cargar","golpe","recuperar"] if action == &"minar" else ["medio-talar","cargar-talar","golpe-talar","recuperar-talar"]
+		show_pose(names[0 if clock<0.12 else (1 if clock<0.28 else (2 if clock<0.40 else 3))],direction_index)
+		return
+	var phase := 0
+	var times: Array = catalog.get("work_timing",{}).get(String(action),WORK_TIMES)
+	for index in range(mini(times.size(),frames.size())):
+		if clock+0.00001 >= float(times[index]):
+			phase = index
+	_show_frame(String(frames[phase]))
 
 func _draw() -> void:
 	draw_set_transform(Vector2(0,-2),0,Vector2(1,0.27))
@@ -117,22 +123,27 @@ func set_presentation_height(height: float) -> void:
 		return
 	presentation_height_px = requested
 	if not current_frame.is_empty():
-		var pose := current_frame.substr(0,current_frame.rfind("-"))
+		var key := current_frame
 		current_frame = ""
-		show_pose(pose,direction_index)
+		_show_frame(key)
 
 func has_baked_tool() -> bool:
-	if articulated.visible: return not articulated.walking
 	return catalog.frames[current_frame].baked_tool
 
 func contact_local(action: StringName) -> Vector2:
-	if articulated.visible and action in [&"minar",&"talar"]: return articulated.contact_local()*presentation_height_px/80.0
-	var frame: Dictionary = catalog.frames[current_frame]
+	return _frame_contact(catalog.frames[current_frame],action)
+
+func impact_contact_local(direction: int, action: StringName) -> Vector2:
+	var key := "%s-%s" % ["golpe-talar" if action == &"talar" else "golpe",catalog.directions[posmod(direction,8)]]
+	return _frame_contact(catalog.frames[key],action)
+
+func _frame_contact(frame: Dictionary, action: StringName) -> Vector2:
 	var contacts: Dictionary = frame.get("contacts",{})
 	if not contacts.has(String(action)):
 		return Vector2.INF
 	var point: Array = contacts[String(action)]
-	var local_point := (Vector2(point[0],point[1])-Vector2(frame.anchor[0],frame.anchor[1]))*body.scale.x
+	var factor := float(frame.scale)*presentation_height_px/80.0
+	var local_point := (Vector2(point[0],point[1])-Vector2(frame.anchor[0],frame.anchor[1]))*factor
 	if frame.get("mirror_x",false):
 		local_point.x *= -1
 	return local_point

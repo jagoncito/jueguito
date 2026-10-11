@@ -1,13 +1,13 @@
 # Bītu y el archipiélago
 
 
-**Agua y casa integradas:** vivienda rural a escala nativa, colisión ajustada a los cimientos y profundidad respecto al personaje; costa con agua turquesa, zonas profundas y orillas. Agua estática y casa exterior. Descarga local actualizada en `prueba/descargas/bitu-navegador.zip`.
+**Agua y casa integradas:** vivienda rural a escala nativa, colisión ajustada a los cimientos y profundidad respecto al personaje; costa con agua turquesa, zonas profundas y orillas. Agua estática y casa con interior transitable mediante E y fundido. Descarga local actualizada en `prueba/descargas/bitu-navegador.zip`.
 
 ![Casa y agua dentro del prototipo](prueba/capturas/casa-agua-en-juego.png)
 
 Proyecto de juego individual de fantasía, **íntegramente en pixel art**, con **vista desde arriba isométrica cenital**, centrado en explorar, farmear, mejorar y coleccionar.
 
-**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo rehecho en pixel art, con ocho direcciones y216 registros**. Camina, sprinta, mina, tala, recolecta con palín, pesca y ataca con garras. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
+**Primera prueba visual jugable:** una zona provisional de Bītu con el **dragón protagonista bípedo rehecho en pixel art, con ocho direcciones y ciclos completos por fotogramas**. Camina, sprinta, mina, tala, recolecta con palín, pesca y ataca con garras. Un clic inicia toda la extracción. Incluye una [revisión ampliada de animaciones](assets/personajes/dragon/README.md). El juego completo continúa en diseño. Consulta [cómo probarla](docs/prueba-visual.md).
 
 Motor elegido: **Godot 4**. Primera plataforma: **navegador en ordenador, con teclado y ratón**. La versión descargable queda como posibilidad futura.
 
@@ -56,4 +56,4 @@ Para retomar en otro chat, empezar por el bloc y continuar con una decisión cad
 
 ## Personajes dentro de la prueba
 
-Seis NPC de ocho vistas integrados localmente, con colisión y conversación provisional. Protagonista nuevo216 registros, arte anterior retirado. [Auditoría del repositorio y comparativa real de tamaños](docs/revision-personajes-en-juego.md), con dragón80px actual y alternativa72px. F7/F8 permiten compararlos en la misma partida.
+Seis NPC de ocho vistas integrados localmente, con colisión y conversación provisional. Protagonista con marcha/carrera corregidas,396nombres de catálogo incluidos alias; rig anterior retirado. [Auditoría del repositorio y comparativa real de tamaños](docs/revision-personajes-en-juego.md), con dragón80px actual y alternativa72px. F7/F8 permiten compararlos en la misma partida.

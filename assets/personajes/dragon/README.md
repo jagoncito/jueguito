@@ -1,64 +1,32 @@
 # Dragón jugable de Bītu
 
-Revisión actual de apoyos y extremos: marcha SUR/OESTE/ESTE/diagonales, sprint
-diagonal y minería/tala usan `piezas-articuladas.png` y `articulaciones.json`.
-Cinco vistas × seis piezas; reflexión única para el lado derecho, pies alternos,
-manos sobre el mango y extremo activo abajo. Reposo, marcha NORTE, sprint cardinal,
-flores, pesca y garras se conservan. Los diez PNG anteriores y sus 216 nombres de
-pose siguen intactos; la representación de las poses corregidas se sustituye en
-`dragon_visual.gd`. [Alcance, método y pruebas](../../../docs/revision-apoyos-y-extremos.md).
-Registro del atlas adicional: `python prueba/tools/register_dragon_parts.py`.
+El protagonista usa fotogramas completos con su cuerpo y, en las acciones de trabajo, herramienta y agarre dibujados juntos. Las siete direcciones de marcha rechazadas, la carrera y los golpes se revisan mediante nuevas hojas; la marcha NORTE, pesca, recolección y garras conservan sus imágenes aceptadas. El montaje de piezas articuladas fue rechazado y retirado.
 
-Revisión anterior del 11 de octubre: reposo tiene cinco vistas neutras corregidas desde
-la referencia `marcha.png`, con ambos pies apoyados y cresta a80px. Frontal alterna dos medias zancadas reflejando cuerpo entero;
-NE/E/SE se proyectan desde NW/W/SW durante reposo, marcha y sprint. Solo se sustituye `reposo.png` y su copia de ejecución.
-Se corrigen selecciones/reflejos de 44 registros; nueve PNG permanecen intactos.
-Las acciones de herramienta, garras, pesca y flores conservan todos sus registros.
+## Organización
 
-Revisión integral del10 de octubre: reposo, caminar, correr, minar, talar,
-recolectar, pescar y zarpazo. Se conservan exactamente los PNG y los16 registros
-de arrodillarse/levantarse de la recolección que gustó al usuario.
+| Carpeta o registro | Uso |
+|---|---|
+| `sprites/conservados/` | Ocho PNG originales: reposo, marcha NORTE, sprint NORTE, arrodillado, levantar, pesca, pesca norte y zarpazo. Sus bytes se conservan. |
+| `fuentes/fotogramas/` | 48 dibujos individuales de marcha/carrera y diez hojas de trabajo, conservados sin retoque. |
+| `registro-fotogramas.json` | Recortes de figuras enteras, DPI uniforme, anclas, palmas y contacto de metal. |
+| `sprites/fotogramas/` | Hojas nuevas de figuras completas para los ciclos corregidos. Cada fotograma tiene su apoyo y escala registrados. |
+| `referencias/riego-vistas-fuente.png` | Propuesta única de riego, trasladada desde la entrega de equipo inicial; sin animación integrada. |
+| `referencias/anteriores/` | Fuentes únicas anteriores de minería/tala, fuera de ejecución. |
+| `dragon-jugable.json` | Catálogo que consulta el juego; sus `frames`, `animations` y contactos son el inventario activo. |
+| `registro-fuentes.json` | Registro histórico de las diez fuentes originales, con rutas actualizadas y recolección preservada. |
 
-Cuerpo esbelto gris azulado, vientre/hocico crema, ojos ámbar y cresta/alas naranja.
-El acabado gráfico se entrega para revisión dentro del juego.
+Las copias de ejecución están bajo `prueba/assets/personajes/dragon/`, con las mismas rutas relativas y bytes de los PNG activos. Los originales anteriores y propuestas no se copian al juego. Las capturas están en `prueba/capturas/`; son evidencia del motor y no sprites. [Auditoría de todas las imágenes y referencias](../../../docs/auditoria-archivos-dragon.md).
 
-| Acción | Vistas/fases | Registros |
-|---|---|---:|
-| Reposo y alias sin equipo | 8 × 2 | 16 |
-| Marcha | 8 × 4 | 32 |
-| Sprint | 8 × 4 | 32 |
-| Minería | 8 × 4 | 32 |
-| Tala | 8 × 4 | 32 |
-| Arrodillarse/levantarse | 8 × 2 | 16 |
-| Pesca: cargar, esperar, recoger | 8 × 3 | 24 |
-| Zarpazo: cargar, golpear, seguir, recuperar | 8 × 4 | 32 |
-| Total | Ocho direcciones | 216 |
+## Reglas de animación
 
-Diez PNG fuente, copiados byte por byte a la prueba. AtlasTexture, filtro nearest
-y escala uniforme: no son atlas nativos128×128. Reposo/marcha/sprint conservan
-la cresta a80px sobre el apoyo; una sola escala durante cada ciclo.
+Mantener anatomía, perspectiva y anclaje al suelo coherentes en las ocho direcciones. Alternar apoyo de un pie y otro, con brazos contrarios; usar dibujos propios de carrera. No estirar extremidades ni animar girando recortes. Los ciclos corregidos usan seis fases; NORTE conserva sus cuatro originales. Los nuevos atlas tienen celdas192×192, ancla(96,168), cuerpo de referencia80px y escala final1. El margen permite levantar y bajar la herramienta sin recortarla ni reducir el cuerpo. NE/E/SE reflejan la figura completa una sola vez por dirección; SUR nunca refleja el cuerpo entre pasos. El motor selecciona un fotograma completo; las transformaciones de escala son uniformes para la presentación80/72px, no deformaciones anatómicas.
 
-Las manos quedan libres al desplazarse. Cada actividad equipa su instrumento.
-Pico y hacha comparten una herramienta y reloj de trabajo; las poses corregidas articulan brazos y mango desde el atlas limpio. Se registran por separado
-la punta minera y el borde ancho de tala. Cinco golpes por recurso. Antes del
-golpe, un paso físico ajusta el apoyo, respetando colisiones. Si no hay espacio,
-se cancela el trabajo y se recupera el control.
+La herramienta es un solo pico–hacha: preparación, carga, golpe, seguimiento y recuperación propios de cada actividad. La punta minera actúa sobre la mena y el filo ancho sobre el árbol; el extremo opuesto se conserva visible. Ambos comparten los cinco golpes y el reloj de trabajo del juego. Los contactos se registran sobre el metal visible, sin girar el instrumento por separado de las manos.
 
-Las vistas generadas que giraban de forma incorrecta se proyectan desde su
-vista simétrica coherente: cuerpo, manos y contactos reflejados juntos. En las poses históricas no
-se gira la herramienta por separado; el rig actual une el mango a las manos. `mirror_x` registra esa decisión.
-`pesca-norte.png` aporta únicamente la recogida norte; el resto de esa fuente
-no se utiliza. Todas las regiones activas contienen una sola figura.
+Pesca y recolección mantienen los dibujos y tiempos aceptados. Las garras conservan su secuencia y un único impacto por ataque. Encontrar una propuesta de riego no significa que esa animación esté implementada. La revisión visual debe comprobar ciclos, transiciones, proporciones y contacto en el juego; los tests no otorgan aprobación artística automática.
 
-La caña está dibujada con el cuerpo. El sedal se une a su extremo registrado y
-llega al flotador real del agua; mantener clic recoge y soltar afloja la tensión.
-Las garras usan cuatro fases y un único impacto. Un maniquí permite probarlo
-sin añadir criaturas o IA enemiga.
+## Revisar
 
-Registro reproducible: `python prueba/tools/register_dragon.py`.
-Pillow/NumPy/SciPy leen medidas, sin editar PNG. El registro conserva las poses
-aprobadas del palín y las fuentes/puntos/transformaciones del conjunto nuevo.
+`?vista=dragon` o `prueba/scenes/dragon.tscn`:1reposo,2marcha,3minería,4tala,5palín,6parar/andar,7sprint,8pesca,9zarpazo. Espacio activa cámara lenta. `?vista=personajes` compara con los seis NPC.
 
-Revisión: `?vista=dragon` o `prueba/scenes/dragon.tscn`.
-1 reposo,2 marcha,3 minería,4 tala,5 palín,6 parar/andar,7 sprint,8 pesca,9 zarpazo.
-Espacio: cámara lenta. `?vista=personajes` compara con los seis NPC.
+El registrador antiguo está archivado en `referencias/anteriores/register_dragon_antes.py`. Sirve para reproducir las medidas históricas y solo escribe en `work/`; no modifica el catálogo activo ni la prueba. El código actual de registro está en `prueba/tools/register_dragon.py`.

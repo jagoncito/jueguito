@@ -54,9 +54,12 @@ func _refresh() -> void:
 		var action := "reposo"
 		var phase := 0
 		if name == "dragon":
-			action = ["andar-a","paso-a","andar-b","paso-b"][int(elapsed*7)%4] if walking else ["reposo","cargar","golpe","arrodillado"][variant%4]
-			(actors[index] as BituDragonVisual).set_presentation_height(dragon_height)
-			(actors[index] as BituDragonVisual).show_pose(action,direction)
+			var dragon := actors[index] as BituDragonVisual
+			dragon.set_presentation_height(dragon_height)
+			if walking:
+				dragon.show_gait(elapsed*7/4.0,false,direction)
+			else:
+				dragon.show_pose(["reposo","cargar","golpe","arrodillado"][variant%4],direction)
 			get_node("Name6").text = "Dragón · %.0f px" % dragon_height
 			continue
 		var ch: Dictionary = catalog.characters[name]
