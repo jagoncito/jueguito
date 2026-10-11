@@ -897,3 +897,13 @@ altura constante y señales correctas no bastan para aprobar todas las animacion
 ### Referencias visuales de mina y herrería (11 de octubre de 2026)
 
 Entrega en [mina y herrería](assets/entorno/mina-herreria/README.md): conjunto exterior, herrería/vivienda exterior e interior y mina exterior/primera galería. El maestro está inicialmente de visita con Flavia en el astillero; su residencia permanece en el noroeste. Taller práctico y ala doméstica separada de la forja. Las fuentes no fijan niveles, enemigos, minerales nuevos, recetas ni armas. Al integrar, ampliar suelo útil de interiores conservando escala de personajes/mobiliario. Recortes, fondos/halos, módulos, anclas, colisiones y transiciones pendientes. No integrado en el juego por esta entrega.
+
+### Assets pendientes del núcleo inicial — 11 de octubre de 2026
+
+Tras la auditoría, el usuario pide generar y publicar los huecos identificados. Confirma interior inicial de casa abierto/modesto con rincón de cocina, conservando cama, mesa y cofre oculto acordados; casa de Flavia independiente junto a astillero, acogedora con dormitorio separado y cocina/salón; vivienda compartida de comerciante y elfa anexa a BITU24H con acceso doméstico. Delega diseño del primer barco: elegido pequeño velero de trabajo con cubierta transitable y timón; interior accesible sigue reservado para mejora posterior. Dimensiones, número exacto/disposición de velas y comportamiento de navegación requieren revisión técnica.
+
+Lote en [completar Bītu](assets/entregas/completar-bitu/README.md): diez fuentes de casas, equipo inicial, fases de riego, kit portátil y barco. Props no fijan capacidades, recetas, combustible ni lore nuevo. Fuente con fases/vistas no equivale a atlas registrado: limpieza, continuidad, anclas, agarres y escala por comprobar. Interiores con más suelo útil al integrar. Sin cambios en juego o descarga por esta publicación; catálogo futuro de islas, enemigos, coleccionables y mejoras sigue pendiente.
+
+### Entrada a interiores — propuesta de implementación (11 de octubre)
+
+Usuario solicita pensar/anotar un sistema común para todos los interiores. [Plan de transiciones](docs/transiciones-interiores.md): aproximación y E como propuesta, fundido breve a negro, carga de zona y llegada segura por portal identificado; jugador/UI/estado persistentes y precarga acotada. Cerrados cambian zona; cobertizo abierto/patio/muelle del pescador permanecen exteriores transitables sin fundido. Habitaciones contiguas comparten escena cuando convenga. Mantener progreso/timers, cancelar acciones sin eventos tardíos, prevenir rebote de portales y ajustar cámara en negro. Tiempos/tecla/arquitectura son propuesta técnica, no implementación ni rendimiento medido.

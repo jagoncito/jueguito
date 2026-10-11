@@ -1,0 +1,160 @@
+{
+  "fecha": "2026-10-11",
+  "tipo": "Fuentes visuales para completar viviendas y equipo inicial",
+  "generacion": "image_gen; originales conservados sin edición manual",
+  "fuentes": [
+    {
+      "archivo": "barco-cubierta-fuente.png",
+      "dimensiones_px": [
+        1024,
+        1536
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2237687,
+      "sha256": "c51453ba75d2214357ec2fd41661e65415a741ebce3decad3415c1fac1fc748d"
+    },
+    {
+      "archivo": "barco-vistas-fuente.png",
+      "dimensiones_px": [
+        1024,
+        1536
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2306249,
+      "sha256": "0bc971114ac46c0e9c1b7f86dffc0d24f135b0a514dcb7c4782dca3952da1208"
+    },
+    {
+      "archivo": "casa-jugador-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2337756,
+      "sha256": "c50525364929898d286b4b0c1331ab5d3faaa65bc685858938ea3c5549c7ff25"
+    },
+    {
+      "archivo": "equipo-inicial-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2547184,
+      "sha256": "8c6d14933728773bc599a41a5df8b93d130c0d80291c95cb68812737d3b91927"
+    },
+    {
+      "archivo": "flavia-casa-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2453955,
+      "sha256": "5f26a004b00a3a2c1177e63ab31bf7e7cc9ee215b0e23517842a2dea51c307ea"
+    },
+    {
+      "archivo": "flavia-casa-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        253
+      ],
+      "bytes": 3068592,
+      "sha256": "d78089e1163fb7cb43b951d8f630dc2855bdca30aeb880af0eeb3ea21132e385"
+    },
+    {
+      "archivo": "kit-cocina-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2423805,
+      "sha256": "3cd23e98dfd123437ad721a784cc87ce612b568b985952b990e113702ebd358f"
+    },
+    {
+      "archivo": "pareja-vivienda-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2409092,
+      "sha256": "c4389d376eaf57906d6c6a233a995303a52ef5df12ebce0a510a91287363cef8"
+    },
+    {
+      "archivo": "pareja-vivienda-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        254
+      ],
+      "bytes": 2720495,
+      "sha256": "d9b1ae61aaccffb1e5db0035302b66d816e5896261d9aae37ee8e954714f6140"
+    },
+    {
+      "archivo": "riego-vistas-fuente.png",
+      "dimensiones_px": [
+        1201,
+        1309
+      ],
+      "modo": "RGBA",
+      "alpha_extremos": [
+        0,
+        255
+      ],
+      "bytes": 1216612,
+      "sha256": "6e2099b6335521cbdd38c9f05dc249dff37931a2c21289ef13f106039aa01657"
+    }
+  ],
+  "verificado": [
+    "Decodificación PNG",
+    "Enlaces galería",
+    "Huellas y tamaño de archivos"
+  ],
+  "pendiente": [
+    "Fondos/halos y módulos",
+    "Escala y anclas",
+    "Continuidad y dirección de poses/vistas",
+    "Agarres de regadera",
+    "Colisiones e integración Godot",
+    "Barco navegación y cubierta"
+  ]
+}
