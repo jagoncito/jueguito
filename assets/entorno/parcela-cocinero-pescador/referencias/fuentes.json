@@ -1,0 +1,66 @@
+{
+  "fecha": "2026-10-11",
+  "tipo": "fuentes visuales de parcela, choza y cobertizo; sin integración",
+  "generacion": "image_gen; conjunto referenciado a materiales/cámara de Bītu, cuatro vistas separadas referenciadas al conjunto",
+  "revision_visual": "Vivienda pequeña con cama y chimenea; cobertizo abierto con preparación, hogar y equipo de pesca. Puesto de pesca y muelle en conjunto. Conexiones y proporciones son propuestas; ampliar suelo útil al integrar manteniendo escala.",
+  "fuentes": [
+    {
+      "archivo": "choza-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2345940,
+      "sha256": "2b0595b4a5e2b9e8234cb158fd3942262c9f437d73150a2ae7e64b7e210c3b1d"
+    },
+    {
+      "archivo": "choza-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2289249,
+      "sha256": "1ffce56f4597c404d1e74299f22adc1b887a7e4a53f00010dce9572a86626694"
+    },
+    {
+      "archivo": "cobertizo-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2203522,
+      "sha256": "ffda7a2756ef112423bc6764ca609d2fce5ccdc595afc220b2c6069a461c4242"
+    },
+    {
+      "archivo": "cobertizo-interior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGBA",
+      "bytes": 2489126,
+      "sha256": "1b054dbb0ab38256fa5c4cee46c4f30b7e9fd1c82dde588dcfa3f8fa645c5177"
+    },
+    {
+      "archivo": "parcela-exterior-fuente.png",
+      "dimensiones_px": [
+        1536,
+        1024
+      ],
+      "modo": "RGB",
+      "bytes": 3338743,
+      "sha256": "7f96f60220a723e31fefeae084e36ca96da7aa175b06ff9c51fa0f5140f72ffa"
+    }
+  ],
+  "pendiente": [
+    "limpieza de fondo/halos",
+    "recortes y piezas",
+    "escala y anclas",
+    "capas y colisiones",
+    "cámara/entradas",
+    "integración"
+  ]
+}
