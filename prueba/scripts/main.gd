@@ -371,6 +371,9 @@ func _click_resource(point: Vector2) -> bool:
 	_begin_extraction(clicked)
 	return true
 
+func _interaction_candidates() -> Array:
+	return crops + resources + trees + npcs
+
 func _find_target() -> void:
 	target = null
 	if _near_house_portal():
@@ -380,7 +383,7 @@ func _find_target() -> void:
 		hint.text = "Casa · WASD para moverte · E junto a la salida"
 		return
 	var best_distance := INTERACTION_RANGE
-	for candidate in crops + resources + trees + npcs:
+	for candidate in _interaction_candidates():
 		if not candidate.is_visible_in_tree(): continue
 		if (candidate is BituResource or candidate is BituTree) and not candidate.active:
 			continue

@@ -1,5 +1,7 @@
 # Decisiones de esta conversación — seguimiento
 
+**12 de octubre, corrección de fluidez:** tras rechazar el conjunto de la isla y comunicar tirones, el usuario autoriza empezar la optimización. Corregir terreno, carga y movimiento primero; paisaje e interiores pendientes de rehacer. [Estado de rendimiento](rendimiento-isla.md).
+
 Actualizado el 12 de octubre de 2026. Índice de los acuerdos conversados y su estado; los detalles y el histórico están en [DISENO.md](../DISENO.md), que sigue siendo la fuente de diseño. Esta recopilación corrige notas que habían quedado solo en local. No todos los acuerdos implican cambios ya implementados.
 
 **Entrega de isla, 12 de octubre:** petición de integrar la isla de prueba, protagonista en ruinas y seis habitantes en sus casas/patios. Implementados seis exteriores conectados, diez interiores, mochila24/1.000 con arrastre/división y mapa con M/cabeza del dragón. Fuentes anteriores conservadas; servicios, historia, navegación y guardado pendientes. [Estado técnico actual](isla-y-mochila-prueba.md) prevalece sobre las anotaciones históricas de integración siguientes.

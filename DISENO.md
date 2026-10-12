@@ -1,5 +1,7 @@
 # Bloc de diseño — Bītu y el archipiélago
 
+**Revisión de fluidez,12 de octubre:** el usuario comunica tirones y autoriza comenzar la corrección. Terreno en bloques reutilizables con geometría agrupada y precarga incremental; cámara y movimiento continuos entre regiones exteriores. Fundido conservado en puertas. Activación e interacción por cercanía; zoom preparado antes de mostrar su nueva vista. [Diagnóstico, medidas y límites](docs/rendimiento-isla.md). El aspecto de la isla sigue pendiente de rehacer y no se considera aprobado.
+
 Última revisión: **12 de octubre de 2026**.
 
 **Estado: diseño en conversación y prueba jugable de la isla.** Después de expresar que quiere empezar a programar y preguntar cuándo se podría probar el aspecto, se integra una isla provisional de Bītu con sus lugares conectados. No representa el juego completo ni cierra las decisiones pendientes. [Alcance y ejecución](docs/prueba-visual.md).

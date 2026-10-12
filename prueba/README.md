@@ -1,5 +1,7 @@
 # Prueba visual de Bītu
 
+**Revisión de fluidez,12 de octubre:** el usuario comunica tirones y autoriza comenzar la corrección. Terreno en bloques reutilizables con geometría agrupada y precarga incremental; cámara y movimiento continuos entre regiones exteriores. Fundido conservado en puertas. Activación e interacción por cercanía; zoom preparado antes de mostrar su nueva vista. [Diagnóstico, medidas y límites](../docs/rendimiento-isla.md). El aspecto de la isla sigue pendiente de rehacer y no se considera aprobado.
+
 **Prueba de isla integrada — 12 de octubre de 2026.** Inicio en las ruinas del este, isla conectada con seis regiones exteriores, diez interiores accesibles con E y los seis habitantes en los patios de sus propiedades. **M** abre el mapa y la cabeza del dragón marca tu ubicación actual; dentro de un edificio señala su propiedad. **Tab** abre una mochila original de supervivencia:24 huecos, pilas de1.000 («1k»), arrastre, intercambio, división con Mayús y ordenación; herramientas aparte. Ambos menús pausan la partida. [Alcance, controles y comprobaciones](../docs/isla-y-mochila-prueba.md). La distribución es de prueba: sin guardado, narrativa, comercio, fabricación ni navegación implementados. Se conserva el conjunto vigente del dragón; esta entrega no modifica sus PNG.
 
 **Revisión del 11 de octubre mediante fotogramas completos:** siete direcciones de marcha y carrera corregidas con seis fases; NORTE conserva sus cuatro originales. Minería y tala tienen secuencias propias de seis fases, con punta del pico para mena y filo del hacha para árbol. Retirado el rig rechazado. Pesca, recolección, reposo y garras conservados. [Ficha y organización](../assets/personajes/dragon/README.md) · [Auditoría de todos los PNG](../docs/auditoria-archivos-dragon.md).
@@ -8,7 +10,7 @@
 
 Los seis habitantes, casa e interior, terreno, recursos, cinco golpes, pesca y zarpazo se conservan. Las pruebas verifican funcionamiento; el acabado visual sigue sujeto a revisión del usuario. El riego localizado se mantiene como referencia, sin integrarlo.
 
-Descarga actual de la isla: **38.240.383 bytes**, por debajo del límite de **104.857.600 bytes** por archivo. CRC verificado y PCK idéntico al exportado. SHA-256: `3dc2ab3fe4016b85a25cffebefb233c40381b2e8b6b303662328f2a1696085fd`. No requiere dividirse.
+Descarga actual de la isla: **38.248.674 bytes**, por debajo del límite de **104.857.600 bytes** por archivo. CRC verificado y PCK idéntico al exportado. SHA-256: `2feaebce6e185f3fa6fbcf408b982b7e58863f3c5a11304ca033b6a5d446e81e`. No requiere dividirse.
 
 ## Jugar en el navegador
 

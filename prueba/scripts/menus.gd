@@ -81,6 +81,12 @@ func _process(delta: float) -> void:
 	var marker: Vector2 = island_map.get_global_transform_with_canvas()*island_map.project(position)
 	var viewport := get_viewport().get_visible_rect().size
 	var state := {"player":[game.player.global_position.x,game.player.global_position.y],"position":[position.x,position.y],"map":map_panel.visible,"backpack":backpack.visible,"paused":get_tree().paused,"indoors":game.indoors,"busy":game.player.busy,"slots":slot_data,"counts":counts,"head":[marker.x,marker.y],"viewport":[viewport.x,viewport.y],"bag_rect":_screen_rect(backpack),"map_rect":_screen_rect(map_panel)}
+	if game.terrain is BituIslandTerrain:
+		var terrain: BituIslandTerrain = game.terrain
+		state["terrain"] = {"chunks":terrain.chunks.size(),"pending":terrain.pending.size(),"prepare_usec":terrain.last_prepare_usec,"prepare_peak_usec":terrain.max_prepare_usec,"tiles":terrain.prepared_tiles,"ready":terrain.view_ready(game.camera.position,viewport,game.ZOOMS[game.zoom_index])}
+		state["zoom"] = game.ZOOMS[game.zoom_index]
+		state["region"] = game.region_id
+		state["transitioning"] = game.transitioning
 	JavaScriptBridge.eval("window.bituReviewState="+JSON.stringify(state))
 
 func _layout() -> void:

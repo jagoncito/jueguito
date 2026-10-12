@@ -1,0 +1,29 @@
+{
+  "method": "Chromium SwiftShader; sequential runs; 1280x720; same 12-second keyboard/zoom inputs, not user GPU",
+  "baseline_commit": "ffde724f2708e191e252a9e7f6303eb9e9b6b23e",
+  "before": {
+    "environment": "Chromium SwiftShader, same route and viewport; not user hardware",
+    "frames": 66,
+    "median_ms": 200,
+    "p95_ms": 333.3999999999978,
+    "max_ms": 400,
+    "over_50ms": 65,
+    "errors": []
+  },
+  "after": {
+    "environment": "Chromium SwiftShader, same route and viewport; not user hardware",
+    "frames": 114,
+    "median_ms": 116.59999999999854,
+    "p95_ms": 166.8000000000011,
+    "max_ms": 250,
+    "over_50ms": 109,
+    "errors": []
+  },
+  "native_before_window_ms": [
+    38.029,
+    43.6
+  ],
+  "native_after_incremental_peak_ms": 2.399,
+  "native_after_cached_chunks": 114,
+  "native_after_tiles": 7296
+}

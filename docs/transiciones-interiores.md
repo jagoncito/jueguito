@@ -1,5 +1,7 @@
 # Entrada y salida de interiores de Bītu
 
+**Revisión de rendimiento del12 de octubre:** retirado el fundido entre regiones exteriores; ahora el movimiento y la cámara son continuos. Las puertas conservan sus fundidos. Esta corrección sustituye la nota de transición exterior0,10s de la primera entrega. [Detalle](rendimiento-isla.md).
+
 **Actualización12 de octubre:** mecanismo E/fundido implementado para diez edificios de la isla;0,15s por cada fase. Se conserva inventario y estado exterior durante la sesión, con retorno al mismo umbral. Seis regiones exteriores cambian con fundido0,10s por fase y mantienen coordenadas continuas. Las salas visitadas quedan en memoria; no se ha implementado streaming ni guardado. Menús pausan reloj y acciones. [Prueba actual](isla-y-mochila-prueba.md). Las recomendaciones siguientes conservan el contexto de planificación anterior.
 
 11 de octubre de 2026. El usuario pide pensar y anotar una solución común, efectiva y optimizada para todos los interiores. Este documento propone su implementación; no modifica el juego ni afirma tiempos medidos. Acuerdos previos: zonas conectadas, interiores más amplios, cancelación de acciones por movimiento y colisiones estables.

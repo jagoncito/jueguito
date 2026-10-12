@@ -1,5 +1,7 @@
 # Primera prueba visual de Bītu
 
+**Revisión de fluidez,12 de octubre:** el usuario comunica tirones y autoriza comenzar la corrección. Terreno en bloques reutilizables con geometría agrupada y precarga incremental; cámara y movimiento continuos entre regiones exteriores. Fundido conservado en puertas. Activación e interacción por cercanía; zoom preparado antes de mostrar su nueva vista. [Diagnóstico, medidas y límites](rendimiento-isla.md). El aspecto de la isla sigue pendiente de rehacer y no se considera aprobado.
+
 **Prueba de isla integrada — 12 de octubre de 2026.** Inicio en las ruinas del este, isla conectada con seis regiones exteriores, diez interiores accesibles con E y los seis habitantes en los patios de sus propiedades. **M** abre el mapa y la cabeza del dragón marca tu ubicación actual; dentro de un edificio señala su propiedad. **Tab** abre una mochila original de supervivencia:24 huecos, pilas de1.000 («1k»), arrastre, intercambio, división con Mayús y ordenación; herramientas aparte. Ambos menús pausan la partida. [Alcance, controles y comprobaciones](isla-y-mochila-prueba.md). La distribución es de prueba: sin guardado, narrativa, comercio, fabricación ni navegación implementados. Se conserva el conjunto vigente del dragón; esta entrega no modifica sus PNG.
 
 **Revisión por fotogramas completos del 11 de octubre de 2026.** Se sustituyen las siete direcciones defectuosas de marcha y sus carreras por seis fases completas; NORTE conserva su marcha y sprint originales de cuatro fases. Reposo, pesca, recolección y garras mantienen sus fuentes y registros aceptados. El rig de piezas articuladas fue rechazado y se ha retirado. Las revisiones anteriores están documentadas en [su diagnóstico histórico](revision-apoyos-y-extremos.md); sus afirmaciones sobre el rig no describen esta versión.
@@ -20,7 +22,7 @@ Pesca: lanzamiento, picada, recoger manteniendo clic y aflojar soltándolo; capt
 
 La revisión separa funcionamiento de acabado: las pruebas comprueban conservación, escala, anclas, reloj, contactos y comportamiento. No otorgan aprobación artística. Se revisan también ciclos completos, arranque/parada, cambios de dirección y golpes en el canvas de Godot.
 
-Descarga actual de la isla: **38.240.383 bytes**, por debajo del límite de **104.857.600 bytes** por archivo. CRC verificado y PCK idéntico al exportado. SHA-256: `3dc2ab3fe4016b85a25cffebefb233c40381b2e8b6b303662328f2a1696085fd`. No requiere dividirse.
+Descarga actual de la isla: **38.248.674 bytes**, por debajo del límite de **104.857.600 bytes** por archivo. CRC verificado y PCK idéntico al exportado. SHA-256: `2feaebce6e185f3fa6fbcf408b982b7e58863f3c5a11304ca033b6a5d446e81e`. No requiere dividirse.
 
 Revisión: `?vista=dragon`: **1 reposo,2 marcha,3 minar,4 talar,5 palín,6 parar/andar,7 sprint,8 pesca,9 zarpazo**. Espacio: cámara lenta. `?vista=personajes` compara con habitantes. Para congelar fases: `&captura=marcha-0` a `marcha-5`, o `sprint-0` a `sprint-5`; NORTE mapea sus cuatro fases conservadas. Trabajo: `&captura=minar&tiempo=0.33` o tala, con tiempos0/0,12/0,24/0,33/0,40/0,50. Impactos reales: `?captura=impacto-minar&captura-impacto=1` o tala.
 

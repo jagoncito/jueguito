@@ -1,5 +1,7 @@
 # Bītu y el archipiélago
 
+**Primera corrección de tirones:** bloques de terreno reutilizables, dibujo agrupado por textura y movimiento exterior sin paradas entre regiones. [Mediciones y límites](docs/rendimiento-isla.md). La mejora de fluidez no da por terminado el paisaje ni los interiores.
+
 
 **Prueba de isla integrada — 12 de octubre de 2026.** Inicio en las ruinas del este, isla conectada con seis regiones exteriores, diez interiores accesibles con E y los seis habitantes en los patios de sus propiedades. **M** abre el mapa y la cabeza del dragón marca tu ubicación actual; dentro de un edificio señala su propiedad. **Tab** abre una mochila original de supervivencia:24 huecos, pilas de1.000 («1k»), arrastre, intercambio, división con Mayús y ordenación; herramientas aparte. Ambos menús pausan la partida. [Alcance, controles y comprobaciones](docs/isla-y-mochila-prueba.md). La distribución es de prueba: sin guardado, narrativa, comercio, fabricación ni navegación implementados. Se conserva el conjunto vigente del dragón; esta entrega no modifica sus PNG.
 

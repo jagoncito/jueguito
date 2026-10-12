@@ -9,7 +9,7 @@ SITES=json.loads((ROOT/'assets/mundo/isla-bitu/isla.json').read_text())['sites']
 
 async def ready(page,url):
     await page.goto(url,wait_until='networkidle')
-    await page.wait_for_function("document.getElementById('status') === null && window.bituReviewState",timeout=60000)
+    await page.wait_for_function("document.getElementById('status') === null && window.bituReviewState && window.bituReviewState.terrain.ready",timeout=60000)
     await page.wait_for_timeout(250)
 
 async def state(page):
@@ -81,7 +81,9 @@ async def main():
                 id=site['id']
                 await ready(page,f'http://127.0.0.1:8765/index.html?verificar=1&lugar={id}')
                 # Zoom solo de cámara: revisar fachadas enteras con el mismo tamaño de sprites.
-                await page.mouse.wheel(0,200);await page.wait_for_timeout(1000)
+                await page.mouse.wheel(0,200)
+                await wait(page,'window.bituReviewState.zoom<1.5 && window.bituReviewState.terrain.ready')
+                await page.wait_for_timeout(350)
                 await page.screenshot(path=str(CAPTURES/f'isla-{id}.png'))
                 print('ENTER_REVIEW',id,flush=True)
                 await page.keyboard.down('w')

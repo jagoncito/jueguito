@@ -79,19 +79,25 @@ func run() -> void:
 	await create_timer(.2).timeout
 	assert(game.inventory.count("pez")==1 and not game.player.busy,"Botín del muelle entra en la mochila")
 	game.fishing.set_process(true)
-	# Cruzar una frontera exterior andando, sin teletransporte del fundido.
+	# Cruzar una frontera exterior andando, sin fundido ni detención.
 	game.inventory.add_item("madera",9)
 	game.player.global_position=Vector2(1420,540)
 	game.set_region(BituIslandLayout.region(game.player.global_position))
 	Input.action_press("move_left")
-	await create_timer(.9).timeout
+	var previous_x: float = game.player.global_position.x
+	for frame in range(35):
+		await physics_frame
+		assert(not game.transitioning and game.player.process_mode==Node.PROCESS_MODE_INHERIT,"Cruzar región no congela al personaje")
+		assert(game.player.global_position.x<=previous_x,"Movimiento continuo, sin salto de coordenadas")
+		previous_x = game.player.global_position.x
+	await create_timer(.35).timeout
 	Input.action_release("move_left")
 	await create_timer(.35).timeout
-	assert(game.region_id=="vecinos" and not game.transitioning,"Cruce exterior real con fundido")
+	assert(game.region_id=="vecinos" and not game.transitioning,"Cruce exterior continuo")
 	assert(game.player.global_position.x<1400 and game.player.global_position.x>1200,"La transición conserva coordenadas continuas")
 	assert(game.inventory.count("madera")==9,"La transición conserva mochila")
 	var visible := Rect2(game.camera.position-root.get_visible_rect().size/(game.camera.zoom*2),root.get_visible_rect().size/game.camera.zoom)
-	assert((game.terrain as BituIslandTerrain).draw_rect.encloses(visible),"El terreno cubre la cámara limitada por la región")
+	assert((game.terrain as BituIslandTerrain).draw_rect.encloses(visible),"El terreno cubre la cámara exterior continua")
 	game.player.position=BituIslandLayout.point(BituIslandLayout.data().spawn)
 	game.set_region(BituIslandLayout.region(game.player.position))
 	game.menus.toggle_map()

@@ -11,6 +11,9 @@ var initial_note: Label
 var zone_objects: Array[Node2D] = []
 var cave_resources: Array[BituResource] = []
 var nature_catalog: Dictionary
+var active_objects_rect := Rect2()
+var requested_zoom := -1
+var nearby_candidates: Array = []
 
 func _ready() -> void:
 	if OS.has_feature("web"):
@@ -68,6 +71,7 @@ func _ready() -> void:
 	_notify("Despiertas en las ruinas. El sendero costero lleva al astillero. M abre el mapa.")
 	_prepare_island_capture()
 	_update_camera()
+	(terrain as BituIslandTerrain).prime_view(camera.position,get_viewport().get_visible_rect().size,ZOOMS[zoom_index])
 	print("BITU_ISLAND_READY:",JSON.stringify({"spawn":[player.position.x,player.position.y],"sites":BituIslandLayout.data().sites.size(),"npcs":npcs.size(),"trees":trees.size()}))
 	print("BITU_READY")
 
@@ -270,41 +274,68 @@ func _process(delta: float) -> void:
 	if not indoors:
 		var region := BituIslandLayout.region(player.global_position)
 		if region.id != region_id: _change_region(region)
+	if not indoors and requested_zoom>=0:
+		var next_zoom: float = ZOOMS[requested_zoom]
+		var next_camera := _camera_point_for_zoom(next_zoom)
+		var size_px: Vector2 = get_viewport().get_visible_rect().size
+		(terrain as BituIslandTerrain).update_view(next_camera,size_px,next_zoom)
+		if (terrain as BituIslandTerrain).view_ready(next_camera,size_px,next_zoom):
+			zoom_index = requested_zoom
+			requested_zoom = -1
 	_update_camera()
 	if not indoors:
 		(terrain as BituIslandTerrain).update_view(camera.position,get_viewport().get_visible_rect().size,ZOOMS[zoom_index])
+		_refresh_nearby_objects()
 
-func _update_camera() -> void:
+func _camera_point_for_zoom(zoom: float) -> Vector2:
 	var at := player.global_position+Vector2(0,-100)
-	var visible_size: Vector2 = get_viewport().get_visible_rect().size/ZOOMS[zoom_index]
-	var bounds: Rect2 = (interior as BituIslandRoom).bounds.grow(100) if indoors else BituIslandLayout.rect(BituIslandLayout.region(player.global_position).rect)
+	var visible_size: Vector2 = get_viewport().get_visible_rect().size/zoom
+	var bounds: Rect2 = (interior as BituIslandRoom).bounds.grow(100) if indoors else BituIslandLayout.rect(BituIslandLayout.data().bounds)
 	if indoors: bounds.position += BituHouseInterior.CENTER
 	at.x = clampf(at.x,bounds.position.x+minf(visible_size.x/2,bounds.size.x/2),bounds.end.x-minf(visible_size.x/2,bounds.size.x/2))
 	at.y = clampf(at.y,bounds.position.y+minf(visible_size.y/2,bounds.size.y/2),bounds.end.y-minf(visible_size.y/2,bounds.size.y/2))
-	camera.position = at
+	return at
+
+func _update_camera() -> void:
+	camera.position = _camera_point_for_zoom(ZOOMS[zoom_index])
 	camera.zoom = Vector2.ONE*ZOOMS[zoom_index]
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not indoors and not transitioning and event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+		var current := requested_zoom if requested_zoom>=0 else zoom_index
+		requested_zoom = clampi(current+(1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -1),0,ZOOMS.size()-1)
+		get_viewport().set_input_as_handled()
+		return
+	super._unhandled_input(event)
 
 func set_region(region: Dictionary) -> void:
 	region_id = region.id
 	if region_name != null: region_name.text = region.name
-	for node in zone_objects:
-		var active: bool = BituIslandLayout.region(node.global_position).id == region_id
-		node.visible = active
-		node.process_mode = Node.PROCESS_MODE_INHERIT if active else Node.PROCESS_MODE_DISABLED
 	_update_camera()
+	_refresh_nearby_objects(true)
 	print("BITU_ISLAND_REGION:",region_id)
 
+func _refresh_nearby_objects(force := false) -> void:
+	var size_px: Vector2 = get_viewport().get_visible_rect().size/ZOOMS[zoom_index]
+	var view := Rect2(camera.position-size_px/2,size_px)
+	if not force and active_objects_rect.has_area() and active_objects_rect.grow(-128).encloses(view.grow(600)): return
+	active_objects_rect = view.grow(768)
+	nearby_candidates.clear()
+	for node in zone_objects:
+		var active := active_objects_rect.has_point(node.global_position)
+		if active and (node is BituCrop or node is BituResource or node is BituTree or node is BituNPC): nearby_candidates.append(node)
+		if node.visible != active: node.visible = active
+		var mode := Node.PROCESS_MODE_INHERIT if active else Node.PROCESS_MODE_DISABLED
+		if node.process_mode != mode: node.process_mode = mode
+
+func _interaction_candidates() -> Array:
+	return nearby_candidates
+
 func _change_region(region: Dictionary) -> void:
-	if transitioning or player.busy: return
-	transitioning = true
-	player.velocity = Vector2.ZERO
-	player.process_mode = Node.PROCESS_MODE_DISABLED
-	var tween := create_tween(); tween.tween_property(fade,"color:a",1.0,.10); await tween.finished
-	set_region(region)
-	(terrain as BituIslandTerrain).update_view(camera.position,get_viewport().get_visible_rect().size,ZOOMS[zoom_index])
-	tween = create_tween(); tween.tween_property(fade,"color:a",0.0,.10); await tween.finished
-	player.process_mode=Node.PROCESS_MODE_INHERIT
-	transitioning=false
+	# Las regiones exteriores son geográficas, no una puerta ni una pausa.
+	region_id = region.id
+	region_name.text = region.name
+	print("BITU_ISLAND_REGION:",region_id)
 
 func _near_house_portal() -> bool:
 	near_portal = ""
@@ -326,6 +357,7 @@ func _find_target() -> void:
 func _change_house_zone() -> void:
 	if transitioning or not _near_house_portal(): return
 	transitioning=true
+	requested_zoom = -1
 	menus.close_all()
 	fishing.cancel(); player.end_work(); _finish_work(); player.velocity=Vector2.ZERO; player.process_mode=Node.PROCESS_MODE_DISABLED
 	var tween := create_tween(); tween.tween_property(fade,"color:a",1.0,.15); await tween.finished

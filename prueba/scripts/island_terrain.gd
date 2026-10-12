@@ -1,12 +1,22 @@
 class_name BituIslandTerrain
 extends BituTerrain
-## Terreno de la isla: solo se dibujan las casillas próximas a la cámara.
+## Bloques estáticos reutilizables; preparación incremental fuera de la vista.
 var draw_rect := Rect2()
 var materials_cache := {}
 var water_cache := {}
 var shore_cache := {}
 var buildings: Array[Node2D] = []
-var active_region := ""
+const CHUNK_SIZE := 256
+const PREFETCH := 384
+const PREPARE_BUDGET_USEC := 1500
+const MAX_CHUNKS := 128
+var chunks := {}
+var jobs := {}
+var pending: Array[Vector2i] = []
+var last_prepare_usec := 0
+var max_prepare_usec := 0
+var prepared_tiles := 0
+var camera_point := Vector2.ZERO
 
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -51,11 +61,116 @@ func is_walkable(cell: Vector2i) -> bool:
 	return not is_water(cell) and not blocked.has(cell) and not is_house(cell)
 
 func update_view(at: Vector2, viewport: Vector2, zoom: float) -> void:
-	var desired := Rect2(at-viewport/(zoom*2)-Vector2(192,192),viewport/zoom+Vector2(384,384))
-	if draw_rect.has_area() and draw_rect.grow(-110).encloses(Rect2(at-viewport/(zoom*2),viewport/zoom)):
-		return
-	draw_rect = desired
-	queue_redraw()
+	camera_point = at
+	var view := Rect2(at-viewport/(zoom*2),viewport/zoom)
+	if draw_rect.has_area() and draw_rect.grow(-128).encloses(view): return
+	draw_rect = view.grow(PREFETCH)
+	var low := Vector2i(floori(draw_rect.position.x/CHUNK_SIZE),floori(draw_rect.position.y/CHUNK_SIZE))
+	var high := Vector2i(floori(draw_rect.end.x/CHUNK_SIZE),floori(draw_rect.end.y/CHUNK_SIZE))
+	for y in range(low.y,high.y+1):
+		for x in range(low.x,high.x+1):
+			var key := Vector2i(x,y)
+			if not chunks.has(key): _request_chunk(key)
+	for key: Vector2i in chunks:
+		(chunks[key] as BituIslandTerrainChunk).visible = _chunk_rect(key).grow(32).intersects(draw_rect)
+	pending.sort_custom(func(a: Vector2i,b: Vector2i): return _chunk_rect(a).get_center().distance_squared_to(at)<_chunk_rect(b).get_center().distance_squared_to(at))
+	_trim_cache()
+
+func view_ready(at: Vector2, viewport: Vector2, zoom: float) -> bool:
+	var view := Rect2(at-viewport/(zoom*2),viewport/zoom).grow(32)
+	var low := Vector2i(floori(view.position.x/CHUNK_SIZE),floori(view.position.y/CHUNK_SIZE))
+	var high := Vector2i(floori(view.end.x/CHUNK_SIZE),floori(view.end.y/CHUNK_SIZE))
+	for y in range(low.y,high.y+1):
+		for x in range(low.x,high.x+1):
+			var key := Vector2i(x,y)
+			if not chunks.has(key) or not (chunks[key] as BituIslandTerrainChunk).complete: return false
+	return true
+
+func _chunk_rect(key: Vector2i) -> Rect2:
+	return Rect2(Vector2(key)*CHUNK_SIZE,Vector2.ONE*CHUNK_SIZE)
+
+func _request_chunk(key: Vector2i) -> void:
+	var chunk := BituIslandTerrainChunk.new()
+	chunk.position = Vector2(key)*CHUNK_SIZE
+	chunk.z_index = -1
+	add_child(chunk)
+	chunks[key] = chunk
+	var bounds := _chunk_rect(key)
+	var cells: Array[Vector2i] = []
+	var corners: Array[Vector2i] = []
+	for at in [bounds.position,bounds.end,Vector2(bounds.position.x,bounds.end.y),Vector2(bounds.end.x,bounds.position.y)]: corners.append(world_to_cell(at))
+	var low := corners[0]; var high := corners[0]
+	for cell in corners:
+		low = Vector2i(mini(low.x,cell.x),mini(low.y,cell.y))
+		high = Vector2i(maxi(high.x,cell.x),maxi(high.y,cell.y))
+	for y in range(low.y-1,high.y+2):
+		for x in range(low.x-1,high.x+2):
+			var cell := Vector2i(x,y)
+			if bounds.has_point(cell_to_world(cell)): cells.append(cell)
+	jobs[key] = {"cells":cells,"index":0}
+	pending.append(key)
+
+func prime_view(at: Vector2, viewport: Vector2, zoom: float) -> void:
+	# Solo al arrancar: completar el área visible antes de mostrar la partida.
+	update_view(at,viewport,zoom)
+	var view := Rect2(at-viewport/(zoom*2),viewport/zoom).grow(32)
+	for key: Vector2i in pending.duplicate():
+		if _chunk_rect(key).intersects(view):
+			while jobs.has(key): _prepare_tile(key)
+
+func _process(_delta: float) -> void:
+	var started := Time.get_ticks_usec()
+	var completed := 0
+	while not pending.is_empty() and Time.get_ticks_usec()-started<PREPARE_BUDGET_USEC and completed<2:
+		var key := pending[0]
+		_prepare_tile(key)
+		if not jobs.has(key): completed += 1
+	last_prepare_usec = Time.get_ticks_usec()-started
+	max_prepare_usec = maxi(max_prepare_usec,last_prepare_usec)
+
+func _prepare_tile(key: Vector2i) -> void:
+	var job: Dictionary = jobs[key]
+	var chunk: BituIslandTerrainChunk = chunks[key]
+	var cell: Vector2i = job.cells[job.index]
+	chunk.tiles.append(_tile_data(cell,chunk.position))
+	job.index += 1
+	prepared_tiles += 1
+	if job.index == job.cells.size():
+		chunk.finish()
+		jobs.erase(key)
+		pending.erase(key)
+
+func _tile_data(cell: Vector2i, offset: Vector2) -> Dictionary:
+	var center := cell_to_world(cell)-offset
+	if is_water(cell):
+		var mask := shore_mask(cell)
+		var row := 2 if mask>0 else 1
+		var edges: Array[Texture2D] = []
+		var corners := {3:20,6:21,12:22,9:23}
+		if corners.has(mask): edges.append(water_frames[corners[mask]])
+		else:
+			for i in range(4):
+				if mask & (1<<i): edges.append(water_frames[16+i])
+		return {"water":true,"texture":water_frames[row*4+posmod(cell.x*17+cell.y*31,4)],"origin":center-HALF_TILE,"edges":edges}
+	var points := PackedVector2Array([center+Vector2(0,-16),center+Vector2(32,0),center+Vector2(0,16),center+Vector2(-32,0)])
+	var variant := "a" if (cell.x*17+cell.y*31)%2 == 0 else "b"
+	var frame: Dictionary = surface_frames[surface_material(cell)+"-"+variant]
+	var texture: Texture2D = surface_sources[frame.file]
+	var r: Array = frame.region
+	var uv := PackedVector2Array([Vector2(r[0]+r[2]/2.0,r[1]),Vector2(r[0]+r[2],r[1]+r[3]/2.0),Vector2(r[0]+r[2]/2.0,r[1]+r[3]),Vector2(r[0],r[1]+r[3]/2.0)])
+	for index in range(uv.size()): uv[index] /= texture.get_size()
+	var farm := farm_cells.has(cell)
+	return {"water":false,"points":points,"uv":uv,"texture":texture,"farm":farm,"tint":Color(0.65,0.55,0.43) if farm else Color.WHITE}
+
+func _trim_cache() -> void:
+	if chunks.size()<=MAX_CHUNKS: return
+	var candidates: Array = chunks.keys()
+	candidates.sort_custom(func(a: Vector2i,b: Vector2i): return _chunk_rect(a).get_center().distance_squared_to(camera_point)>_chunk_rect(b).get_center().distance_squared_to(camera_point))
+	for key: Vector2i in candidates:
+		if chunks.size()<=MAX_CHUNKS: break
+		if _chunk_rect(key).grow(32).intersects(draw_rect): continue
+		(chunks[key] as Node).queue_free()
+		chunks.erase(key); jobs.erase(key); pending.erase(key)
 
 func _build_boundaries() -> void:
 	var coast := BituIslandLayout.polygon(BituIslandLayout.data().coast)
@@ -132,36 +247,7 @@ func surface_material(cell: Vector2i) -> String:
 	return material
 
 func _draw() -> void:
-	if not draw_rect.has_area(): return
-	var bounds: Array[Vector2i] = []
-	for at in [draw_rect.position,draw_rect.end,Vector2(draw_rect.position.x,draw_rect.end.y),Vector2(draw_rect.end.x,draw_rect.position.y)]: bounds.append(world_to_cell(at))
-	var low := bounds[0]
-	var high := bounds[0]
-	for p in bounds:
-		low = Vector2i(mini(low.x,p.x),mini(low.y,p.y))
-		high = Vector2i(maxi(high.x,p.x),maxi(high.y,p.y))
-	var water: Array[Vector2i] = []
-	for y in range(low.y-1,high.y+2):
-		for x in range(low.x-1,high.x+2):
-			var cell := Vector2i(x,y)
-			var center := cell_to_world(cell)
-			if not draw_rect.grow(32).has_point(center): continue
-			if is_water(cell):
-				water.append(cell)
-				var row := 2 if shore_mask(cell)>0 else 1
-				draw_texture(water_frames[row*4+posmod(x*17+y*31,4)],center-HALF_TILE)
-			else:
-				var points := PackedVector2Array([center+Vector2(0,-16),center+Vector2(32,0),center+Vector2(0,16),center+Vector2(-32,0)])
-				draw_colored_polygon(points,Color("567946"))
-				_draw_surface(cell,points)
-				if farm_cells.has(cell): draw_polyline(points+PackedVector2Array([points[0]]),Color("806047"),1)
-	for cell in water:
-		var mask := shore_mask(cell)
-		var corners := {3:20,6:21,12:22,9:23}
-		if corners.has(mask): draw_texture(water_frames[corners[mask]],cell_to_world(cell)-HALF_TILE)
-		else:
-			for i in range(4):
-				if mask & (1<<i): draw_texture(water_frames[16+i],cell_to_world(cell)-HALF_TILE)
+	# Muelles y puentes estáticos se dibujan una vez, por encima del terreno.
 	for raw: Array in BituIslandLayout.data().docks:
 		var poly := BituIslandLayout.polygon(raw)
 		draw_colored_polygon(poly,Color("967047"))
